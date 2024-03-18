@@ -22,6 +22,10 @@ module.exports = {
     project: path.join(__dirname, '/tsconfig.json')
   },
   rules: {
+    'func-names': 'off',
+    "no-unused-vars": "off",
+    "@typescript-eslint/ban-types": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     'linebreak-style': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': [
