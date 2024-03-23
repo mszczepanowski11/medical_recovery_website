@@ -1,22 +1,23 @@
+'use client';
+
 import React, { FC } from 'react';
-import { useTranslation } from 'next-i18next';
 
 // Utils
 import { GridContainer, GridItem } from '@/app/[lng]/GlobalStyles';
 import { Colors } from '@/app/utils/constans';
+import { useTranslation } from '@/app/i18n/client';
 
 // Components
 import { HeaderWrapper } from './Header.styles';
 
 type HeaderProps = {};
 
-const Header: FC<HeaderProps> = function ({}) {
+const Header: FC<HeaderProps> = function () {
   const { t } = useTranslation();
-
   return (
     <HeaderWrapper>
       <GridContainer>
-        <GridItem />
+        <GridItem>{t('test2')}</GridItem>
         <GridItem />
       </GridContainer>
     </HeaderWrapper>
