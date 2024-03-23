@@ -12,7 +12,6 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: any) {
-  console.log('params124', params);
   switch (params.lng) {
     case 'en':
       return enMetadata;

@@ -3,8 +3,10 @@
 import React, { FC } from 'react';
 
 // Utils
-import { GridContainer, GridItem } from '@/app/[lng]/GlobalStyles';
-import { Colors } from '@/app/utils/constans';
+import {
+  GridContainer,
+  GridItem,
+} from '@/app/components/GlobalStyles/GlobalStyles';
 import { useTranslation } from '@/app/i18n/client';
 
 // Components
