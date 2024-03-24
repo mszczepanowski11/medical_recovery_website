@@ -31,27 +31,14 @@ const GlobalStyles = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background-color: ${Colors.white}
+    background-color: ${Colors.white};
+    min-height: 110vh;
   }
 
   body {
     position: relative;
-    max-width: 100vw;
     overflow-x: hidden;
-    overflow-y: hidden;
-    margin-right: ${scrollbarWidth}px;
     background-color: ${Colors.white};
-
-    &::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: ${scrollbarWidth}px;
-      background-color: ${Colors.primaryLight};
-      z-index: -1;
-    }
 
     &::-webkit-scrollbar {
       width: ${scrollbarWidth}px;
@@ -65,14 +52,6 @@ const GlobalStyles = createGlobalStyle`
       background-color: ${COLORS.primary};
       border-radius: 20px; 
       border: 3px solid ${COLORS.primaryLight};
-    }
-
-    @media (max-width: ${breakpoint.sm}px) {
-      margin-right: 0;
-
-      &::after {
-        display: none;
-      }
     }
   }
 

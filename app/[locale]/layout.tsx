@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import StyledComponentsRegistry from '../utils/registry';
+import GlobalStyles from '../components/GlobalStyles/GlobalStyles';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <GlobalStyles />
+            {children}
+          </StyledComponentsRegistry>
         </NextIntlClientProvider>
       </body>
     </html>
