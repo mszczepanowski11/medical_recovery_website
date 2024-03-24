@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
+import withNextIntl from 'next-intl/plugin';
+const withIntl = withNextIntl();
 
-const nextConfig = {
+const nextConfig = withIntl({
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
@@ -10,6 +12,6 @@ const nextConfig = {
 
     return config;
   },
-};
+});
 
 export default nextConfig;
