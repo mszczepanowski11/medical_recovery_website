@@ -61,9 +61,11 @@ const GlobalStyles = createGlobalStyle`
     --color-white-hover: ${COLORS.whiteHover};
     --color-black: ${COLORS.black};
     --color-primary: ${COLORS.primary};
-    --color-primary-mid-light: ${COLORS.primaryMidLight};
     --color-primary-light: ${COLORS.primaryLight};
+    --color-primary-dark: ${COLORS.primaryDark};
     --color-secondary: ${COLORS.secondary};
+    --color-secondary-light: ${COLORS.secondaryLight};
+    --color-secondary-dark: ${COLORS.secondaryDark};
     --color-ternary: ${COLORS.ternary};
     --color-ternary-light: ${COLORS.ternaryLight};
     --color-quadrary: ${COLORS.quadrary};
@@ -219,6 +221,49 @@ export const GridItem = styled.div<GridItemProps>`
     margin: ${({ $margin, $marginSm }) => $marginSm || $margin || '0'};
     ${({ $styleSm }) => ({ ...($styleSm || {}) })};
   }
+`;
+
+export type FlexType = {
+  $flexDirection?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
+  $justifyContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
+  $alignItems?: 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
+  $gap?: string;
+  $flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  $margin?: string;
+  $marginTop?: string;
+  $marginRight?: string;
+  $marginBottom?: string;
+  $marginLeft?: string;
+  $padding?: string;
+  $paddingTop?: string;
+  $paddingRight?: string;
+  $paddingBottom?: string;
+  $paddingLeft?: string;
+};
+
+export const Flex = styled.div<FlexType>`
+  display: flex;
+  flex-direction: ${({ $flexDirection }) => $flexDirection};
+  justify-content: ${({ $justifyContent }) => $justifyContent};
+  align-items: ${({ $alignItems }) => $alignItems};
+  gap: ${({ $gap }) => $gap};
+  flex-wrap: ${({ $flexWrap }) => $flexWrap};
+  margin: ${({ $margin }) => $margin};
+  margin-top: ${({ $marginTop }) => $marginTop};
+  margin-right: ${({ $marginRight }) => $marginRight};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom};
+  margin-left: ${({ $marginLeft }) => $marginLeft};
+  padding: ${({ $padding }) => $padding};
+  padding-top: ${({ $paddingTop }) => $paddingTop};
+  padding-right: ${({ $paddingRight }) => $paddingRight};
+  padding-bottom: ${({ $paddingBottom }) => $paddingBottom};
+  padding-left: ${({ $paddingLeft }) => $paddingLeft};
 `;
 
 export default GlobalStyles;
