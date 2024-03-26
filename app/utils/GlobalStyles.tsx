@@ -7,7 +7,7 @@ import {
   maxContainerWidth,
   COLORS,
   scrollbarWidth,
-} from '../../utils/constans';
+} from './constans';
 
 const GlobalStyles = createGlobalStyle`
   :root{

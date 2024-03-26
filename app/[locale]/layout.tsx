@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { locales } from '@/i18n';
 import StyledComponentsRegistry from '../utils/registry';
-import GlobalStyles from '../components/GlobalStyles/GlobalStyles';
+import GlobalStyles from '../utils/GlobalStyles';
 import metadata from '../utils/SEO';
 
 const inter = Inter({ subsets: ['latin'] });

@@ -4,12 +4,12 @@ import React, { FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import { Flex } from '@/app/components/GlobalStyles/GlobalStyles';
+import { Flex } from '@/app/utils/GlobalStyles';
 
 // Components
 import { HeaderWrapper } from './Header.styles';
-import Text from '../Text/Text';
-import Button from '../Button/Button';
+import Text from '../../atoms/Text/Text';
+import Button from '../../atoms/Button/Button';
 
 type HeaderProps = {};
 
