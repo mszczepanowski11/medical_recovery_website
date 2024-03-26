@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadataEN: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: '',
+  title: 'EN TITLE',
   description: '',
   applicationName: '',
   openGraph: {

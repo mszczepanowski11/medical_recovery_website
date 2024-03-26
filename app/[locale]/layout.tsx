@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import { locales } from '@/i18n';
+import { defaultLocale, locales } from '@/i18n';
 import StyledComponentsRegistry from '../utils/registry';
 import GlobalStyles from '../utils/GlobalStyles';
 import metadata from '../utils/SEO';
@@ -11,15 +11,19 @@ const inter = Inter({ subsets: ['latin'] });
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: { locale: (typeof locales)[number] };
 }): Promise<Metadata> {
   const { locale } = params || {};
 
   switch (locale) {
     case 'en':
       return metadata.en;
+    case 'pl':
+      return metadata.pl;
+    case 'de':
+      return metadata.de;
     default:
-      return metadata.en;
+      return metadata[defaultLocale];
   }
 }
 
