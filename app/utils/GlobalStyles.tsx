@@ -17,13 +17,13 @@ const GlobalStyles = createGlobalStyle`
     }
 
     &::-webkit-scrollbar-track {
-      background: ${COLORS.primaryLight};  
+      background: ${Colors.primitives_grey};  
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: ${COLORS.primary};
+      background-color: ${Colors.primitives_green};
       border-radius: 20px; 
-      border: 3px solid ${COLORS.primaryLight};
+      border: 3px solid ${Colors.primitives_grey};
     }
   }
 
@@ -31,46 +31,53 @@ const GlobalStyles = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background-color: ${Colors.white};
+    background-color: ${Colors.primitives_grey};
     min-height: 110vh;
   }
 
   body {
     position: relative;
     overflow-x: hidden;
-    background-color: ${Colors.white};
+    background-color: ${Colors.primitives_grey};
 
     &::-webkit-scrollbar {
       width: ${scrollbarWidth}px;
     }
 
     &::-webkit-scrollbar-track {
-      background: ${COLORS.primaryLight};  
+      background: ${Colors.primitives_grey};  
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: ${COLORS.primary};
+      background-color: ${Colors.primitives_green};
       border-radius: 20px; 
-      border: 3px solid ${COLORS.primaryLight};
+      border: 3px solid ${Colors.primitives_grey};
     }
   }
 
   html {
-    font-size: 19px;
-    --color-white: ${COLORS.white};
-    --color-white-hover: ${COLORS.whiteHover};
-    --color-black: ${COLORS.black};
-    --color-primary: ${COLORS.primary};
-    --color-primary-light: ${COLORS.primaryLight};
-    --color-primary-dark: ${COLORS.primaryDark};
-    --color-secondary: ${COLORS.secondary};
-    --color-secondary-light: ${COLORS.secondaryLight};
-    --color-secondary-dark: ${COLORS.secondaryDark};
-    --color-ternary: ${COLORS.ternary};
-    --color-ternary-light: ${COLORS.ternaryLight};
-    --color-quadrary: ${COLORS.quadrary};
-    --color-border: ${COLORS.border};
-    --color-text: ${COLORS.text};
+    font-size: 16px;
+    --color-primitives-white: ${COLORS.primitives_white};
+    --color-primitives-grey: ${COLORS.primitives_grey};
+    --color-primitives-green: ${COLORS.primitives_green};
+    --color-primitives-blue: ${COLORS.primitives_blue};
+    --color-primitives-light-blue: ${COLORS.primitives_light_blue};
+    --color-text-primary: ${COLORS.text_primary};
+    --color-text-secondary: ${COLORS.text_secondary};
+    --color-text-interactive: ${COLORS.text_interactive};
+    --color-text-blue-label-primary: ${COLORS.text_blue_label_primary};
+    --color-text-interactive-hover: ${COLORS.text_interactive_hover};
+    --color-text-tags: ${COLORS.text_tags};
+    --color-background-background-white: ${COLORS.background_background_white};
+    --color-background-background-grey: ${COLORS.background_background_grey};
+    --color-background-blue-hover: ${COLORS.background_blue_hover};
+    --color-background-blue-active: ${COLORS.background_blue_active};
+    --color-background-interactive: ${COLORS.background_interactive};
+    --color-background-interactive-hover: ${COLORS.background_interactive_hover};
+    --color-background-tags: ${COLORS.background_tags};
+    --color-background-tags-hover: ${COLORS.background_tags_hover};
+    --color-stroke-blue: ${COLORS.stroke_blue};
+    --color-stroke-tags: ${COLORS.stroke_tags};
     --color-transparent: ${COLORS.transparent};
   }
 
@@ -85,7 +92,7 @@ const GlobalStyles = createGlobalStyle`
 
   
   @media (max-width: ${breakpoint.sm}px) {
-    font-size: 16px;
+    font-size: 15px;
   }
 `;
 
@@ -158,7 +165,7 @@ export const GridContainer = styled.section<GridContainerProps>`
   margin: ${({ $margin }) => $margin || 'auto'};
   padding: ${({ $padding }) => $padding || '4rem 1rem'};
   background-color: ${({ $bg }) => $bg || Colors.transparent};
-  box-shadow: 0 0 0 100vmax ${({ $bg }) => $bg || Colors.white};
+  box-shadow: 0 0 0 100vmax ${({ $bg }) => $bg || Colors.transparent};
   clip-path: inset(0 -100vmax);
 
   @media (max-width: ${breakpoint.md}px) {

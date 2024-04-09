@@ -1,6 +1,15 @@
 {
-  "Index": {
-    "title": "Internationalisation avec Next.js 14",
-    "description": "Un tutoriel complet pour tous !"
+  "cta": {
+    "arrange_meeting": "Umów konsultację"
+  },
+  "header": {
+    "about_us": "O nas",
+    "offer": "Oferta",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Równowaga wewnętrzna z Mental Recover",
+    "description": "Dążysz do spokoju umysłu i harmonii życiowej? Z nami możesz to osiągnąć. Nasza profesjonalna pomoc terapeutyczna pomoże Ci pokonać wewnętrzne przeszkody i odzyskać równowagę emocjonalną. Umów się na wizytę i rozpocznij swoją podróż ku lepszemu"
   }
 }
