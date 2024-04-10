@@ -10,21 +10,15 @@ const getBtnColors = (variant?: keyof typeof ButtonColors) => {
   switch (variant) {
     case 'primary':
       return {
-        backgroundColor: Colors.primary,
-        color: Colors.white,
-        hoverBackgroundColor: Colors.primaryDark,
-      };
-    case 'secodnary':
-      return {
-        backgroundColor: Colors.secondary,
-        color: Colors.white,
-        hoverBackgroundColor: Colors.secondaryDark,
+        backgroundColor: Colors.background_interactive,
+        color: Colors.text_primary,
+        hoverBackgroundColor: Colors.background_interactive_hover,
       };
     default:
       return {
-        backgroundColor: Colors.primary,
-        color: Colors.white,
-        hoverBackgroundColor: Colors.primaryDark,
+        backgroundColor: Colors.background_interactive,
+        color: Colors.text_primary,
+        hoverBackgroundColor: Colors.background_interactive_hover,
       };
   }
 };
@@ -32,13 +26,17 @@ const getBtnColors = (variant?: keyof typeof ButtonColors) => {
 const getBtnSizes = (size?: keyof typeof ButtonSizes) => {
   switch (size) {
     case 'normal':
-      return { height: '2rem', padding: '0 2rem', borderRadius: '0.5rem' };
-    case 'small':
-      return { height: '1.6rem', padding: '0 1.6rem', borderRadius: '0.5rem' };
-    case 'large':
-      return { height: '3rem', padding: '0 3rem', borderRadius: '0.5rem' };
+      return {
+        height: '2.75rem',
+        padding: '0 1.6rem',
+        borderRadius: '1.325rem',
+      };
     default:
-      return { height: '2rem', padding: '0 2rem', borderRadius: '0.5rem' };
+      return {
+        height: '2.75rem',
+        padding: '0 1.6rem',
+        borderRadius: '1.325rem',
+      };
   }
 };
 
@@ -48,21 +46,47 @@ export type ButtonWrapperType = {
 };
 
 export const ButtonWrapper = styled.button<ButtonWrapperType>`
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: ${({ size }) => getBtnSizes(size).height};
   padding: ${({ size }) => getBtnSizes(size).padding};
   border: none;
-  border-radius: ${({ size }) => getBtnSizes(size).borderRadius};
-  background-color: ${({ color }) => getBtnColors(color).backgroundColor};
+  background-color: ${Colors.transparent};
   color: ${({ color }) => getBtnColors(color).color};
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor: pointer;
-  transition: 0.2s;
 
-  &:hover {
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .button-icon {
+    transition: 0.2s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: ${({ size }) => getBtnSizes(size).borderRadius};
+    background-color: ${({ color }) => getBtnColors(color).backgroundColor};
+    z-index: 0;
+    transform-origin: center left;
+    transition: 0.2s;
+  }
+
+  &:hover::after {
     background-color: ${({ color }) =>
       getBtnColors(color).hoverBackgroundColor};
+    transform: scaleX(1.02);
+  }
+
+  &:hover .button-icon {
+    transform: translateX(3px);
   }
 `;

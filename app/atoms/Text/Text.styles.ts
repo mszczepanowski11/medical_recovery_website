@@ -55,7 +55,7 @@ export const TextWrapper = styled.p<TextWrapperType>`
   margin-bottom: ${({ $nomargin }) => ($nomargin ? 0 : '1rem')};
   line-height: ${({ $psmall, as, $fontSize, $lineHeight }) =>
     getFont(as, $psmall, $fontSize, $lineHeight).lineHeight};
-  color: ${({ color }) => (color ? Colors[color] : Colors.text)};
+  color: ${({ color }) => (color ? Colors[color] : Colors.text_primary)};
   font-size: ${({ $psmall, as, $fontSize, $lineHeight }) =>
     getFont(as, $psmall, $fontSize, $lineHeight).fontSize};
   font-weight: ${({ $bold, $light }) => ($light ? 300 : $bold ? 800 : 500)};

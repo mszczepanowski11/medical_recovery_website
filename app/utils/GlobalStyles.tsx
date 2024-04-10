@@ -86,6 +86,10 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  button {
+    font-family: inherit;
+  }
+
   * {
     box-sizing: border-box
   }
