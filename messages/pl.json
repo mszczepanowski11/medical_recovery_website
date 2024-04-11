@@ -1,6 +1,62 @@
 {
-  "Index": {
-    "title": "Polskaaa avec Next.js 14",
-    "description": "Polska górom!"
+  "cta": {
+    "arrange_meeting": "Umów konsultację"
+  },
+  "header": {
+    "about_us": "O nas",
+    "offer": "Oferta",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title1": "Równowaga",
+    "title2": "wewnętrzna z",
+    "title3": "Mental Recovery",
+    "description": "Dążysz do spokoju umysłu i harmonii życiowej? Z nami możesz to osiągnąć. Nasza profesjonalna pomoc terapeutyczna pomoże Ci pokonać wewnętrzne przeszkody i odzyskać równowagę emocjonalną. Umów się na wizytę i rozpocznij swoją podróż ku lepszemu",
+    "image1_alt": "Klientka wskazuje palcem na nas, to chyba dobrze?",
+    "image2_alt": "Ale chłopak jest zadowolony, po wizycie w Mental Recovery!",
+    "image3_alt": "Zadowolona klientka Mental Recovery"
+  },
+  "we_help": {
+    "title1": "Obszary, w których",
+    "title2": "Ci pomożemy",
+    "cards": [
+      {
+        "color": "#F1F3FF",
+        "logo": "/img/we-help/cloud.svg",
+        "title": "Wsparcie dzieci i młodzieży",
+        "description": "Wspieramy najmłodszych - dzieci i młodzież w radzeniu sobie z problemami oraz budowaniu odpornosci psychicznej na codzienne wyzwania, w tym szkole i w relacjach z rówiesnikami."
+      },
+      {
+        "color": "#FFF6F1",
+        "logo": "/img/we-help/table-brain.svg",
+        "title": "Rozwój osobisty",
+        "description": "Razem z klientami tworzymy spersonalizowane plany rozwoju osobistego, które uwzględniają ich cele, pasje i wartości"
+      },
+      {
+        "color": "#E1FFFC",
+        "logo": "/img/we-help/lightning-face.svg",
+        "title": "Psychoterapia",
+        "description": "Nasz zespół terapeutów i psychologów jest tutaj, aby pomóc Ci przejść przez trudne chwile i znaleźć drogę do powrotu do równowagi emocjonalnej."
+      },
+      {
+        "color": "#FFFCE2",
+        "logo": "/img/we-help/brain-agenda.svg",
+        "title": "Leczenie psychiatryczne",
+        "description": "Za pomocą diagnozy i leczenia często traumatycznych doswiadczen, możemy pomóc dobrać odpowiednie leki, a co za tym idzie zmniejszyć dolegliwosci emocjonalne w psychice i ciele, a docelowo podniesc jakosc zycia."
+      },
+      {
+        "color": "#E9FFE5",
+        "logo": "/img/we-help/female-psi.svg",
+        "title": "Diagnoza psychologiczna",
+        "description": "Dzięki naszemu wsparciu klienci mogą bezpiecznie dzielić się swoimi emocjami i doświadczeniami oraz otrzymywać profesjonalną pomoc w diagnozie i nazwaniu problemów emocjonalnych, z którymi przychodzą klienci."
+      },
+      {
+        "color": "#FFE2FC",
+        "logo": "/img/we-help/brain-chip.svg",
+        "title": "Neuroróżnorodność",
+        "description": "Pomagamy osobom z ADHD zrozumieć i zarządzać swoimi wyjątkowymi cechami, takimi jak impulsywność, nadpobudliwość i trudności w koncentracji. Budujemy strategię radzenia sobie i osiągania sukcesów w życiu osobistym i zawodowym."
+      }
+    ]
   }
 }

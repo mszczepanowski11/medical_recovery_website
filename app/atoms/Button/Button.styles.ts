@@ -31,6 +31,12 @@ const getBtnSizes = (size?: keyof typeof ButtonSizes) => {
         padding: '0 1.6rem',
         borderRadius: '1.325rem',
       };
+    case 'large':
+      return {
+        height: '3rem',
+        padding: '0 1.8rem',
+        borderRadius: '1.5rem',
+      };
     default:
       return {
         height: '2.75rem',

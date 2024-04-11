@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadataEN: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
-  title: 'EN TITLE',
-  description: '',
-  applicationName: '',
+  metadataBase: new URL('https://mentalrecovery.co'),
+  title: 'Mental Recovery',
+  description: 'Mental Recovery',
+  applicationName: 'Mental Recovery',
   openGraph: {
-    title: '',
+    title: 'Mental Recovery',
     description: '',
     images: [''],
     url: '',
@@ -29,7 +29,34 @@ export const metadataEN: Metadata = {
   },
 };
 
-export const metadataPL: Metadata = {};
+export const metadataPL: Metadata = {
+  metadataBase: new URL('https://mentalrecovery.co'),
+  title: 'Mental Recovery',
+  description: 'Mental Recovery',
+  applicationName: 'Mental Recovery',
+  openGraph: {
+    title: 'Mental Recovery',
+    description: '',
+    images: [''],
+    url: '',
+    siteName: '',
+    type: 'website',
+    emails: [],
+    phoneNumbers: [],
+    countryName: '',
+    locale: 'en_GB',
+    videos: [''],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '',
+    description: '',
+    images: {
+      url: '',
+      alt: '',
+    },
+  },
+};
 export const metadataDE: Metadata = {};
 
 export const schemaOrgEN = {

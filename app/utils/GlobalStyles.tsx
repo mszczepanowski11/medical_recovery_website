@@ -154,7 +154,7 @@ export const GridContainer = styled.section<GridContainerProps>`
   grid-template-columns: ${({ $gridCols }) =>
     $gridCols
       ? `repeat(${$gridCols}, minmax(0, 1fr))`
-      : 'repeat(5, minmax(0, 1fr))'};
+      : 'repeat(4, minmax(0, 1fr))'};
   grid-template-rows: ${({ $gridRows }) => `${$gridRows || 1}fr`};
   gap: ${({ $gap }) => $gap || '1rem'};
   height: ${({ $height }) => $height || 'auto'};
@@ -174,7 +174,7 @@ export const GridContainer = styled.section<GridContainerProps>`
 
   @media (max-width: ${breakpoint.md}px) {
     grid-template-columns: ${({ $gridColsMb, $gridCols }) =>
-      `repeat(${$gridColsMb || $gridCols || 5}, minmax(0, 1fr))`};
+      `repeat(${$gridColsMb || $gridCols || 4}, minmax(0, 1fr))`};
     grid-template-rows: ${({ $gridRowsMb, $gridRows }) =>
       `${$gridRowsMb || $gridRows || 1}fr`};
     padding: ${({ $padding, $paddingMb }) =>
@@ -245,6 +245,8 @@ export type FlexType = {
     | 'space-evenly';
   $alignItems?: 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
   $gap?: string;
+  $rowGap?: string;
+  $columnGap?: string;
   $flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   $margin?: string;
   $marginTop?: string;
@@ -263,7 +265,8 @@ export const Flex = styled.div<FlexType>`
   flex-direction: ${({ $flexDirection }) => $flexDirection};
   justify-content: ${({ $justifyContent }) => $justifyContent};
   align-items: ${({ $alignItems }) => $alignItems};
-  gap: ${({ $gap }) => $gap};
+  row-gap: ${({ $gap, $rowGap }) => $rowGap || $gap};
+  column-gap: ${({ $gap, $columnGap }) => $columnGap || $gap};
   flex-wrap: ${({ $flexWrap }) => $flexWrap};
   margin: ${({ $margin }) => $margin};
   margin-top: ${({ $marginTop }) => $marginTop};

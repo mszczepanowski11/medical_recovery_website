@@ -24,6 +24,7 @@ type TextProps = {
   style?: CSSProperties;
   fontSize?: string;
   lineHeight?: number;
+  textAlign?: 'left' | 'right' | 'center';
 };
 
 const Text: FC<TextProps> = function ({
@@ -41,6 +42,7 @@ const Text: FC<TextProps> = function ({
   style,
   fontSize,
   lineHeight,
+  textAlign,
 }) {
   return (
     <TextWrapper
@@ -56,6 +58,7 @@ const Text: FC<TextProps> = function ({
       className={`${className || ''}`}
       $fontSize={fontSize}
       $lineHeight={lineHeight}
+      $textAlign={textAlign}
     >
       {text || children}
     </TextWrapper>
