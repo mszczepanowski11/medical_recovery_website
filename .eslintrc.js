@@ -50,6 +50,8 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/jsx-no-props-spreading': 'off',
     'no-unused-vars': 'warn',
+    'no-empty-pattern': 'off',
+    '@typescript-eslint/ban-types': 'off',
     "import/no-extraneous-dependencies": [
       "error",
       {

@@ -8,6 +8,8 @@ import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 
 // Components
 import Image from 'next/image';
+import { appointletCalendarUrl } from '@/app/utils/constans';
+import Link from 'next/link';
 import { HeaderWrapper, NavButton } from './Header.styles';
 import Text from '../../atoms/Text/Text';
 import Button from '../../atoms/Button/Button';
@@ -20,17 +22,23 @@ const Header: FC<HeaderProps> = function () {
 
   return (
     <HeaderWrapper>
-      <GridContainer $padding="0.5rem 1rem">
+      <GridContainer $padding="0.5rem 1rem" style={{ flexGrow: 1 }}>
         <GridItem
           $colStart={1}
           $colEnd={2}
           style={{ display: 'flex', alignItems: 'center' }}
         >
-          <Flex
-            style={{ position: 'relative', width: 130, aspectRatio: 522 / 124 }}
-          >
-            <Image src="/img/logo.svg" alt="Mental Recovery" fill />
-          </Flex>
+          <Link href="/">
+            <Flex
+              style={{
+                position: 'relative',
+                width: 130,
+                aspectRatio: 522 / 124,
+              }}
+            >
+              <Image src="/img/logo.svg" alt="Mental Recovery" fill />
+            </Flex>
+          </Link>
         </GridItem>
         <GridItem $colStart={2} $colEnd={6} as="nav">
           <Flex
@@ -51,7 +59,7 @@ const Header: FC<HeaderProps> = function () {
             <NavButton>
               <Text noMargin>{tHeader('contact')}</Text>
             </NavButton>
-            <Button>
+            <Button href={appointletCalendarUrl} target="_blank">
               <Text noMargin>{tCta('arrange_meeting')}</Text>
             </Button>
           </Flex>

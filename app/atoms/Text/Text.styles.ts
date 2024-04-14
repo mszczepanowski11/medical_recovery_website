@@ -58,8 +58,8 @@ const getFontParams = (
       };
     case 'h4':
       return {
-        fontSize: $fontSize || '1rem',
-        lineHeight: $lineHeight || 1,
+        fontSize: $fontSize || '1.25rem',
+        lineHeight: $lineHeight || 1.2,
         fontWeight: 600,
         color: Colors.text_primary,
       };

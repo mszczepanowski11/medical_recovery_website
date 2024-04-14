@@ -1,6 +1,7 @@
 {
   "cta": {
-    "arrange_meeting": "Umów konsultację"
+    "arrange_meeting": "Umów konsultację",
+    "check_terms": "Sprawdź wolne terminy"
   },
   "header": {
     "about_us": "O nas",
@@ -22,35 +23,45 @@
     "title2": "Ci pomożemy",
     "cards": [
       {
-        "logo": "/img/we-help/could.svg",
+        "color": "#F1F3FF",
+        "logo": "/img/we-help/cloud.svg",
         "title": "Wsparcie dzieci i młodzieży",
         "description": "Wspieramy najmłodszych - dzieci i młodzież w radzeniu sobie z problemami oraz budowaniu odpornosci psychicznej na codzienne wyzwania, w tym szkole i w relacjach z rówiesnikami."
       },
       {
+        "color": "#FFF6F1",
         "logo": "/img/we-help/table-brain.svg",
         "title": "Rozwój osobisty",
         "description": "Razem z klientami tworzymy spersonalizowane plany rozwoju osobistego, które uwzględniają ich cele, pasje i wartości"
       },
       {
+        "color": "#E1FFFC",
         "logo": "/img/we-help/lightning-face.svg",
         "title": "Psychoterapia",
         "description": "Nasz zespół terapeutów i psychologów jest tutaj, aby pomóc Ci przejść przez trudne chwile i znaleźć drogę do powrotu do równowagi emocjonalnej."
       },
       {
+        "color": "#FFFCE2",
         "logo": "/img/we-help/brain-agenda.svg",
         "title": "Leczenie psychiatryczne",
-        "description": "Za pomocą diagnozy i leczenia często traumatycznych doswiadczen,  możemy pomóc dobrać odpowiednie leki, a co za tym idzie zmniejszyć dolegliwosci emocjonalne w psychice i ciele, a docelowo podniesc jakosc zycia."
+        "description": "Za pomocą diagnozy i leczenia często traumatycznych doswiadczen, możemy pomóc dobrać odpowiednie leki, a co za tym idzie zmniejszyć dolegliwosci emocjonalne w psychice i ciele, a docelowo podniesc jakosc zycia."
       },
       {
+        "color": "#E9FFE5",
         "logo": "/img/we-help/female-psi.svg",
         "title": "Diagnoza psychologiczna",
         "description": "Dzięki naszemu wsparciu klienci mogą bezpiecznie dzielić się swoimi emocjami i doświadczeniami oraz otrzymywać profesjonalną pomoc w diagnozie i nazwaniu problemów emocjonalnych, z którymi przychodzą klienci."
       },
       {
+        "color": "#FFE2FC",
         "logo": "/img/we-help/brain-chip.svg",
         "title": "Neuroróżnorodność",
         "description": "Pomagamy osobom z ADHD zrozumieć i zarządzać swoimi wyjątkowymi cechami, takimi jak impulsywność, nadpobudliwość i trudności w koncentracji. Budujemy strategię radzenia sobie i osiągania sukcesów w życiu osobistym i zawodowym."
       }
     ]
+  },
+  "our_specialists": {
+    "title": "Poznaj naszych specjalistów",
+    "profesion_label": "Profesja"
   }
 }

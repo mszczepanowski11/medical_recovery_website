@@ -1,6 +1,7 @@
 {
   "cta": {
-    "arrange_meeting": "Umów konsultację"
+    "arrange_meeting": "Umów konsultację",
+    "check_terms": "Sprawdź wolne terminy"
   },
   "header": {
     "about_us": "O nas",
@@ -58,5 +59,9 @@
         "description": "Pomagamy osobom z ADHD zrozumieć i zarządzać swoimi wyjątkowymi cechami, takimi jak impulsywność, nadpobudliwość i trudności w koncentracji. Budujemy strategię radzenia sobie i osiągania sukcesów w życiu osobistym i zawodowym."
       }
     ]
+  },
+  "our_specialists": {
+    "title": "Poznaj naszych specjalistów",
+    "profesion_label": "Profesja"
   }
 }

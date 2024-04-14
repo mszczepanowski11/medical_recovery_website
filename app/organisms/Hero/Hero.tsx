@@ -4,14 +4,19 @@ import React, { FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import { Colors, headerHeight } from '@/app/utils/constans';
+import {
+  appointletCalendarUrl,
+  headerHeight,
+  maxContainerWidth,
+} from '@/app/utils/constans';
 
 // Components
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Button from '@/app/atoms/Button/Button';
 import Image from 'next/image';
-import { HeroImageWrapper, HeroWrapper } from './Hero.styles';
+import HeroLineCanva from '@/app/molecules/HeroLineCanva/HeroLineCanva';
+import { HeroImageWrapper, HeroLine, HeroWrapper } from './Hero.styles';
 
 type HeroProps = {};
 
@@ -22,7 +27,8 @@ const Hero: FC<HeroProps> = function ({}) {
   return (
     <HeroWrapper>
       <GridContainer
-        $padding="6rem 1rem 6rem 1rem"
+        $padding="6rem 1rem 0rem 1rem"
+        $height={`calc(100vh - ${headerHeight}px)`}
         style={{ position: 'relative' }}
       >
         <GridItem $colStart={1} $colEnd={3}>
@@ -39,11 +45,27 @@ const Hero: FC<HeroProps> = function ({}) {
             </Text>
             <Text variant="h1">{tHero('title3')}</Text>
             <Text color="text_secondary">{tHero('description')}</Text>
-            <Button size="large" style={{ marginTop: '1rem' }}>
-              <Text noMargin fontSize="1.25rem">
-                {tCta('arrange_meeting')}
-              </Text>
-            </Button>
+            <Flex style={{ position: 'relative' }}>
+              <Button
+                size="large"
+                style={{ marginTop: '1rem' }}
+                href={appointletCalendarUrl}
+                target="_blank"
+              >
+                <Text noMargin fontSize="1.25rem">
+                  {tCta('arrange_meeting')}
+                </Text>
+              </Button>
+              <HeroLine
+                style={{
+                  width: `calc(min(calc(38px + ${maxContainerWidth}px / 2), 50vw) - calc(50% - 0.75rem))`,
+                  aspectRatio: 9 / 2,
+                  zIndex: 3,
+                }}
+              >
+                <HeroLineCanva />
+              </HeroLine>
+            </Flex>
           </Flex>
         </GridItem>
 

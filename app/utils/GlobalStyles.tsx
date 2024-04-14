@@ -91,12 +91,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   * {
-    box-sizing: border-box
+    box-sizing: border-box;
   }
 
+  ::-moz-selection { /* Code for Firefox */
+    color: ${Colors.primitives_white};
+    background: rgba(155,251,146,0.65);
+  }
+
+  ::selection {
+    color: ${Colors.primitives_white};
+    background: rgba(155,251,146,0.65);
+  }
   
   @media (max-width: ${breakpoint.sm}px) {
-    font-size: 15px;
+    html {
+      font-size: 15px;
+    }
   }
 `;
 

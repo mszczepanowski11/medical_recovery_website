@@ -10,11 +10,17 @@ import { ButtonWrapper } from './Button.styles';
 import { ButtonSizes, ButtonColors } from './Button.variables';
 import Icon from '../Icon/Icon';
 
-const ButtonWrapElement: FC<{ children: any; href?: string }> = ({
-  children,
-  href,
-}) => {
-  if (href) return <Link href={href}>{children}</Link>;
+const ButtonWrapElement: FC<{
+  children: any;
+  href?: string;
+  target?: '_blank';
+}> = ({ children, href, target }) => {
+  if (href)
+    return (
+      <Link href={href} target={target}>
+        {children}
+      </Link>
+    );
   return children;
 };
 
@@ -24,6 +30,7 @@ type ButtonProps = {
   text?: string;
   size?: keyof typeof ButtonSizes;
   href?: string;
+  target?: '_blank';
   onClick?: () => void;
   iconRight?: IconDefinition;
   className?: string;
@@ -36,13 +43,14 @@ const Button: FC<ButtonProps> = function ({
   text,
   size,
   href,
+  target,
   onClick,
   iconRight = faAngleRight,
   className,
   style,
 }) {
   return (
-    <ButtonWrapElement href={href}>
+    <ButtonWrapElement href={href} target={target}>
       <ButtonWrapper
         style={style}
         onClick={onClick}
