@@ -17,7 +17,7 @@ const getFontParams = (
     case 'p':
       return {
         fontSize: $fontSize || (pSmall ? '0.85rem' : '1rem'),
-        lineHeight: $lineHeight || 1.33,
+        lineHeight: $lineHeight || 1.5,
         fontWeight: 400,
         color: Colors.text_primary,
       };

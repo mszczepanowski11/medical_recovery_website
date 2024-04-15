@@ -27,8 +27,20 @@ const WeHelpCard: FC<WeHelpCardProps> = function ({
 }) {
   return (
     <WeHelpCardWrapper color={color} style={style}>
-      <Image src={iconSrc} alt={title} width={60} height={60} />
-      <Text variant="h3" noMargin textAlign="center" fontSize="1.25rem">
+      <Image
+        src={iconSrc}
+        alt={title}
+        width={60}
+        height={60}
+        style={{ marginBottom: '1rem' }}
+      />
+      <Text
+        variant="h3"
+        noMargin
+        textAlign="center"
+        fontSize="1.25rem"
+        style={{ marginBottom: '0.2rem' }}
+      >
         {title}
       </Text>
       <Text color="text_secondary" textAlign="center" noMargin>

@@ -54,7 +54,7 @@ const TestimonialCard: FC<TestimonialType> = function ({
         style={{
           paddingBottom: '1rem',
           width: '100%',
-          borderBottom: `1px solid ${Colors.primitives_blue}`,
+          borderBottom: `1px solid #d7d7d7`,
         }}
       >
         <Image
