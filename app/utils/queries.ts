@@ -29,3 +29,18 @@ export const queryPsychologistHomePage = gql`
     }
   }
 `;
+
+export const queryTestimonialsHomePage = gql`
+  {
+    testimonials {
+      date
+      name_surname
+      stars
+      comment
+      image {
+        url(transformation: { image: { resize: { height: 100, width: 100 } } })
+      }
+      source
+    }
+  }
+`;

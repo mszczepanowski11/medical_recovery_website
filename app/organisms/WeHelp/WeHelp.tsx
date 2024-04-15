@@ -43,7 +43,7 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
             {t('title1')}{' '}
             <Text
               variant="span"
-              color="text_interactive_hover"
+              color="#6fe064"
               fontSize="2.625rem"
               style={{ fontWeight: '600' }}
               noMargin

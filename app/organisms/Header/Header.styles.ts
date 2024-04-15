@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // Components
 
 export const HeaderWrapper = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -15,6 +15,7 @@ export const HeaderWrapper = styled.header`
   height: ${headerHeight}px;
   background-color: ${Colors.background_background_white};
   box-shadow: 0px 0px 40px 0px #22253b0d;
+  z-index: 997;
 `;
 
 export const NavButton = styled.button`
@@ -40,7 +41,7 @@ export const NavButton = styled.button`
 
   &:hover {
     &::after {
-      box-shadow: inset 6.5em 0 0 0 ${Colors.text_primary};
+      box-shadow: inset 6.5em 0 0 0 ${Colors.background_interactive_hover};
     }
   }
 `;

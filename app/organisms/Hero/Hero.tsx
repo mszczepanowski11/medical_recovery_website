@@ -15,7 +15,6 @@ import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Button from '@/app/atoms/Button/Button';
 import Image from 'next/image';
-import HeroLineCanva from '@/app/molecules/HeroLineCanva/HeroLineCanva';
 import { HeroImageWrapper, HeroLine, HeroWrapper } from './Hero.styles';
 
 type HeroProps = {};
@@ -52,18 +51,18 @@ const Hero: FC<HeroProps> = function ({}) {
                 href={appointletCalendarUrl}
                 target="_blank"
               >
-                <Text noMargin fontSize="1.25rem">
+                <Text noMargin fontSize="1.25rem" fontWeight={500}>
                   {tCta('arrange_meeting')}
                 </Text>
               </Button>
               <HeroLine
                 style={{
-                  width: `calc(min(calc(38px + ${maxContainerWidth}px / 2), 50vw) - calc(50% - 0.75rem))`,
-                  aspectRatio: 9 / 2,
+                  width: `calc(min(calc(38px + ${maxContainerWidth}px / 2.5), 50vw) - calc(50% - 0.75rem))`,
+                  aspectRatio: 1,
                   zIndex: 3,
                 }}
               >
-                <HeroLineCanva />
+                {/* <HeroLineCanva /> */}
               </HeroLine>
             </Flex>
           </Flex>

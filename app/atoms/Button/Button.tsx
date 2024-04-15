@@ -32,7 +32,7 @@ type ButtonProps = {
   href?: string;
   target?: '_blank';
   onClick?: () => void;
-  iconRight?: IconDefinition;
+  iconRight?: IconDefinition | false;
   className?: string;
   style?: CSSProperties;
 };

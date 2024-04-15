@@ -10,6 +10,7 @@ type TagWrapperType = {
   color?: keyof typeof Colors;
   height?: string;
   $active?: boolean | 1 | 0;
+  $isClickable?: boolean | 1 | 0;
 };
 
 export const TagWrapper = styled.button<TagWrapperType>`
@@ -30,10 +31,18 @@ export const TagWrapper = styled.button<TagWrapperType>`
         ? Colors.primitives_white
         : Colors.background_tags};
   transition: 0.2s;
-  cursor: pointer;
+  cursor: ${({ $isClickable }) => ($isClickable ? 'pointer' : 'default')};
+
+  > * {
+    cursor: ${({ $isClickable }) => ($isClickable ? 'pointer' : 'default')};
+  }
 
   &:hover {
-    background-color: ${({ color }) =>
-      color ? Colors[color] : Colors.background_tags_hover};
+    background-color: ${({ color, $isClickable }) =>
+      $isClickable
+        ? color
+          ? Colors[color]
+          : Colors.background_tags_hover
+        : undefined};
   }
 `;

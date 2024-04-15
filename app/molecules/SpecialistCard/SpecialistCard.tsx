@@ -31,7 +31,6 @@ type SpecialistCardProps = {
   profileImage: { url: string };
   locale: 'en' | 'pl' | 'de';
   filteredTags?: string[];
-  setFilteredTags?: any;
 };
 
 const SpecialistCard: FC<SpecialistCardProps> = function ({
@@ -43,7 +42,6 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
   profileImage,
   locale,
   filteredTags,
-  setFilteredTags,
 }) {
   const tCta = useTranslations('cta');
 
@@ -64,22 +62,9 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
   const renderTags = useMemo(
     () =>
       makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
-        <Tag
-          key={tag}
-          tag={tag}
-          active={filteredTags?.includes(tag)}
-          onClick={(tagClicked: string) =>
-            setFilteredTags((prev: string[]) => {
-              const tagItems = [...prev];
-              const index = prev?.indexOf(tagClicked);
-              if (index === -1) return [...prev, tagClicked];
-              tagItems.splice(index, 1);
-              return tagItems;
-            })
-          }
-        />
+        <Tag key={tag} tag={tag} />
       )),
-    [tags, locale, filteredTags, setFilteredTags],
+    [tags, locale, filteredTags],
   );
 
   return (
@@ -140,7 +125,7 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
       <Text color="text_secondary">{description[`description_${locale}`]}</Text>
       <Flex style={{ flexGrow: 1 }} $alignItems="flex-end">
         <Button>
-          <Text noMargin fontSize="1.25rem">
+          <Text noMargin fontSize="1.25rem" fontWeight={500}>
             {tCta('check_terms')}
           </Text>
         </Button>

@@ -60,7 +60,9 @@ const Header: FC<HeaderProps> = function () {
               <Text noMargin>{tHeader('contact')}</Text>
             </NavButton>
             <Button href={appointletCalendarUrl} target="_blank">
-              <Text noMargin>{tCta('arrange_meeting')}</Text>
+              <Text noMargin fontWeight={500}>
+                {tCta('arrange_meeting')}
+              </Text>
             </Button>
           </Flex>
         </GridItem>

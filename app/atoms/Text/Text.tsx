@@ -14,7 +14,7 @@ type TextProps = {
   text?: string;
   variant?: keyof typeof TextVariants;
   psmall?: boolean;
-  color?: keyof typeof Colors;
+  color?: keyof typeof Colors | string;
   bold?: boolean;
   light?: boolean;
   noMargin?: boolean;
@@ -25,6 +25,7 @@ type TextProps = {
   fontSize?: string;
   lineHeight?: number;
   textAlign?: 'left' | 'right' | 'center';
+  fontWeight?: number;
 };
 
 const Text: FC<TextProps> = function ({
@@ -43,6 +44,7 @@ const Text: FC<TextProps> = function ({
   fontSize,
   lineHeight,
   textAlign,
+  fontWeight,
 }) {
   return (
     <TextWrapper
@@ -59,6 +61,7 @@ const Text: FC<TextProps> = function ({
       $fontSize={fontSize}
       $lineHeight={lineHeight}
       $textAlign={textAlign}
+      $fontWeight={fontWeight}
     >
       {text || children}
     </TextWrapper>

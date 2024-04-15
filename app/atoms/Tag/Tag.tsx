@@ -24,12 +24,13 @@ const Tag: FC<TagProps> = function ({ tag, color, height, active, onClick }) {
       height={height}
       $active={active}
       onClick={() => (onClick ? onClick(tag) : undefined)}
+      $isClickable={onClick ? 1 : 0}
     >
       <Text
         variant="label"
         noMargin
         color={color ? 'text_primary' : 'text_tags'}
-        style={{ fontWeight: 500, pointerEvents: 'inherit', cursor: 'pointer' }}
+        style={{ fontWeight: 500 }}
       >
         {tag}
       </Text>

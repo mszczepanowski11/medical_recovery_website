@@ -18,7 +18,7 @@ const getFontParams = (
       return {
         fontSize: $fontSize || (pSmall ? '0.85rem' : '1rem'),
         lineHeight: $lineHeight || 1.33,
-        fontWeight: 500,
+        fontWeight: 400,
         color: Colors.text_primary,
       };
     case 'span':
@@ -72,9 +72,9 @@ const getFontParams = (
       };
     default:
       return {
-        fontSize: $fontSize || '1rem',
-        lineHeight: $lineHeight || 1,
-        fontWeight: 500,
+        fontSize: $fontSize || (pSmall ? '0.85rem' : '1rem'),
+        lineHeight: $lineHeight || 1.33,
+        fontWeight: 400,
         color: Colors.text_primary,
       };
   }
@@ -85,12 +85,13 @@ export type TextWrapperType = {
   $psmall: boolean | 1 | 0;
   $bold?: boolean | 1 | 0;
   $light?: boolean | 1 | 0;
-  color?: keyof typeof Colors;
+  color?: keyof typeof Colors | string;
   $nomargin?: boolean | 1 | 0;
   $noWrap?: boolean | 1 | 0;
   $fontSize?: string;
   $lineHeight?: number;
   $textAlign?: 'left' | 'right' | 'center';
+  $fontWeight?: number;
 };
 
 export const TextWrapper = styled.p<TextWrapperType>`
@@ -100,16 +101,27 @@ export const TextWrapper = styled.p<TextWrapperType>`
     getFontParams(as, $psmall, $fontSize, $lineHeight).lineHeight};
   color: ${({ color, $psmall, as, $fontSize, $lineHeight }) =>
     color
-      ? Colors[color]
+      ? typeof color === 'string' && color.includes('#')
+        ? color
+        : Colors[color]
       : getFontParams(as, $psmall, $fontSize, $lineHeight).color};
   font-size: ${({ $psmall, as, $fontSize, $lineHeight }) =>
     getFontParams(as, $psmall, $fontSize, $lineHeight).fontSize};
-  font-weight: ${({ $bold, $light, $psmall, as, $fontSize, $lineHeight }) =>
-    $light
+  font-weight: ${({
+    $bold,
+    $light,
+    $psmall,
+    as,
+    $fontSize,
+    $lineHeight,
+    $fontWeight,
+  }) =>
+    $fontWeight ||
+    ($light
       ? 300
       : $bold
         ? 800
-        : getFontParams(as, $psmall, $fontSize, $lineHeight).fontWeight};
+        : getFontParams(as, $psmall, $fontSize, $lineHeight).fontWeight)};
   white-space: ${({ $noWrap }) => ($noWrap ? 'nowrap' : undefined)};
   text-align: ${({ $textAlign }) => $textAlign};
 `;

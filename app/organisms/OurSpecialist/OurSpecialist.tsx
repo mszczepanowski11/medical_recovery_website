@@ -47,7 +47,6 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
               tags={psycho.tags}
               profileImage={psycho.profileImage}
               filteredTags={filteredTags}
-              setFilteredTags={setFilteredTags}
             />
           );
         }),

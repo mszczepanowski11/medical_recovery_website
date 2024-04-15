@@ -19,7 +19,7 @@ export const WeHelpCardWrapper = styled.div<WeHelpCardWrapperType>`
   background-color: ${({ color }) => color || Colors.primitives_blue};
   transition: 0.2s;
 
-  &:hover > * {
-    transform: scaleX(-1);
+  &:hover {
+    box-shadow: 0px 0px 40px 0px #22253b0d;
   }
 `;

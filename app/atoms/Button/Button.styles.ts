@@ -10,12 +10,22 @@ const getBtnColors = (variant?: keyof typeof ButtonColors) => {
   switch (variant) {
     case 'primary':
       return {
+        border: 'none',
         backgroundColor: Colors.background_interactive,
         color: Colors.text_primary,
         hoverBackgroundColor: Colors.background_interactive_hover,
       };
+    case 'transparent':
+      return {
+        border: `1px solid ${Colors.background_interactive}`,
+        borderHover: `1px solid ${Colors.background_interactive_hover}`,
+        backgroundColor: Colors.transparent,
+        color: Colors.text_primary,
+        hoverBackgroundColor: 'rgba(0,0,0,0.01)',
+      };
     default:
       return {
+        border: 'none',
         backgroundColor: Colors.background_interactive,
         color: Colors.text_primary,
         hoverBackgroundColor: Colors.background_interactive_hover,
@@ -58,7 +68,8 @@ export const ButtonWrapper = styled.button<ButtonWrapperType>`
   justify-content: center;
   height: ${({ size }) => getBtnSizes(size).height};
   padding: ${({ size }) => getBtnSizes(size).padding};
-  border: none;
+  border: ${({ color }) => getBtnColors(color).border};
+  border-radius: ${({ size }) => getBtnSizes(size).borderRadius};
   background-color: ${Colors.transparent};
   color: ${({ color }) => getBtnColors(color).color};
   cursor: pointer;
@@ -84,6 +95,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperType>`
     z-index: 0;
     transform-origin: center left;
     transition: 0.2s;
+  }
+
+  &:hover {
+    border: ${({ color }) => getBtnColors(color).borderHover};
   }
 
   &:hover::after {
