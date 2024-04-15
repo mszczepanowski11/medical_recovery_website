@@ -112,7 +112,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 type GridContainerProps = {
-  $bg?: (typeof Colors)[keyof typeof Colors];
+  $bg?: (typeof Colors)[keyof typeof Colors] | string;
   $gridRows?: number;
   $gridRowsMb?: number;
   $gridRowsSm?: number;

@@ -4,10 +4,12 @@ import Hero from '../organisms/Hero/Hero';
 import WeHelp from '../organisms/WeHelp/WeHelp';
 import OurSpecialist from '../organisms/OurSpecialist/OurSpecialist';
 import {
+  fetchFAQQuestions,
   fetchSpecialistsData,
   fetchTestimonialsData,
 } from '../utils/fetchData';
 import Testimonials from '../organisms/Testimonials/Testimonials';
+import FAQ from '../organisms/FAQ/FAQ';
 
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
@@ -40,6 +42,7 @@ export default async function Home({
 
   const specialistsList = await fetchSpecialistsData();
   const testimonialsList = await fetchTestimonialsData();
+  const faqQuestionsList = await fetchFAQQuestions();
 
   return (
     <>
@@ -52,6 +55,7 @@ export default async function Home({
           specialistsList={specialistsList}
         />
         <Testimonials testimonialsList={testimonialsList?.testimonials} />
+        <FAQ questions={faqQuestionsList?.faqs} />
       </main>
     </>
   );

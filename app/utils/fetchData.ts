@@ -1,5 +1,6 @@
 import {
   graphcms,
+  queryFAQHomePage,
   queryPsychologistHomePage,
   queryTestimonialsHomePage,
 } from './queries';
@@ -24,6 +25,14 @@ export type TestimonialType = {
 export const fetchTestimonialsData = async () => {
   const response: Promise<{ testimonials: TestimonialType[] }> =
     graphcms.request(queryTestimonialsHomePage);
+
+  if (!response)
+    throw new Error('Something went wrong with fetching specialists');
+  return response;
+};
+
+export const fetchFAQQuestions = () => {
+  const response: Promise<{ faqs: any[] }> = graphcms.request(queryFAQHomePage);
 
   if (!response)
     throw new Error('Something went wrong with fetching specialists');

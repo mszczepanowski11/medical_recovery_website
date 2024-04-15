@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -33,7 +33,11 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
 
   return (
     <TestimonialsWrapper>
-      <GridContainer $gridCols={1} $padding="4rem 1rem 0rem 1rem">
+      <GridContainer
+        $gridCols={1}
+        $padding="4rem 1rem 0rem 1rem"
+        $gap="0.75rem"
+      >
         <GridItem $rowStart={1} $rowEnd={2}>
           <Text
             variant="p"
@@ -41,6 +45,7 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
             psmall
             color="text_secondary"
             textAlign="center"
+            fontWeight={500}
           >
             {t('second_title')}
           </Text>

@@ -44,3 +44,12 @@ export const queryTestimonialsHomePage = gql`
     }
   }
 `;
+
+export const queryFAQHomePage = gql`
+  {
+    faqs(where: { articleId: null }) {
+      question
+      answer
+    }
+  }
+`;
