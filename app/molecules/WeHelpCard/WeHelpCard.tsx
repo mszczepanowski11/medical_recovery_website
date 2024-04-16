@@ -43,7 +43,7 @@ const WeHelpCard: FC<WeHelpCardProps> = function ({
       >
         {title}
       </Text>
-      <Text color="text_secondary" textAlign="center" noMargin>
+      <Text color="text_secondary" textAlign="center" noMargin fontWeight={500}>
         {desc}
       </Text>
     </WeHelpCardWrapper>

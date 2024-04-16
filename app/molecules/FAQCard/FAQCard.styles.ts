@@ -9,7 +9,7 @@ import styled from 'styled-components';
 export const FAQCardWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  height: 3.625rem;
+  height: 58px;
   border: 1px solid #d7d7d7;
   background-color: ${Colors.primitives_white};
   border-radius: 1rem;
@@ -21,8 +21,8 @@ export const ShowMoreBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3.625rem;
-  width: 3.625rem;
+  height: 58px;
+  width: 58px;
   border: none;
   border-radius: 50%;
   background-color: ${Colors.transparent};

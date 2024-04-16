@@ -1,11 +1,12 @@
 import {
   graphcms,
+  queryBlogPostsHomePage,
   queryFAQHomePage,
   queryPsychologistHomePage,
   queryTestimonialsHomePage,
 } from './queries';
 
-export const fetchSpecialistsData = async () => {
+export const fetchSpecialistsDataHomePage = async () => {
   const response = graphcms.request(queryPsychologistHomePage);
 
   if (!response)
@@ -22,7 +23,7 @@ export type TestimonialType = {
   image: { url: string };
 };
 
-export const fetchTestimonialsData = async () => {
+export const fetchTestimonialsDataHomePage = async () => {
   const response: Promise<{ testimonials: TestimonialType[] }> =
     graphcms.request(queryTestimonialsHomePage);
 
@@ -31,8 +32,18 @@ export const fetchTestimonialsData = async () => {
   return response;
 };
 
-export const fetchFAQQuestions = () => {
+export const fetchFAQQuestionsHomePage = () => {
   const response: Promise<{ faqs: any[] }> = graphcms.request(queryFAQHomePage);
+
+  if (!response)
+    throw new Error('Something went wrong with fetching specialists');
+  return response;
+};
+
+export const fetchBlogPostsHomePage = () => {
+  const response: Promise<{ blogPosts: any[] }> = graphcms.request(
+    queryBlogPostsHomePage,
+  );
 
   if (!response)
     throw new Error('Something went wrong with fetching specialists');

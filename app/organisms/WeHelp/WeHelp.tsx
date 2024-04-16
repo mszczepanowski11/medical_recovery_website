@@ -58,7 +58,6 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
           </Flex>
         </GridItem>
       </GridContainer>
-      <GridContainer $gridCols={3} $gap="2rem" $padding="0 1rem 4rem 1rem" />
     </WeHelpWrapper>
   );
 };

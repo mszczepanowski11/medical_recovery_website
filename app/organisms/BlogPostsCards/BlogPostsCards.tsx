@@ -1,0 +1,74 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
+'use client';
+
+import React, { FC, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
+
+// Utils
+
+// Components
+import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
+import BlogPostCard from '@/app/molecules/BlogPostCard/BlogPostCard';
+import Text from '@/app/atoms/Text/Text';
+import Button from '@/app/atoms/Button/Button';
+import { BlogPostsCardsWrapper } from './BlogPostsCards.styles';
+
+type BlogPostsCardsProps = {
+  blogPosts: {
+    title: string;
+    short_description: string;
+    slug: string;
+    date: string;
+    reading_time?: number;
+    image: {
+      url: string;
+    };
+  }[];
+  monthsTo: { [key: string]: string };
+};
+
+const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
+  blogPosts,
+  monthsTo,
+}) {
+  const tBlogPosts = useTranslations('blog_posts_home_page');
+
+  const renderBlogPostsCards = useMemo(
+    () =>
+      blogPosts.map((blogPost) => (
+        <BlogPostCard key={blogPost.slug} {...blogPost} monthsTo={monthsTo} />
+      )),
+    [blogPosts, monthsTo],
+  );
+
+  return (
+    <BlogPostsCardsWrapper>
+      <GridContainer
+        $gridCols={1}
+        $gridColsSm={1}
+        $padding="4rem 1rem 1.5rem 1rem"
+      >
+        <GridItem>
+          <Flex $justifyContent="space-between" $alignItems="center">
+            <Text variant="h2" noMargin>
+              {tBlogPosts('title')}
+            </Text>
+            <Button href="blog" color="transparent">
+              <Text noMargin fontWeight={500}>
+                {tBlogPosts('show_more_btn')}
+              </Text>
+            </Button>
+          </Flex>
+        </GridItem>
+      </GridContainer>
+      <GridContainer $gridCols={1} $padding="0 1rem 4rem 1rem">
+        <GridItem>
+          <Flex $gap="3rem">{renderBlogPostsCards}</Flex>
+        </GridItem>
+      </GridContainer>
+    </BlogPostsCardsWrapper>
+  );
+};
+
+export default React.memo(BlogPostsCards);

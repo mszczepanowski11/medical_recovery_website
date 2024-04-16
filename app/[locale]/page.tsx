@@ -4,12 +4,14 @@ import Hero from '../organisms/Hero/Hero';
 import WeHelp from '../organisms/WeHelp/WeHelp';
 import OurSpecialist from '../organisms/OurSpecialist/OurSpecialist';
 import {
-  fetchFAQQuestions,
-  fetchSpecialistsData,
-  fetchTestimonialsData,
+  fetchBlogPostsHomePage,
+  fetchFAQQuestionsHomePage,
+  fetchSpecialistsDataHomePage,
+  fetchTestimonialsDataHomePage,
 } from '../utils/fetchData';
 import Testimonials from '../organisms/Testimonials/Testimonials';
 import FAQ from '../organisms/FAQ/FAQ';
+import BlogPostsCards from '../organisms/BlogPostsCards/BlogPostsCards';
 
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
@@ -40,9 +42,10 @@ export default async function Home({
   const locale = useLocale();
   const messagesItem = await import(`../../messages/${locale}`);
 
-  const specialistsList = await fetchSpecialistsData();
-  const testimonialsList = await fetchTestimonialsData();
-  const faqQuestionsList = await fetchFAQQuestions();
+  const specialistsList = await fetchSpecialistsDataHomePage();
+  const testimonialsList = await fetchTestimonialsDataHomePage();
+  const faqQuestionsList = await fetchFAQQuestionsHomePage();
+  const blogPostsList = await fetchBlogPostsHomePage();
 
   return (
     <>
@@ -55,6 +58,10 @@ export default async function Home({
           specialistsList={specialistsList}
         />
         <Testimonials testimonialsList={testimonialsList?.testimonials} />
+        <BlogPostsCards
+          blogPosts={blogPostsList?.blogPosts?.slice(0, 3)}
+          monthsTo={messagesItem?.utils?.months_to}
+        />
         <FAQ questions={faqQuestionsList?.faqs} />
       </main>
     </>

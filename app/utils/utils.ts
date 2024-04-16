@@ -33,3 +33,16 @@ export const specialistTagsFilterFunc = (
     filteredTags.includes(psychoTag),
   );
 };
+
+export const YMDToDMStringY = (
+  date: string,
+  months_to: { [key: string]: string },
+) => {
+  if (!date) return date;
+  const dateArray = date.split('-');
+
+  if (dateArray.length >= 2) {
+    return `${dateArray[2]} ${months_to[dateArray[1].replaceAll('0', '')]} ${dateArray[0]}`;
+  }
+  return date;
+};

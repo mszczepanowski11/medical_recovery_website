@@ -37,8 +37,9 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
         $gridCols={1}
         $padding="4rem 1rem 0rem 1rem"
         $gap="0.75rem"
+        $gridColsSm={1}
       >
-        <GridItem $rowStart={1} $rowEnd={2}>
+        <GridItem $rowStart={1} $rowEnd={2} $rowStartSm={1} $rowEndSm={2}>
           <Text
             variant="p"
             noMargin
@@ -50,7 +51,7 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
             {t('second_title')}
           </Text>
         </GridItem>
-        <GridItem $rowStart={2} $rowEnd={3}>
+        <GridItem $rowStart={2} $rowEnd={3} $rowStartSm={2} $rowEndSm={3}>
           <Text
             variant="h2"
             noMargin

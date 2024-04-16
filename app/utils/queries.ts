@@ -53,3 +53,18 @@ export const queryFAQHomePage = gql`
     }
   }
 `;
+
+export const queryBlogPostsHomePage = gql`
+  {
+    blogPosts(first: 10) {
+      slug
+      title
+      short_description
+      date
+      reading_time
+      image {
+        url
+      }
+    }
+  }
+`;
