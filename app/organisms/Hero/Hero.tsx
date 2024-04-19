@@ -57,13 +57,11 @@ const Hero: FC<HeroProps> = function ({}) {
               </Button>
               <HeroLine
                 style={{
-                  width: `calc(min(calc(38px + ${maxContainerWidth}px / 2.5), 50vw) - calc(50% - 0.75rem))`,
-                  aspectRatio: 1,
+                  width: `calc(min(calc(38px + ${maxContainerWidth}px / 2.5), 50vw) - calc(50% - 0.75rem) + calc(((${maxContainerWidth}px - 1rem) / 2) - 0.75rem) * 0.2)`,
+                  aspectRatio: 1.45,
                   zIndex: 3,
                 }}
-              >
-                {/* <HeroLineCanva /> */}
-              </HeroLine>
+              />
             </Flex>
           </Flex>
         </GridItem>
@@ -104,6 +102,8 @@ const Hero: FC<HeroProps> = function ({}) {
             </HeroImageWrapper>
             <HeroImageWrapper
               style={{
+                position: 'relative',
+                left: '11.5%',
                 flexGrow: 1,
                 maxWidth: 'calc(50% - 0.75rem)',
                 minWidth: '40%',

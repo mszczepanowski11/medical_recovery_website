@@ -10,6 +10,7 @@ import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
 import { appointletCalendarUrl } from '@/app/utils/constans';
 import Link from 'next/link';
+import LangMenu from '@/app/molecules/LangMenu/LangMenu';
 import { HeaderWrapper, NavButton } from './Header.styles';
 import Text from '../../atoms/Text/Text';
 import Button from '../../atoms/Button/Button';
@@ -48,17 +49,26 @@ const Header: FC<HeaderProps> = function () {
             style={{ height: '100%' }}
           >
             <NavButton>
-              <Text noMargin>{tHeader('about_us')}</Text>
+              <Text noMargin fontWeight={500}>
+                {tHeader('about_us')}
+              </Text>
             </NavButton>
             <NavButton>
-              <Text noMargin>{tHeader('offer')}</Text>
+              <Text noMargin fontWeight={500}>
+                {tHeader('offer')}
+              </Text>
             </NavButton>
             <NavButton>
-              <Text noMargin>{tHeader('blog')}</Text>
+              <Text noMargin fontWeight={500}>
+                {tHeader('blog')}
+              </Text>
             </NavButton>
             <NavButton>
-              <Text noMargin>{tHeader('contact')}</Text>
+              <Text noMargin fontWeight={500}>
+                {tHeader('contact')}
+              </Text>
             </NavButton>
+            <LangMenu />
             <Button href={appointletCalendarUrl} target="_blank">
               <Text noMargin fontWeight={500}>
                 {tCta('arrange_meeting')}

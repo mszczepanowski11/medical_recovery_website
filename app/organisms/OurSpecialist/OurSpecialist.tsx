@@ -46,7 +46,6 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
               languages={psycho.languages}
               tags={psycho.tags}
               profileImage={psycho.profileImage}
-              filteredTags={filteredTags}
             />
           );
         }),
@@ -63,7 +62,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
 
   return (
     <OurSpecialistWrapper>
-      <GridContainer $gridCols={1} $padding="4rem 1rem 3rem 1rem">
+      <GridContainer $gridCols={1} $padding="8rem 1rem 3rem 1rem">
         <GridItem>
           <Text variant="h2" noMargin>
             {t('title')}

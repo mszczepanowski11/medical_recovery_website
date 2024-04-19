@@ -3,6 +3,7 @@ import { Instrument_Sans } from 'next/font/google';
 import { Metadata } from 'next';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { defaultLocale, locales } from '@/i18n';
+import { GoogleTagManager } from '@next/third-parties/google';
 import StyledComponentsRegistry from '../utils/registry';
 import GlobalStyles from '../utils/GlobalStyles';
 import metadata from '../utils/SEO';
@@ -47,6 +48,7 @@ export default function RootLayout({
             {children}
           </StyledComponentsRegistry>
         </NextIntlClientProvider>
+        <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger

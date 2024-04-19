@@ -44,11 +44,7 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
 
   return (
     <BlogPostsCardsWrapper>
-      <GridContainer
-        $gridCols={1}
-        $gridColsSm={1}
-        $padding="4rem 1rem 1.5rem 1rem"
-      >
+      <GridContainer $gridCols={1} $gridColsSm={1} $padding="8rem 1rem 0 1rem">
         <GridItem>
           <Flex $justifyContent="space-between" $alignItems="center">
             <Text variant="h2" noMargin>
@@ -62,9 +58,11 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
           </Flex>
         </GridItem>
       </GridContainer>
-      <GridContainer $gridCols={1} $padding="0 1rem 4rem 1rem">
+      <GridContainer $gridCols={1} $padding="1.5rem 1rem 8rem 1rem">
         <GridItem>
-          <Flex $gap="3rem">{renderBlogPostsCards}</Flex>
+          <Flex $gap="3rem" $flexWrap="wrap" $justifyContent="space-between">
+            {renderBlogPostsCards}
+          </Flex>
         </GridItem>
       </GridContainer>
     </BlogPostsCardsWrapper>

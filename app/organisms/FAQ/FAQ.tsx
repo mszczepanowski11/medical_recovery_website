@@ -43,19 +43,7 @@ const FAQ: FC<FAQProps> = function ({ questions }) {
         $gap="0.75rem"
         $gridColsSm={1}
       >
-        <GridItem $rowStart={1} $rowEnd={2} $rowStartSm={1} $rowEndSm={2}>
-          <Text
-            variant="p"
-            noMargin
-            psmall
-            color="text_secondary"
-            textAlign="center"
-            fontWeight={500}
-          >
-            {t('second_title')}
-          </Text>
-        </GridItem>
-        <GridItem $rowStart={2} $rowEnd={3} $rowStartSm={2} $rowEndSm={3}>
+        <GridItem>
           <Text
             variant="h2"
             noMargin

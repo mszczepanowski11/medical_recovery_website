@@ -85,7 +85,7 @@ export type TextWrapperType = {
   $psmall: boolean | 1 | 0;
   $bold?: boolean | 1 | 0;
   $light?: boolean | 1 | 0;
-  color?: keyof typeof Colors | string;
+  color?: keyof typeof Colors;
   $nomargin?: boolean | 1 | 0;
   $noWrap?: boolean | 1 | 0;
   $fontSize?: string;

@@ -37,7 +37,11 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
 
   return (
     <WeHelpWrapper>
-      <GridContainer $gap="3rem" $gridColsSm={1}>
+      <GridContainer
+        $gap="3rem"
+        $gridColsSm={1}
+        $padding="12rem 1rem 4rem 1rem"
+      >
         <GridItem $rowStart={1} $rowEnd={2} $colStart={1} $colEnd={5}>
           <Text variant="h2" noMargin>
             {t('title1')}{' '}

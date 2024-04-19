@@ -4,6 +4,7 @@ export const metadataEN: Metadata = {
   metadataBase: new URL('https://mentalrecovery.co'),
   title: 'Mental Recovery',
   description: 'Mental Recovery',
+  keywords: '',
   applicationName: 'Mental Recovery',
   openGraph: {
     title: 'Mental Recovery',
@@ -27,12 +28,16 @@ export const metadataEN: Metadata = {
       alt: '',
     },
   },
+  alternates: {
+    canonical: 'https://mentalrecovery.co',
+  },
 };
 
 export const metadataPL: Metadata = {
   metadataBase: new URL('https://mentalrecovery.co'),
   title: 'Mental Recovery',
   description: 'Mental Recovery',
+  keywords: '',
   applicationName: 'Mental Recovery',
   openGraph: {
     title: 'Mental Recovery',

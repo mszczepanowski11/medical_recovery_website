@@ -5,7 +5,6 @@
 import React, { FC, useMemo } from 'react';
 
 // Utils
-import { Colors } from '@/app/utils/constans';
 
 // Components
 import { Flex } from '@/app/utils/GlobalStyles';

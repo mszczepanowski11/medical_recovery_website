@@ -30,7 +30,6 @@ type SpecialistCardProps = {
   languages: ('pl' | 'en' | 'de')[];
   profileImage: { url: string };
   locale: 'en' | 'pl' | 'de';
-  filteredTags?: string[];
 };
 
 const SpecialistCard: FC<SpecialistCardProps> = function ({
@@ -41,7 +40,6 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
   languages,
   profileImage,
   locale,
-  filteredTags,
 }) {
   const tCta = useTranslations('cta');
 
@@ -64,7 +62,7 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
       makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
         <Tag key={tag} tag={tag} />
       )),
-    [tags, locale, filteredTags],
+    [tags, locale],
   );
 
   return (
