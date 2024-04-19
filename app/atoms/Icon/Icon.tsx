@@ -15,9 +15,17 @@ type IconProps = {
   size?: number;
   style?: CSSProperties;
   className?: string;
+  iconStyle?: CSSProperties;
 };
 
-const Icon: FC<IconProps> = function ({ icon, color, size, style, className }) {
+const Icon: FC<IconProps> = function ({
+  icon,
+  color,
+  size,
+  style,
+  className,
+  iconStyle,
+}) {
   return (
     <IconWrapper style={style} className={className}>
       <FontAwesomeIcon
@@ -25,6 +33,7 @@ const Icon: FC<IconProps> = function ({ icon, color, size, style, className }) {
         color={color ? Colors[color] : undefined}
         height={size ? `${size}rem` : '1rem'}
         width={size ? `${size}rem` : '1rem'}
+        style={iconStyle}
       />
     </IconWrapper>
   );

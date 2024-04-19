@@ -5,20 +5,38 @@ import styled from 'styled-components';
 
 // Components
 
-export const LangMenuWrapper = styled.div``;
+export const LangMenuWrapper = styled.div`
+  position: relative;
 
-export const SelectedLangBtn = styled.button`
+  .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  .lang-dropdown-menu {
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e7e7e7;
+    background-color: ${Colors.primitives_white};
+  }
+`;
+
+export const SelectedLangBtn = styled.button<{ $noBorder?: boolean }>`
   display: flex;
-
-  height: 2rem;
+  align-items: center;
+  gap: 0.6rem;
+  height: 2.4rem;
   padding: 0.5rem 0.8rem;
-  border: 1px solid #e7e7e7;
-  border-radius: 1rem;
+  border: ${({ $noBorder }) => ($noBorder ? 'none' : '1px solid #e7e7e7')};
+  border-radius: 1.2rem;
   background-color: ${Colors.primitives_grey};
   transition: 0.2s;
   cursor: pointer;
 
   &:hover {
+    background-color: #e7e7e7;
   }
 `;
 

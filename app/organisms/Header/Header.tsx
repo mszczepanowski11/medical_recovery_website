@@ -23,7 +23,10 @@ const Header: FC<HeaderProps> = function () {
 
   return (
     <HeaderWrapper>
-      <GridContainer $padding="0.5rem 1rem" style={{ flexGrow: 1 }}>
+      <GridContainer
+        $padding="0.5rem 1rem"
+        style={{ flexGrow: 1, overflow: 'visible', clipPath: 'none' }}
+      >
         <GridItem
           $colStart={1}
           $colEnd={2}
