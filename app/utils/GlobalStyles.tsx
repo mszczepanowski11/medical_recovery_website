@@ -247,6 +247,8 @@ export const GridItem = styled.div<GridItemProps>`
 
 export type FlexType = {
   $flexDirection?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
+  $flexDirectionMd?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
+  $flexDirectionSm?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
   $justifyContent?:
     | 'flex-start'
     | 'flex-end'
@@ -259,12 +261,16 @@ export type FlexType = {
   $rowGap?: string;
   $columnGap?: string;
   $flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  $flexWrapMd?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  $flexWrapSm?: 'nowrap' | 'wrap' | 'wrap-reverse';
   $margin?: string;
   $marginTop?: string;
   $marginRight?: string;
   $marginBottom?: string;
   $marginLeft?: string;
   $padding?: string;
+  $paddingMd?: string;
+  $paddingSm?: string;
   $paddingTop?: string;
   $paddingRight?: string;
   $paddingBottom?: string;
@@ -289,6 +295,25 @@ export const Flex = styled.div<FlexType>`
   padding-right: ${({ $paddingRight }) => $paddingRight};
   padding-bottom: ${({ $paddingBottom }) => $paddingBottom};
   padding-left: ${({ $paddingLeft }) => $paddingLeft};
+
+  @media (max-width: ${breakpoint.md}px) {
+    flex-direction: ${({ $flexDirection, $flexDirectionMd }) =>
+      $flexDirectionMd || $flexDirection};
+    flex-wrap: ${({ $flexWrap, $flexWrapMd }) => $flexWrapMd || $flexWrap};
+    padding: ${({ $padding, $paddingMd }) => $paddingMd || $padding};
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    flex-direction: ${({
+      $flexDirection,
+      $flexDirectionMd,
+      $flexDirectionSm,
+    }) => $flexDirectionSm || $flexDirectionMd || $flexDirection};
+    flex-wrap: ${({ $flexWrap, $flexWrapMd, $flexWrapSm }) =>
+      $flexWrapSm || $flexWrapMd || $flexWrap};
+    padding: ${({ $padding, $paddingMd, $paddingSm }) =>
+      $paddingSm || $paddingMd || $padding};
+  }
 `;
 
 export default GlobalStyles;

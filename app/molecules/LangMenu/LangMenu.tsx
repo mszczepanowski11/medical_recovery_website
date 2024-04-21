@@ -69,6 +69,7 @@ const LangMenu: FC<LangMenuProps> = function ({}) {
           $noBorder
           onClick={() => handleLangChange(item)}
           className="lang-item"
+          $active={item === locale}
         >
           {renderLangFlag(item)}
           <Text
@@ -81,7 +82,7 @@ const LangMenu: FC<LangMenuProps> = function ({}) {
           </Text>
         </SelectedLangBtn>
       )),
-    [handleLangChange, renderLangFlag],
+    [handleLangChange, renderLangFlag, locale],
   );
 
   const clickFunc = useCallback(
@@ -110,6 +111,7 @@ const LangMenu: FC<LangMenuProps> = function ({}) {
         onClick={() => onMenuOpenClick(true)}
         className="lang-item"
         id="lang-item-main"
+        $active={false}
       >
         {renderLangFlag(locale)}
         <Icon icon={faAngleDown} style={{ pointerEvents: 'none' }} />

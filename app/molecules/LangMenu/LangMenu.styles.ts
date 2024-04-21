@@ -23,7 +23,10 @@ export const LangMenuWrapper = styled.div`
   }
 `;
 
-export const SelectedLangBtn = styled.button<{ $noBorder?: boolean }>`
+export const SelectedLangBtn = styled.button<{
+  $noBorder?: boolean;
+  $active?: boolean;
+}>`
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -31,7 +34,8 @@ export const SelectedLangBtn = styled.button<{ $noBorder?: boolean }>`
   padding: 0.5rem 0.8rem;
   border: ${({ $noBorder }) => ($noBorder ? 'none' : '1px solid #e7e7e7')};
   border-radius: 1.2rem;
-  background-color: ${Colors.primitives_grey};
+  background-color: ${({ $active }) =>
+    $active ? '#D8FFD4' : Colors.primitives_grey};
   transition: 0.2s;
   cursor: pointer;
 

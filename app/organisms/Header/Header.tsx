@@ -73,7 +73,7 @@ const Header: FC<HeaderProps> = function () {
             </NavButton>
             <LangMenu />
             <Button href={appointletCalendarUrl} target="_blank">
-              <Text noMargin fontWeight={500}>
+              <Text noMargin fontWeight={500} noWrap>
                 {tCta('arrange_meeting')}
               </Text>
             </Button>

@@ -12,6 +12,8 @@ import {
 import Testimonials from '../organisms/Testimonials/Testimonials';
 import FAQ from '../organisms/FAQ/FAQ';
 import BlogPostsCards from '../organisms/BlogPostsCards/BlogPostsCards';
+import Footer from '../organisms/Footer/Footer';
+import Contact from '../organisms/Contact/Contact';
 
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
@@ -63,7 +65,9 @@ export default async function Home({
           monthsTo={messagesItem?.utils?.months_to}
         />
         <FAQ questions={faqQuestionsList?.faqs} />
+        <Contact />
       </main>
+      <Footer />
     </>
   );
 }

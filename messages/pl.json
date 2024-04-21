@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "email": "contact@mentalrecovery.co",
+    "phone": "+48 512 088 457"
+  },
   "utils": {
     "months": {
       "1": "Styczeń",
@@ -31,11 +35,13 @@
   },
   "cta": {
     "arrange_meeting": "Umów konsultację",
-    "check_terms": "Sprawdź wolne terminy"
+    "check_terms": "Sprawdź wolne terminy",
+    "send_message": "Wyślij wiadomość"
   },
   "header": {
     "about_us": "O nas",
     "offer": "Oferta",
+    "specialists": "Specialiści",
     "blog": "Blog",
     "contact": "Kontakt"
   },
@@ -109,5 +115,14 @@
   "faq": {
     "second_title": "FAQ",
     "title": "Najczęściej zadawane pytania"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "second_title": "Najszybszy sposób na kontakt?",
+    "email": "E-mail:",
+    "phone": "Numer telefonu"
+  },
+  "footer": {
+    "copyright": "© 2024 Mental Recovery"
   }
 }
