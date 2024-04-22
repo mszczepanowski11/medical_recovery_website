@@ -52,6 +52,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'no-empty-pattern': 'off',
     '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
     "import/no-extraneous-dependencies": [
       "error",
       {

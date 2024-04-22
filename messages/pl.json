@@ -31,6 +31,11 @@
       "10": "października",
       "11": "listopada",
       "12": "grudnia"
+    },
+    "languages": {
+      "en": "Angielski",
+      "pl": "Polski",
+      "de": "Niemiecki"
     }
   },
   "cta": {
@@ -49,7 +54,7 @@
     "title1": "Równowaga",
     "title2": "wewnętrzna z",
     "title3": "Mental Recovery",
-    "description": "Dążysz do spokoju umysłu i harmonii życiowej? Z nami możesz to osiągnąć. Nasza profesjonalna pomoc terapeutyczna pomoże Ci pokonać wewnętrzne przeszkody i odzyskać równowagę emocjonalną. Umów się na wizytę i rozpocznij swoją podróż ku lepszemu",
+    "description": "Dążysz do spokoju umysłu i harmonii życiowej? Z nami możesz to osiągnąć. Nasza profesjonalna pomoc terapeutyczna pomoże Ci pokonać wewnętrzne przeszkody i odzyskać równowagę emocjonalną. Umów się na wizytę i rozpocznij swoją podróż ku lepszemu.",
     "image1_alt": "Klientka wskazuje palcem na nas, to chyba dobrze?",
     "image2_alt": "Ale chłopak jest zadowolony, po wizycie w Mental Recovery!",
     "image3_alt": "Zadowolona klientka Mental Recovery"
@@ -98,7 +103,9 @@
   },
   "our_specialists": {
     "title": "Poznaj naszych specjalistów",
-    "profesion_label": "Profesja"
+    "profesion_label": "Profesja",
+    "lang_filter_title": "Język",
+    "lang_filter_all": "Dowolny"
   },
   "testimonials": {
     "second_title": "Opinie",
@@ -124,5 +131,8 @@
   },
   "footer": {
     "copyright": "© 2024 Mental Recovery"
+  },
+  "specialists_page": {
+    "title": "Specialiści"
   }
 }

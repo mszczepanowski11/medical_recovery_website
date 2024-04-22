@@ -1,4 +1,5 @@
 import { Colors, headerHeight } from '@/app/utils/constans';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 // Utils
@@ -18,7 +19,7 @@ export const HeaderWrapper = styled.header`
   z-index: 997;
 `;
 
-export const NavButton = styled.button`
+export const NavButton = styled(Link)`
   position: relative;
   display: flex;
   align-items: center;

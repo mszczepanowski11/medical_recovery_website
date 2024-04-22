@@ -9,8 +9,6 @@ import { useTranslations } from 'next-intl';
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Button from '@/app/atoms/Button/Button';
-import Icon from '@/app/atoms/Icon/Icon';
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import {
   ContactInside,

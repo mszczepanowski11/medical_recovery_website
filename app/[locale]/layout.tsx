@@ -7,6 +7,8 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import StyledComponentsRegistry from '../utils/registry';
 import GlobalStyles from '../utils/GlobalStyles';
 import metadata from '../utils/SEO';
+import Header from '../organisms/Header/Header';
+import Footer from '../organisms/Footer/Footer';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -45,7 +47,9 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <StyledComponentsRegistry>
             <GlobalStyles />
+            <Header />
             {children}
+            <Footer />
           </StyledComponentsRegistry>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />

@@ -7,6 +7,7 @@ import {
   maxContainerWidth,
   COLORS,
   scrollbarWidth,
+  headerHeight,
 } from './constans';
 
 const GlobalStyles = createGlobalStyle`
@@ -32,13 +33,16 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     background-color: ${Colors.primitives_grey};
-    min-height: 110vh;
   }
 
   body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
     overflow-x: hidden;
     background-color: ${Colors.primitives_grey};
+    min-height: 100vh;
 
     &::-webkit-scrollbar {
       width: ${scrollbarWidth}px;
@@ -53,6 +57,10 @@ const GlobalStyles = createGlobalStyle`
       border-radius: 20px; 
       border: 3px solid ${Colors.primitives_grey};
     }
+  }
+
+  main {
+    padding-top: ${headerHeight}px;
   }
 
   html {

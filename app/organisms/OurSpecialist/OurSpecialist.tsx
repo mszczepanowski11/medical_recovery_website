@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 'use client';
 
 import React, { FC, useMemo, useState } from 'react';
@@ -14,20 +16,29 @@ import { GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import SpecialistCard from '@/app/molecules/SpecialistCard/SpecialistCard';
 import Text from '@/app/atoms/Text/Text';
 import TagFilter from '@/app/molecules/TagFilter/TagFilter';
+import SpecialistsLangFilter from '@/app/molecules/SpecialistsLangFilter/SpecialistsLangFilter';
 import {
   OurSpecialistWrapper,
   SpecialistCardsWrapper,
 } from './OurSpecialist.styles';
 
-type OurSpecialistProps = { locale: 'en' | 'pl' | 'de'; specialistsList: any };
+type OurSpecialistProps = {
+  locale: 'en' | 'pl' | 'de';
+  specialistsList: any;
+  customTitle?: string;
+  filterLangs?: { id: string; name: string }[];
+};
 
 const OurSpecialist: FC<OurSpecialistProps> = function ({
   locale,
   specialistsList,
+  customTitle,
+  filterLangs,
 }) {
   const t = useTranslations('our_specialists');
   const [specialist] = useState(specialistsList.psychologists);
   const [filteredTags, setFilteredTags] = useState([]);
+  const [selectedLangs, setSelectedLangs] = useState<string[]>([]);
 
   const renderSpecialist = useMemo(
     () =>
@@ -62,12 +73,20 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
 
   return (
     <OurSpecialistWrapper>
-      <GridContainer $gridCols={1} $padding="8rem 1rem 3rem 1rem">
-        <GridItem>
+      <GridContainer
+        $padding="8rem 1rem 3rem 1rem"
+        style={{ overflow: 'visible', clipPath: 'none' }}
+      >
+        <GridItem $colStart={1} $colEnd={filterLangs ? 2 : 5}>
           <Text variant="h2" noMargin>
-            {t('title')}
+            {customTitle || t('title')}
           </Text>
         </GridItem>
+        {!!filterLangs && (
+          <GridItem>
+            <SpecialistsLangFilter langs={filterLangs} />
+          </GridItem>
+        )}
       </GridContainer>
       <GridContainer $padding="0 1rem 4rem 1rem" $gridColsSm={1}>
         <GridItem $rowStartSm={1} $rowEndSm={2} $paddingSm="0 0 2rem 0">

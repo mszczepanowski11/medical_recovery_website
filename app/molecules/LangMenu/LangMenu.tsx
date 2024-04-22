@@ -87,6 +87,7 @@ const LangMenu: FC<LangMenuProps> = function ({}) {
 
   const clickFunc = useCallback(
     (event: any) => {
+      console.log('langMenu', event?.target?.classList);
       if (!event?.target?.classList?.contains('lang-item')) {
         isOpen.set(0);
         setPointerEvents('none');

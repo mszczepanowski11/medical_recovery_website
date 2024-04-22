@@ -51,22 +51,27 @@ const Header: FC<HeaderProps> = function () {
             $gap="1.6rem"
             style={{ height: '100%' }}
           >
-            <NavButton>
+            <NavButton href="/about_us">
               <Text noMargin fontWeight={500}>
                 {tHeader('about_us')}
               </Text>
             </NavButton>
-            <NavButton>
+            <NavButton href="/offer">
               <Text noMargin fontWeight={500}>
                 {tHeader('offer')}
               </Text>
             </NavButton>
-            <NavButton>
+            <NavButton href="/specialists">
+              <Text noMargin fontWeight={500}>
+                {tHeader('specialists')}
+              </Text>
+            </NavButton>
+            <NavButton href="/blog">
               <Text noMargin fontWeight={500}>
                 {tHeader('blog')}
               </Text>
             </NavButton>
-            <NavButton>
+            <NavButton href="/contact">
               <Text noMargin fontWeight={500}>
                 {tHeader('contact')}
               </Text>
