@@ -54,7 +54,7 @@ const Footer: FC<FooterProps> = function ({}) {
               $padding="0 2rem"
               style={{ height: '100%', flexGrow: 1 }}
             >
-              <NavButton href="/about_us">
+              <NavButton href="/about-us">
                 <Text noMargin fontWeight={500}>
                   {tHeader('about_us')}
                 </Text>

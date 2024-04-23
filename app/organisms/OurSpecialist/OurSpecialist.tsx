@@ -13,11 +13,12 @@ import {
 } from '@/app/utils/utils';
 
 // Components
-import { GridContainer, GridItem } from '@/app/utils/GlobalStyles';
+import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import SpecialistCard from '@/app/molecules/SpecialistCard/SpecialistCard';
 import Text from '@/app/atoms/Text/Text';
 import TagFilter from '@/app/molecules/TagFilter/TagFilter';
 import SpecialistsLangFilter from '@/app/molecules/SpecialistsLangFilter/SpecialistsLangFilter';
+import Button from '@/app/atoms/Button/Button';
 import {
   OurSpecialistWrapper,
   SpecialistCardsWrapper,
@@ -48,7 +49,9 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
           specialistTagsFilterFunc(psycho.tags[`tags_${locale}`], filteredTags),
         )
         ?.filter((psycho: any) =>
-          specialistLangFilterFunc(selectedLangs, psycho.languages),
+          filterLangs
+            ? specialistLangFilterFunc(selectedLangs, psycho.languages)
+            : true,
         )
         ?.map((psycho: any) => {
           return (
@@ -64,7 +67,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
             />
           );
         }),
-    [specialist, locale, filteredTags, selectedLangs],
+    [specialist, locale, filteredTags, filterLangs, selectedLangs],
   );
 
   const filterTags = useMemo(
@@ -78,13 +81,22 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   return (
     <OurSpecialistWrapper>
       <GridContainer
-        $padding="8rem 1rem 2rem 1rem"
+        $padding="8rem 1rem 3rem 1rem"
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
         <GridItem $colStart={1} $colEnd={filterLangs ? 2 : 5}>
-          <Text variant="h2" noMargin>
-            {customTitle || t('title')}
-          </Text>
+          <Flex $justifyContent="space-between">
+            <Text variant="h2" noMargin>
+              {customTitle || t('title')}
+            </Text>
+            {!filterLangs && (
+              <Button href="/specialists" color="transparent">
+                <Text noMargin fontWeight={500}>
+                  {t('show_more_specialists')}
+                </Text>
+              </Button>
+            )}
+          </Flex>
         </GridItem>
         {!!filterLangs && (
           <GridItem>

@@ -1,6 +1,6 @@
 export enum ButtonColors {
   primary = 'primary',
-  secodnary = 'secondary',
+  secondary = 'secondary',
   transparent = 'transparent',
 }
 

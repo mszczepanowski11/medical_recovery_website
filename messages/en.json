@@ -105,7 +105,8 @@
     "title": "Poznaj naszych specjalistów",
     "profesion_label": "Profesja",
     "lang_filter_title": "Język",
-    "lang_filter_all": "Dowolny"
+    "lang_filter_all": "Dowolny",
+    "show_more_specialists": "Zobacz wszystkich"
   },
   "testimonials": {
     "second_title": "Opinie",

@@ -51,7 +51,7 @@ const Header: FC<HeaderProps> = function () {
             $gap="1.6rem"
             style={{ height: '100%' }}
           >
-            <NavButton href="/about_us">
+            <NavButton href="/about-us">
               <Text noMargin fontWeight={500}>
                 {tHeader('about_us')}
               </Text>
