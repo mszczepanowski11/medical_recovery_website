@@ -36,6 +36,8 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
 }) {
   const t = useTranslations('blog_posts_home_page');
 
+  const href = useMemo(() => `/blog/${slug}`, [slug]);
+
   const renderReadingTime = useMemo(() => {
     switch (reading_time) {
       case 1:
@@ -53,7 +55,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
 
   return (
     <BlogPostCardWrapper>
-      <Link href={slug}>
+      <Link href={href}>
         <Flex
           style={{
             position: 'relative',
@@ -100,7 +102,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
           </Flex>
         )}
       </Flex>
-      <Link href={slug}>
+      <Link href={href}>
         <Text variant="h4" noMargin className="blog-post-link">
           {title}
         </Text>

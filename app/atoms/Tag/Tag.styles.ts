@@ -17,6 +17,7 @@ export const TagWrapper = styled.button<TagWrapperType>`
   display: flex;
   align-items: center;
   justify-content: center;
+  column-gap: 0.2rem;
   height: ${({ height }) => height || '1.75rem'};
   padding: 0 0.75rem;
   border: 1px solid

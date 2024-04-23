@@ -17,6 +17,11 @@ export const TestimonialCardWrapper = styled.div`
   padding: 2rem;
   border-radius: 1rem;
   background-color: #fafafa;
+  transition: 0.2s;
+
+  &:hover {
+    box-shadow: 0px 0px 20px 0px #22253b0d;
+  }
 
   @media (max-width: ${breakpoint.sm + 100}px) {
     max-width: none;

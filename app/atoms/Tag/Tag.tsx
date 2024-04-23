@@ -6,8 +6,10 @@ import React, { FC } from 'react';
 import { Colors } from '@/app/utils/constans';
 
 // Components
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { TagWrapper } from './Tag.styles';
 import Text from '../Text/Text';
+import Icon from '../Icon/Icon';
 
 type TagProps = {
   tag: string;
@@ -34,6 +36,9 @@ const Tag: FC<TagProps> = function ({ tag, color, height, active, onClick }) {
       >
         {tag}
       </Text>
+      {!!onClick && !!active && (
+        <Icon icon={faTimes} color={color ? 'text_primary' : 'text_tags'} />
+      )}
     </TagWrapper>
   );
 };
