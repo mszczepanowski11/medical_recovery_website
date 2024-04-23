@@ -26,12 +26,21 @@ export const specialistTagsFilterFunc = (
   psychoTags: string,
   filteredTags: string[],
 ) => {
-  if (!filteredTags || filteredTags.length < 1 || !psychoTags)
-    return psychoTags;
+  if (!filteredTags || filteredTags.length < 1 || !psychoTags) return true;
 
   return makeTagsArrayFromString(psychoTags)?.some((psychoTag) =>
     filteredTags.includes(psychoTag),
   );
+};
+
+export const specialistLangFilterFunc = (
+  selectedLangs: string[],
+  psychoLangs: string[],
+) => {
+  if (!selectedLangs || selectedLangs.length < 1) return true;
+  if (!psychoLangs || psychoLangs?.length < 1) return true;
+
+  return selectedLangs?.some((lang) => psychoLangs.includes(lang));
 };
 
 export const YMDToDMStringY = (

@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 // Utils
 import {
   collectAllTagsFromSpecialist,
+  specialistLangFilterFunc,
   specialistTagsFilterFunc,
 } from '@/app/utils/utils';
 
@@ -46,6 +47,9 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
         ?.filter((psycho: any) =>
           specialistTagsFilterFunc(psycho.tags[`tags_${locale}`], filteredTags),
         )
+        ?.filter((psycho: any) =>
+          specialistLangFilterFunc(selectedLangs, psycho.languages),
+        )
         ?.map((psycho: any) => {
           return (
             <SpecialistCard
@@ -60,7 +64,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
             />
           );
         }),
-    [specialist, locale, filteredTags],
+    [specialist, locale, filteredTags, selectedLangs],
   );
 
   const filterTags = useMemo(
@@ -74,7 +78,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   return (
     <OurSpecialistWrapper>
       <GridContainer
-        $padding="8rem 1rem 3rem 1rem"
+        $padding="8rem 1rem 2rem 1rem"
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
         <GridItem $colStart={1} $colEnd={filterLangs ? 2 : 5}>
@@ -84,7 +88,11 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
         </GridItem>
         {!!filterLangs && (
           <GridItem>
-            <SpecialistsLangFilter langs={filterLangs} />
+            <SpecialistsLangFilter
+              langs={filterLangs}
+              selectedLangs={selectedLangs}
+              setSelectedLangs={setSelectedLangs}
+            />
           </GridItem>
         )}
       </GridContainer>

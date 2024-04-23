@@ -9,6 +9,7 @@ export const SpecialistsLangFilterWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  height: 100%;
 `;
 
 export const LangMenuWrapper = styled.div`

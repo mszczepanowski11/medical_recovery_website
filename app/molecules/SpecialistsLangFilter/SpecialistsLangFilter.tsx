@@ -18,14 +18,18 @@ import {
   SpecialistsLangFilterWrapper,
 } from './SpecialistsLangFilter.styles';
 
-type SpecialistsLangFilterProps = { langs: { id: string; name: string }[] };
+type SpecialistsLangFilterProps = {
+  langs: { id: string; name: string }[];
+  selectedLangs: string[];
+  setSelectedLangs: any;
+};
 
 const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
   langs,
+  selectedLangs,
+  setSelectedLangs,
 }) {
   const tSpecialists = useTranslations('our_specialists');
-
-  const [selectedLangs, setSelectedLangs] = useState<string[]>([]);
   const [pointerEvents, setPointerEvents] = useState<'none' | 'auto'>('none');
 
   const isOpen = useMotionValue(0);
@@ -76,7 +80,7 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
                 return newLangs;
               })
             }
-            className="lang-item"
+            className="specialists-filter-lang-item"
             $active={selectedLangs.includes(item.id)}
           >
             {renderLangFlag(item.id)}
@@ -84,14 +88,14 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
               noMargin
               fontWeight={500}
               style={{ textTransform: 'uppercase' }}
-              className="lang-item"
+              className="specialists-filter-lang-item"
             >
               {item.name}
             </Text>
           </SelectedLangBtn>
         );
       }),
-    [langs, renderLangFlag, selectedLangs],
+    [langs, renderLangFlag, selectedLangs, setSelectedLangs],
   );
 
   const clickFunction = useCallback(
@@ -105,11 +109,12 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
   );
 
   useEffect(() => {
-    document.onclick = clickFunction;
-    document.onscroll = clickFunction;
+    document.addEventListener('click', clickFunction);
+    document.addEventListener('scroll', clickFunction);
 
     return () => {
-      document.onclick = null;
+      document.removeEventListener('click', clickFunction);
+      document.removeEventListener('scroll', clickFunction);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
