@@ -111,10 +111,12 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
   useEffect(() => {
     document.addEventListener('click', clickFunction);
     document.addEventListener('scroll', clickFunction);
+    document.addEventListener('resize', clickFunction);
 
     return () => {
       document.removeEventListener('click', clickFunction);
       document.removeEventListener('scroll', clickFunction);
+      document.removeEventListener('resize', clickFunction);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

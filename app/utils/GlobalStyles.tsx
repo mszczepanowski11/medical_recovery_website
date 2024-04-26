@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: ${Colors.primitives_grey};
     min-height: 100vh;
 
@@ -72,6 +72,7 @@ const GlobalStyles = createGlobalStyle`
     --color-primitives-light-blue: ${COLORS.primitives_light_blue};
     --color-text-primary: ${COLORS.text_primary};
     --color-text-secondary: ${COLORS.text_secondary};
+    --color-text-secondary-light: ${COLORS.text_secondary_light};
     --color-text-interactive: ${COLORS.text_interactive};
     --color-text-blue-label-primary: ${COLORS.text_blue_label_primary};
     --color-text-interactive-hover: ${COLORS.text_interactive_hover};
@@ -84,6 +85,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background-interactive-hover: ${COLORS.background_interactive_hover};
     --color-background-tags: ${COLORS.background_tags};
     --color-background-tags-hover: ${COLORS.background_tags_hover};
+    --color-border: ${COLORS.border};
     --color-stroke-blue: ${COLORS.stroke_blue};
     --color-stroke-tags: ${COLORS.stroke_tags};
     --color-transparent: ${COLORS.transparent};
@@ -94,7 +96,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  button {
+  button, input {
     font-family: inherit;
   }
 
@@ -184,7 +186,10 @@ export const GridContainer = styled.section<GridContainerProps>`
   max-height: ${({ $maxHeight }) => $maxHeight || 'auto'};
   max-width: ${({ $maxWidth }) =>
     $maxWidth || `calc(${maxContainerWidth}px + 2rem)`};
-  min-width: min(calc(100% - 2rem), calc(${maxContainerWidth}px + 2rem));
+  min-width: ${({ $maxWidth }) =>
+    $maxWidth
+      ? `min(calc(100% - 2rem), calc(${$maxWidth}px + 2rem))`
+      : `min(calc(100% - 2rem), calc(${maxContainerWidth}px + 2rem))`};
   margin: ${({ $margin }) => $margin || 'auto'};
   padding: ${({ $padding }) => $padding || '4rem 1rem'};
   background-color: ${({ $bg }) => $bg || Colors.transparent};

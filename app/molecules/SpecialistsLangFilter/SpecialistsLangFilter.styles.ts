@@ -25,7 +25,7 @@ export const LangMenuWrapper = styled.div`
   .lang-dropdown-menu {
     padding: 0.5rem 0.8rem;
     border-radius: 0.5rem;
-    border: 1px solid #e7e7e7;
+    border: 1px solid ${Colors.border};
     background-color: ${Colors.primitives_white};
   }
 `;
@@ -39,7 +39,8 @@ export const SelectedLangBtn = styled.button<{
   gap: 0.6rem;
   height: 2.4rem;
   padding: 0.5rem 0.8rem;
-  border: ${({ $noBorder }) => ($noBorder ? 'none' : '1px solid #e7e7e7')};
+  border: ${({ $noBorder }) =>
+    $noBorder ? 'none' : `1px solid ${Colors.border}`};
   border-radius: 1.2rem;
   background-color: ${({ $active }) =>
     $active ? '#D8FFD4' : Colors.primitives_grey};
@@ -47,7 +48,7 @@ export const SelectedLangBtn = styled.button<{
   cursor: pointer;
 
   &:hover {
-    background-color: #e7e7e7;
+    background-color: ${Colors.border};
   }
 `;
 

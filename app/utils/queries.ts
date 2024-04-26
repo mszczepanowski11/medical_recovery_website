@@ -65,6 +65,11 @@ export const queryBlogPostsHomePage = gql`
       image {
         url
       }
+      tags {
+        tags_de
+        tags_en
+        tags_pl
+      }
     }
   }
 `;

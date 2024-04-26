@@ -81,7 +81,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   return (
     <OurSpecialistWrapper>
       <GridContainer
-        $padding="8rem 1rem 3rem 1rem"
+        $padding={`8rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
         <GridItem $colStart={1} $colEnd={filterLangs ? 2 : 5}>

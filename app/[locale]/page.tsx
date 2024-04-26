@@ -56,6 +56,7 @@ export default async function Home({
       <BlogPostsCards
         blogPosts={blogPostsList?.blogPosts?.slice(0, 3)}
         monthsTo={messagesItem?.utils?.months_to}
+        locale={params.locale}
       />
       <FAQ questions={faqQuestionsList?.faqs} />
       <Contact />

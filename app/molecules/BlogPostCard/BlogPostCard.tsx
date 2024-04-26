@@ -10,7 +10,8 @@ import Image from 'next/image';
 import { Flex } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Link from 'next/link';
-import { YMDToDMStringY } from '@/app/utils/utils';
+import { YMDToDMStringY, makeTagsArrayFromString } from '@/app/utils/utils';
+import Tag from '@/app/atoms/Tag/Tag';
 import { BlogPostCardWrapper } from './BlogPostCard.styles';
 
 type BlogPostCardProps = {
@@ -22,7 +23,9 @@ type BlogPostCardProps = {
   image: {
     url: string;
   };
+  tags: { tags_en: string; tags_pl: string; tags_de: string };
   monthsTo: { [key: string]: string };
+  locale: 'en' | 'pl' | 'de';
 };
 
 const BlogPostCard: FC<BlogPostCardProps> = function ({
@@ -32,11 +35,21 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   date,
   reading_time,
   image,
+  tags,
   monthsTo,
+  locale,
 }) {
   const t = useTranslations('blog_posts_home_page');
 
   const href = useMemo(() => `/blog/${slug}`, [slug]);
+
+  const renderTags = useMemo(
+    () =>
+      makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
+        <Tag key={tag} tag={tag} />
+      )),
+    [tags, locale],
+  );
 
   const renderReadingTime = useMemo(() => {
     switch (reading_time) {
@@ -71,7 +84,12 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
           />
         </Flex>
       </Link>
-      <Flex $columnGap="0.5rem" $alignItems="center">
+      <Flex
+        $columnGap="0.5rem"
+        $rowGap="0.5rem"
+        $alignItems="center"
+        $flexWrap="wrap"
+      >
         <Flex $columnGap="0.5rem" $alignItems="center">
           <Image
             src="/img/calendar-icon.svg"
@@ -101,6 +119,9 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
             </Text>
           </Flex>
         )}
+      </Flex>
+      <Flex $flexWrap="wrap" $gap="0.25rem">
+        {renderTags}
       </Flex>
       <Link href={href}>
         <Text variant="h4" noMargin className="blog-post-link">

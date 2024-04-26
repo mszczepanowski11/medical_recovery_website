@@ -1,10 +1,6 @@
-// import { useLocale } from 'next-intl';
-// import {
-//   fetchBlogPostsHomePage,
-//   fetchFAQQuestionsHomePage,
-//   fetchSpecialistsDataHomePage,
-//   fetchTestimonialsDataHomePage,
-// } from '../../utils/fetchData';
+import BlogPostsPage from '@/app/organisms/BlogPostsPage/BlogPostsPage';
+import { fetchBlogPostsHomePage } from '@/app/utils/fetchData';
+import { useLocale } from 'next-intl';
 
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
@@ -27,20 +23,22 @@
 //   };
 // }
 
-export default async function Home(
-  {
-    // params,
-  }: {
-    params: { locale: 'en' | 'pl' | 'de' };
-  },
-) {
-  // const locale = useLocale();
-  // const messagesItem = await import(`../../../messages/${locale}`);
+export default async function Home({
+  params,
+}: {
+  params: { locale: 'en' | 'pl' | 'de' };
+}) {
+  const locale = useLocale();
+  const messagesItem = await import(`../../../messages/${locale}`);
+  const blogPostsList = await fetchBlogPostsHomePage();
 
-  // const specialistsList = await fetchSpecialistsDataHomePage();
-  // const testimonialsList = await fetchTestimonialsDataHomePage();
-  // const faqQuestionsList = await fetchFAQQuestionsHomePage();
-  // const blogPostsList = await fetchBlogPostsHomePage();
-
-  return <main />;
+  return (
+    <main>
+      <BlogPostsPage
+        blogPosts={blogPostsList?.blogPosts}
+        monthsTo={messagesItem?.utils?.months_to}
+        locale={params.locale}
+      />
+    </main>
+  );
 }

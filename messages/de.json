@@ -36,6 +36,12 @@
       "en": "Angielski",
       "pl": "Polski",
       "de": "Niemiecki"
+    },
+    "sort": {
+      "name": "Sortuj",
+      "date_asc": "Najnowsze",
+      "date_desc": "Najstarsze",
+      "popular_asc": "Popularne"
     }
   },
   "cta": {
@@ -105,7 +111,8 @@
     "title": "Poznaj naszych specjalistów",
     "profesion_label": "Profesja",
     "lang_filter_title": "Język",
-    "lang_filter_all": "Dowolny"
+    "lang_filter_all": "Dowolny",
+    "show_more_specialists": "Zobacz wszystkich"
   },
   "testimonials": {
     "second_title": "Opinie",
@@ -134,5 +141,8 @@
   },
   "specialists_page": {
     "title": "Specialiści"
+  },
+  "blog_page": {
+    "title": "Blog"
   }
 }

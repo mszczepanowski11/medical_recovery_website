@@ -32,7 +32,7 @@ const Footer: FC<FooterProps> = function ({}) {
           <Flex
             $alignItems="center"
             style={{
-              borderBottom: `1px solid #e7e7e7`,
+              borderBottom: `1px solid ${Colors.border}`,
             }}
             $paddingBottom="2rem"
           >

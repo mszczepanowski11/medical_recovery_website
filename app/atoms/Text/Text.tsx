@@ -26,6 +26,7 @@ type TextProps = {
   lineHeight?: number;
   textAlign?: 'left' | 'right' | 'center';
   fontWeight?: number;
+  formFor?: string;
 };
 
 const Text: FC<TextProps> = function ({
@@ -45,6 +46,7 @@ const Text: FC<TextProps> = function ({
   lineHeight,
   textAlign,
   fontWeight,
+  formFor,
 }) {
   return (
     <TextWrapper
@@ -62,6 +64,7 @@ const Text: FC<TextProps> = function ({
       $lineHeight={lineHeight}
       $textAlign={textAlign}
       $fontWeight={fontWeight}
+      htmlFor={formFor}
     >
       {text || children}
     </TextWrapper>

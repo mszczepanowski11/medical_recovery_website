@@ -30,10 +30,10 @@ const getFontParams = (
       };
     case 'label':
       return {
-        fontSize: $fontSize || '1rem',
+        fontSize: $fontSize || '0.85rem',
         lineHeight: $lineHeight || 1,
-        fontWeight: 600,
-        color: Colors.text_primary,
+        fontWeight: 500,
+        color: Colors.text_secondary_light,
       };
     case 'h1':
       return {

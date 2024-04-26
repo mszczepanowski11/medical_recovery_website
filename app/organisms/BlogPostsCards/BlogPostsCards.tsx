@@ -24,22 +24,30 @@ type BlogPostsCardsProps = {
     image: {
       url: string;
     };
+    tags: { tags_en: string; tags_pl: string; tags_de: string };
   }[];
   monthsTo: { [key: string]: string };
+  locale: 'en' | 'pl' | 'de';
 };
 
 const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
   blogPosts,
   monthsTo,
+  locale,
 }) {
   const tBlogPosts = useTranslations('blog_posts_home_page');
 
   const renderBlogPostsCards = useMemo(
     () =>
       blogPosts.map((blogPost) => (
-        <BlogPostCard key={blogPost.slug} {...blogPost} monthsTo={monthsTo} />
+        <BlogPostCard
+          key={blogPost.slug}
+          {...blogPost}
+          monthsTo={monthsTo}
+          locale={locale}
+        />
       )),
-    [blogPosts, monthsTo],
+    [blogPosts, monthsTo, locale],
   );
 
   return (

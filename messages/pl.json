@@ -36,6 +36,12 @@
       "en": "Angielski",
       "pl": "Polski",
       "de": "Niemiecki"
+    },
+    "sort": {
+      "name": "Sortuj",
+      "date_asc": "Najnowsze",
+      "date_desc": "Najstarsze",
+      "popular_asc": "Popularne"
     }
   },
   "cta": {
@@ -135,5 +141,10 @@
   },
   "specialists_page": {
     "title": "Specialiści"
+  },
+  "blog_page": {
+    "title": "Blog",
+    "no_articles": "Nie ma wyników dla Twoich filtrów",
+    "clear_filters": "Wyczyść filtry"
   }
 }
