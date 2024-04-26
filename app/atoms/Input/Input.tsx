@@ -19,6 +19,7 @@ type InputProps = {
   placeholder?: string;
   iconRight?: IconDefinition;
   name?: string;
+  as?: 'textarea' | 'input';
 };
 
 const Input: FC<InputProps> = function ({
@@ -28,6 +29,7 @@ const Input: FC<InputProps> = function ({
   placeholder,
   iconRight,
   name,
+  as,
 }) {
   const t = useTranslations();
 
@@ -43,8 +45,9 @@ const Input: FC<InputProps> = function ({
         </Text>
       )}
       <InputElement
+        as={as}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e: any) => onChange(e.target.value)}
         placeholder={placeholder}
         $hasIcon={!!iconRight}
         name={label || name}

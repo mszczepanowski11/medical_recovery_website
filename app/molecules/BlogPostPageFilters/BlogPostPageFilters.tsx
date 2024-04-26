@@ -38,6 +38,7 @@ const BlogPostPageFilters: FC<BlogPostPageFiltersProps> = function ({
     () =>
       checkboxFilters?.map((item: string) => (
         <Checkbox
+          type="radio"
           key={item}
           checked={filters.filter.includes(item)}
           onChange={() => {

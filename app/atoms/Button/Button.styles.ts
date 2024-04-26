@@ -59,6 +59,7 @@ const getBtnSizes = (size?: keyof typeof ButtonSizes) => {
 export type ButtonWrapperType = {
   color?: keyof typeof ButtonColors;
   size?: keyof typeof ButtonSizes;
+  $hasIcon?: boolean;
 };
 
 export const ButtonWrapper = styled.button<ButtonWrapperType>`
@@ -104,7 +105,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperType>`
   &:hover::after {
     background-color: ${({ color }) =>
       getBtnColors(color).hoverBackgroundColor};
-    transform: scaleX(1.02);
+    transform: ${({ $hasIcon }) => ($hasIcon ? 'scaleX(1.02)' : undefined)};
   }
 
   &:hover .button-icon {

@@ -57,6 +57,7 @@ const Button: FC<ButtonProps> = function ({
         size={size}
         color={color}
         className={`${className || ''}`}
+        $hasIcon={!!iconRight}
       >
         {text || children}
         {!!iconRight && (

@@ -146,5 +146,14 @@
     "title": "Blog",
     "no_articles": "Nie ma wyników dla Twoich filtrów",
     "clear_filters": "Wyczyść filtry"
+  },
+  "contact_page": {
+    "title": "Odezwij się do nas 🤗",
+    "description": "Jesteśmy tutaj by pomóc. Zadaj nam pytanie, a my odpowiemy w przeciągu 24h.",
+    "name_label": "Imię",
+    "email_label": "Adres e-mail",
+    "message_label": "Twoja wiadomość",
+    "rodo_label": "Wyrażam zgodę na przetwarzanie moich danych osobowych, podanych w powyższym formularzu w celu udzielenia odpowiedzi na wysłaną przeze mnie wiadomość oraz dalszą komunikację (w tym komunikację marketingową).",
+    "cta_send": "Wyślij wiadomość"
   }
 }

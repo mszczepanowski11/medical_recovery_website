@@ -6,6 +6,8 @@
 //   fetchTestimonialsDataHomePage,
 // } from '../../utils/fetchData';
 
+import ContactPage from '@/app/organisms/ContactPage/ContactPage';
+
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
 
@@ -42,5 +44,9 @@ export default async function Home(
   // const faqQuestionsList = await fetchFAQQuestionsHomePage();
   // const blogPostsList = await fetchBlogPostsHomePage();
 
-  return <main />;
+  return (
+    <main>
+      <ContactPage />
+    </main>
+  );
 }

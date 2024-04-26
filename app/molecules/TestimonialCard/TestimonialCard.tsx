@@ -11,6 +11,7 @@ import { Flex } from '@/app/utils/GlobalStyles';
 import { TestimonialType } from '@/app/utils/fetchData';
 import Text from '@/app/atoms/Text/Text';
 import Image from 'next/image';
+import { Colors } from '@/app/utils/constans';
 import { TestimonialCardWrapper } from './TestimonialCard.styles';
 
 const TestimonialCard: FC<TestimonialType> = function ({
@@ -53,7 +54,7 @@ const TestimonialCard: FC<TestimonialType> = function ({
         style={{
           paddingBottom: '1rem',
           width: '100%',
-          borderBottom: `1px solid #d7d7d7`,
+          borderBottom: `1px solid ${Colors.border}`,
         }}
       >
         <Image

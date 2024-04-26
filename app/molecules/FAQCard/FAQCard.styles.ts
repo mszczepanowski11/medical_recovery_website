@@ -10,7 +10,7 @@ export const FAQCardWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   height: 58px;
-  border: 1px solid #d7d7d7;
+  border: 1px solid ${Colors.border};
   background-color: ${Colors.primitives_white};
   border-radius: 1rem;
   cursor: pointer;

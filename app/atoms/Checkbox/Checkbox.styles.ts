@@ -24,16 +24,21 @@ export const CheckboxWrapper = styled(motion.button)<{ $checkedItem: boolean }>`
     }
   }
 `;
-export const CheckboxButton = styled(motion.div)`
+export const CheckboxButton = styled(motion.div)<{
+  type?: 'checkbox' | 'radio';
+}>`
+  flex-shrink: 0;
   position: relative;
   width: 1rem;
   height: 1rem;
   border: 1px solid ${Colors.border};
-  border-radius: 0.5rem;
+  border-radius: ${({ type }) => (type === 'checkbox' ? '0.2rem' : '0.5rem')};
   background-color: ${Colors.transparent};
   transition: 0.2s;
 `;
-export const InsideCircle = styled(motion.span)`
+export const InsideCircle = styled(motion.span)<{
+  type?: 'checkbox' | 'radio';
+}>`
   position: absolute;
   top: 50%;
   left: 50%;
