@@ -47,7 +47,8 @@
   "cta": {
     "arrange_meeting": "Umów konsultację",
     "check_terms": "Sprawdź wolne terminy",
-    "send_message": "Wyślij wiadomość"
+    "send_message": "Wyślij wiadomość",
+    "sending": "Wysyłanie"
   },
   "header": {
     "about_us": "O nas",
@@ -154,6 +155,9 @@
     "email_label": "Adres e-mail",
     "message_label": "Twoja wiadomość",
     "rodo_label": "Wyrażam zgodę na przetwarzanie moich danych osobowych, podanych w powyższym formularzu w celu udzielenia odpowiedzi na wysłaną przeze mnie wiadomość oraz dalszą komunikację (w tym komunikację marketingową).",
-    "cta_send": "Wyślij wiadomość"
+    "send_success": "Wiadomość została wysłana!",
+    "send_error": "Wystąpił błąd, spróbuj ponownie później.",
+    "send_empty_fields": "Wypełnij wszystkie pola formularza",
+    "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych"
   }
 }

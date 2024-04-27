@@ -112,3 +112,28 @@ export const ButtonWrapper = styled.button<ButtonWrapperType>`
     transform: translateX(3px);
   }
 `;
+
+export const LoadingWrapper = styled.div<ButtonWrapperType>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0.8rem;
+  border-radius: ${({ size }) => getBtnSizes(size).borderRadius};
+  background-color: ${Colors.background_interactive_hover};
+  cursor: wait;
+
+  .dot {
+    position: absolute;
+    top: 60%;
+    left: 105%;
+    height: 0.2rem;
+    width: 0.2rem;
+    border-radius: 50%;
+    background-color: ${Colors.text_primary};
+  }
+`;

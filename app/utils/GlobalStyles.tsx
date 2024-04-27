@@ -96,7 +96,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  button, input {
+  button, input, textarea {
     font-family: inherit;
   }
 

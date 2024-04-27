@@ -1,12 +1,14 @@
 'use client';
 
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import emailjs from '@emailjs/browser';
 
 // Utils
 import { Colors } from '@/app/utils/constans';
 
 // Components
+import { ToastContainer, toast } from 'react-toastify';
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Input from '@/app/atoms/Input/Input';
@@ -19,10 +21,64 @@ type ContactPageProps = {};
 
 const ContactPage: FC<ContactPageProps> = function ({}) {
   const tContact = useTranslations('contact_page');
-  const [nameInput, setNameInput] = useState('');
-  const [emailInput, setEmailInput] = useState('');
-  const [messageInput, setMessageInput] = useState('');
-  const [rodoChecked, setRodoChecked] = useState(false);
+  const tCta = useTranslations('cta');
+  const [formData, setFormData] = useState<{
+    name: string;
+    email: string;
+    message: string;
+    rodo: boolean;
+  }>({ name: '', email: '', message: '', rodo: false });
+  const [isSending, setIsSending] = useState(false);
+
+  const onSend = useCallback(() => {
+    setIsSending(true);
+    const { name, email, message, rodo } = formData || {};
+    if (
+      !name ||
+      name.length < 1 ||
+      !email ||
+      email.length < 1 ||
+      !message ||
+      message.length < 1
+    ) {
+      toast.error(tContact('send_empty_fields'), {
+        position: 'top-center',
+        hideProgressBar: true,
+      });
+      setIsSending(false);
+    } else if (!rodo) {
+      toast.error(tContact('send_no_rodo'), {
+        position: 'top-center',
+        hideProgressBar: true,
+      });
+      setIsSending(false);
+    } else {
+      console.log('formDataformData', formData);
+      emailjs
+        .send('mentalrecovery_gmail', 'mentalrecovery_template', formData, {
+          publicKey: 'NUqIEfTSDVxUNJ026',
+        })
+        .then(
+          (result) => {
+            console.log(result.text);
+            setFormData({ name: '', email: '', message: '', rodo: false });
+            toast.success(tContact('send_success'), {
+              position: 'top-center',
+              hideProgressBar: true,
+            });
+            setIsSending(false);
+          },
+          (error) => {
+            console.log(error.text);
+            toast.error(tContact('send_error'), {
+              position: 'top-center',
+              hideProgressBar: true,
+            });
+            setIsSending(false);
+          },
+        );
+    }
+  }, [formData, tContact]);
 
   return (
     <ContactPageWrapper>
@@ -37,32 +93,45 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
             </Flex>
             <Flex as="form" $flexDirection="column" $gap="1.5rem">
               <Input
-                value={nameInput}
-                onChange={(value) => setNameInput(value)}
+                value={formData.name}
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, name: value }))
+                }
                 label={tContact('name_label')}
               />
               <Input
-                value={emailInput}
-                onChange={(value) => setEmailInput(value)}
+                value={formData.email}
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, email: value }))
+                }
                 label={tContact('email_label')}
               />
               <Input
                 as="textarea"
-                value={messageInput}
-                onChange={(value) => setMessageInput(value)}
+                value={formData.message}
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, message: value }))
+                }
                 label={tContact('message_label')}
               />
               <Checkbox
-                checked={rodoChecked}
-                onChange={(value: boolean) => setRodoChecked(value)}
+                checked={formData.rodo}
+                onChange={(value: boolean) =>
+                  setFormData((prev) => ({ ...prev, rodo: value }))
+                }
                 label={tContact('rodo_label')}
                 style={{ gap: '1rem', alignItems: 'flex-start' }}
                 buttonStyle={{ marginTop: '0.5rem' }}
               />
               <div>
-                <Button iconRight={false}>
+                <Button
+                  iconRight={false}
+                  type="button"
+                  onClick={() => onSend()}
+                  loading={isSending}
+                >
                   <Text noMargin fontWeight={500}>
-                    {tContact('cta_send')}
+                    {tCta('send_message')}
                   </Text>
                 </Button>
               </div>

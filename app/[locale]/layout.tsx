@@ -9,6 +9,7 @@ import GlobalStyles from '../utils/GlobalStyles';
 import metadata from '../utils/SEO';
 import Header from '../organisms/Header/Header';
 import Footer from '../organisms/Footer/Footer';
+import ToastProvider from '../utils/ToastProvider';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -45,12 +46,14 @@ export default function RootLayout({
       <head>{/* <meta property="fb:app_id" content="" /> */}</head>
       <body className={instrument_sans.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <StyledComponentsRegistry>
-            <GlobalStyles />
-            <Header />
-            {children}
-            <Footer />
-          </StyledComponentsRegistry>
+          <ToastProvider>
+            <StyledComponentsRegistry>
+              <GlobalStyles />
+              <Header />
+              {children}
+              <Footer />
+            </StyledComponentsRegistry>
+          </ToastProvider>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
         <script

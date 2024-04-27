@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   height: ${headerHeight}px;
   background-color: ${Colors.background_background_white};
-  box-shadow: 0px 0px 40px 0px #22253b0d;
+  box-shadow: 0px 3px 23px 0px #0000000a;
   z-index: 997;
 `;
 

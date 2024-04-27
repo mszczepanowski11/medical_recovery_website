@@ -40,7 +40,7 @@ const Contact: FC<ContactProps> = function ({}) {
               </Text>
               <Flex $flexDirection="column" $alignItems="flex-start">
                 <Text>{tContact('second_title')}</Text>
-                <Button>
+                <Button href="/contact">
                   <Text noMargin fontWeight={500} noWrap>
                     {tCta('send_message')}
                   </Text>
