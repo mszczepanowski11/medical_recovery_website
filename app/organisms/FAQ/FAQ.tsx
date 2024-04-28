@@ -11,27 +11,46 @@ import Text from '@/app/atoms/Text/Text';
 import FAQCard from '@/app/molecules/FAQCard/FAQCard';
 import { FAQWrapper } from './FAQ.styles';
 
-type FAQProps = { questions: any[] };
+type FAQProps = {
+  questions: {
+    question: { question_en: string; question_pl: string; question_de: string };
+    answer: { answer_en: string; answer_pl: string; answer_de: string };
+  }[];
+  locale: 'en' | 'pl' | 'de';
+};
 
-const FAQ: FC<FAQProps> = function ({ questions }) {
+const FAQ: FC<FAQProps> = function ({ questions, locale }) {
   const t = useTranslations('faq');
 
   const [activeCard, setActiveCard] = useState<string | null>(null);
 
   const renderQuestions = useMemo(
     () =>
-      questions?.map((q: { question: string; answer: string }) => (
-        <FAQCard
-          key={q.question}
-          question={q.question}
-          answer={q.answer}
-          active={activeCard === q.question}
-          onClick={() =>
-            setActiveCard((prev) => (prev === q.question ? null : q.question))
-          }
-        />
-      )),
-    [activeCard, questions],
+      questions?.map(
+        (q: {
+          question: {
+            question_en: string;
+            question_pl: string;
+            question_de: string;
+          };
+          answer: { answer_en: string; answer_pl: string; answer_de: string };
+        }) => (
+          <FAQCard
+            key={q.question[`question_${locale}`]}
+            question={q.question[`question_${locale}`]}
+            answer={q.answer[`answer_${locale}`]}
+            active={activeCard === q.question[`question_${locale}`]}
+            onClick={() =>
+              setActiveCard((prev) =>
+                prev === q.question[`question_${locale}`]
+                  ? null
+                  : q.question[`question_${locale}`],
+              )
+            }
+          />
+        ),
+      ),
+    [activeCard, questions, locale],
   );
 
   return (

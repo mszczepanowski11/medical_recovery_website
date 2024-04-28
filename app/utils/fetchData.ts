@@ -1,7 +1,9 @@
 import {
   graphcms,
+  queryBlogPostContent,
   queryBlogPostsHomePage,
   queryFAQHomePage,
+  queryNewestsBlogPosts,
   queryPsychologistHomePage,
   queryTestimonialsHomePage,
 } from './queries';
@@ -43,6 +45,26 @@ export const fetchFAQQuestionsHomePage = () => {
 export const fetchBlogPostsHomePage = () => {
   const response: Promise<{ blogPosts: any[] }> = graphcms.request(
     queryBlogPostsHomePage,
+  );
+
+  if (!response)
+    throw new Error('Something went wrong with fetching specialists');
+  return response;
+};
+
+export const fetchBlogPostContent = (slug: string) => {
+  const response: Promise<{ blogPost: any }> = graphcms.request(
+    queryBlogPostContent(slug),
+  );
+
+  if (!response)
+    throw new Error('Something went wrong with fetching specialists');
+  return response;
+};
+
+export const fetchNewestsBlogPosts = () => {
+  const response: Promise<{ blogPosts: any[] }> = graphcms.request(
+    queryNewestsBlogPosts,
   );
 
   if (!response)

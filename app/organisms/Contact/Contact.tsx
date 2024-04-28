@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -16,16 +16,29 @@ import {
   RightImageWrapper,
 } from './Contact.styles';
 
-type ContactProps = {};
+type ContactProps = {
+  noMiddleSection?: boolean;
+  rightImageStyle?: CSSProperties;
+  padding?: string;
+};
 
-const Contact: FC<ContactProps> = function ({}) {
+const Contact: FC<ContactProps> = function ({
+  noMiddleSection,
+  rightImageStyle,
+  padding,
+}) {
   const tContact = useTranslations('contact');
   const tCta = useTranslations('cta');
   const tMeta = useTranslations('meta');
 
   return (
     <ContactWrapper>
-      <GridContainer $bg="#FCF8F5" $gridCols={1} $gridColsSm={1}>
+      <GridContainer
+        $bg="#FCF8F5"
+        $gridCols={1}
+        $gridColsSm={1}
+        $padding={padding}
+      >
         <GridItem>
           <ContactInside>
             <Flex
@@ -38,15 +51,22 @@ const Contact: FC<ContactProps> = function ({}) {
               <Text variant="h2" noMargin>
                 {tContact('title')}
               </Text>
-              <Flex $flexDirection="column" $alignItems="flex-start">
-                <Text>{tContact('second_title')}</Text>
-                <Button href="/contact">
-                  <Text noMargin fontWeight={500} noWrap>
-                    {tCta('send_message')}
-                  </Text>
-                </Button>
-              </Flex>
-              <Flex $columnGap="3rem" $rowGap="1.5rem" $flexWrapMd="wrap">
+              {!noMiddleSection && (
+                <Flex $flexDirection="column" $alignItems="flex-start">
+                  <Text>{tContact('second_title')}</Text>
+                  <Button href="/contact">
+                    <Text noMargin fontWeight={500} noWrap>
+                      {tCta('send_message')}
+                    </Text>
+                  </Button>
+                </Flex>
+              )}
+              <Flex
+                $alignItems="center"
+                $columnGap="3rem"
+                $rowGap="1.5rem"
+                $flexWrapMd="wrap"
+              >
                 <Flex $flexDirection="column" $alignItems="flex-start">
                   <Flex
                     $columnGap="0.75rem"
@@ -91,9 +111,14 @@ const Contact: FC<ContactProps> = function ({}) {
                     </Text>
                   </a>
                 </Flex>
+                <Button href="/contact">
+                  <Text noMargin fontWeight={500} noWrap>
+                    {tCta('send_message')}
+                  </Text>
+                </Button>
               </Flex>
             </Flex>
-            <RightImageWrapper>
+            <RightImageWrapper style={rightImageStyle}>
               <Image
                 src="/img/contact-heart-hands.jpeg"
                 alt="contact with heart"

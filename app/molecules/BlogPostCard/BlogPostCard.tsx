@@ -15,8 +15,16 @@ import Tag from '@/app/atoms/Tag/Tag';
 import { BlogPostCardWrapper } from './BlogPostCard.styles';
 
 type BlogPostCardProps = {
-  title: string;
-  short_description: string;
+  title: {
+    title_en: string;
+    title_pl: string;
+    title_de: string;
+  };
+  short_description: {
+    short_description_en: string;
+    short_description_pl: string;
+    short_description_de: string;
+  };
   slug: string;
   date: string;
   reading_time?: number;
@@ -26,6 +34,8 @@ type BlogPostCardProps = {
   tags: { tags_en: string; tags_pl: string; tags_de: string };
   monthsTo: { [key: string]: string };
   locale: 'en' | 'pl' | 'de';
+  customGap?: string;
+  noDesc?: boolean;
 };
 
 const BlogPostCard: FC<BlogPostCardProps> = function ({
@@ -38,12 +48,25 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   tags,
   monthsTo,
   locale,
+  customGap,
+  noDesc,
 }) {
   const t = useTranslations('blog_posts_home_page');
 
   const href = useMemo(() => `/blog/${slug}`, [slug]);
+  const titleLocalized = useMemo(
+    () => (title ? title[`title_${locale}`] : null),
+    [title, locale],
+  );
+  const shortDescriptionLocalized = useMemo(
+    () =>
+      short_description
+        ? short_description[`short_description_${locale}`]
+        : null,
+    [short_description, locale],
+  );
 
-  const renderTags = useMemo(
+  const renderTagsLocalized = useMemo(
     () =>
       makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
         <Tag key={tag} tag={tag} />
@@ -67,7 +90,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   }, [reading_time, t]);
 
   return (
-    <BlogPostCardWrapper>
+    <BlogPostCardWrapper $customGap={customGap}>
       <Link href={href}>
         <Flex
           style={{
@@ -78,7 +101,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
         >
           <Image
             src={image?.url}
-            alt={title}
+            alt={titleLocalized || ''}
             fill
             style={{ borderRadius: '0.5rem' }}
           />
@@ -120,17 +143,23 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
           </Flex>
         )}
       </Flex>
-      <Flex $flexWrap="wrap" $gap="0.25rem">
-        {renderTags}
-      </Flex>
-      <Link href={href}>
-        <Text variant="h4" noMargin className="blog-post-link">
-          {title}
+      {!!renderTagsLocalized && renderTagsLocalized.length > 1 && (
+        <Flex $flexWrap="wrap" $gap="0.25rem">
+          {renderTagsLocalized}
+        </Flex>
+      )}
+      {!!titleLocalized && (
+        <Link href={href}>
+          <Text variant="h4" noMargin className="blog-post-link">
+            {titleLocalized}
+          </Text>
+        </Link>
+      )}
+      {!!shortDescriptionLocalized && !noDesc && (
+        <Text color="text_secondary" noMargin>
+          {shortDescriptionLocalized}
         </Text>
-      </Link>
-      <Text color="text_secondary" noMargin>
-        {short_description}
-      </Text>
+      )}
     </BlogPostCardWrapper>
   );
 };

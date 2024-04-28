@@ -5,11 +5,12 @@ import styled from 'styled-components';
 
 // Components
 
-export const BlogPostCardWrapper = styled.div`
+export const BlogPostCardWrapper = styled.div<{ $customGap?: string }>`
   display: flex;
   flex-direction: column;
-  min-width: 340px;
-  max-width: calc(33% - 6rem / 3);
+  min-width: 320px;
+  max-width: ${({ $customGap }) =>
+    $customGap ? `calc(50% - ${$customGap} / 2)` : `calc(33% - 6rem / 3)`};
   gap: 1rem;
   padding: 1.5rem;
   border: 1px solid ${Colors.border};

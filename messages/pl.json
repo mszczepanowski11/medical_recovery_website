@@ -146,7 +146,9 @@
   "blog_page": {
     "title": "Blog",
     "no_articles": "Nie ma wyników dla Twoich filtrów",
-    "clear_filters": "Wyczyść filtry"
+    "clear_filters": "Wyczyść filtry",
+    "newest_posts_title": "Najnowsze wpisy",
+    "table_of_contents_title": "Spis treści:"
   },
   "contact_page": {
     "title": "Odezwij się do nas 🤗",

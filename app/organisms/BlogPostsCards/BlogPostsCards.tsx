@@ -16,8 +16,16 @@ import { BlogPostsCardsWrapper } from './BlogPostsCards.styles';
 
 type BlogPostsCardsProps = {
   blogPosts: {
-    title: string;
-    short_description: string;
+    title: {
+      title_en: string;
+      title_pl: string;
+      title_de: string;
+    };
+    short_description: {
+      short_description_en: string;
+      short_description_pl: string;
+      short_description_de: string;
+    };
     slug: string;
     date: string;
     reading_time?: number;
@@ -28,12 +36,26 @@ type BlogPostsCardsProps = {
   }[];
   monthsTo: { [key: string]: string };
   locale: 'en' | 'pl' | 'de';
+  customTitle?: string;
+  hideMoreBtn?: boolean;
+  maxWidth?: string;
+  customGap?: string;
+  noDesc?: boolean;
+  paddingTopSection?: string;
+  paddingBottomSection?: string;
 };
 
 const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
   blogPosts,
   monthsTo,
   locale,
+  customTitle,
+  hideMoreBtn,
+  maxWidth,
+  customGap,
+  noDesc,
+  paddingTopSection,
+  paddingBottomSection,
 }) {
   const tBlogPosts = useTranslations('blog_posts_home_page');
 
@@ -45,30 +67,47 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
           {...blogPost}
           monthsTo={monthsTo}
           locale={locale}
+          customGap={customGap}
+          noDesc={noDesc}
         />
       )),
-    [blogPosts, monthsTo, locale],
+    [blogPosts, monthsTo, locale, customGap, noDesc],
   );
 
   return (
     <BlogPostsCardsWrapper>
-      <GridContainer $gridCols={1} $gridColsSm={1} $padding="8rem 1rem 0 1rem">
+      <GridContainer
+        $gridCols={1}
+        $gridColsSm={1}
+        $padding={paddingTopSection || '8rem 1rem 0 1rem'}
+        $maxWidth={maxWidth}
+      >
         <GridItem>
           <Flex $justifyContent="space-between" $alignItems="center">
             <Text variant="h2" noMargin>
-              {tBlogPosts('title')}
+              {customTitle || tBlogPosts('title')}
             </Text>
-            <Button href="blog" color="transparent">
-              <Text noMargin fontWeight={500}>
-                {tBlogPosts('show_more_btn')}
-              </Text>
-            </Button>
+            {!hideMoreBtn && (
+              <Button href="blog" color="transparent">
+                <Text noMargin fontWeight={500}>
+                  {tBlogPosts('show_more_btn')}
+                </Text>
+              </Button>
+            )}
           </Flex>
         </GridItem>
       </GridContainer>
-      <GridContainer $gridCols={1} $padding="1.5rem 1rem 8rem 1rem">
+      <GridContainer
+        $gridCols={1}
+        $padding={paddingBottomSection || '1.5rem 1rem 8rem 1rem'}
+        $maxWidth={maxWidth}
+      >
         <GridItem>
-          <Flex $gap="3rem" $flexWrap="wrap" $justifyContent="space-between">
+          <Flex
+            $gap={customGap || '3rem'}
+            $flexWrap="wrap"
+            $justifyContent="space-between"
+          >
             {renderBlogPostsCards}
           </Flex>
         </GridItem>

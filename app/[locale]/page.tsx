@@ -58,7 +58,7 @@ export default async function Home({
         monthsTo={messagesItem?.utils?.months_to}
         locale={params.locale}
       />
-      <FAQ questions={faqQuestionsList?.faqs} />
+      <FAQ questions={faqQuestionsList?.faqs} locale={params.locale} />
       <Contact />
     </main>
   );

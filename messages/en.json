@@ -47,7 +47,8 @@
   "cta": {
     "arrange_meeting": "Umów konsultację",
     "check_terms": "Sprawdź wolne terminy",
-    "send_message": "Wyślij wiadomość"
+    "send_message": "Wyślij wiadomość",
+    "sending": "Wysyłanie"
   },
   "header": {
     "about_us": "O nas",
@@ -143,6 +144,21 @@
     "title": "Specialiści"
   },
   "blog_page": {
-    "title": "Blog"
+    "title": "Blog",
+    "no_articles": "Nie ma wyników dla Twoich filtrów",
+    "clear_filters": "Wyczyść filtry",
+    "newest_posts_title": "Najnowsze wpisy"
+  },
+  "contact_page": {
+    "title": "Odezwij się do nas 🤗",
+    "description": "Jesteśmy tutaj by pomóc. Zadaj nam pytanie, a my odpowiemy w przeciągu 24h.",
+    "name_label": "Imię",
+    "email_label": "Adres e-mail",
+    "message_label": "Twoja wiadomość",
+    "rodo_label": "Wyrażam zgodę na przetwarzanie moich danych osobowych, podanych w powyższym formularzu w celu udzielenia odpowiedzi na wysłaną przeze mnie wiadomość oraz dalszą komunikację (w tym komunikację marketingową).",
+    "send_success": "Wiadomość została wysłana!",
+    "send_error": "Wystąpił błąd, spróbuj ponownie później.",
+    "send_empty_fields": "Wypełnij wszystkie pola formularza",
+    "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych"
   }
 }

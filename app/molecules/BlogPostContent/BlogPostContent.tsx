@@ -1,0 +1,207 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
+'use client';
+
+import React, { FC, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
+import { astToHtmlString } from '@graphcms/rich-text-html-renderer';
+
+// Utils
+import { Colors } from '@/app/utils/constans';
+
+// Components
+import Text from '@/app/atoms/Text/Text';
+import { Flex } from '@/app/utils/GlobalStyles';
+import Image from 'next/image';
+import { YMDToDMStringY, makeTagsArrayFromString } from '@/app/utils/utils';
+import { Instrument_Sans } from 'next/font/google';
+import Tag from '@/app/atoms/Tag/Tag';
+import {
+  BlogPostContentWrapper,
+  ContentWrapper,
+} from './BlogPostContent.styles';
+
+const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
+
+type BlogPostContentProps = {
+  blogPostContent: {
+    title: {
+      title_en: string;
+      title_pl: string;
+      title_de: string;
+    };
+    short_description: {
+      short_description_en: string;
+      short_description_pl: string;
+      short_description_de: string;
+    };
+    slug: string;
+    date: string;
+    reading_time?: number;
+    image: {
+      url: string;
+    };
+    tags: { tags_en: string; tags_pl: string; tags_de: string };
+    content: {
+      content_en: {
+        raw: any;
+      };
+      content_pl: {
+        raw: any;
+      };
+      content_de: {
+        raw: any;
+      };
+    };
+    author: string;
+  };
+  monthsTo: { [key: string]: string };
+  locale: 'en' | 'pl' | 'de';
+};
+
+const BlogPostContent: FC<BlogPostContentProps> = function ({
+  blogPostContent,
+  monthsTo,
+  locale,
+}) {
+  const tBlogPosts = useTranslations('blog_posts_home_page');
+  console.log('blogPostContent', blogPostContent);
+  const { title, slug, date, reading_time, image, tags, author, content } =
+    blogPostContent || {};
+
+  const titleLocalized = useMemo(
+    () => (title ? title[`title_${locale}`] : null),
+    [title, locale],
+  );
+
+  const contentLocalized = useMemo(
+    () => (content ? content[`content_${locale}`] : null),
+    [content, locale],
+  );
+
+  const renderTagsLocalized = useMemo(
+    () =>
+      makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
+        <Tag key={tag} tag={tag} />
+      )),
+    [tags, locale],
+  );
+
+  const renderReadingTime = useMemo(() => {
+    switch (reading_time) {
+      case 1:
+        return tBlogPosts('reading_time_1');
+      case 2:
+        return tBlogPosts('reading_time_2');
+      case 3:
+        return tBlogPosts('reading_time_2');
+      case 4:
+        return tBlogPosts('reading_time_2');
+      default:
+        return tBlogPosts('reading_time_5');
+    }
+  }, [reading_time, tBlogPosts]);
+
+  const jsonContent = useMemo(
+    () =>
+      astToHtmlString({
+        content: contentLocalized?.raw,
+        renderers: {
+          h2: (props) => {
+            const { children } = props || {};
+            const childrenTrim = children
+              ?.replace('<b>', '')
+              .replace('</b>', '');
+
+            return `<h2 id="${childrenTrim}">${childrenTrim}</h2>`;
+          },
+        },
+      }),
+    [contentLocalized],
+  );
+
+  return (
+    <BlogPostContentWrapper $flexDirection="column" $rowGap="1.2rem">
+      <Text variant="h1" fontSize="2.625rem" noMargin>
+        {titleLocalized}
+      </Text>
+      <Flex
+        $columnGap="0.5rem"
+        $rowGap="0.5rem"
+        $alignItems="center"
+        $flexWrap="wrap"
+      >
+        <Flex $columnGap="0.5rem" $alignItems="center">
+          <Image
+            src="/img/author-icon.svg"
+            alt="calendar"
+            width={18}
+            height={18}
+            style={{ marginBottom: '0.075rem' }}
+          />
+          <Text noMargin psmall color="text_secondary" fontWeight={500}>
+            {author}
+          </Text>
+        </Flex>
+        <Text noMargin psmall color="text_secondary" fontWeight={500}>
+          •
+        </Text>
+        <Flex $columnGap="0.5rem" $alignItems="center">
+          <Image
+            src="/img/calendar-icon.svg"
+            alt="calendar"
+            width={18}
+            height={18}
+            style={{ marginBottom: '0.075rem' }}
+          />
+          <Text noMargin psmall color="text_secondary" fontWeight={500}>
+            {YMDToDMStringY(date, monthsTo)}
+          </Text>
+        </Flex>
+        <Text noMargin psmall color="text_secondary" fontWeight={500}>
+          •
+        </Text>
+        {(!!reading_time || reading_time === 0) && (
+          <Flex $columnGap="0.5rem" $alignItems="center">
+            <Image
+              src="/img/clock-icon.svg"
+              alt="calendar"
+              width={18}
+              height={18}
+              style={{ marginBottom: '0.05rem' }}
+            />
+            <Text noMargin psmall color="text_secondary" fontWeight={500}>
+              {reading_time} {renderReadingTime}
+            </Text>
+          </Flex>
+        )}
+      </Flex>
+      {!!renderTagsLocalized && renderTagsLocalized.length > 1 && (
+        <Flex $flexWrap="wrap" $gap="0.25rem">
+          {renderTagsLocalized}
+        </Flex>
+      )}
+      {!!image?.url && (
+        <Flex
+          $margin="1.3rem 0"
+          style={{
+            position: 'relative',
+            aspectRatio: 5 / 2,
+            borderRadius: '2rem',
+            overflow: 'hidden',
+          }}
+        >
+          <Image src={image?.url || ''} alt={titleLocalized || ''} fill />
+        </Flex>
+      )}
+      <ContentWrapper
+        className={instrument_sans.className}
+        dangerouslySetInnerHTML={{
+          __html: jsonContent,
+        }}
+      />
+    </BlogPostContentWrapper>
+  );
+};
+
+export default React.memo(BlogPostContent);
