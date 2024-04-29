@@ -11,7 +11,12 @@ import { Colors, appointletCalendarUrl } from '@/app/utils/constans';
 import { useTranslations } from 'next-intl';
 import Text from '@/app/atoms/Text/Text';
 import Button from '@/app/atoms/Button/Button';
-import { FooterWrapper, NavButton } from './Footer.styles';
+import {
+  FooterWrapper,
+  LinksLogoWrapper,
+  LinksWrapper,
+  NavButton,
+} from './Footer.styles';
 import { Flex, GridContainer, GridItem } from '../../utils/GlobalStyles';
 
 type FooterProps = {};
@@ -27,16 +32,12 @@ const Footer: FC<FooterProps> = function ({}) {
         $bg={Colors.background_tags}
         $gap="0"
         $padding="4rem 1rem 0 1rem"
+        $paddingSm="3rem 1rem 0 1rem"
+        $gridColsSm={1}
       >
         <GridItem $rowStart={1} $rowEnd={2} $colStart={1} $colEnd={5}>
-          <Flex
-            $alignItems="center"
-            style={{
-              borderBottom: `1px solid ${Colors.border}`,
-            }}
-            $paddingBottom="2rem"
-          >
-            <Link href="/" style={{ marginRight: 80 }}>
+          <LinksLogoWrapper>
+            <Link href="/" className="footer-logo-link">
               <Flex
                 style={{
                   position: 'relative',
@@ -47,47 +48,43 @@ const Footer: FC<FooterProps> = function ({}) {
                 <Image src="/img/logo.svg" alt="Mental Recovery" fill />
               </Flex>
             </Link>
-            <Flex
-              $justifyContent="center"
-              $alignItems="center"
-              $gap="2.5rem"
-              $padding="0 2rem"
-              style={{ height: '100%', flexGrow: 1 }}
-            >
+            <LinksWrapper>
               <NavButton href="/about-us">
-                <Text noMargin fontWeight={500}>
+                <Text noMargin fontWeight={500} noWrap>
                   {tHeader('about_us')}
                 </Text>
               </NavButton>
               <NavButton href="/offer">
-                <Text noMargin fontWeight={500}>
+                <Text noMargin fontWeight={500} noWrap>
                   {tHeader('offer')}
                 </Text>
               </NavButton>
               <NavButton href="/specialists">
-                <Text noMargin fontWeight={500}>
+                <Text noMargin fontWeight={500} noWrap>
                   {tHeader('specialists')}
                 </Text>
               </NavButton>
               <NavButton href="/blog">
-                <Text noMargin fontWeight={500}>
+                <Text noMargin fontWeight={500} noWrap>
                   {tHeader('blog')}
                 </Text>
               </NavButton>
               <NavButton href="/contact">
-                <Text noMargin fontWeight={500}>
+                <Text noMargin fontWeight={500} noWrap>
                   {tHeader('contact')}
                 </Text>
               </NavButton>
-            </Flex>
-            <Button href={appointletCalendarUrl} target="_blank">
-              <Text noMargin fontWeight={500}>
-                {tCta('arrange_meeting')}
-              </Text>
-            </Button>
-          </Flex>
+            </LinksWrapper>
+          </LinksLogoWrapper>
         </GridItem>
-        <GridItem $rowStart={2} $rowEnd={3} $colStart={1} $colEnd={5}>
+        <GridItem
+          $rowStart={2}
+          $rowEnd={3}
+          $colStart={1}
+          $colEnd={5}
+          $rowStartSm={2}
+          $rowEndSm={3}
+        >
           <Flex $justifyContent="center" $alignItems="center" $padding="2rem">
             <Text noMargin psmall color="text_secondary">
               {tFooter('copyright')}

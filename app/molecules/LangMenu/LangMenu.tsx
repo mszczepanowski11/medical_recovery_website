@@ -17,9 +17,9 @@ import Text from '@/app/atoms/Text/Text';
 
 import { LangMenuWrapper, SelectedLangBtn } from './LangMenu.styles';
 
-type LangMenuProps = {};
+type LangMenuProps = { className?: string };
 
-const LangMenu: FC<LangMenuProps> = function ({}) {
+const LangMenu: FC<LangMenuProps> = function ({ className }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -106,7 +106,7 @@ const LangMenu: FC<LangMenuProps> = function ({}) {
   }, []);
 
   return (
-    <LangMenuWrapper className="lang-item">
+    <LangMenuWrapper className={`lang-item ${className || ''}`}>
       <SelectedLangBtn
         onClick={() => onMenuOpenClick(true)}
         className="lang-item"

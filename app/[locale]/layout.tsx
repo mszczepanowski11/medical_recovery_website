@@ -46,14 +46,12 @@ export default function RootLayout({
       <head>{/* <meta property="fb:app_id" content="" /> */}</head>
       <body className={instrument_sans.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ToastProvider>
-            <StyledComponentsRegistry>
-              <GlobalStyles />
-              <Header />
-              {children}
-              <Footer />
-            </StyledComponentsRegistry>
-          </ToastProvider>
+          <StyledComponentsRegistry>
+            <GlobalStyles />
+            <Header />
+            <ToastProvider>{children}</ToastProvider>
+            <Footer />
+          </StyledComponentsRegistry>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
         <script

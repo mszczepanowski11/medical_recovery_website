@@ -31,7 +31,6 @@ export default async function Home({
 }: {
   params: { locale: 'en' | 'pl' | 'de'; blogSlug: string };
 }) {
-  console.log('params', params);
   const locale = useLocale();
   const messagesItem = await import(`../../../../messages/${locale}`);
   const blogPostContent = await fetchBlogPostContent(params.blogSlug);

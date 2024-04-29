@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 // Utils
 
@@ -13,6 +13,7 @@ type IconProps = {
   icon: IconDefinition;
   color?: keyof typeof Colors;
   size?: number;
+  iconSize?: SizeProp;
   style?: CSSProperties;
   className?: string;
   iconStyle?: CSSProperties;
@@ -22,6 +23,7 @@ const Icon: FC<IconProps> = function ({
   icon,
   color,
   size,
+  iconSize,
   style,
   className,
   iconStyle,
@@ -33,6 +35,7 @@ const Icon: FC<IconProps> = function ({
         color={color ? Colors[color] : undefined}
         height={size ? `${size}rem` : '1rem'}
         width={size ? `${size}rem` : '1rem'}
+        size={iconSize}
         style={iconStyle}
       />
     </IconWrapper>

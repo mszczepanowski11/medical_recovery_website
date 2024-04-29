@@ -1,11 +1,6 @@
 import { useLocale } from 'next-intl';
 import OurSpecialist from '@/app/organisms/OurSpecialist/OurSpecialist';
-import {
-  fetchBlogPostsHomePage,
-  fetchFAQQuestionsHomePage,
-  fetchSpecialistsDataHomePage,
-  fetchTestimonialsDataHomePage,
-} from '../../utils/fetchData';
+import { fetchSpecialistsDataHomePage } from '../../utils/fetchData';
 
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
@@ -37,9 +32,6 @@ export default async function Home({
   const messagesItem = await import(`../../../messages/${locale}`);
 
   const specialistsList = await fetchSpecialistsDataHomePage();
-  const testimonialsList = await fetchTestimonialsDataHomePage();
-  const faqQuestionsList = await fetchFAQQuestionsHomePage();
-  const blogPostsList = await fetchBlogPostsHomePage();
 
   return (
     <main>

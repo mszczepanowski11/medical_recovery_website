@@ -16,10 +16,11 @@ const ButtonWrapElement: FC<{
   children: any;
   href?: string;
   target?: '_blank';
-}> = ({ children, href, target }) => {
+  className?: string;
+}> = ({ children, href, target, className }) => {
   if (href)
     return (
-      <Link href={href} target={target}>
+      <Link href={href} target={target} className={className}>
         {children}
       </Link>
     );
@@ -39,6 +40,7 @@ type ButtonProps = {
   style?: CSSProperties;
   type?: 'button' | 'submit' | 'reset';
   loading?: boolean;
+  classNameWrapper?: string;
 };
 
 const Button: FC<ButtonProps> = function ({
@@ -54,6 +56,7 @@ const Button: FC<ButtonProps> = function ({
   style,
   type,
   loading,
+  classNameWrapper,
 }) {
   const tCta = useTranslations('cta');
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
@@ -101,7 +104,11 @@ const Button: FC<ButtonProps> = function ({
   }, [loading]);
 
   return (
-    <ButtonWrapElement href={href} target={target}>
+    <ButtonWrapElement
+      href={href}
+      target={target}
+      className={`${classNameWrapper || ''}`}
+    >
       <ButtonWrapper
         style={style}
         onClick={onClick}

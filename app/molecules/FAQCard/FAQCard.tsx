@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 // Utils
 
@@ -26,6 +26,7 @@ const FAQCard: FC<FAQCardProps> = function ({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [isOpen, setIsOpen] = useState(false);
   const openMotionValue = useMotionValue(0);
   const openTransValue = useTransform(
     openMotionValue,
@@ -42,8 +43,13 @@ const FAQCard: FC<FAQCardProps> = function ({
   });
 
   useEffect(() => {
-    if (active) openMotionValue.set(1);
-    else openMotionValue.set(0);
+    if (active) {
+      openMotionValue.set(1);
+      setIsOpen(true);
+    } else {
+      openMotionValue.set(0);
+      setIsOpen(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
@@ -68,7 +74,7 @@ const FAQCard: FC<FAQCardProps> = function ({
         </Flex>
         <ShowMoreBtn>
           <Text noMargin fontWeight={500} fontSize="1.6rem">
-            +
+            {isOpen ? '-' : '+'}
           </Text>
         </ShowMoreBtn>
       </Flex>

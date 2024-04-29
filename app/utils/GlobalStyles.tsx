@@ -8,6 +8,7 @@ import {
   COLORS,
   scrollbarWidth,
   headerHeight,
+  headerHeightSm,
 } from './constans';
 
 const GlobalStyles = createGlobalStyle`
@@ -57,10 +58,21 @@ const GlobalStyles = createGlobalStyle`
       border-radius: 20px; 
       border: 3px solid ${Colors.primitives_grey};
     }
+
+    @media (max-width: ${breakpoint.sm}px) {
+        &.header-open {
+        overflow: hidden;
+      }
+    }
   }
 
   main {
+    flex-grow: 1;
     padding-top: ${headerHeight}px;
+
+    @media (max-width: ${breakpoint.sm}px) {
+      padding-top: ${headerHeightSm}px;
+    }
   }
 
   html {
@@ -209,7 +221,9 @@ export const GridContainer = styled.section<GridContainerProps>`
 
   @media (max-width: ${breakpoint.sm}px) {
     grid-template-columns: ${({ $gridColsSm }) =>
-      $gridColsSm ? `${$gridColsSm}fr` : 'repeat(2, minmax(0, 1fr))'};
+      $gridColsSm
+        ? `repeat(${$gridColsSm}, minmax(0, 1fr))`
+        : 'repeat(2, minmax(0, 1fr))'};
     grid-template-rows: ${({ $gridRowsSm }) =>
       $gridRowsSm ? `${$gridRowsSm}fr` : '2fr'};
     row-gap: ${({ $gap, $rowGapSm, $rowGapMb }) =>

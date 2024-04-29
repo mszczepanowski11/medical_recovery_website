@@ -11,7 +11,7 @@ export const breakpoint = {
 export const maxContainerWidth = 1290;
 
 export const headerHeight = 75;
-export const headerHeightSm = 65;
+export const headerHeightSm = 60;
 
 export const mainAnimationDuration = 2000;
 

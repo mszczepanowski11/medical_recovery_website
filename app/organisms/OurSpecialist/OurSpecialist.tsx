@@ -82,6 +82,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
     <OurSpecialistWrapper>
       <GridContainer
         $padding={`8rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
+        $paddingSm={`4rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
         <GridItem $colStart={1} $colEnd={filterLangs ? 2 : 5}>
@@ -99,7 +100,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
           </Flex>
         </GridItem>
         {!!filterLangs && (
-          <GridItem>
+          <GridItem $rowStartSm={2} $rowEndSm={3}>
             <SpecialistsLangFilter
               langs={filterLangs}
               selectedLangs={selectedLangs}
