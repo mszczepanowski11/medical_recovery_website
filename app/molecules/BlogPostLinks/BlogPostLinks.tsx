@@ -4,7 +4,7 @@ import React, { FC, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import { Colors } from '@/app/utils/constans';
+import { Colors, headerHeight } from '@/app/utils/constans';
 import useScrollTo from '@/app/utils/useScrollTo';
 
 // Components
@@ -43,7 +43,9 @@ const BlogPostLinks: FC<BlogPostLinksProps> = function ({ content, locale }) {
         .map((item: { children: any[] }, index: number) => (
           <LinkItem
             key={item.children[0].text}
-            onClick={() => scrollTo(item.children[0].text)}
+            onClick={() =>
+              scrollTo(item.children[0].text, { offset: -headerHeight - 20 })
+            }
           >
             <Text variant="h4" fontSize="1rem" noMargin textAlign="left">
               {`${index + 1}. `}

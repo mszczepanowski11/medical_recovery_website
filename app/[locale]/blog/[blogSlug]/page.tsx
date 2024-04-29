@@ -29,12 +29,13 @@ import { useLocale } from 'next-intl';
 export default async function Home({
   params,
 }: {
-  params: { locale: 'en' | 'pl' | 'de' };
+  params: { locale: 'en' | 'pl' | 'de'; blogSlug: string };
 }) {
+  console.log('params', params);
   const locale = useLocale();
   const messagesItem = await import(`../../../../messages/${locale}`);
-  const blogPostContent = await fetchBlogPostContent('test');
-  const newestBlogPostsList = await fetchNewestsBlogPosts();
+  const blogPostContent = await fetchBlogPostContent(params.blogSlug);
+  const newestBlogPostsList = await fetchNewestsBlogPosts(params.blogSlug);
 
   return (
     <main>

@@ -62,9 +62,9 @@ export const fetchBlogPostContent = (slug: string) => {
   return response;
 };
 
-export const fetchNewestsBlogPosts = () => {
+export const fetchNewestsBlogPosts = (slug: string) => {
   const response: Promise<{ blogPosts: any[] }> = graphcms.request(
-    queryNewestsBlogPosts,
+    queryNewestsBlogPosts(slug),
   );
 
   if (!response)

@@ -91,7 +91,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
 
   return (
     <BlogPostCardWrapper $customGap={customGap}>
-      <Link href={href}>
+      <Link href={href} prefetch>
         <Flex
           style={{
             position: 'relative',
@@ -149,7 +149,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
         </Flex>
       )}
       {!!titleLocalized && (
-        <Link href={href}>
+        <Link href={href} prefetch>
           <Text variant="h4" noMargin className="blog-post-link">
             {titleLocalized}
           </Text>

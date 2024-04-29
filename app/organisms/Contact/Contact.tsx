@@ -111,11 +111,13 @@ const Contact: FC<ContactProps> = function ({
                     </Text>
                   </a>
                 </Flex>
-                <Button href="/contact">
-                  <Text noMargin fontWeight={500} noWrap>
-                    {tCta('send_message')}
-                  </Text>
-                </Button>
+                {noMiddleSection && (
+                  <Button href="/contact">
+                    <Text noMargin fontWeight={500} noWrap>
+                      {tCta('send_message')}
+                    </Text>
+                  </Button>
+                )}
               </Flex>
             </Flex>
             <RightImageWrapper style={rightImageStyle}>

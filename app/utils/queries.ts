@@ -142,9 +142,9 @@ export const queryBlogPostContent = (slug: string) => gql`
   }
 `;
 
-export const queryNewestsBlogPosts = gql`
+export const queryNewestsBlogPosts = (slug: string) => gql`
   {
-    blogPosts(orderBy: date_ASC, first: 2) {
+    blogPosts(orderBy: date_ASC, first: 2, where: { slug_not: "${slug}" }) {
       slug
       title {
         title_en
