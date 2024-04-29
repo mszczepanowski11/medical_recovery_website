@@ -1,11 +1,14 @@
-import { Colors } from '@/app/utils/constans';
+import { Colors, breakpoint } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
 
 // Components
 
-export const BlogPostCardWrapper = styled.div<{ $customGap?: string }>`
+export const BlogPostCardWrapper = styled.div<{
+  $customGap?: string;
+  $styleMd?: any;
+}>`
   display: flex;
   flex-direction: column;
   min-width: 320px;
@@ -26,5 +29,9 @@ export const BlogPostCardWrapper = styled.div<{ $customGap?: string }>`
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  @media (max-width: ${breakpoint.md}px) {
+    ${({ $styleMd }) => ({ ...($styleMd || {}) })};
   }
 `;

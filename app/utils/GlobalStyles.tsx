@@ -142,6 +142,7 @@ type GridContainerProps = {
   $gridColsMb?: number;
   $gridColsSm?: number;
   $gap?: string;
+  $gapMb?: string;
   $rowGapMb?: string;
   $rowGapSm?: string;
   $height?: string;

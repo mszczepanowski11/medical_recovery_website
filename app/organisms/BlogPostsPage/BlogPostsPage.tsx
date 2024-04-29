@@ -22,8 +22,16 @@ import {
 } from './BlogPostsPage.styles';
 
 type BlogPost = {
-  title: string;
-  short_description: string;
+  title: {
+    title_en: string;
+    title_pl: string;
+    title_de: string;
+  };
+  short_description: {
+    short_description_en: string;
+    short_description_pl: string;
+    short_description_de: string;
+  };
   slug: string;
   date: string;
   reading_time?: number;
@@ -60,8 +68,10 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
     (blogPost: BlogPost) => {
       if (
         filters.search.length > 0 &&
-        !blogPost.title.toLowerCase().includes(filters.search.toLowerCase()) &&
-        !blogPost.short_description
+        !blogPost.title[`title_${locale}`]
+          .toLowerCase()
+          .includes(filters.search.toLowerCase()) &&
+        !blogPost.short_description[`short_description_${locale}`]
           .toLowerCase()
           .includes(filters.search.toLowerCase())
       ) {
@@ -109,6 +119,11 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
             {...blogPost}
             monthsTo={monthsTo}
             locale={locale}
+            styleMd={{
+              minWidth: '300px !important',
+              flexGrow: 1,
+              maxWidth: 'none !important',
+            }}
           />
         )),
     [blogPosts, filterFunc, locale, monthsTo, sortFunc],
@@ -141,18 +156,27 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
         </GridItem>
       </GridContainer>
       <GridContainer
+        $gridColsSm={1}
         $maxWidth="1100px"
         $gap="2rem"
+        $paddingSm="2rem 1rem 4rem 1rem"
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
-        <GridItem $colStart={1} $colEnd={2}>
+        <GridItem $colStart={1} $colEnd={2} $rowStartSm={1} $rowEndSm={2}>
           <BlogPostPageFilters
             checkboxFilters={blogPostsTags}
             filters={filters}
             setFilters={setFilters}
           />
         </GridItem>
-        <GridItem $colStart={2} $colEnd={5}>
+        <GridItem
+          $colStart={2}
+          $colEnd={5}
+          $colStartSm={1}
+          $colEndSm={2}
+          $rowStartSm={2}
+          $rowEndSm={3}
+        >
           <BlogPostCardsWrapper $gap="1.5rem" $flexWrap="wrap">
             {renderBlogPostsCards.length < 1 ? (
               <Flex

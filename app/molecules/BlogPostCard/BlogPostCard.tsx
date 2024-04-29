@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useMemo } from 'react';
+import React, { CSSProperties, FC, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -36,6 +36,8 @@ type BlogPostCardProps = {
   locale: 'en' | 'pl' | 'de';
   customGap?: string;
   noDesc?: boolean;
+  style?: CSSProperties;
+  styleMd?: CSSProperties;
 };
 
 const BlogPostCard: FC<BlogPostCardProps> = function ({
@@ -50,6 +52,8 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   locale,
   customGap,
   noDesc,
+  style,
+  styleMd,
 }) {
   const t = useTranslations('blog_posts_home_page');
 
@@ -90,7 +94,11 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   }, [reading_time, t]);
 
   return (
-    <BlogPostCardWrapper $customGap={customGap}>
+    <BlogPostCardWrapper
+      $customGap={customGap}
+      style={style}
+      $styleMd={styleMd}
+    >
       <Link href={href} prefetch>
         <Flex
           style={{
@@ -98,12 +106,13 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
             width: '100%',
             aspectRatio: 1.8,
           }}
+          $styleMd={{ maxHeight: '200px' }}
         >
           <Image
             src={image?.url}
             alt={titleLocalized || ''}
             fill
-            style={{ borderRadius: '0.5rem' }}
+            style={{ borderRadius: '0.5rem', objectFit: 'cover' }}
           />
         </Flex>
       </Link>
