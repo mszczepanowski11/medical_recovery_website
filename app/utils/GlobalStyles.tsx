@@ -302,6 +302,8 @@ export type FlexType = {
   $paddingRight?: string;
   $paddingBottom?: string;
   $paddingLeft?: string;
+  $styleMd?: any;
+  $styleSm?: any;
 };
 
 export const Flex = styled.div<FlexType>`
@@ -328,6 +330,7 @@ export const Flex = styled.div<FlexType>`
       $flexDirectionMd || $flexDirection};
     flex-wrap: ${({ $flexWrap, $flexWrapMd }) => $flexWrapMd || $flexWrap};
     padding: ${({ $padding, $paddingMd }) => $paddingMd || $padding};
+    ${({ $styleMd }) => ({ ...($styleMd || {}) })};
   }
 
   @media (max-width: ${breakpoint.sm}px) {
@@ -340,6 +343,7 @@ export const Flex = styled.div<FlexType>`
       $flexWrapSm || $flexWrapMd || $flexWrap};
     padding: ${({ $padding, $paddingMd, $paddingSm }) =>
       $paddingSm || $paddingMd || $padding};
+    ${({ $styleSm }) => ({ ...($styleSm || {}) })};
   }
 `;
 

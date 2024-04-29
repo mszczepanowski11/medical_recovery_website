@@ -82,15 +82,41 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
 
   return (
     <ContactPageWrapper>
-      <GridContainer $gridCols={7} $padding="6rem 1rem">
-        <GridItem $colStart={1} $colEnd={5}>
-          <Flex $flexDirection="column">
-            <Flex $flexDirection="column" $gap="0.75rem" $marginBottom="2rem">
-              <Text variant="h1" fontSize="2.625rem" noMargin>
-                {tContact('title')}
-              </Text>
-              <Text noMargin>{tContact('description')}</Text>
-            </Flex>
+      <GridContainer
+        $gridCols={7}
+        $gridColsSm={1}
+        $padding="6rem 1rem"
+        $paddingSm="4rem 1rem"
+      >
+        <GridItem $colStart={1} $colEnd={8} $colEndSm={2}>
+          <Flex
+            $flexDirection="column"
+            $gap="0.75rem"
+            $marginBottom="2rem"
+            $styleMd={{ maxWidth: '700px', margin: 'auto' }}
+          >
+            <Text variant="h1" fontSize="2.625rem" noMargin>
+              {tContact('title')}
+            </Text>
+            <Text noMargin>{tContact('description')}</Text>
+          </Flex>
+        </GridItem>
+
+        <GridItem
+          $colStart={1}
+          $colEnd={5}
+          $colStartMb={1}
+          $colEndMb={8}
+          $rowStartMb={3}
+          $rowEndMb={4}
+          $rowStartSm={3}
+          $rowEndSm={4}
+          $colEndSm={2}
+        >
+          <Flex
+            $flexDirection="column"
+            $styleMd={{ maxWidth: '700px', margin: 'auto' }}
+          >
             <Flex as="form" $flexDirection="column" $gap="1.5rem">
               <Input
                 value={formData.name}
@@ -138,10 +164,20 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
             </Flex>
           </Flex>
         </GridItem>
+
         <GridItem
           $colStart={5}
           $colEnd={8}
+          $colStartMb={1}
+          $colEndMb={8}
+          $rowStartSm={2}
+          $rowEndSm={3}
+          $colEndSm={2}
           style={{ display: 'flex', alignItems: 'flex-end' }}
+          $styleMd={{
+            justifyContent: 'center !important',
+            width: '100%',
+          }}
         >
           <Flex
             style={{
@@ -150,6 +186,7 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
               aspectRatio: 1,
               marginLeft: '1.5rem',
             }}
+            $styleMd={{ maxWidth: '340px', marginLeft: '0 !important' }}
           >
             <Image src="/img/contact-page-image.svg" alt="contact" fill />
           </Flex>
