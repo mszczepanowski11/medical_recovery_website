@@ -14,6 +14,19 @@ export const SpecialistCardWrapper = styled(Flex)`
   background-color: ${Colors.primitives_white};
   box-shadow: 0px 0px 40px 0px #22253b0d;
 
+  .specialist-card-name {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* .specialists-card-image {
+    transition: 0.2s;
+    &:hover {
+      box-shadow: 0 0 1px 1.5px ${Colors.text_primary};
+    }
+  } */
+
   @media (max-width: ${breakpoint.md}px) {
     max-width: 100%;
     padding: 1.2rem;

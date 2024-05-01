@@ -45,6 +45,7 @@ export default async function Home({
             name: messagesItem.utils.languages[key],
           }),
         )}
+        customPadding="4rem 1rem"
       />
     </main>
   );

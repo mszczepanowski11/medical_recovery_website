@@ -29,6 +29,8 @@ type OurSpecialistProps = {
   specialistsList: any;
   customTitle?: string;
   filterLangs?: { id: string; name: string }[];
+  customPadding?: string;
+  customPaddingSm?: string;
 };
 
 const OurSpecialist: FC<OurSpecialistProps> = function ({
@@ -36,34 +38,37 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   specialistsList,
   customTitle,
   filterLangs,
+  customPadding,
+  customPaddingSm,
 }) {
   const t = useTranslations('our_specialists');
-  const [specialist] = useState(specialistsList.psychologists);
+  const [specialist] = useState(specialistsList.specialists);
   const [filteredTags, setFilteredTags] = useState([]);
   const [selectedLangs, setSelectedLangs] = useState<string[]>([]);
 
   const renderSpecialist = useMemo(
     () =>
       specialist
-        ?.filter((psycho: any) =>
-          specialistTagsFilterFunc(psycho.tags[`tags_${locale}`], filteredTags),
+        ?.filter((spec: any) =>
+          specialistTagsFilterFunc(spec.tags[`tags_${locale}`], filteredTags),
         )
-        ?.filter((psycho: any) =>
+        ?.filter((spec: any) =>
           filterLangs
-            ? specialistLangFilterFunc(selectedLangs, psycho.languages)
+            ? specialistLangFilterFunc(selectedLangs, spec.languages)
             : true,
         )
-        ?.map((psycho: any) => {
+        ?.map((spec: any) => {
           return (
             <SpecialistCard
               locale={locale}
-              key={`${psycho.name_surname}-${psycho.title}`}
-              name={psycho.name_surname}
-              title={psycho.title}
-              description={psycho.description}
-              languages={psycho.languages}
-              tags={psycho.tags}
-              profileImage={psycho.profileImage}
+              key={`${spec.name_surname}-${spec.title}`}
+              name={spec.name_surname}
+              title={spec.title}
+              description={spec.short_description}
+              languages={spec.languages}
+              tags={spec.tags}
+              profile_image={spec.profile_image}
+              specSlug={spec.specialist_page_slug}
             />
           );
         }),
@@ -81,8 +86,10 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   return (
     <OurSpecialistWrapper>
       <GridContainer
-        $padding={`8rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
-        $paddingSm={`4rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
+        $padding={customPadding || `8rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
+        $paddingSm={
+          customPaddingSm || `4rem 1rem ${filterLangs ? 2 : 3}rem 1rem`
+        }
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
         <GridItem $colStart={1} $colEnd={filterLangs ? 2 : 5}>

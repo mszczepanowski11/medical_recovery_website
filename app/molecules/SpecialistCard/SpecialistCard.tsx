@@ -12,6 +12,7 @@ import Text from '@/app/atoms/Text/Text';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
 import { makeTagsArrayFromString } from '@/app/utils/utils';
+import Link from 'next/link';
 import { SpecialistCardWrapper } from './SpecialistCard.styles';
 
 type SpecialistCardProps = {
@@ -27,8 +28,9 @@ type SpecialistCardProps = {
     description_de: string;
   };
   tags: { tags_en: string; tags_pl: string; tags_de: string };
+  specSlug: string;
   languages: ('pl' | 'en' | 'de')[];
-  profileImage: { url: string };
+  profile_image: { url: string };
   locale: 'en' | 'pl' | 'de';
 };
 
@@ -37,8 +39,9 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
   title,
   description,
   tags,
+  specSlug,
   languages,
-  profileImage,
+  profile_image,
   locale,
 }) {
   const tCta = useTranslations('cta');
@@ -65,6 +68,8 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
     [tags, locale],
   );
 
+  const subpageSlug = useMemo(() => `/specialists/${specSlug}`, [specSlug]);
+
   return (
     <SpecialistCardWrapper
       $flexDirection="column"
@@ -72,25 +77,28 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
       $alignItems="flex-start"
     >
       <Flex $gap="0.75rem" style={{ width: '100%' }}>
-        <Flex
-          style={{
-            width: 52,
-            height: 52,
-            position: 'relative',
-            borderRadius: '50%',
-            overflow: 'hidden',
-            flexShrink: 0,
-          }}
-        >
-          {!!profileImage?.url && (
-            <Image
-              src={profileImage?.url || ''}
-              alt={name}
-              width={52}
-              height={52}
-            />
-          )}
-        </Flex>
+        <Link href={subpageSlug}>
+          <Flex
+            style={{
+              width: 52,
+              height: 52,
+              position: 'relative',
+              borderRadius: '50%',
+              overflow: 'hidden',
+              flexShrink: 0,
+            }}
+            className="specialists-card-image"
+          >
+            {!!profile_image?.url && (
+              <Image
+                src={profile_image?.url || ''}
+                alt={name}
+                width={52}
+                height={52}
+              />
+            )}
+          </Flex>
+        </Link>
         <Flex
           $flexDirection="column"
           $justifyContent="space-between"
@@ -103,9 +111,17 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
             $flexWrap="wrap"
             $marginBottom="0.4rem"
           >
-            <Text variant="h4" noMargin noWrap style={{ flexGrow: 5 }}>
-              {name}
-            </Text>
+            <Link href={subpageSlug}>
+              <Text
+                variant="h4"
+                noMargin
+                noWrap
+                style={{ flexGrow: 5 }}
+                className="specialist-card-name"
+              >
+                {name}
+              </Text>
+            </Link>
             <Flex $gap="0.4rem">{renderLanguages}</Flex>
           </Flex>
           <Text
@@ -122,7 +138,7 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
       </Flex>
       <Text color="text_secondary">{description[`description_${locale}`]}</Text>
       <Flex style={{ flexGrow: 1 }} $alignItems="flex-end">
-        <Button>
+        <Button href={subpageSlug}>
           <Text noMargin fontSize="1.25rem" fontWeight={500}>
             {tCta('check_terms')}
           </Text>

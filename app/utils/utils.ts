@@ -4,16 +4,16 @@ export const removeDuplicates = (array: string[]) => {
   });
 };
 
-export const makeTagsArrayFromString = (tags: string) => {
-  if (!tags) return undefined;
+export const makeTagsArrayFromString = (stringEl: string) => {
+  if (!stringEl) return undefined;
 
-  const returnedTags =
-    tags
+  const returnedString =
+    stringEl
       ?.trim()
       .split(',')
-      .filter((tag) => tag.length > 0) || [];
+      .filter((str) => str.length > 0) || [];
 
-  return removeDuplicates(returnedTags);
+  return removeDuplicates(returnedString);
 };
 
 export const collectAllTagsFromSpecialist = (tags: string[] | undefined) => {

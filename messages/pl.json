@@ -42,13 +42,18 @@
       "date_asc": "Najnowsze",
       "date_desc": "Najstarsze",
       "popular_asc": "Popularne"
+    },
+    "currency": {
+      "pln": "PLN",
+      "eur": "EUR"
     }
   },
   "cta": {
     "arrange_meeting": "Umów konsultację",
     "check_terms": "Sprawdź wolne terminy",
     "send_message": "Wyślij wiadomość",
-    "sending": "Wysyłanie"
+    "sending": "Wysyłanie",
+    "therapy_individual": "Terapia indywidualna"
   },
   "header": {
     "about_us": "O nas",
@@ -161,5 +166,13 @@
     "send_error": "Wystąpił błąd, spróbuj ponownie później.",
     "send_empty_fields": "Wypełnij wszystkie pola formularza",
     "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych"
+  },
+  "specialist_page": {
+    "localization_label": "Lokalizacja",
+    "therapy_type_label": "Typ terapii",
+    "services_label": "Usługi",
+    "experience_label": "Doświadczenie",
+    "education_label": "Edukacja",
+    "publication_label": "Publikacje"
   }
 }

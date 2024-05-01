@@ -67,6 +67,7 @@ export const NavButton = styled(Link)`
       box-shadow: inset 6.5em 0 0 0 ${Colors.background_interactive_hover};
     }
   }
+
   @media (max-width: ${breakpoint.sm}px) {
     .header-menu-icon-sm {
       display: block;
