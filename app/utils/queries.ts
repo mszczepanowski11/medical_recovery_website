@@ -3,6 +3,14 @@ import { hygraphApi } from './constans';
 
 export const graphcms = new GraphQLClient(hygraphApi);
 
+export const querySpecialistsSlug = gql`
+  {
+    specialists {
+      specialist_page_slug
+    }
+  }
+`;
+
 export const querySpecialistsHomePage = gql`
   {
     specialists(first: 10) {
@@ -145,6 +153,14 @@ export const queryFAQHomePage = gql`
         pl
         de
       }
+    }
+  }
+`;
+
+export const queryBlogPostsSlug = gql`
+  {
+    blogPosts {
+      slug
     }
   }
 `;
