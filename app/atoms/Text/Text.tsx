@@ -27,6 +27,9 @@ type TextProps = {
   textAlign?: 'left' | 'right' | 'center';
   fontWeight?: number;
   formFor?: string;
+  fontSizeSm?: string;
+  styleMd?: CSSProperties;
+  styleSm?: CSSProperties;
 };
 
 const Text: FC<TextProps> = function ({
@@ -42,11 +45,14 @@ const Text: FC<TextProps> = function ({
   noWrap,
   forwardRef,
   style,
+  styleMd,
   fontSize,
   lineHeight,
   textAlign,
   fontWeight,
   formFor,
+  fontSizeSm,
+  styleSm,
 }) {
   return (
     <TextWrapper
@@ -65,6 +71,9 @@ const Text: FC<TextProps> = function ({
       $textAlign={textAlign}
       $fontWeight={fontWeight}
       htmlFor={formFor}
+      $fontSizeSm={fontSizeSm}
+      $styleMd={styleMd}
+      $styleSm={styleSm}
     >
       {text || children}
     </TextWrapper>

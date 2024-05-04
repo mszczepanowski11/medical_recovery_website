@@ -74,6 +74,11 @@ const Footer: FC<FooterProps> = function ({}) {
                   {tHeader('contact')}
                 </Text>
               </NavButton>
+              <NavButton href="/privacy-policy" $sm>
+                <Text noMargin fontWeight={500} noWrap>
+                  {tHeader('privacy_policy')}
+                </Text>
+              </NavButton>
             </LinksWrapper>
           </LinksLogoWrapper>
         </GridItem>
@@ -84,11 +89,37 @@ const Footer: FC<FooterProps> = function ({}) {
           $colEnd={5}
           $rowStartSm={2}
           $rowEndSm={3}
+          style={{ position: 'relative' }}
         >
-          <Flex $justifyContent="center" $alignItems="center" $padding="2rem">
+          <Flex
+            $justifyContent="center"
+            $alignItems="center"
+            $padding="2rem 6rem"
+            $paddingSm="2rem 0"
+          >
             <Text noMargin psmall color="text_secondary">
               {tFooter('copyright')}
             </Text>
+          </Flex>
+          <Flex
+            style={{
+              position: 'absolute',
+              top: '50%',
+              right: '0',
+              translate: '0 -50%',
+            }}
+          >
+            <NavButton href="/privacy-policy" $lowerFooter>
+              <Text
+                noMargin
+                fontWeight={500}
+                fontSize="0.8rem"
+                color="text_secondary"
+                noWrap
+              >
+                {tHeader('privacy_policy')}
+              </Text>
+            </NavButton>
           </Flex>
         </GridItem>
       </GridContainer>

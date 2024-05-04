@@ -8,9 +8,12 @@ import styled from 'styled-components';
 
 export const FooterWrapper = styled.footer``;
 
-export const NavButton = styled(Link)`
+export const NavButton = styled(Link)<{
+  $lowerFooter?: boolean;
+  $sm?: boolean;
+}>`
   position: relative;
-  display: flex;
+  display: ${({ $sm }) => ($sm ? 'none' : 'flex')};
   align-items: center;
   justify-content: center;
   padding: 0.4rem;
@@ -30,11 +33,24 @@ export const NavButton = styled(Link)`
   }
 
   &:hover {
+    text-decoration: ${({ $lowerFooter }) =>
+      $lowerFooter ? 'underline' : 'none'};
+  }
+
+  &:hover {
     &::after {
-      box-shadow: inset 6.5em 0 0 0 ${Colors.background_interactive_hover};
+      box-shadow: ${({ $lowerFooter }) =>
+        $lowerFooter
+          ? undefined
+          : `inset 20rem 0 0 0 ${Colors.background_interactive_hover}`};
     }
   }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    display: ${({ $lowerFooter }) => ($lowerFooter ? 'none' : 'flex')};
+  }
 `;
+
 export const LinksWrapper = styled.div`
   flex-grow: 1;
   display: flex;
@@ -56,6 +72,7 @@ export const LinksWrapper = styled.div`
     gap: 0.5rem;
   }
 `;
+
 export const LinksLogoWrapper = styled.div`
   position: relative;
   display: flex;

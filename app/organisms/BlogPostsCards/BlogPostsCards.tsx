@@ -42,7 +42,9 @@ type BlogPostsCardsProps = {
   customGap?: string;
   noDesc?: boolean;
   paddingTopSection?: string;
+  paddingTopSectionSm?: string;
   paddingBottomSection?: string;
+  paddingBottomSectionSm?: string;
 };
 
 const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
@@ -55,7 +57,9 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
   customGap,
   noDesc,
   paddingTopSection,
+  paddingTopSectionSm,
   paddingBottomSection,
+  paddingBottomSectionSm,
 }) {
   const tBlogPosts = useTranslations('blog_posts_home_page');
 
@@ -69,6 +73,12 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
           locale={locale}
           customGap={customGap}
           noDesc={noDesc}
+          styleMd={{
+            minWidth: 'calc(320px - 2rem) !important',
+            flexGrow: 1,
+            maxWidth: 'calc(50% - 1rem) !important',
+          }}
+          styleSm={{ flexGrow: 1, maxWidth: 'none !important' }}
         />
       )),
     [blogPosts, monthsTo, locale, customGap, noDesc],
@@ -80,11 +90,19 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
         $gridCols={1}
         $gridColsSm={1}
         $padding={paddingTopSection || '8rem 1rem 0 1rem'}
+        $paddingSm={paddingTopSectionSm || '2rem 1rem 0 1rem'}
         $maxWidth={maxWidth}
       >
         <GridItem>
-          <Flex $justifyContent="space-between" $alignItems="center">
-            <Text variant="h2" noMargin>
+          <Flex
+            $justifyContent="space-between"
+            $alignItems="center"
+            $flexWrap="wrap"
+            $rowGap="1rem"
+            $columnGap="2rem"
+            $styleSm={{ justifyContent: 'center', flexDirection: 'column' }}
+          >
+            <Text variant="h2" noMargin styleSm={{ textAlign: 'center' }}>
               {customTitle || tBlogPosts('title')}
             </Text>
             {!hideMoreBtn && (
@@ -99,12 +117,14 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
       </GridContainer>
       <GridContainer
         $gridCols={1}
-        $padding={paddingBottomSection || '1.5rem 1rem 8rem 1rem'}
+        $gridColsSm={1}
+        $padding={paddingBottomSection || '1.5rem 1rem 6rem 1rem'}
+        $paddingSm={paddingBottomSectionSm || '1.5rem 1rem 2rem 1rem'}
         $maxWidth={maxWidth}
       >
         <GridItem>
           <Flex
-            $gap={customGap || '3rem'}
+            $gap={customGap || '1.6rem'}
             $flexWrap="wrap"
             $justifyContent="space-between"
           >

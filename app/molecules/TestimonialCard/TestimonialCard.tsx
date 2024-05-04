@@ -51,6 +51,8 @@ const TestimonialCard: FC<TestimonialType> = function ({
         $columnGap="0.75rem"
         $justifyContent="flex-start"
         $alignItems="center"
+        $flexWrap="wrap"
+        $rowGap="0.75rem"
         style={{
           paddingBottom: '1rem',
           width: '100%',
@@ -69,7 +71,7 @@ const TestimonialCard: FC<TestimonialType> = function ({
         </Text>
         <Flex $gap="0.1rem">{renderStars}</Flex>
       </Flex>
-      <Text variant="p" noMargin>
+      <Text variant="p" noMargin style={{ maxWidth: '100%' }}>
         {comment}
       </Text>
       <Text variant="p" noMargin psmall color="text_secondary">

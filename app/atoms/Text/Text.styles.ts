@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { Colors } from '@/app/utils/constans';
+import { Colors, breakpoint } from '@/app/utils/constans';
 import styled from 'styled-components';
 import { TextVariants } from './Text.variables';
 
@@ -12,6 +12,7 @@ const getFontParams = (
   pSmall?: boolean | 1 | 0,
   $fontSize?: string,
   $lineHeight?: number,
+  $fontSizeSm?: string,
 ) => {
   switch (as) {
     case 'p':
@@ -24,6 +25,7 @@ const getFontParams = (
     case 'span':
       return {
         fontSize: $fontSize || '1rem',
+        fontSizeSm: $fontSizeSm || $fontSize || '2rem',
         lineHeight: $lineHeight || 1,
         fontWeight: 500,
         color: Colors.text_primary,
@@ -38,6 +40,7 @@ const getFontParams = (
     case 'h1':
       return {
         fontSize: $fontSize || '4rem',
+        fontSizeSm: $fontSize || '2.625rem',
         lineHeight: $lineHeight || 1.1,
         fontWeight: 600,
         color: Colors.text_primary,
@@ -45,6 +48,7 @@ const getFontParams = (
     case 'h2':
       return {
         fontSize: $fontSize || '2.625rem',
+        fontSizeSm: $fontSizeSm || $fontSize || '2.1rem',
         lineHeight: $lineHeight || 1.3,
         fontWeight: 600,
         color: Colors.text_primary,
@@ -92,6 +96,9 @@ export type TextWrapperType = {
   $lineHeight?: number;
   $textAlign?: 'left' | 'right' | 'center';
   $fontWeight?: number;
+  $fontSizeSm?: string;
+  $styleMd?: any;
+  $styleSm?: any;
 };
 
 export const TextWrapper = styled.p<TextWrapperType>`
@@ -124,4 +131,15 @@ export const TextWrapper = styled.p<TextWrapperType>`
         : getFontParams(as, $psmall, $fontSize, $lineHeight).fontWeight)};
   white-space: ${({ $noWrap }) => ($noWrap ? 'nowrap' : undefined)};
   text-align: ${({ $textAlign }) => $textAlign};
+
+  @media (max-width: ${breakpoint.md}px) {
+    ${({ $styleMd }) => ({ ...($styleMd || {}) })};
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    font-size: ${({ $psmall, as, $fontSize, $lineHeight, $fontSizeSm }) =>
+      getFontParams(as, $psmall, $fontSize, $lineHeight, $fontSizeSm)
+        .fontSizeSm};
+    ${({ $styleSm }) => ({ ...($styleSm || {}) })};
+  }
 `;

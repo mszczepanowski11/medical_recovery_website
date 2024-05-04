@@ -38,6 +38,7 @@ type BlogPostCardProps = {
   noDesc?: boolean;
   style?: CSSProperties;
   styleMd?: CSSProperties;
+  styleSm?: CSSProperties;
 };
 
 const BlogPostCard: FC<BlogPostCardProps> = function ({
@@ -54,6 +55,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   noDesc,
   style,
   styleMd,
+  styleSm,
 }) {
   const t = useTranslations('blog_posts_home_page');
 
@@ -98,6 +100,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
       $customGap={customGap}
       style={style}
       $styleMd={styleMd}
+      $styleSm={styleSm}
     >
       <Link href={href} prefetch>
         <Flex

@@ -48,11 +48,11 @@ type BlogPostProps = {
     author: string;
     faq: {
       question: {
-        question_en: string;
-        question_pl: string;
-        question_de: string;
+        en: string;
+        pl: string;
+        de: string;
       };
-      answer: { answer_en: string; answer_pl: string; answer_de: string };
+      answer: { en: string; pl: string; de: string };
     }[];
   };
   newestBlogPostsList: {

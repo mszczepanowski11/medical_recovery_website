@@ -29,9 +29,6 @@ const Header: FC<HeaderProps> = function () {
   const tHeader = useTranslations('header');
   const tCta = useTranslations('cta');
   const [isMenuSmOpen, setIsMenuSmOpen] = useState(false);
-  useEffect(() => {
-    console.log('isMenuSmOpen', isMenuSmOpen);
-  }, [isMenuSmOpen]);
 
   const handleLinkClick = useCallback(() => {
     setIsMenuSmOpen(false);

@@ -20,6 +20,10 @@ export const SpecialistCardWrapper = styled(Flex)`
     }
   }
 
+  .specialist-card-buttons-wrapper {
+    flex-grow: 1;
+  }
+
   /* .specialists-card-image {
     transition: 0.2s;
     &:hover {

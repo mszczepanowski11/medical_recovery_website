@@ -24,6 +24,7 @@ export const TestimonialCardWrapper = styled.div`
   }
 
   @media (max-width: ${breakpoint.sm + 100}px) {
-    max-width: none;
+    max-width: calc(100vw - 2rem);
+    padding: 1.4rem;
   }
 `;

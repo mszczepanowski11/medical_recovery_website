@@ -42,20 +42,28 @@
       "date_asc": "Najnowsze",
       "date_desc": "Najstarsze",
       "popular_asc": "Popularne"
+    },
+    "currency": {
+      "pln": "PLN",
+      "eur": "EUR"
     }
   },
   "cta": {
     "arrange_meeting": "Umów konsultację",
-    "check_terms": "Sprawdź wolne terminy",
+    "check_more": "Zobacz więcej",
+    "arrange": "Umów wizytę",
     "send_message": "Wyślij wiadomość",
-    "sending": "Wysyłanie"
+    "sending": "Wysyłanie",
+    "book_visit": "Umów wizytę",
+    "book_visit_from_label": "od"
   },
   "header": {
     "about_us": "O nas",
     "offer": "Oferta",
     "specialists": "Specialiści",
     "blog": "Blog",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "privacy_policy": "Polityka prywatności"
   },
   "hero": {
     "title1": "Równowaga",
@@ -110,7 +118,6 @@
   },
   "our_specialists": {
     "title": "Poznaj naszych specjalistów",
-    "profesion_label": "Profesja",
     "lang_filter_title": "Język",
     "lang_filter_all": "Dowolny",
     "show_more_specialists": "Zobacz wszystkich"
@@ -161,5 +168,14 @@
     "send_error": "Wystąpił błąd, spróbuj ponownie później.",
     "send_empty_fields": "Wypełnij wszystkie pola formularza",
     "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych"
-  }
+  },
+  "specialist_page": {
+    "localization_label": "Lokalizacja:",
+    "therapy_type_label": "Typ terapii:",
+    "services_label": "Usługi",
+    "experience_label": "Doświadczenie",
+    "education_label": "Edukacja",
+    "publication_label": "Publikacje"
+  },
+  "privacy_policy_page": "<h1>Polityka prywatności</h1><h4>Data ostatniej aktualizacji: <strong>04.05.2024r.</strong></h4><pcenter>Dziękujemy za odwiedzenie naszej strony internetowej. Ta Polityka prywatności wyjaśnia, w jaki sposób gromadzimy, używamy, przechowujemy i chronimy Twoje dane osobowe.</pcenter><h2>§ 1. Postanowienia ogólne</h2><ol><li><p>Administratorem danych jest Research and Development Marcin Szczurski (dalej: <strong>„Administratorem”</strong>) z siedzibą w Krakowie, ul. Mieczysława Karłowicza 23/6, Kraków 30-047 o NIP: 7681806014, REGON: 364659814,</p></li><li><p>W ramach działalności Serwisu mogą być zbierane, przetwarzane i wykorzystywane dane użytkowników Serwisu (dalej: <strong>„Użytkownicy”</strong>), w tym dane osobowe,</p></li><li><p>W ramach działalności Serwisu, dobrowolnie podawane przez Użytkowników dane osobowe (np. w ramach wypełniania formularza kontaktowego), takie jak adres poczty elektronicznej lub zbierane w ramach statystyk i analiz zachowań Użytkowników,</p></li><li><p>Ponadto zbierane mogą być informacje o adresie IP Użytkownika, czasie otrzymania zapytania i wysłania odpowiedzi, adresie strony internetowej, z której Użytkownik został przekierowany do Serwisu oraz rodzaju wykorzystywanego przez Użytkownika oprogramowania. Informacje te wykorzystywane są w celu administrowania Serwisem oraz tworzenia statystyk i analiz,</p></li></ol><h2>§ 2. Zbierane danych osobowych</h2><p>Podczas korzystania z naszej strony internetowej możemy zbierać różne rodzaje danych osobowych, w tym, lecz nie ograniczając się do:</p><ol><li><p>Dane kontaktowe, takie jak imię, nazwisko, adres e-mail, numer telefonu,</p></li><li><p>Informacje o Twoich preferencjach i zainteresowaniach,</p></li><li><p>Dane dotyczące urządzenia, takie jak adres IP, informacje o przeglądarce internetowej, dane dotyczące lokalizacji.</p></li></ol><h2>§ 3. W jaki sposób wykorzystujemy Twoje dane osobowe?</h2><p>Twoje dane osobowe mogą być wykorzystywane do:</p><ol><li><p>Komunikacji z Tobą w odpowiedzi na Twoje zapytania i prośby,</p></li><li><p>Dostarczania Ci informacji o naszych produktach, usługach i ofertach,</p></li><li><p>Udoskonalania naszej strony internetowej oraz dostosowywania jej do Twoich potrzeb i preferencji,</p></li><li><p>Monitorowania aktywności na naszej stronie w celu poprawy jej funkcjonalności i jakości.</p></li></ol><h2>§ 4. Prawa użytkownika</h2><p>Zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE zwane dalej: <strong>„RODO”</strong>), masz prawo do:</p><ol><li><p>Dostępu do Twoich danych osobowych,</p></li><li><p>Poprawiania nieprawidłowych danych osobowych,</p></li><li><p>Usuwania Twoich danych osobowych,</p></li><li><p>Ograniczenia przetwarzania Twoich danych osobowych,</p></li><li><p>Przenoszenia Twoich danych osobowych do innego administratora danych,</p></li><li><p>Wniesienia skargi do organu nadzorczego.</p></li></ol><h2>§ 5. Ochrona danych osobowych</h2><p>Zabezpieczamy Twoje dane osobowe stosując odpowiednie środki techniczne i organizacyjne, aby zapobiec nieuprawnionemu dostępowi, utracie, uszkodzeniu lub ujawnieniu.</p><ol><li><p>Administrator jest administratorem danych osobowych w rozumieniu RODO,</p></li><li><p>Administrator zbiera i przetwarza dane osobowe zgodnie z właściwymi przepisami prawa, w tym w szczególności z RODO, i zgodnie z zasadami przewidzianymi w tych przepisach</p></li><li><p>Administrator informuje o przetwarzaniu danych w chwili ich zebrania. Administrator przetwarza dane w zakresie, czasie i celach każdorazowo wskazanych w treściach udostępnionych pod formularzami służącymi do zbierania danych osobowych od Użytkownika,</p></li><li><p>Administrator przekazuje Dane osobowe wyłącznie zaufanym podwykonawcom Administratora, tj. dostawcom odpowiedzialnym za obsługę systemów informatycznych, podmiotom takim jak banki i operatorzy płatności, podmioty świadczące usługi księgowe, prawne, agencje marketingowe (w zakresie usług marketingowych), podmiotom świadczącym pozostałe usługi informatyczno-programistyczne</p></li><li><p>Administrator ma prawo przekazania wybranych Danych osobowych Użytkownika właściwym organom i osobom trzecim jeśli taka konieczność wynika z obowiązujących przepisów prawa i gdy podmioty te zgłaszają żądanie ich udzielenia w oparciu o odpowiednią podstawę prawną</p></li><li><p>Administrator zapewnia bezpieczeństwo przetwarzanych danych osobowych oraz ich poufność, a także umożliwia dostęp do informacji o przetwarzaniu danych Użytkownikowi. Gdyby pomimo stosowanych środków bezpieczeństwa doszło do naruszenia ochrony Danych osobowych (np. „wycieku” danych lub ich utraty) i takie naruszenie mogłoby powodować wysokie ryzyko naruszenia praw lub wolności Użytkownika, Administrator poinformuje o takim zdarzeniu Użytkownika w sposób zgodny z przepisami</p></li><li><p>Użytkownik może skontaktować się z administratorem danych.</p></li></ol> <h2>§ 6. Kontakt z Administratorem</h2><p>Jeśli masz jakiekolwiek pytania dotyczące naszej Polityki prywatności lub chcesz skorzystać z swoich praw związanych z danymi osobowymi, skontaktuj się z nami</p><ol><li><p>Adres email: <aemail>contact@mentalrecovery.co</aemail></p></li><li><p>Adres do korespondencji: Research and Development Marcin Szczurski, ul. Mieczysława Karłowicza 23/6, Kraków 30-047</p></li></ol> <h2>§ 7. Polityka plików cookies</h2> <p>Nasza strona internetowa używa plików cookies.</p> <ol><li><p>Administrator wykorzystuje pliki cookies. Cookies to niewielkie pliki tekstowe wysyłane (zapisywane) przez Serwis na urządzeniu końcowym Użytkownika (np. komputer, smartfon)</p></li><li><p>Administrator wykorzystuje pliki cookies w celu świadczenia usług drogą elektroniczną, ich ulepszania oraz poprawy jakości, a także w celach analitycznych i statystycznych oraz w celu dostosowania Serwisu do potrzeb jego Użytkowników. Dzięki wykorzystaniu plików cookies Administrator personalizuje treści i reklamy. Informacje o tym, jak Użytkownik korzysta z Serwisu, Administrator udostępnia zaufanym partnerom społecznościowym, reklamowym i analitycznym, w celu świadczenia jak najwyższej jakości usług w zakresie funkcjonowania e-sklepu, analityki, dopasowania oraz personalizacj</p></li><li><p>W ramach Serwisu stosowane są dwa typy plików cookies: „sesyjne” (session cookies) oraz „stałe” (persistent cookies). Cookies „sesyjne” są plikami tymczasowymi, które przechowywane są w urządzeniu końcowym Użytkownika do czasu wylogowania, opuszczenia strony internetowej lub wyłączenia oprogramowania (przeglądarki internetowej). “Stałe” pliki cookies przechowywane są w urządzeniu końcowym Użytkownika przez czas określony w parametrach plików cookies lub do czasu ich usunięcia przez Użytkownika</p></li><li><p>W Serwisie Administrator wykorzystuje następujące rodzaje plików cookies</p><ol2><li><p>funkcjonalne - umożliwiają zapamiętanie wyborów Użytkownika i ich zapamiętanie oraz dostosowanie w Serwisie np. w zakresie preferencji językowych, rozmiaru czcionki, wyglądu Serwisu itp.,</p></li><li><p>analityczne - umożliwiają pozyskanie szeregu informacji m.in. liczby wizyt i źródeł ruchu w Serwisie. Zebranie tych danych służy do ustalenia które strony są najczęściej odwiedzane i prowadzą do stworzenia statystyk dotyczących ruchu w Serwisie. Zebranie tych danych służy Administratorowi do poprawy wydajności Serwisu. Zgromadzone dane są przetwarzane w postaci zanonimizowanej,</p></li><li><p>reklamowe - umożliwiają dopasowanie wyświetlanych w Serwisie i poza Serwisem treści, w tym reklam, do zainteresowań Użytkowników. Do prezentowania personalizowanych treści mogą być wykorzystywane dane dotyczące historii przeglądanych stron, aktywności w serwisach (np. historia zakupów, sposób korzystania z usług, rodzaj wyświetlonych treści i reklam) czy dane geolokalizacyjne.  Na podstawie informacji z Serwisu i aktywności Użytkownika w innych serwisach budowany jest profil zainteresowań Użytkownika,</p></li></ol2></li><li><p>Funkcjonalne, analityczne i reklamowe pliki cookies mogą być instalowane przez Administratora i jego zaufanych partnerów za pośrednictwem Serwisu</p></li><li><p>Podstawą prawną przetwarzania danych w związku ze stosowaniem niezbędnych plików plików cookies jest niezbędność przetwarzania Danych osobowych do wykonania umowy (art. 6 ust. 1 lit. b RODO). W przypadku pozostałych plików cookies podstawą przetwarzania Danych osobowych jest uzasadniony interes Administratora lub zgoda Użytkownika (art. 6 ust. 1 lit. a i f RODO).</p></li><li><p>Użytkownik może zmienić ustawienia dotyczące plików cookies z poziomu przeglądarki internetowej</p></li><li><p>Zmiana ustawień plików cookies i podobnych technologii może wpłynąć na sposób funkcjonowania Serwisu i świadczonych przez niego usług</p></li><li><p>Serwis wykorzystuje narzędzia podmiotów trzecich służące do zbierania plików cookies. Podmioty te przetwarzają pliki cookies na zasadach określonych w ich politykach prywatności i innych dokumentach określających standardy dot. plików cookies</p></li></ol> <h2>§ 8. Zmiany w Polityce prywatności</h2><p>Zachowujemy sobie prawo do aktualizacji lub zmiany naszej Polityki prywatności w dowolnym momencie. Każde zmiany będą publikowane na tej stronie, a data ostatniej aktualizacji zostanie zmodyfikowana.</p><p>Dziękujemy za zapoznanie się z naszą Polityką prywatności.</p>"
 }

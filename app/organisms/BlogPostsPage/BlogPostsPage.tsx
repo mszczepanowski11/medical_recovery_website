@@ -60,10 +60,6 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
     filter: string[];
   }>({ search: '', sort: 'date_asc', filter: [] });
 
-  useEffect(() => {
-    console.log('filters', filters);
-  }, [filters]);
-
   const filterFunc = useCallback(
     (blogPost: BlogPost) => {
       if (

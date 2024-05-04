@@ -31,7 +31,7 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
       iconSrc={card.logo}
       title={card.title}
       desc={card.description}
-      style={{ width: `calc(33% - 4rem / 3)`, flexGrow: 1, minWidth: 320 }}
+      style={{ width: `calc(33% - 4rem / 3)`, flexGrow: 1 }}
     />
   ));
 
@@ -41,14 +41,17 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
         $gap="3rem"
         $gridColsSm={1}
         $padding="12rem 1rem 4rem 1rem"
+        $paddingMb="6rem 1rem"
+        $paddingSm="4rem 1rem"
       >
         <GridItem $rowStart={1} $rowEnd={2} $colStart={1} $colEnd={5}>
-          <Text variant="h2" noMargin>
+          <Text variant="h2" noMargin styleMd={{ textAlign: 'center' }}>
             {t('title1')}{' '}
             <Text
               variant="span"
               color="#6fe064"
               fontSize="2.625rem"
+              fontSizeSm="2.1rem"
               style={{ fontWeight: '600' }}
               noMargin
             >
@@ -56,7 +59,14 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
             </Text>
           </Text>
         </GridItem>
-        <GridItem $rowStart={2} $rowEnd={3} $colStart={1} $colEnd={5}>
+        <GridItem
+          $rowStart={2}
+          $rowEnd={3}
+          $rowStartSm={2}
+          $rowEndSm={3}
+          $colStart={1}
+          $colEnd={5}
+        >
           <Flex $flexWrap="wrap" $gap="2rem">
             {renderCards}
           </Flex>

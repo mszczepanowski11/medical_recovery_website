@@ -53,14 +53,12 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
       });
       setIsSending(false);
     } else {
-      console.log('formDataformData', formData);
       emailjs
         .send('mentalrecovery_gmail', 'mentalrecovery_template', formData, {
           publicKey: 'NUqIEfTSDVxUNJ026',
         })
         .then(
           (result) => {
-            console.log(result.text);
             setFormData({ name: '', email: '', message: '', rodo: false });
             toast.success(tContact('send_success'), {
               position: 'top-center',
@@ -69,7 +67,6 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
             setIsSending(false);
           },
           (error) => {
-            console.log(error.text);
             toast.error(tContact('send_error'), {
               position: 'top-center',
               hideProgressBar: true,

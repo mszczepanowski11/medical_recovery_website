@@ -5,7 +5,13 @@ import styled from 'styled-components';
 
 // Components
 
-export const ContactWrapper = styled.div``;
+export const ContactWrapper = styled.div`
+  .contact-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
 
 export const ContactInside = styled.div`
   display: flex;

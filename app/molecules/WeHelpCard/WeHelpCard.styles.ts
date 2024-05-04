@@ -1,4 +1,4 @@
-import { Colors } from '@/app/utils/constans';
+import { Colors, breakpoint } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
@@ -14,6 +14,7 @@ export const WeHelpCardWrapper = styled.div<WeHelpCardWrapperType>`
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  min-width: 320px;
   padding: 1.5rem 1rem;
   border-radius: 1.25rem;
   background-color: ${({ color }) => color || Colors.primitives_blue};
@@ -21,5 +22,9 @@ export const WeHelpCardWrapper = styled.div<WeHelpCardWrapperType>`
 
   &:hover {
     box-shadow: 0px 0px 40px 0px #22253b0d;
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    min-width: 280px;
   }
 `;

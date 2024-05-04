@@ -17,7 +17,10 @@ import { makeTagsArrayFromString } from '@/app/utils/utils';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
 import Tabs from '@/app/atoms/Tabs/Tabs';
+import useScrollTo from '@/app/utils/useScrollTo';
 import {
+  SpecialistDataItem,
+  SpecialistDataList,
   ServicesList,
   ServicesListItem,
   SpecialistPageWrapper,
@@ -40,7 +43,7 @@ type SpecialistPageProps = {
     languages: ('pl' | 'en' | 'de')[];
     profile_image: { url: string; alt: string; caption: string; title: string };
     calendar: string;
-    price: { price_eur: number | string; price_pln: number | string };
+    cheapest_price: { en: string; pl: string; de: string };
     therapy_long_min: string | number;
     description: {
       description_en: string;
@@ -48,12 +51,28 @@ type SpecialistPageProps = {
       description_de: string;
     };
     services: {
+      service_name: {
+        en: string;
+        pl: string;
+        de: string;
+      };
+      service_url: {
+        en: string;
+        pl: string;
+        de: string;
+      };
+    }[];
+    experience: { en: string; pl: string; de: string };
+    education: { en: string; pl: string; de: string };
+    locals: {
+      localization: { en: string; pl: string; de: string };
+      description: { en: string; pl: string; de: string };
+    }[];
+    therapy_types: {
       en: string;
       pl: string;
       de: string;
-    };
-    experience: { en: string; pl: string; de: string };
-    education: { en: string; pl: string; de: string };
+    }[];
   };
   locale: 'en' | 'pl' | 'de';
 };
@@ -64,10 +83,9 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
 }) {
   const t = useTranslations('specialist_page');
   const tCta = useTranslations('cta');
-  const tUtils = useTranslations('utils');
   const tCurr = useTranslations('utils.currency');
   const { isMobile } = useWindowSize();
-  console.log('specialistContent', specialistContent);
+  const { scrollTo } = useScrollTo();
 
   const [activeTab, setActiveTab] = useState(null);
 
@@ -75,15 +93,16 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     profile_image,
     short_description,
     name_surname,
-    title,
     tags,
     calendar,
-    price,
+    cheapest_price,
     languages,
     description,
     services,
     experience,
     education,
+    locals,
+    therapy_types,
   } = specialistContent || {};
 
   const shortDescriptionLocalized = useMemo(
@@ -93,10 +112,6 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
   const descriptionLocalized = useMemo(
     () => description[`description_${locale}`],
     [locale, description],
-  );
-  const titleLocalized = useMemo(
-    () => title[`title_${locale}`],
-    [locale, title],
   );
   const renderTags = useMemo(
     () =>
@@ -118,57 +133,69 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
       )),
     [languages],
   );
+  const renderLocals = useMemo(
+    () =>
+      locals?.map((item) => (
+        <SpecialistDataItem key={item.localization[locale]}>
+          <Text noMargin fontWeight={500}>
+            {item.localization[locale]}
+          </Text>
+          {item.description && item.description[locale] && (
+            <Text noMargin color="text_secondary">
+              {item.description[locale]}
+            </Text>
+          )}
+        </SpecialistDataItem>
+      )),
+    [locale, locals],
+  );
+  const renderTherapyTypes = useMemo(
+    () =>
+      therapy_types?.map((item) => (
+        <SpecialistDataItem key={item[locale]}>
+          <Text noMargin fontWeight={500}>
+            {item[locale]}
+          </Text>
+        </SpecialistDataItem>
+      )),
+    [locale, therapy_types],
+  );
   const tabs = useMemo(
     () => [
       {
         id: 0,
         label: t('services_label'),
-        content: (
-          <ServicesList>
-            {makeTagsArrayFromString(services[locale])?.map((service) => (
-              <ServicesListItem key={service}>
-                <Text noMargin color="text_secondary">
-                  {service}
-                </Text>
-              </ServicesListItem>
-            ))}
-          </ServicesList>
-        ),
+        onClick: () =>
+          scrollTo('services_label', {
+            offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
+          }),
       },
       {
         id: 1,
         label: t('experience_label'),
-        content: (
-          <Text noMargin color="text_secondary">
-            {experience[locale]}
-          </Text>
-        ),
+        onClick: () =>
+          scrollTo('experience_label', {
+            offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
+          }),
       },
       {
         id: 2,
         label: t('education_label'),
-        content: (
-          <Text noMargin color="text_secondary">
-            {education[locale]}
-          </Text>
-        ),
+        onClick: () =>
+          scrollTo('education_label', {
+            offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
+          }),
       },
       {
         id: 3,
         label: t('publication_label'),
-        content: (
-          <Text noMargin color="text_secondary">
-            {education[locale]}
-          </Text>
-        ),
+        onClick: () =>
+          scrollTo('publication_label', {
+            offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
+          }),
       },
     ],
-    [education, experience, locale, services, t],
-  );
-
-  const activeTabItem = useMemo(
-    () => tabs.find((item) => item.id === activeTab),
-    [activeTab, tabs],
+    [isMobile, scrollTo, t],
   );
 
   return (
@@ -213,10 +240,10 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                 {shortDescriptionLocalized}
               </Text>
             </Flex>
-            <Button href={calendar}>
+            <Button target="_blank" href={calendar}>
               <Text noMargin fontSize="1rem" fontWeight={500} noWrap>
-                {tCta('therapy_individual')}{' '}
-                {`${price?.price_pln}${tCurr('pln')}`}
+                {tCta('book_visit')}{' '}
+                {`( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
               </Text>
             </Button>
           </Flex>
@@ -239,18 +266,111 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
             >
               {renderTags}
             </Flex>
-            <Flex>
-              <Flex $flexDirection="column" $rowGap="0.75rem">
-                a
-              </Flex>
+
+            <Flex
+              $columnGap="2rem"
+              $rowGap="1.5rem"
+              $flexWrap="wrap"
+              style={{
+                paddingBottom: '1rem',
+                borderBottom: `1px solid ${Colors.border}`,
+              }}
+            >
+              {locals?.length > 1 && (
+                <Flex $flexDirection="column" $rowGap="0.75rem">
+                  <Text noMargin fontWeight={500}>
+                    {t('localization_label')}
+                  </Text>
+                  <SpecialistDataList
+                    as="ul"
+                    style={{
+                      margin: 0,
+                      padding: '0 0 0 1rem',
+                    }}
+                  >
+                    {renderLocals}
+                  </SpecialistDataList>
+                </Flex>
+              )}
+              {therapy_types?.length > 1 && (
+                <Flex $flexDirection="column" $rowGap="0.75rem">
+                  <Text noMargin fontWeight={500}>
+                    {t('therapy_type_label')}
+                  </Text>
+                  <SpecialistDataList
+                    as="ul"
+                    style={{
+                      margin: 0,
+                      padding: '0 0 0 1rem',
+                    }}
+                  >
+                    {renderTherapyTypes}
+                  </SpecialistDataList>
+                </Flex>
+              )}
             </Flex>
+
             <Text color="text_secondary">{descriptionLocalized}</Text>
-            <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab}>
-              <Flex $flexDirection="column" $rowGap="1rem">
-                <Text variant="h2" fontSize="2rem" noMargin>
-                  {activeTabItem?.label}
-                </Text>
-                {activeTabItem?.content}
+            <Tabs
+              tabs={tabs}
+              activeTab={activeTab}
+              setActiveTab={() => {}}
+              tabsStyle={{
+                position: 'sticky',
+                top: isMobile ? headerHeightSm : headerHeight,
+                paddingTop: '0.5rem',
+                backgroundColor: Colors.background_background_white,
+              }}
+            >
+              <Flex $flexDirection="column" $rowGap="2.2rem">
+                <Flex
+                  $flexDirection="column"
+                  $rowGap="1rem"
+                  id="services_label"
+                >
+                  <Text variant="h2" fontSize="2rem" noMargin>
+                    {t('services_label')}
+                  </Text>
+                  <ServicesList>
+                    {services?.map(({ service_name, service_url }) => (
+                      <ServicesListItem key={service_url[locale]}>
+                        <a href={service_url[locale]} target="_blank">
+                          <Text
+                            noMargin
+                            color="text_secondary"
+                            className="specialist-page-service-link"
+                          >
+                            {service_name[locale]}
+                          </Text>
+                        </a>
+                      </ServicesListItem>
+                    ))}
+                  </ServicesList>
+                </Flex>
+                <Flex
+                  $flexDirection="column"
+                  $rowGap="1rem"
+                  id="experience_label"
+                >
+                  <Text variant="h2" fontSize="2rem" noMargin>
+                    {t('experience_label')}
+                  </Text>
+                  <Text noMargin color="text_secondary">
+                    {experience[locale]}
+                  </Text>
+                </Flex>
+                <Flex
+                  $flexDirection="column"
+                  $rowGap="1rem"
+                  id="education_label"
+                >
+                  <Text variant="h2" fontSize="2rem" noMargin>
+                    {t('education_label')}
+                  </Text>
+                  <Text noMargin color="text_secondary">
+                    {education[locale]}
+                  </Text>
+                </Flex>
               </Flex>
             </Tabs>
           </Flex>

@@ -36,10 +36,12 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
       <GridContainer
         $gridCols={1}
         $padding="8rem 1rem 0rem 1rem"
+        $paddingMb="6rem 1rem 0rem 1rem"
+        $paddingSm="0rem 1rem 0rem 1rem"
         $gap="0.75rem"
         $gridColsSm={1}
       >
-        <GridItem $rowStart={2} $rowEnd={3} $rowStartSm={2} $rowEndSm={3}>
+        <GridItem>
           <Text
             variant="h2"
             noMargin
@@ -50,7 +52,13 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
           </Text>
         </GridItem>
       </GridContainer>
-      <GridContainer $gridCols={1} $gridColsSm={1}>
+      <GridContainer
+        $padding="3rem 1rem"
+        $paddingSm="2rem 1rem 0 1rem"
+        $paddingMb="2rem 1rem 0 1rem"
+        $gridCols={1}
+        $gridColsSm={1}
+      >
         <GridItem $colStart={1} $colEnd={2}>
           <Flex $gap="2rem" $flexWrap="wrap">
             {renderTestimonials}

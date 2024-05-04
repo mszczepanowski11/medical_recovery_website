@@ -65,7 +65,7 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
   locale,
 }) {
   const tBlogPosts = useTranslations('blog_posts_home_page');
-  console.log('blogPostContent', blogPostContent);
+
   const { title, slug, date, reading_time, image, tags, author, content } =
     blogPostContent || {};
 

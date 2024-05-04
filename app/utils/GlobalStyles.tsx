@@ -91,6 +91,7 @@ const GlobalStyles = createGlobalStyle`
     --color-text-tags: ${COLORS.text_tags};
     --color-background-background-white: ${COLORS.background_background_white};
     --color-background-background-grey: ${COLORS.background_background_grey};
+    --color-background-background-grey-light: ${COLORS.background_background_grey_light};
     --color-background-blue-hover: ${COLORS.background_blue_hover};
     --color-background-blue-active: ${COLORS.background_blue_active};
     --color-background-interactive: ${COLORS.background_interactive};

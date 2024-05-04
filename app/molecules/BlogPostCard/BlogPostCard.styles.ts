@@ -8,12 +8,13 @@ import styled from 'styled-components';
 export const BlogPostCardWrapper = styled.div<{
   $customGap?: string;
   $styleMd?: any;
+  $styleSm?: any;
 }>`
   display: flex;
   flex-direction: column;
-  min-width: 320px;
+  min-width: 300px;
   max-width: ${({ $customGap }) =>
-    $customGap ? `calc(50% - ${$customGap} / 2)` : `calc(33% - 6rem / 3)`};
+    $customGap ? `calc(50% - ${$customGap} / 2)` : `calc(33% - 3.2rem / 3)`};
   gap: 1rem;
   padding: 1.5rem;
   border: 1px solid ${Colors.border};
@@ -32,6 +33,12 @@ export const BlogPostCardWrapper = styled.div<{
   }
 
   @media (max-width: ${breakpoint.md}px) {
+    padding: 1.3rem;
     ${({ $styleMd }) => ({ ...($styleMd || {}) })};
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    padding: 1.1rem;
+    ${({ $styleSm }) => ({ ...($styleSm || {}) })};
   }
 `;

@@ -33,6 +33,7 @@ const Tag: FC<TagProps> = function ({ tag, color, height, active, onClick }) {
         noMargin
         color={color ? 'text_primary' : 'text_tags'}
         style={{ fontWeight: 500 }}
+        noWrap
       >
         {tag}
       </Text>

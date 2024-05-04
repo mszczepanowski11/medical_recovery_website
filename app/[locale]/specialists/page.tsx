@@ -46,6 +46,8 @@ export default async function Home({
           }),
         )}
         customPadding="4rem 1rem"
+        customPaddingSm="2.5rem 1rem 1rem 1rem"
+        customPaddingMb="2rem 1rem 1rem 1rem"
       />
     </main>
   );

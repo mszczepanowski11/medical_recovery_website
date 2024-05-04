@@ -83,7 +83,7 @@ const Contact: FC<ContactProps> = function ({
                       {tContact('email')}
                     </Text>
                   </Flex>
-                  <a href={`mailto:${tMeta('email')}`}>
+                  <a href={`mailto:${tMeta('email')}`} className="contact-link">
                     <Text noMargin noWrap>
                       {tMeta('email')}
                     </Text>
@@ -105,7 +105,7 @@ const Contact: FC<ContactProps> = function ({
                       {tContact('phone')}
                     </Text>
                   </Flex>
-                  <a href={`tel:${tMeta('phone')}`}>
+                  <a href={`tel:${tMeta('phone')}`} className="contact-link">
                     <Text noMargin noWrap>
                       {tMeta('phone')}
                     </Text>

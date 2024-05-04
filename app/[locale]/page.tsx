@@ -57,6 +57,7 @@ export default async function Home({
         blogPosts={blogPostsList?.blogPosts?.slice(0, 3)}
         monthsTo={messagesItem?.utils?.months_to}
         locale={params.locale}
+        paddingTopSectionSm="4rem 1rem 0 1rem"
       />
       <FAQ questions={faqQuestionsList?.faqs} locale={params.locale} />
       <Contact />

@@ -20,4 +20,16 @@ export const ServicesListItem = styled.li`
   &::marker {
     color: ${Colors.text_secondary};
   }
+
+  .specialist-page-service-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+export const SpecialistDataList = styled.ul``;
+
+export const SpecialistDataItem = styled.li`
+  margin-bottom: 0.7rem;
 `;

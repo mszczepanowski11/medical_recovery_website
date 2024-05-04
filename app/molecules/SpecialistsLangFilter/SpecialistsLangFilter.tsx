@@ -12,6 +12,7 @@ import Icon from '@/app/atoms/Icon/Icon';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import { Flex } from '@/app/utils/GlobalStyles';
+import useWindowSize from '@/app/utils/useWindowSize';
 import {
   LangMenuWrapper,
   SelectedLangBtn,
@@ -22,14 +23,17 @@ type SpecialistsLangFilterProps = {
   langs: { id: string; name: string }[];
   selectedLangs: string[];
   setSelectedLangs: any;
+  className?: string;
 };
 
 const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
   langs,
   selectedLangs,
   setSelectedLangs,
+  className,
 }) {
   const tSpecialists = useTranslations('our_specialists');
+  const { isMobile } = useWindowSize();
   const [pointerEvents, setPointerEvents] = useState<'none' | 'auto'>('none');
 
   const isOpen = useMotionValue(0);
@@ -122,7 +126,7 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
   }, []);
 
   return (
-    <SpecialistsLangFilterWrapper>
+    <SpecialistsLangFilterWrapper className={className}>
       <Text noMargin psmall color="text_secondary" fontWeight={500}>
         {tSpecialists('lang_filter_title')}
       </Text>
@@ -138,6 +142,9 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
           className="sub-menu specialists-filter-lang-item"
           style={{
             top: 'calc(100% + 10px)',
+            right: isMobile ? 0 : undefined,
+            left: isMobile ? 'auto' : '50%',
+            translate: isMobile ? '0' : undefined,
             opacity: opacitySpring,
             pointerEvents,
             zIndex: 10,

@@ -49,10 +49,12 @@ const TagFilter: FC<TagFilterProps> = function ({
   if (!renderTags) return null;
   return (
     <TagFilterWrapper>
-      <Text noMargin fontSize="0.9rem">
-        {t('profesion_label')}
-      </Text>
-      <Flex $columnGap="0.4rem" $rowGap="0.75rem" $flexWrap="wrap">
+      <Flex
+        $columnGap="0.4rem"
+        $rowGap="0.75rem"
+        $flexWrap="wrap"
+        className="tag-filter-tags-wrapper"
+      >
         {renderTags}
       </Flex>
     </TagFilterWrapper>

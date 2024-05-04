@@ -4,11 +4,7 @@ import React, { FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import {
-  appointletCalendarUrl,
-  headerHeight,
-  maxContainerWidth,
-} from '@/app/utils/constans';
+import { appointletCalendarUrl } from '@/app/utils/constans';
 
 // Components
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
@@ -25,12 +21,31 @@ const Hero: FC<HeroProps> = function ({}) {
 
   return (
     <HeroWrapper>
+      <div className="hero-background" />
       <GridContainer
+        $gridColsMb={1}
+        $gridColsSm={1}
         $padding="6rem 1rem 0rem 1rem"
-        $height={`calc(100vh - ${headerHeight}px)`}
-        style={{ position: 'relative' }}
+        $paddingMb="6rem 1rem 4rem 1rem"
+        $paddingSm="4rem 1rem"
+        // $height={`calc(100vh - ${headerHeight}px)`}
+        style={{
+          position: 'relative',
+          overflow: 'visible',
+          clipPath: 'none',
+          width: '100%',
+        }}
       >
-        <GridItem $colStart={1} $colEnd={3}>
+        <GridItem
+          $colStart={1}
+          $colEnd={3}
+          $colStartMb={1}
+          $colEndMb={2}
+          $rowStartMb={1}
+          $rowEndMb={2}
+          $styleMd={{ width: '100%', zIndex: 5 }}
+          className="hero-grid-item"
+        >
           <Flex
             $flexDirection="column"
             $alignItems="flex-start"
@@ -43,7 +58,9 @@ const Hero: FC<HeroProps> = function ({}) {
               {tHero('title2')}
             </Text>
             <Text variant="h1">{tHero('title3')}</Text>
-            <Text color="text_secondary">{tHero('description')}</Text>
+            <Text color="text_secondary" className="hero-description">
+              {tHero('description')}
+            </Text>
             <Flex style={{ position: 'relative' }}>
               <Button
                 size="large"
@@ -55,18 +72,20 @@ const Hero: FC<HeroProps> = function ({}) {
                   {tCta('arrange_meeting')}
                 </Text>
               </Button>
-              <HeroLine
-                style={{
-                  width: `calc(min(calc(38px + ${maxContainerWidth}px / 2.5), 50vw) - calc(50% - 0.75rem) + calc(((${maxContainerWidth}px - 1rem) / 2) - 0.75rem) * 0.2)`,
-                  aspectRatio: 1.45,
-                  zIndex: 3,
-                }}
-              />
+              <HeroLine />
             </Flex>
           </Flex>
         </GridItem>
 
-        <GridItem $colStart={3} $colEnd={5}>
+        <GridItem
+          $colStart={3}
+          $colEnd={5}
+          $colStartMb={1}
+          $colEndMb={2}
+          $rowStartMb={1}
+          $rowEndMb={2}
+          $styleMd={{ zIndex: 2 }}
+        >
           <Flex
             style={{ height: '100%' }}
             $gap="1.5rem"
@@ -91,6 +110,7 @@ const Hero: FC<HeroProps> = function ({}) {
               />
             </HeroImageWrapper>
             <HeroImageWrapper
+              className="hero-hide-mb"
               style={{
                 flexGrow: 1,
                 maxWidth: 'calc(50% - 0.75rem)',
@@ -101,6 +121,7 @@ const Hero: FC<HeroProps> = function ({}) {
               <Image src="/img/hero-2.png" alt={tHero('image2_alt')} fill />
             </HeroImageWrapper>
             <HeroImageWrapper
+              className="hero-hide-mb"
               style={{
                 position: 'relative',
                 left: '11.5%',

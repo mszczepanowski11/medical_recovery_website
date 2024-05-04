@@ -13,8 +13,8 @@ import { FAQWrapper } from './FAQ.styles';
 
 type FAQProps = {
   questions: {
-    question: { question_en: string; question_pl: string; question_de: string };
-    answer: { answer_en: string; answer_pl: string; answer_de: string };
+    question: { en: string; pl: string; de: string };
+    answer: { en: string; pl: string; de: string };
   }[];
   locale: 'en' | 'pl' | 'de';
 };
@@ -29,22 +29,20 @@ const FAQ: FC<FAQProps> = function ({ questions, locale }) {
       questions?.map(
         (q: {
           question: {
-            question_en: string;
-            question_pl: string;
-            question_de: string;
+            en: string;
+            pl: string;
+            de: string;
           };
-          answer: { answer_en: string; answer_pl: string; answer_de: string };
+          answer: { en: string; pl: string; de: string };
         }) => (
           <FAQCard
-            key={q.question[`question_${locale}`]}
-            question={q.question[`question_${locale}`]}
-            answer={q.answer[`answer_${locale}`]}
-            active={activeCard === q.question[`question_${locale}`]}
+            key={q.question[locale]}
+            question={q.question[locale]}
+            answer={q.answer[locale]}
+            active={activeCard === q.question[locale]}
             onClick={() =>
               setActiveCard((prev) =>
-                prev === q.question[`question_${locale}`]
-                  ? null
-                  : q.question[`question_${locale}`],
+                prev === q.question[locale] ? null : q.question[locale],
               )
             }
           />

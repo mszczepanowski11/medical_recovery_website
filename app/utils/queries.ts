@@ -30,6 +30,7 @@ export const querySpecialistsHomePage = gql`
       languages
       name_surname
       specialist_page_slug
+      calendar
     }
   }
 `;
@@ -62,10 +63,6 @@ export const querySpecialistPage = (slug: string) => gql`
         short_description_en
         short_description_pl
       }
-      price {
-        price_eur
-        price_pln
-      }
       therapy_long_min
       description {
         description_en
@@ -73,9 +70,16 @@ export const querySpecialistPage = (slug: string) => gql`
         description_de
       }
       services {
-        en
-        pl
-        de
+        service_name {
+          en
+          pl
+          de
+        }
+        service_url {
+          en
+          pl
+          de
+        }
       }
       experience {
         en
@@ -86,6 +90,28 @@ export const querySpecialistPage = (slug: string) => gql`
         en
         pl
         de
+      }
+      cheapest_price {
+        en
+        pl
+        de
+      }
+      locals {
+        localization {
+          pl
+          en
+          de
+        }
+        description {
+          de
+          en
+          pl
+        }
+      }
+      therapy_types {
+        de
+        en
+        pl
       }
     }
   }
@@ -110,14 +136,14 @@ export const queryFAQHomePage = gql`
   {
     faqs {
       question {
-        question_de
-        question_en
-        question_pl
+        en
+        pl
+        de
       }
       answer {
-        answer_de
-        answer_en
-        answer_pl
+        en
+        pl
+        de
       }
     }
   }
@@ -189,14 +215,14 @@ export const queryBlogPostContent = (slug: string) => gql`
       }
       faq {
         question {
-          question_de
-          question_en
-          question_pl
+          en
+          pl
+          de
         }
         answer {
-          answer_de
-          answer_en
-          answer_pl
+          en
+          pl
+          de
         }
       }
     }

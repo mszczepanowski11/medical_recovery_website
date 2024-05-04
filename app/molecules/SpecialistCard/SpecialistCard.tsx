@@ -22,12 +22,13 @@ type SpecialistCardProps = {
     title_pl: string;
     title_de: string;
   };
-  description: {
-    description_en: string;
-    description_pl: string;
-    description_de: string;
+  short_description: {
+    short_description_en: string;
+    short_description_pl: string;
+    short_description_de: string;
   };
   tags: { tags_en: string; tags_pl: string; tags_de: string };
+  calendar: string;
   specSlug: string;
   languages: ('pl' | 'en' | 'de')[];
   profile_image: { url: string };
@@ -37,12 +38,13 @@ type SpecialistCardProps = {
 const SpecialistCard: FC<SpecialistCardProps> = function ({
   name,
   title,
-  description,
+  short_description,
   tags,
   specSlug,
   languages,
   profile_image,
   locale,
+  calendar,
 }) {
   const tCta = useTranslations('cta');
 
@@ -136,13 +138,40 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
       <Flex $flexWrap="wrap" $gap="0.25rem">
         {renderTags}
       </Flex>
-      <Text color="text_secondary">{description[`description_${locale}`]}</Text>
-      <Flex style={{ flexGrow: 1 }} $alignItems="flex-end">
-        <Button href={subpageSlug}>
-          <Text noMargin fontSize="1.25rem" fontWeight={500}>
-            {tCta('check_terms')}
-          </Text>
-        </Button>
+      <Text color="text_secondary">
+        {short_description[`short_description_${locale}`]}
+      </Text>
+      <Flex style={{ width: '100%', flexGrow: 1, alignItems: 'flex-end' }}>
+        <Flex
+          style={{ width: '100%' }}
+          $alignItems="flex-end"
+          $gap="1rem"
+          $justifyContent="space-between"
+          $flexWrap="wrap"
+        >
+          <Button
+            target="_blank"
+            href={calendar}
+            classNameWrapper="specialist-card-buttons-wrapper"
+            style={{ width: '100%' }}
+            iconRight={false}
+            color="transparent"
+          >
+            <Text noMargin fontSize="1.1rem" fontWeight={500} noWrap>
+              {tCta('arrange')}
+            </Text>
+          </Button>
+          <Button
+            href={subpageSlug}
+            classNameWrapper="specialist-card-buttons-wrapper"
+            style={{ width: '100%' }}
+            iconRight={false}
+          >
+            <Text noMargin fontSize="1.1rem" fontWeight={500} noWrap>
+              {tCta('check_more')}
+            </Text>
+          </Button>
+        </Flex>
       </Flex>
     </SpecialistCardWrapper>
   );
