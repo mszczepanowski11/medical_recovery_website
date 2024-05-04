@@ -10,6 +10,7 @@ import metadata from '../utils/SEO';
 import Header from '../organisms/Header/Header';
 import Footer from '../organisms/Footer/Footer';
 import ToastProvider from '../utils/ToastProvider';
+import { Links } from '../utils/Links/Links';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -49,6 +50,7 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <GlobalStyles />
             <Header />
+            <Links locale={locale} />
             <ToastProvider>{children}</ToastProvider>
             <Footer />
           </StyledComponentsRegistry>

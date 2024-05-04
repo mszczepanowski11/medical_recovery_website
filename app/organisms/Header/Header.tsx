@@ -66,13 +66,7 @@ const Header: FC<HeaderProps> = function () {
             </Flex>
           </Link>
         </GridItem>
-        <GridItem
-          $colStart={2}
-          $colEnd={6}
-          $colStartSm={2}
-          $colEndSm={3}
-          as="nav"
-        >
+        <GridItem $colStart={2} $colEnd={6} $colStartSm={2} $colEndSm={3}>
           <LinksWrapper $isOpen={isMenuSmOpen}>
             <ShowHideMenuSmBtn
               onClick={handleLinkClick}

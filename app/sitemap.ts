@@ -1,30 +1,8 @@
 import { MetadataRoute } from 'next';
 import { fetchBlogPostsSlug, fetchSpecialistsSlug } from './utils/fetchData';
-
-type ChangeFrequencyType =
-  | 'always'
-  | 'hourly'
-  | 'daily'
-  | 'weekly'
-  | 'monthly'
-  | 'yearly'
-  | 'never';
+import { ChangeFrequencyType, regularPages } from './utils/utils';
 
 const locales = ['en', 'pl', 'de'] as const;
-const regularPages: {
-  url: string;
-  priority: number;
-  changeFrequency: ChangeFrequencyType;
-}[] = [
-  { url: '', priority: 1, changeFrequency: 'weekly' },
-  { url: '/about-us', priority: 0.7, changeFrequency: 'monthly' },
-  { url: '/offer', priority: 0.7, changeFrequency: 'monthly' },
-  { url: '/specialists', priority: 1, changeFrequency: 'weekly' },
-  { url: '/blog', priority: 0.7, changeFrequency: 'monthly' },
-  { url: '/contact', priority: 0.7, changeFrequency: 'never' },
-  { url: '/privacy-policy', priority: 0.3, changeFrequency: 'never' },
-  { url: '/statute', priority: 0.3, changeFrequency: 'never' },
-];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { NEXT_PUBLIC_BASE_URL } = process?.env || {};

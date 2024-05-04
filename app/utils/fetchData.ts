@@ -46,8 +46,12 @@ export const fetchFAQQuestionsHomePage = () => {
 };
 
 export const fetchBlogPostsSlug = () => {
-  const response: Promise<{ blogPosts: { slug: string }[] }> =
-    graphcms.request(queryBlogPostsSlug);
+  const response: Promise<{
+    blogPosts: {
+      slug: string;
+      title: { title_en: string; title_pl: string; title_de: string };
+    }[];
+  }> = graphcms.request(queryBlogPostsSlug);
 
   if (!response)
     throw new Error('Something went wrong with fetching specialists');
@@ -94,8 +98,14 @@ export const fetchSpecialistPage = (slug: string) => {
 };
 
 export const fetchSpecialistsSlug = () => {
-  const response: Promise<{ specialists: { specialist_page_slug: string }[] }> =
-    graphcms.request(querySpecialistsSlug);
+  const response: Promise<{
+    specialists: {
+      specialist_page_slug: string;
+      languages: 'en' | 'pl' | 'de';
+      name_surname: string;
+      title: { title_en: string; title_pl: string; title_de: string };
+    }[];
+  }> = graphcms.request(querySpecialistsSlug);
 
   if (!response)
     throw new Error('Something went wrong with fetching specialists');

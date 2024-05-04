@@ -109,7 +109,7 @@ const Footer: FC<FooterProps> = function ({}) {
               translate: '0 -50%',
             }}
           >
-            <NavButton href="/privacy-policy" $lowerFooter>
+            <NavButton href="/privacy-policy" $lowerFooter rel="privacy-policy">
               <Text
                 noMargin
                 fontWeight={500}

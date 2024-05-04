@@ -55,3 +55,72 @@ export const YMDToDMStringY = (
   }
   return date;
 };
+
+export type ChangeFrequencyType =
+  | 'always'
+  | 'hourly'
+  | 'daily'
+  | 'weekly'
+  | 'monthly'
+  | 'yearly'
+  | 'never';
+
+export const regularPages: {
+  url: string;
+  priority: number;
+  changeFrequency: ChangeFrequencyType;
+  name: { en: string; pl: string; de: string };
+}[] = [
+  {
+    name: { en: 'Home page', pl: 'Strona główna', de: 'Startseite' },
+    url: '',
+    priority: 1,
+    changeFrequency: 'weekly',
+  },
+  {
+    name: { en: 'About us', pl: 'O nas', de: 'Über uns' },
+    url: '/about-us',
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
+    name: { en: 'Offer', pl: 'Oferta', de: 'Angebot' },
+    url: '/offer',
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
+    name: { en: 'Specialists', pl: 'Specialiści', de: 'Spezialisiert' },
+    url: '/specialists',
+    priority: 1,
+    changeFrequency: 'weekly',
+  },
+  {
+    name: { en: 'Blog', pl: 'Blog', de: 'Blog' },
+    url: '/blog',
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
+    name: { en: 'Contact', pl: 'Kontakt', de: 'Kontakt' },
+    url: '/contact',
+    priority: 0.7,
+    changeFrequency: 'never',
+  },
+  {
+    name: {
+      en: 'Privacy policy',
+      pl: 'Polityka prywatności',
+      de: 'Datenschutzrichtlinie',
+    },
+    url: '/privacy-policy',
+    priority: 0.3,
+    changeFrequency: 'never',
+  },
+  {
+    name: { en: 'Statue', pl: 'Regulamin', de: 'Satzung' },
+    url: '/statute',
+    priority: 0.3,
+    changeFrequency: 'never',
+  },
+];

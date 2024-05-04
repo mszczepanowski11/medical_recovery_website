@@ -7,6 +7,13 @@ export const querySpecialistsSlug = gql`
   {
     specialists {
       specialist_page_slug
+      name_surname
+      title {
+        title_de
+        title_en
+        title_pl
+      }
+      languages
     }
   }
 `;
@@ -161,6 +168,11 @@ export const queryBlogPostsSlug = gql`
   {
     blogPosts {
       slug
+      title {
+        title_de
+        title_en
+        title_pl
+      }
     }
   }
 `;

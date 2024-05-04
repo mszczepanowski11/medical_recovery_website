@@ -12,6 +12,7 @@ import Testimonials from '../organisms/Testimonials/Testimonials';
 import FAQ from '../organisms/FAQ/FAQ';
 import BlogPostsCards from '../organisms/BlogPostsCards/BlogPostsCards';
 import Contact from '../organisms/Contact/Contact';
+import { Links } from '../utils/Links/Links';
 
 // export async function generateMetadata({ params: { postId } }) {
 //   const post = await getPostByName(`${postId}.mdx`); // deduped!
