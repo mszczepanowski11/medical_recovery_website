@@ -4,7 +4,6 @@ import React, { FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import { appointletCalendarUrl } from '@/app/utils/constans';
 
 // Components
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
@@ -65,8 +64,7 @@ const Hero: FC<HeroProps> = function ({}) {
               <Button
                 size="large"
                 style={{ marginTop: '1rem' }}
-                href={appointletCalendarUrl}
-                target="_blank"
+                href="/specialists"
               >
                 <Text noMargin fontSize="1.25rem" fontWeight={500}>
                   {tCta('arrange_meeting')}

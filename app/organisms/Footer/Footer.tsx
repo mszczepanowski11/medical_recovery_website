@@ -7,10 +7,9 @@ import React, { FC } from 'react';
 // Components
 import Image from 'next/image';
 import Link from 'next/link';
-import { Colors, appointletCalendarUrl } from '@/app/utils/constans';
+import { Colors } from '@/app/utils/constans';
 import { useTranslations } from 'next-intl';
 import Text from '@/app/atoms/Text/Text';
-import Button from '@/app/atoms/Button/Button';
 import {
   FooterWrapper,
   LinksLogoWrapper,
@@ -24,7 +23,6 @@ type FooterProps = {};
 const Footer: FC<FooterProps> = function ({}) {
   const tHeader = useTranslations('header');
   const tFooter = useTranslations('footer');
-  const tCta = useTranslations('cta');
 
   return (
     <FooterWrapper>

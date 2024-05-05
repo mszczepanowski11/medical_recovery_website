@@ -14,6 +14,10 @@ export const BlogPostCardsWrapper = styled(Flex)`
     min-width: auto;
   }
 
+  .blog-post-page-no-articles {
+    max-width: 100% !important;
+  }
+
   @media (max-width: ${breakpoint.sm}px) {
     > * {
       max-width: calc(50% - 0.75rem) !important;

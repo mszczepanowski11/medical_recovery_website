@@ -243,14 +243,14 @@ export const queryBlogPostContent = (slug: string) => gql`
       }
       faq {
         question {
+          de
           en
           pl
-          de
         }
         answer {
+          de
           en
           pl
-          de
         }
       }
     }

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -8,11 +8,8 @@ import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 
 // Components
 import Image from 'next/image';
-import { appointletCalendarUrl } from '@/app/utils/constans';
 import Link from 'next/link';
 import LangMenu from '@/app/molecules/LangMenu/LangMenu';
-import Icon from '@/app/atoms/Icon/Icon';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
   HeaderWrapper,
   LinksWrapper,
@@ -142,8 +139,7 @@ const Header: FC<HeaderProps> = function () {
             </NavButton>
             <LangMenu className="header-lang-wide" />
             <Button
-              href={appointletCalendarUrl}
-              target="_blank"
+              href="/specialists"
               className="header-meeting-btn"
               classNameWrapper="header-meeting-btn"
             >

@@ -1,7 +1,6 @@
 export const hygraphApiKey = process.env.NEXT_PUBLIC_HYGRAPH_API_KEY || '';
 export const hygraphApi = process.env.NEXT_PUBLIC_HYGRAPH_API || '';
-export const appointletCalendarUrl =
-  'https://appt.link/meet-with-micha-skrzypiec';
+export const webpageUrl = 'https://mentalrecovery.co';
 
 export const breakpoint = {
   md: 1024,

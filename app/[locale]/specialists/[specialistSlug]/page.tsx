@@ -1,28 +1,47 @@
-import BlogPost from '@/app/organisms/BlogPost/BlogPost';
+/* eslint-disable @typescript-eslint/naming-convention */
 import SpecialistPage from '@/app/organisms/SpecialistPage/SpecialistPage';
+import metadata from '@/app/utils/SEO';
+import { webpageUrl } from '@/app/utils/constans';
 import { fetchSpecialistPage } from '@/app/utils/fetchData';
+import { Metadata } from 'next';
 import { useLocale } from 'next-intl';
 
-// export async function generateMetadata({ params: { postId } }) {
-//   const post = await getPostByName(`${postId}.mdx`); // deduped!
+export async function generateMetadata({
+  params: { specialistSlug, locale },
+}: {
+  params: { specialistSlug: string; locale: 'en' | 'pl' | 'de' };
+}): Promise<Metadata> {
+  const specialistContent = await fetchSpecialistPage(specialistSlug);
+  console.log('specialistContent', specialistContent);
+  const { name_surname, title, short_description, tags } =
+    specialistContent?.specialist || {};
 
-//   if (!post) {
-//     return {
-//       title: 'Post Not Found',
-//     };
-//   }
+  const titleItem = `${name_surname}${title && title[`title_${locale}`] ? ` - ${title[`title_${locale}`]}` : ''}`;
+  const descriptionItem = short_description[`short_description_${locale}`];
+  const keywordsItem = `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`;
+  const urlItem = `${webpageUrl}/${locale}/specialists/${specialistSlug}`;
 
-//   const { meta } = post;
-
-//   return {
-//     title: meta.title,
-//     description: meta.description,
-//     keywords: [...meta.tags],
-//     alternates: {
-//       canonical: `/posts/${meta.id}`,
-//     },
-//   };
-// }
+  return {
+    ...(metadata[locale] || {}),
+    title: titleItem,
+    description: descriptionItem,
+    keywords: keywordsItem,
+    alternates: {
+      canonical: urlItem,
+    },
+    openGraph: {
+      ...(metadata[locale].openGraph || {}),
+      title: titleItem,
+      description: descriptionItem,
+      url: urlItem,
+    },
+    twitter: {
+      ...(metadata[locale].twitter || {}),
+      title: titleItem,
+      description: descriptionItem,
+    },
+  };
+}
 
 export default async function Home({
   params,

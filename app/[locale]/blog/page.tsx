@@ -2,26 +2,19 @@ import BlogPostsPage from '@/app/organisms/BlogPostsPage/BlogPostsPage';
 import { fetchBlogPostsHomePage } from '@/app/utils/fetchData';
 import { useLocale } from 'next-intl';
 
-// export async function generateMetadata({ params: { postId } }) {
-//   const post = await getPostByName(`${postId}.mdx`); // deduped!
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: 'en' | 'pl' | 'de' };
+}) {
+  console.log('rewqr', locale);
 
-//   if (!post) {
-//     return {
-//       title: 'Post Not Found',
-//     };
-//   }
-
-//   const { meta } = post;
-
-//   return {
-//     title: meta.title,
-//     description: meta.description,
-//     keywords: [...meta.tags],
-//     alternates: {
-//       canonical: `/posts/${meta.id}`,
-//     },
-//   };
-// }
+  return {
+    alternates: {
+      canonical: `/blog`,
+    },
+  };
+}
 
 export default async function Home({
   params,

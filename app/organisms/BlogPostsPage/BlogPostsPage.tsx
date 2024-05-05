@@ -180,14 +180,16 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
                 $alignItems="center"
                 $padding="2.5rem"
                 $rowGap="1rem"
+                className="blog-post-page-no-articles"
                 style={{
-                  maxWidth: '100%',
                   width: '100%',
                   backgroundColor: '#fafafa',
                   borderRadius: '1rem',
                 }}
               >
-                <Text variant="h3">{t('no_articles')}</Text>
+                <Text variant="h3" textAlign="center">
+                  {t('no_articles')}
+                </Text>
                 <Button
                   color="transparent"
                   iconRight={false}

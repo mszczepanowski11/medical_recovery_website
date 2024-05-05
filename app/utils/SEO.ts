@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Metadata } from 'next';
 import { Organization } from 'schema-dts';
 
-export const metadataEN: Metadata = {
+export const metadata_en: Metadata = {
   metadataBase: new URL('https://mentalrecovery.co/en'),
   title: 'Mental Recovery - let our specialists help You recover.',
   description:
@@ -44,7 +45,7 @@ export const metadataEN: Metadata = {
     canonical: 'https://mentalrecovery.co/en',
   },
 };
-export const metadataPL: Metadata = {
+export const metadata_pl: Metadata = {
   metadataBase: new URL('https://mentalrecovery.co/pl'),
   title: 'Mental Recovery - pozwól naszym specialistom zająć się Tobą.',
   description:
@@ -87,7 +88,7 @@ export const metadataPL: Metadata = {
     canonical: 'https://mentalrecovery.co/pl',
   },
 };
-export const metadataDE: Metadata = {
+export const metadata_de: Metadata = {
   metadataBase: new URL('https://mentalrecovery.co/de'),
   title: 'Mental Recovery - lassen Sie sich von unseren Spezialisten betreuen.',
   description:
@@ -380,9 +381,9 @@ export const schemaOrgDE: Organization & { '@context': string } = {
 };
 
 const metadata = {
-  en: metadataEN,
-  pl: metadataPL,
-  de: metadataDE,
+  en: metadata_en,
+  pl: metadata_pl,
+  de: metadata_de,
   schemaen: schemaOrgEN,
   schemapl: schemaOrgPL,
   schemade: schemaOrgDE,
