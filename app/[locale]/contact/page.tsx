@@ -23,10 +23,23 @@ export async function generateMetadata({
   };
 }
 
-export default async function Home() {
+export default async function Contact({
+  params: { locale },
+}: {
+  params: { locale: 'en' | 'pl' | 'de' };
+}) {
   return (
-    <main>
-      <ContactPage />
-    </main>
+    <>
+      <main>
+        <ContactPage />
+      </main>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata[`schema${locale}`]),
+        }}
+      />
+    </>
   );
 }

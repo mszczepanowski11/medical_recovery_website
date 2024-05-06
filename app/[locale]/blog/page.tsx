@@ -35,12 +35,22 @@ export default async function Home({
   const blogPostsList = await fetchBlogPostsHomePage();
 
   return (
-    <main>
-      <BlogPostsPage
-        blogPosts={blogPostsList?.blogPosts}
-        monthsTo={messagesItem?.utils?.months_to}
-        locale={params.locale}
+    <>
+      {' '}
+      <main>
+        <BlogPostsPage
+          blogPosts={blogPostsList?.blogPosts}
+          monthsTo={messagesItem?.utils?.months_to}
+          locale={params.locale}
+        />
+      </main>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata[`schema${params.locale}`]),
+        }}
       />
-    </main>
+    </>
   );
 }

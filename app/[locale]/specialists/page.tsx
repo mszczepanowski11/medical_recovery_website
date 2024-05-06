@@ -36,21 +36,30 @@ export default async function Home({
   const specialistsList = await fetchSpecialistsDataHomePage();
 
   return (
-    <main>
-      <OurSpecialist
-        locale={params.locale}
-        specialistsList={specialistsList}
-        customTitle={messagesItem?.specialists_page?.title}
-        filterLangs={Object.keys(messagesItem?.utils?.languages || {}).map(
-          (key: string) => ({
-            id: key,
-            name: messagesItem.utils.languages[key],
-          }),
-        )}
-        customPadding="4rem 1rem"
-        customPaddingSm="2.5rem 1rem 1rem 1rem"
-        customPaddingMb="2rem 1rem 1rem 1rem"
+    <>
+      <main>
+        <OurSpecialist
+          locale={params.locale}
+          specialistsList={specialistsList}
+          customTitle={messagesItem?.specialists_page?.title}
+          filterLangs={Object.keys(messagesItem?.utils?.languages || {}).map(
+            (key: string) => ({
+              id: key,
+              name: messagesItem.utils.languages[key],
+            }),
+          )}
+          customPadding="4rem 1rem"
+          customPaddingSm="2.5rem 1rem 1rem 1rem"
+          customPaddingMb="2rem 1rem 1rem 1rem"
+        />
+      </main>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata[`schema${params.locale}`]),
+        }}
       />
-    </main>
+    </>
   );
 }

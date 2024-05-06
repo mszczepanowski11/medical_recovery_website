@@ -62,13 +62,22 @@ export default async function Home({
   const newestBlogPostsList = await fetchNewestsBlogPosts(params.blogSlug);
 
   return (
-    <main>
-      <BlogPost
-        blogPostContent={blogPostContent.blogPost}
-        monthsTo={messagesItem?.utils?.months_to}
-        locale={params.locale}
-        newestBlogPostsList={newestBlogPostsList?.blogPosts}
+    <>
+      <main>
+        <BlogPost
+          blogPostContent={blogPostContent.blogPost}
+          monthsTo={messagesItem?.utils?.months_to}
+          locale={params.locale}
+          newestBlogPostsList={newestBlogPostsList?.blogPosts}
+        />
+      </main>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata[`schema${params.locale}`]),
+        }}
       />
-    </main>
+    </>
   );
 }

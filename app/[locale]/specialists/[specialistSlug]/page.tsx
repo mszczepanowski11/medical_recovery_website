@@ -50,11 +50,20 @@ export default async function Home({
   const specialistContent = await fetchSpecialistPage(params.specialistSlug);
 
   return (
-    <main>
-      <SpecialistPage
-        specialistContent={specialistContent.specialist}
-        locale={params.locale}
+    <>
+      <main>
+        <SpecialistPage
+          specialistContent={specialistContent.specialist}
+          locale={params.locale}
+        />
+      </main>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata[`schema${params.locale}`]),
+        }}
       />
-    </main>
+    </>
   );
 }

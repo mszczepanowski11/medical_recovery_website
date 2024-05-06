@@ -56,13 +56,6 @@ export default function RootLayout({
           </StyledComponentsRegistry>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(metadata[`schema${locale}`]),
-          }}
-        />
       </body>
     </html>
   );
