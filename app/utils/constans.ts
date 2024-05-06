@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const hygraphApiKey = process.env.NEXT_PUBLIC_HYGRAPH_API_KEY || '';
 export const hygraphApi = process.env.NEXT_PUBLIC_HYGRAPH_API || '';
 export const webpageUrl = 'https://mentalrecovery.co';

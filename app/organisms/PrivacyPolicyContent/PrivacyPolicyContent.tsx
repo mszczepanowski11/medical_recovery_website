@@ -24,7 +24,6 @@ const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 type PrivacyPolicyContentProps = {};
 
 const PrivacyPolicyContent: FC<PrivacyPolicyContentProps> = function ({}) {
-  console.log('content');
   const t = useTranslations();
 
   return (

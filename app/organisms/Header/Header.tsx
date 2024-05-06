@@ -26,7 +26,6 @@ const Header: FC<HeaderProps> = function () {
   const tHeader = useTranslations('header');
   const tCta = useTranslations('cta');
   const pathname = usePathname();
-  console.log('pathname', pathname);
   const [isMenuSmOpen, setIsMenuSmOpen] = useState(false);
   const [currentPsychologistUrl, setCurrentPsychologistUrl] = useState<
     null | string

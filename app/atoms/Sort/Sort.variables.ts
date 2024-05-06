@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 export enum SortValues {
   'date_asc' = 'date_asc',
   'date_desc' = 'date_desc',
