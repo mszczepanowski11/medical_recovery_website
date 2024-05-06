@@ -108,13 +108,7 @@ const Footer: FC<FooterProps> = function ({}) {
             }}
           >
             <NavButton href="/privacy-policy" $lowerFooter rel="privacy-policy">
-              <Text
-                noMargin
-                fontWeight={500}
-                fontSize="0.8rem"
-                color="text_secondary"
-                noWrap
-              >
+              <Text noMargin fontSize="0.8rem" color="text_secondary" noWrap>
                 {tHeader('privacy_policy')}
               </Text>
             </NavButton>

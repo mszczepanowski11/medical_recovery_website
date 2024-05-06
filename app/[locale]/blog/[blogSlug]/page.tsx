@@ -1,30 +1,55 @@
 import BlogPost from '@/app/organisms/BlogPost/BlogPost';
+import metadata from '@/app/utils/SEO';
+import { webpageUrl } from '@/app/utils/constans';
 import {
   fetchBlogPostContent,
   fetchNewestsBlogPosts,
 } from '@/app/utils/fetchData';
+import { Metadata } from 'next';
 import { useLocale } from 'next-intl';
 
-// export async function generateMetadata({ params: { postId } }) {
-//   const post = await getPostByName(`${postId}.mdx`); // deduped!
+export async function generateMetadata({
+  params: { blogSlug, locale },
+}: {
+  params: { blogSlug: string; locale: 'en' | 'pl' | 'de' };
+}): Promise<Metadata> {
+  const blogPostContent = await fetchBlogPostContent(blogSlug);
+  const { title, short_description, tags, author, date } =
+    blogPostContent?.blogPost || {};
 
-//   if (!post) {
-//     return {
-//       title: 'Post Not Found',
-//     };
-//   }
+  const titleItem = `${title[`title_${locale}`]}${author}`;
+  const descriptionItem = short_description[`short_description_${locale}`];
+  const keywordsItem = `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`;
+  const urlItem = `${webpageUrl}/${locale}/blog/${blogSlug}`;
 
-//   const { meta } = post;
-
-//   return {
-//     title: meta.title,
-//     description: meta.description,
-//     keywords: [...meta.tags],
-//     alternates: {
-//       canonical: `/posts/${meta.id}`,
-//     },
-//   };
-// }
+  return {
+    ...(metadata[locale] || {}),
+    title: titleItem,
+    description: descriptionItem,
+    keywords: keywordsItem,
+    alternates: {
+      canonical: urlItem,
+    },
+    authors: { name: author },
+    openGraph: {
+      ...(metadata[locale].openGraph || {}),
+      title: titleItem,
+      description: descriptionItem,
+      url: urlItem,
+      type: 'article',
+      authors: author,
+      publishedTime: date,
+      tags: tags[`tags_${locale}`],
+    },
+    twitter: {
+      ...(metadata[locale].twitter || {}),
+      title: titleItem,
+      description: descriptionItem,
+      creator: author,
+      site: urlItem,
+    },
+  };
+}
 
 export default async function Home({
   params,

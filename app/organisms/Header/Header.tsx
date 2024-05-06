@@ -1,8 +1,8 @@
 'use client';
 
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-
+import { usePathname } from 'next/navigation';
 // Utils
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 
@@ -25,7 +25,12 @@ type HeaderProps = {};
 const Header: FC<HeaderProps> = function () {
   const tHeader = useTranslations('header');
   const tCta = useTranslations('cta');
+  const pathname = usePathname();
+  console.log('pathname', pathname);
   const [isMenuSmOpen, setIsMenuSmOpen] = useState(false);
+  const [currentPsychologistUrl, setCurrentPsychologistUrl] = useState<
+    null | string
+  >(null);
 
   const handleLinkClick = useCallback(() => {
     setIsMenuSmOpen(false);
@@ -33,6 +38,10 @@ const Header: FC<HeaderProps> = function () {
       document.body.classList.remove('header-open');
     }
   }, [setIsMenuSmOpen]);
+
+  useEffect(() => {
+    setCurrentPsychologistUrl(window.SPECIALIST_CALENDAR_URL);
+  }, []);
 
   return (
     <HeaderWrapper>
@@ -138,15 +147,28 @@ const Header: FC<HeaderProps> = function () {
               </Text>
             </NavButton>
             <LangMenu className="header-lang-wide" />
-            <Button
-              href="/specialists"
-              className="header-meeting-btn"
-              classNameWrapper="header-meeting-btn"
-            >
-              <Text noMargin fontWeight={500} noWrap>
-                {tCta('arrange_meeting')}
-              </Text>
-            </Button>
+            {!pathname.endsWith('/specialists') ? (
+              <Button
+                href={
+                  pathname.includes('/specialists/')
+                    ? currentPsychologistUrl || '/specialists'
+                    : '/specialists'
+                }
+                target={
+                  pathname.includes('/specialists/') && currentPsychologistUrl
+                    ? '_blank'
+                    : undefined
+                }
+                className="header-meeting-btn"
+                classNameWrapper="header-meeting-btn"
+              >
+                <Text noMargin fontWeight={500} noWrap>
+                  {tCta('arrange_meeting')}
+                </Text>
+              </Button>
+            ) : (
+              <div />
+            )}
           </LinksWrapper>
           <RightWrapperSm>
             <LangMenu />

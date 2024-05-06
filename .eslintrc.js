@@ -26,6 +26,7 @@ module.exports = {
     "no-unused-vars": "off",
     "@typescript-eslint/ban-types": "warn",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/naming-convention": "off",
     'linebreak-style': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': [

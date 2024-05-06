@@ -44,7 +44,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <head>{/* <meta property="fb:app_id" content="" /> */}</head>
+      <head />
       <body className={instrument_sans.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <StyledComponentsRegistry>

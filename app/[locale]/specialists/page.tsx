@@ -1,27 +1,29 @@
 import { useLocale } from 'next-intl';
 import OurSpecialist from '@/app/organisms/OurSpecialist/OurSpecialist';
+import metadata from '@/app/utils/SEO';
+import { webpageUrl } from '@/app/utils/constans';
 import { fetchSpecialistsDataHomePage } from '../../utils/fetchData';
 
-// export async function generateMetadata({ params: { postId } }) {
-//   const post = await getPostByName(`${postId}.mdx`); // deduped!
-
-//   if (!post) {
-//     return {
-//       title: 'Post Not Found',
-//     };
-//   }
-
-//   const { meta } = post;
-
-//   return {
-//     title: meta.title,
-//     description: meta.description,
-//     keywords: [...meta.tags],
-//     alternates: {
-//       canonical: `/posts/${meta.id}`,
-//     },
-//   };
-// }
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: 'en' | 'pl' | 'de' };
+}) {
+  return {
+    alternates: {
+      canonical: `/specialists`,
+    },
+    openGraph: {
+      ...(metadata[locale].openGraph || {}),
+      title: `${metadata[locale].title}`,
+      url: `${webpageUrl}/${locale}/specialists`,
+    },
+    twitter: {
+      ...(metadata[locale].twitter || {}),
+      site: `${webpageUrl}/${locale}/specialists`,
+    },
+  };
+}
 
 export default async function Home({
   params,

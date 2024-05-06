@@ -27,7 +27,6 @@ export const metadata_en: Metadata = {
     phoneNumbers: ['+48 512 088 457', '+48 604 156 103'],
     countryName: 'Europe',
     locale: 'en_GB',
-    // videos: [''],
   },
   twitter: {
     card: 'summary_large_image',

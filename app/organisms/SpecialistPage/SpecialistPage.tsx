@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -197,6 +197,11 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     ],
     [isMobile, scrollTo, t],
   );
+
+  useEffect(() => {
+    window.SPECIALIST_CALENDAR_URL = calendar;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <SpecialistPageWrapper>

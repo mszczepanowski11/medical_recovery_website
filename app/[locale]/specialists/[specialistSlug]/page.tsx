@@ -4,7 +4,6 @@ import metadata from '@/app/utils/SEO';
 import { webpageUrl } from '@/app/utils/constans';
 import { fetchSpecialistPage } from '@/app/utils/fetchData';
 import { Metadata } from 'next';
-import { useLocale } from 'next-intl';
 
 export async function generateMetadata({
   params: { specialistSlug, locale },
@@ -12,7 +11,6 @@ export async function generateMetadata({
   params: { specialistSlug: string; locale: 'en' | 'pl' | 'de' };
 }): Promise<Metadata> {
   const specialistContent = await fetchSpecialistPage(specialistSlug);
-  console.log('specialistContent', specialistContent);
   const { name_surname, title, short_description, tags } =
     specialistContent?.specialist || {};
 
@@ -39,6 +37,7 @@ export async function generateMetadata({
       ...(metadata[locale].twitter || {}),
       title: titleItem,
       description: descriptionItem,
+      site: urlItem,
     },
   };
 }
@@ -48,8 +47,6 @@ export default async function Home({
 }: {
   params: { locale: 'en' | 'pl' | 'de'; specialistSlug: string };
 }) {
-  const locale = useLocale();
-  const messagesItem = await import(`../../../../messages/${locale}`);
   const specialistContent = await fetchSpecialistPage(params.specialistSlug);
 
   return (
