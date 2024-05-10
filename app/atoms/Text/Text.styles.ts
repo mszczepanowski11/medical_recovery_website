@@ -97,6 +97,7 @@ export type TextWrapperType = {
   $textAlign?: 'left' | 'right' | 'center';
   $fontWeight?: number;
   $fontSizeSm?: string;
+  $style?: any;
   $styleMd?: any;
   $styleSm?: any;
 };
@@ -131,6 +132,7 @@ export const TextWrapper = styled.p<TextWrapperType>`
         : getFontParams(as, $psmall, $fontSize, $lineHeight).fontWeight)};
   white-space: ${({ $noWrap }) => ($noWrap ? 'nowrap' : undefined)};
   text-align: ${({ $textAlign }) => $textAlign};
+  ${({ $style }) => ({ ...($style || {}) })};
 
   @media (max-width: ${breakpoint.md}px) {
     ${({ $styleMd }) => ({ ...($styleMd || {}) })};

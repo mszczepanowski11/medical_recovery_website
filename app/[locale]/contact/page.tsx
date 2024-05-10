@@ -9,7 +9,7 @@ export async function generateMetadata({
 }) {
   return {
     alternates: {
-      canonical: `/specialists`,
+      canonical: `/contact`,
     },
     openGraph: {
       ...(metadata[locale].openGraph || {}),

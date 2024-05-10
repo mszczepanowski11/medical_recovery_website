@@ -56,7 +56,7 @@ const Text: FC<TextProps> = function ({
 }) {
   return (
     <TextWrapper
-      style={style}
+      $style={style}
       ref={forwardRef}
       $noWrap={noWrap}
       $psmall={!!psmall && (!variant || variant === 'p') ? 1 : 0}

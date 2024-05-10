@@ -31,11 +31,12 @@ export const ContactInside = styled.div`
   }
 `;
 
-export const RightImageWrapper = styled.div`
+export const RightImageWrapper = styled.div<{ $style?: any; $styleSm?: any }>`
   position: relative;
   aspect-ratio: 1.2;
   width: 30%;
   min-width: 400px;
+  ${({ $style }) => ({ ...($style || {}) })};
 
   img {
     object-fit: cover;
@@ -51,6 +52,7 @@ export const RightImageWrapper = styled.div`
 
   @media (max-width: ${breakpoint.sm}px) {
     min-width: 320px;
+    ${({ $styleSm }) => ({ ...($styleSm || {}) })};
   }
 
   @media (max-width: calc(${breakpoint.sm}px - 75px)) {

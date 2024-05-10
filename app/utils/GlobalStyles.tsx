@@ -93,6 +93,8 @@ const GlobalStyles = createGlobalStyle`
     --color-background-background-grey: ${COLORS.background_background_grey};
     --color-background-background-grey-light: ${COLORS.background_background_grey_light};
     --color-background-blue-hover: ${COLORS.background_blue_hover};
+    --color-background-yellow-light: ${COLORS.background_yellow_light};
+    --color-background-purple: ${COLORS.background_purple};
     --color-background-blue-active: ${COLORS.background_blue_active};
     --color-background-interactive: ${COLORS.background_interactive};
     --color-background-interactive-hover: ${COLORS.background_interactive_hover};
@@ -136,6 +138,8 @@ const GlobalStyles = createGlobalStyle`
 
 type GridContainerProps = {
   $bg?: (typeof Colors)[keyof typeof Colors] | string;
+  $customGridCols?: string;
+  $customGridRows?: string;
   $gridRows?: number;
   $gridRowsMb?: number;
   $gridRowsSm?: number;
@@ -144,6 +148,7 @@ type GridContainerProps = {
   $gridColsSm?: number;
   $gap?: string;
   $gapMb?: string;
+  $rowGap?: string;
   $rowGapMb?: string;
   $rowGapSm?: string;
   $height?: string;
@@ -155,6 +160,7 @@ type GridContainerProps = {
   $paddingSm?: string;
   $margin?: string;
   $marginSm?: string;
+  $style?: any;
   $styleMd?: any;
   $styleSm?: any;
 };
@@ -180,6 +186,7 @@ type GridItemProps = {
   $alignSelf?: 'center' | 'stretch' | 'start' | 'end';
   $alignSelfSm?: 'center' | 'stretch' | 'start' | 'end';
   $minHeight?: string;
+  $style?: any;
   $styleMd?: any;
   $styleSm?: any;
 };
@@ -190,8 +197,10 @@ export const GridContainer = styled.section<GridContainerProps>`
     $gridCols
       ? `repeat(${$gridCols}, minmax(0, 1fr))`
       : 'repeat(4, minmax(0, 1fr))'};
-  grid-template-rows: ${({ $gridRows }) => `${$gridRows || 1}fr`};
+  grid-template-rows: ${({ $gridRows, $customGridRows }) =>
+    $customGridRows || `${$gridRows || 1}fr`};
   gap: ${({ $gap }) => $gap || '1rem'};
+  row-gap: ${({ $gap, $rowGap }) => $rowGap || $gap || '1rem'};
   height: ${({ $height }) => $height || 'auto'};
   min-height: ${({ $minHeight, $maxHeight }) =>
     $maxHeight
@@ -209,6 +218,7 @@ export const GridContainer = styled.section<GridContainerProps>`
   background-color: ${({ $bg }) => $bg || Colors.transparent};
   box-shadow: 0 0 0 100vmax ${({ $bg }) => $bg || Colors.transparent};
   clip-path: inset(0 -100vmax);
+  ${({ $style }) => ({ ...($style || {}) })};
 
   @media (max-width: ${breakpoint.md}px) {
     grid-template-columns: ${({ $gridColsMb, $gridCols }) =>
@@ -247,6 +257,7 @@ export const GridItem = styled.div<GridItemProps>`
   align-self: ${({ $alignSelf }) => $alignSelf || 'stretch'};
   background-color: ${({ $bg }) => $bg || 'transparent'};
   min-height: ${({ $minHeight }) => $minHeight || 'auto'};
+  ${({ $style }) => ({ ...($style || {}) })};
 
   @media (max-width: ${breakpoint.md}px) {
     grid-column-start: ${({ $colStartMb }) => $colStartMb};
@@ -304,6 +315,7 @@ export type FlexType = {
   $paddingRight?: string;
   $paddingBottom?: string;
   $paddingLeft?: string;
+  $style?: any;
   $styleMd?: any;
   $styleSm?: any;
 };
@@ -326,6 +338,7 @@ export const Flex = styled.div<FlexType>`
   padding-right: ${({ $paddingRight }) => $paddingRight};
   padding-bottom: ${({ $paddingBottom }) => $paddingBottom};
   padding-left: ${({ $paddingLeft }) => $paddingLeft};
+  ${({ $style }) => ({ ...($style || {}) })};
 
   @media (max-width: ${breakpoint.md}px) {
     flex-direction: ${({ $flexDirection, $flexDirectionMd }) =>

@@ -19,12 +19,14 @@ import {
 type ContactProps = {
   noMiddleSection?: boolean;
   rightImageStyle?: CSSProperties;
+  rightImageStyleSm?: CSSProperties;
   padding?: string;
 };
 
 const Contact: FC<ContactProps> = function ({
   noMiddleSection,
   rightImageStyle,
+  rightImageStyleSm,
   padding,
 }) {
   const tContact = useTranslations('contact');
@@ -120,7 +122,10 @@ const Contact: FC<ContactProps> = function ({
                 )}
               </Flex>
             </Flex>
-            <RightImageWrapper style={rightImageStyle}>
+            <RightImageWrapper
+              $style={rightImageStyle}
+              $styleSm={rightImageStyleSm}
+            >
               <Image
                 src="/img/contact-heart-hands.jpeg"
                 alt="contact with heart"
