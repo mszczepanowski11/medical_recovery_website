@@ -12,29 +12,7 @@ import Testimonials from '../organisms/Testimonials/Testimonials';
 import FAQ from '../organisms/FAQ/FAQ';
 import BlogPostsCards from '../organisms/BlogPostsCards/BlogPostsCards';
 import Contact from '../organisms/Contact/Contact';
-import { Links } from '../utils/Links/Links';
 import metadata from '../utils/SEO';
-
-// export async function generateMetadata({ params: { postId } }) {
-//   const post = await getPostByName(`${postId}.mdx`); // deduped!
-
-//   if (!post) {
-//     return {
-//       title: 'Post Not Found',
-//     };
-//   }
-
-//   const { meta } = post;
-
-//   return {
-//     title: meta.title,
-//     description: meta.description,
-//     keywords: [...meta.tags],
-//     alternates: {
-//       canonical: `/posts/${meta.id}`,
-//     },
-//   };
-// }
 
 export default async function Home({
   params,

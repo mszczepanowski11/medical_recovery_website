@@ -17,6 +17,10 @@ export const HeroWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  .hero-description {
+    max-width: 500px;
+  }
+
   .hero-background {
     display: none;
   }
@@ -25,7 +29,6 @@ export const HeroWrapper = styled.div`
     min-height: calc(100vh - ${headerHeight}px);
 
     .hero-description {
-      max-width: 600px;
       color: ${Colors.background_background_grey_light};
     }
 

@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useMotionValue, useSpring, motion, useTransform } from 'framer-motion';
+import { useMotionValue, useSpring, motion } from 'framer-motion';
 // Utils
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';

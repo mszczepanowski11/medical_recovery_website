@@ -1,14 +1,14 @@
 'use client';
 
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import emailjs from '@emailjs/browser';
 
 // Utils
-import { Colors } from '@/app/utils/constans';
+import { toast } from 'react-toastify';
 
-// Components
-import { ToastContainer, toast } from 'react-toastify';
+// Componens
+
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Input from '@/app/atoms/Input/Input';
