@@ -92,6 +92,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background-background-white: ${COLORS.background_background_white};
     --color-background-background-grey: ${COLORS.background_background_grey};
     --color-background-background-grey-light: ${COLORS.background_background_grey_light};
+    --color-background-blue: ${COLORS.background_blue};
     --color-background-blue-hover: ${COLORS.background_blue_hover};
     --color-background-yellow-light: ${COLORS.background_yellow_light};
     --color-background-purple: ${COLORS.background_purple};

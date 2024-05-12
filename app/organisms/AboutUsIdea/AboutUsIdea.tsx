@@ -68,7 +68,7 @@ const AboutUsIdea: FC<AboutUsIdeaProps> = function ({ items, locale }) {
             </IdeaList>
           )}
           <Button
-            href={`/${locale}/item.btn?.href`}
+            href={`/${locale}${item.btn?.href}`}
             color="transparent"
             style={{ marginTop: '1rem' }}
           >
