@@ -91,7 +91,7 @@ const SpecialistsLangFilter: FC<SpecialistsLangFilterProps> = function ({
             <Text
               noMargin
               fontWeight={500}
-              style={{ textTransform: 'uppercase' }}
+              style={{ textTransform: 'capitalize' }}
               className="specialists-filter-lang-item"
             >
               {item.name}

@@ -15,6 +15,8 @@ import { makeTagsArrayFromString } from '@/app/utils/utils';
 import Link from 'next/link';
 import { SpecialistCardWrapper } from './SpecialistCard.styles';
 
+const SORT_ORDER = ['en', 'pl', 'de'];
+
 type SpecialistCardProps = {
   name: string;
   title: {
@@ -50,15 +52,19 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
 
   const renderLanguages = useMemo(
     () =>
-      languages?.map((lang) => (
-        <Image
-          key={lang}
-          src={`/img/${lang}.svg`}
-          alt={lang}
-          width={27}
-          height={20}
-        />
-      )),
+      languages
+        ?.sort((a, b) => {
+          return SORT_ORDER.indexOf(a) - SORT_ORDER.indexOf(b);
+        })
+        .map((lang) => (
+          <Image
+            key={lang}
+            src={`/img/${lang}.svg`}
+            alt={lang}
+            width={27}
+            height={20}
+          />
+        )),
     [languages],
   );
 

@@ -185,7 +185,7 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
             }}
             $styleMd={{ maxWidth: '340px', marginLeft: '0 !important' }}
           >
-            <Image src="/img/contact-page-image.svg" alt="contact" fill />
+            <Image src="/img/contact-page-image.png" alt="contact" fill />
           </Flex>
         </GridItem>
       </GridContainer>

@@ -127,7 +127,7 @@ const Contact: FC<ContactProps> = function ({
               $styleSm={rightImageStyleSm}
             >
               <Image
-                src="/img/contact-heart-hands.jpeg"
+                src="/img/contact-heart-hands.png"
                 alt="contact with heart"
                 fill
               />
