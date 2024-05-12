@@ -1,5 +1,6 @@
 import BlogPostsCards from '@/app/organisms/BlogPostsCards/BlogPostsCards';
 import Contact from '@/app/organisms/Contact/Contact';
+import OfferDiagnosis from '@/app/organisms/OfferDiagnosis/OfferDiagnosis';
 import OfferHero from '@/app/organisms/OfferHero/OfferHero';
 import OfferIntroBottom from '@/app/organisms/OfferIntroBottom/OfferIntroBottom';
 import OfferIntroTop from '@/app/organisms/OfferIntroTop/OfferIntroTop';
@@ -50,6 +51,10 @@ export default async function Offer({
         <OfferIntroBottom
           locale={params.locale}
           items={messagesItem?.offer_page?.intro_bottom?.items}
+        />
+        <OfferDiagnosis
+          locale={params.locale}
+          items={messagesItem?.offer_page?.diagnosis?.items}
         />
         <BlogPostsCards
           blogPosts={blogPostsList?.blogPosts}
