@@ -61,7 +61,10 @@ const OfferIntroTop: FC<OfferIntroTopProps> = function ({ items, locale }) {
                 fill
               />
             </Flex>
-            <Button style={{ marginTop: '1.5rem' }} href="/specialists">
+            <Button
+              style={{ marginTop: '1.5rem' }}
+              href={`/${locale}/specialists`}
+            >
               <Text noMargin fontSize="1.1rem" fontWeight={500}>
                 {tCta('meet_our_specialists')}
               </Text>

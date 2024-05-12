@@ -122,6 +122,7 @@ const BlogPost: FC<BlogPostProps> = function ({
         </GridItem>
         <GridItem $colStart={1} $colEnd={6} $rowStart={4} $rowEnd={5}>
           <Contact
+            locale={locale}
             noMiddleSection
             rightImageStyle={{ minWidth: 200, width: '18%' }}
             padding="4rem 0 "

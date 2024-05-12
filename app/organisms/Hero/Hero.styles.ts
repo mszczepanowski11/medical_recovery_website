@@ -28,10 +28,6 @@ export const HeroWrapper = styled.div`
   @media (max-width: ${breakpoint.md}px) {
     min-height: calc(100vh - ${headerHeight}px);
 
-    .hero-description {
-      color: ${Colors.background_background_grey_light};
-    }
-
     .hero-hide-mb {
       display: none;
     }
@@ -46,11 +42,7 @@ export const HeroWrapper = styled.div`
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.02) 0%,
-        rgba(0, 0, 0, 0.8) 100%
-      );
+      background: #a1e5ed33;
       z-index: 4;
     }
   }
@@ -58,10 +50,38 @@ export const HeroWrapper = styled.div`
   @media (max-width: ${breakpoint.md}px) {
     min-height: calc(70vh - ${headerHeightSm}px);
   }
+
+  @media (max-width: 900px) {
+    .hero-grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    .hero-grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export const HeroImageWrapper = styled.div`
   position: relative;
+
+  @media (max-width: ${breakpoint.md}px) {
+    max-width: 340px !important;
+    left: 0 !important;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    display: block;
+    left: 0 !important;
+    min-width: 270px !important;
+    max-width: 300px !important;
+  }
 `;
 
 export const HeroLine = styled.div`

@@ -41,7 +41,6 @@ const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    /* overflow-x: hidden; */
     background-color: ${Colors.primitives_grey};
     min-height: 100vh;
 
@@ -122,14 +121,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-moz-selection { /* Code for Firefox */
-    color: ${Colors.primitives_white};
-    background: rgba(155,251,146,0.65);
+    /* color: ${Colors.primitives_white}; */
+    /* background: rgba(155,251,146,0.65); */
   }
 
-  ::selection {
+  /* ::selection {
     color: ${Colors.primitives_white};
     background: rgba(155,251,146,0.65);
-  }
+  } */
   
   @media (max-width: ${breakpoint.sm}px) {
     html {
@@ -301,6 +300,7 @@ export type FlexType = {
   $alignItems?: 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
   $gap?: string;
   $rowGap?: string;
+  $rowGapSm?: string;
   $columnGap?: string;
   $flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   $flexWrapMd?: 'nowrap' | 'wrap' | 'wrap-reverse';
@@ -346,6 +346,7 @@ export const Flex = styled.div<FlexType>`
     flex-direction: ${({ $flexDirection, $flexDirectionMd }) =>
       $flexDirectionMd || $flexDirection};
     flex-wrap: ${({ $flexWrap, $flexWrapMd }) => $flexWrapMd || $flexWrap};
+    row-gap: ${({ $gap, $rowGap, $rowGapSm }) => $rowGapSm || $rowGap || $gap};
     padding: ${({ $padding, $paddingMd }) => $paddingMd || $padding};
     ${({ $styleMd }) => ({ ...($styleMd || {}) })};
   }

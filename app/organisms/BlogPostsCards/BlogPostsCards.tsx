@@ -106,7 +106,7 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
               {customTitle || tBlogPosts('title')}
             </Text>
             {!hideMoreBtn && (
-              <Button href="blog" color="transparent">
+              <Button href={`/${locale}/blog`} color="transparent">
                 <Text noMargin fontWeight={500}>
                   {tBlogPosts('show_more_btn')}
                 </Text>

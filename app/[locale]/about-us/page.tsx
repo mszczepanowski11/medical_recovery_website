@@ -45,6 +45,7 @@ export default async function AboutUs({
           locale={params.locale}
         />
         <Contact
+          locale={params.locale}
           noMiddleSection
           rightImageStyle={{ minWidth: 200, width: '18%' }}
           rightImageStyleSm={{ width: '100%' }}

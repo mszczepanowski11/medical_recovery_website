@@ -59,7 +59,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
 }) {
   const t = useTranslations('blog_posts_home_page');
 
-  const href = useMemo(() => `/blog/${slug}`, [slug]);
+  const href = useMemo(() => `/${locale}/blog/${slug}`, [slug, locale]);
   const titleLocalized = useMemo(
     () => (title ? title[`title_${locale}`] : null),
     [title, locale],

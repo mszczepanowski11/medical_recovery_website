@@ -49,10 +49,10 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <StyledComponentsRegistry>
             <GlobalStyles />
-            <Header />
+            <Header locale={locale} />
             <Links locale={locale} />
             <ToastProvider>{children}</ToastProvider>
-            <Footer />
+            <Footer locale={locale} />
           </StyledComponentsRegistry>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />

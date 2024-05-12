@@ -20,9 +20,9 @@ import {
 import Text from '../../atoms/Text/Text';
 import Button from '../../atoms/Button/Button';
 
-type HeaderProps = {};
+type HeaderProps = { locale: 'en' | 'pl' | 'de' };
 
-const Header: FC<HeaderProps> = function () {
+const Header: FC<HeaderProps> = function ({ locale }) {
   const tHeader = useTranslations('header');
   const tCta = useTranslations('cta');
   const pathname = usePathname();
@@ -59,7 +59,7 @@ const Header: FC<HeaderProps> = function () {
           $colEnd={2}
           style={{ display: 'flex', alignItems: 'center' }}
         >
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Flex
               style={{
                 position: 'relative',
@@ -85,7 +85,11 @@ const Header: FC<HeaderProps> = function () {
                 height={24}
               />
             </ShowHideMenuSmBtn>
-            <NavButton href="/about-us" onClick={handleLinkClick} prefetch>
+            <NavButton
+              href={`/${locale}/about-us`}
+              onClick={handleLinkClick}
+              prefetch
+            >
               <Image
                 className="header-menu-icon-sm"
                 src="/img/about-us-icon.svg"
@@ -97,7 +101,11 @@ const Header: FC<HeaderProps> = function () {
                 {tHeader('about_us')}
               </Text>
             </NavButton>
-            <NavButton href="/offer" onClick={handleLinkClick} prefetch>
+            <NavButton
+              href={`/${locale}/offer`}
+              onClick={handleLinkClick}
+              prefetch
+            >
               <Image
                 className="header-menu-icon-sm"
                 src="/img/offer-icon.svg"
@@ -109,7 +117,11 @@ const Header: FC<HeaderProps> = function () {
                 {tHeader('offer')}
               </Text>
             </NavButton>
-            <NavButton href="/specialists" onClick={handleLinkClick} prefetch>
+            <NavButton
+              href={`/${locale}/specialists`}
+              onClick={handleLinkClick}
+              prefetch
+            >
               <Image
                 className="header-menu-icon-sm"
                 src="/img/specialists-icon.svg"
@@ -121,7 +133,11 @@ const Header: FC<HeaderProps> = function () {
                 {tHeader('specialists')}
               </Text>
             </NavButton>
-            <NavButton href="/blog" onClick={handleLinkClick} prefetch>
+            <NavButton
+              href={`/${locale}/blog`}
+              onClick={handleLinkClick}
+              prefetch
+            >
               <Image
                 className="header-menu-icon-sm"
                 src="/img/blog-icon.svg"
@@ -133,7 +149,11 @@ const Header: FC<HeaderProps> = function () {
                 {tHeader('blog')}
               </Text>
             </NavButton>
-            <NavButton href="/contact" onClick={handleLinkClick} prefetch>
+            <NavButton
+              href={`/${locale}/contact`}
+              onClick={handleLinkClick}
+              prefetch
+            >
               <Image
                 className="header-menu-icon-sm"
                 src="/img/contact-icon.svg"
@@ -150,8 +170,8 @@ const Header: FC<HeaderProps> = function () {
               <Button
                 href={
                   pathname.includes('/specialists/')
-                    ? currentPsychologistUrl || '/specialists'
-                    : '/specialists'
+                    ? currentPsychologistUrl || `/${locale}/specialists`
+                    : `/${locale}/specialists`
                 }
                 target={
                   pathname.includes('/specialists/') && currentPsychologistUrl

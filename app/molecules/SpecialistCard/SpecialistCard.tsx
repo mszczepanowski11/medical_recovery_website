@@ -76,7 +76,10 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
     [tags, locale],
   );
 
-  const subpageSlug = useMemo(() => `/specialists/${specSlug}`, [specSlug]);
+  const subpageSlug = useMemo(
+    () => `/${locale}/specialists/${specSlug}`,
+    [specSlug, locale],
+  );
 
   return (
     <SpecialistCardWrapper

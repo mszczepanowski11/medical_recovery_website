@@ -106,7 +106,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
           $colStart={1}
           $colEnd={filterLangs ? 2 : 5}
           $colStartMb={1}
-          $colEndMb={9}
+          $colEndMb={7}
         >
           <Flex $justifyContent="space-between" $flexWrap="wrap" $rowGap="1rem">
             <Text
@@ -118,7 +118,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
             </Text>
             {!filterLangs && (
               <Button
-                href="/specialists"
+                href={`/${locale}/specialists`}
                 color="transparent"
                 classNameWrapper="our-specialist-more-btn"
               >
@@ -139,15 +139,28 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
         </GridItem>
         {!!filterLangs && (
           <GridItem
+            $colStartMb={7}
+            $colEndMb={10}
+            $rowStartMb={1}
+            $rowEndMb={2}
             $rowStartSm={2}
             $rowEndSm={3}
             className="our-specialist-filter-wide"
           >
-            <SpecialistsLangFilter
-              langs={filterLangs}
-              selectedLangs={selectedLangs}
-              setSelectedLangs={setSelectedLangs}
-            />
+            <Flex
+              $alignItems="center"
+              style={{ height: '100%' }}
+              $styleMd={{
+                height: '100%',
+                justifyContent: 'flex-end',
+              }}
+            >
+              <SpecialistsLangFilter
+                langs={filterLangs}
+                selectedLangs={selectedLangs}
+                setSelectedLangs={setSelectedLangs}
+              />
+            </Flex>
           </GridItem>
         )}
       </GridContainer>

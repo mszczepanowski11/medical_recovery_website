@@ -18,9 +18,9 @@ import {
 } from './Footer.styles';
 import { Flex, GridContainer, GridItem } from '../../utils/GlobalStyles';
 
-type FooterProps = {};
+type FooterProps = { locale: 'en' | 'pl' | 'de' };
 
-const Footer: FC<FooterProps> = function ({}) {
+const Footer: FC<FooterProps> = function ({ locale }) {
   const tHeader = useTranslations('header');
   const tFooter = useTranslations('footer');
 
@@ -35,7 +35,7 @@ const Footer: FC<FooterProps> = function ({}) {
       >
         <GridItem $rowStart={1} $rowEnd={2} $colStart={1} $colEnd={5}>
           <LinksLogoWrapper>
-            <Link href="/" className="footer-logo-link">
+            <Link href={`/${locale}`} className="footer-logo-link">
               <Flex
                 style={{
                   position: 'relative',
@@ -47,32 +47,32 @@ const Footer: FC<FooterProps> = function ({}) {
               </Flex>
             </Link>
             <LinksWrapper>
-              <NavButton href="/about-us">
+              <NavButton href={`/${locale}/about-us`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('about_us')}
                 </Text>
               </NavButton>
-              <NavButton href="/offer">
+              <NavButton href={`/${locale}/offer`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('offer')}
                 </Text>
               </NavButton>
-              <NavButton href="/specialists">
+              <NavButton href={`/${locale}/specialists`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('specialists')}
                 </Text>
               </NavButton>
-              <NavButton href="/blog">
+              <NavButton href={`/${locale}/blog`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('blog')}
                 </Text>
               </NavButton>
-              <NavButton href="/contact">
+              <NavButton href={`/${locale}/contact`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('contact')}
                 </Text>
               </NavButton>
-              <NavButton href="/privacy-policy" $sm>
+              <NavButton $sm href={`/${locale}/privacy-policy`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('privacy_policy')}
                 </Text>
@@ -107,7 +107,11 @@ const Footer: FC<FooterProps> = function ({}) {
               translate: '0 -50%',
             }}
           >
-            <NavButton href="/privacy-policy" $lowerFooter rel="privacy-policy">
+            <NavButton
+              href={`/${locale}/privacy-policy`}
+              $lowerFooter
+              rel="privacy-policy"
+            >
               <Text noMargin fontSize="0.8rem" color="text_secondary" noWrap>
                 {tHeader('privacy_policy')}
               </Text>

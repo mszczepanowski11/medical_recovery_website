@@ -63,6 +63,7 @@ export default async function Offer({
           paddingTopSectionSm="4rem 1rem 0 1rem"
         />
         <Contact
+          locale={params.locale}
           noMiddleSection
           rightImageStyle={{ minWidth: 200, width: '18%' }}
           rightImageStyleSm={{ width: '100%' }}

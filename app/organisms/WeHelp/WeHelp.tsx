@@ -38,7 +38,7 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
   return (
     <WeHelpWrapper>
       <GridContainer
-        $gap="3rem"
+        $gap="2.5rem"
         $gridColsSm={1}
         $padding="12rem 1rem 4rem 1rem"
         $paddingMb="6rem 1rem"

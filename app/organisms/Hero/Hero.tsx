@@ -12,9 +12,9 @@ import Button from '@/app/atoms/Button/Button';
 import Image from 'next/image';
 import { HeroImageWrapper, HeroLine, HeroWrapper } from './Hero.styles';
 
-type HeroProps = {};
+type HeroProps = { locale: 'en' | 'pl' | 'de' };
 
-const Hero: FC<HeroProps> = function ({}) {
+const Hero: FC<HeroProps> = function ({ locale }) {
   const tHero = useTranslations('hero');
   const tCta = useTranslations('cta');
 
@@ -22,18 +22,19 @@ const Hero: FC<HeroProps> = function ({}) {
     <HeroWrapper>
       <div className="hero-background" />
       <GridContainer
-        $gridColsMb={1}
+        $gridColsMb={2}
         $gridColsSm={1}
+        $rowGapSm="2rem"
         $padding="6rem 1rem 0rem 1rem"
         $paddingMb="6rem 1rem 4rem 1rem"
-        $paddingSm="4rem 1rem"
-        // $height={`calc(100vh - ${headerHeight}px)`}
+        $paddingSm="3.5rem 1rem 0 1rem"
         style={{
           position: 'relative',
           overflow: 'visible',
           clipPath: 'none',
           width: '100%',
         }}
+        className="hero-grid-container"
       >
         <GridItem
           $colStart={1}
@@ -64,7 +65,7 @@ const Hero: FC<HeroProps> = function ({}) {
               <Button
                 size="large"
                 style={{ marginTop: '1rem' }}
-                href="/specialists"
+                href={`/${locale}/specialists`}
               >
                 <Text noMargin fontSize="1.25rem" fontWeight={500}>
                   {tCta('arrange_meeting')}
@@ -78,14 +79,19 @@ const Hero: FC<HeroProps> = function ({}) {
         <GridItem
           $colStart={3}
           $colEnd={5}
-          $colStartMb={1}
-          $colEndMb={2}
+          $colStartMb={2}
+          $colEndMb={3}
+          $colStartSm={1}
+          $colEndSm={2}
           $rowStartMb={1}
           $rowEndMb={2}
-          $styleMd={{ zIndex: 2 }}
+          $rowStartSm={2}
+          $rowEndSm={3}
+          $styleMd={{ zIndex: 5 }}
         >
           <Flex
             style={{ height: '100%' }}
+            $styleMd={{ alignItems: 'center', width: '100%' }}
             $gap="1.5rem"
             $rowGap="3rem"
             $flexWrap="wrap"
@@ -93,6 +99,7 @@ const Hero: FC<HeroProps> = function ({}) {
             $justifyContent="center"
           >
             <HeroImageWrapper
+              className="hero-hide-mb"
               style={{
                 flexGrow: 5,
                 maxWidth: 'calc(50% - 0.75rem)',
@@ -119,7 +126,6 @@ const Hero: FC<HeroProps> = function ({}) {
               <Image src="/img/hero-2.png" alt={tHero('image2_alt')} fill />
             </HeroImageWrapper>
             <HeroImageWrapper
-              className="hero-hide-mb"
               style={{
                 position: 'relative',
                 left: '11.5%',

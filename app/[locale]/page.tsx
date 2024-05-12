@@ -30,7 +30,7 @@ export default async function Home({
   return (
     <>
       <main>
-        <Hero />
+        <Hero locale={params.locale} />
         <WeHelp cards={messagesItem.we_help.cards} />
         <OurSpecialist
           locale={params.locale}
@@ -44,7 +44,7 @@ export default async function Home({
           paddingTopSectionSm="4rem 1rem 0 1rem"
         />
         <FAQ questions={faqQuestionsList?.faqs} locale={params.locale} />
-        <Contact />
+        <Contact locale={params.locale} />
       </main>
       <script
         type="application/ld+json"

@@ -17,6 +17,7 @@ import {
 } from './Contact.styles';
 
 type ContactProps = {
+  locale: 'en' | 'pl' | 'de';
   noMiddleSection?: boolean;
   rightImageStyle?: CSSProperties;
   rightImageStyleSm?: CSSProperties;
@@ -28,6 +29,7 @@ const Contact: FC<ContactProps> = function ({
   rightImageStyle,
   rightImageStyleSm,
   padding,
+  locale,
 }) {
   const tContact = useTranslations('contact');
   const tCta = useTranslations('cta');
@@ -47,6 +49,7 @@ const Contact: FC<ContactProps> = function ({
               $flexDirection="column"
               $alignItems="flex-start"
               $rowGap="3rem"
+              $rowGapSm="1.5rem"
               $padding="2rem"
               $paddingSm="1.5rem"
             >
@@ -56,7 +59,7 @@ const Contact: FC<ContactProps> = function ({
               {!noMiddleSection && (
                 <Flex $flexDirection="column" $alignItems="flex-start">
                   <Text>{tContact('second_title')}</Text>
-                  <Button href="/contact">
+                  <Button href={`/${locale}/contact`}>
                     <Text noMargin fontWeight={500} noWrap>
                       {tCta('send_message')}
                     </Text>
@@ -114,7 +117,7 @@ const Contact: FC<ContactProps> = function ({
                   </a>
                 </Flex>
                 {noMiddleSection && (
-                  <Button href="/contact">
+                  <Button href={`/${locale}/contact`}>
                     <Text noMargin fontWeight={500} noWrap>
                       {tCta('send_message')}
                     </Text>

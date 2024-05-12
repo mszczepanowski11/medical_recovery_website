@@ -9,6 +9,7 @@ import { Flex } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
 import { useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Colors } from '@/app/utils/constans';
 import { FAQCardWrapper, ShowMoreBtn } from './FAQCard.styles';
 
 type FAQCardProps = {
@@ -82,7 +83,7 @@ const FAQCard: FC<FAQCardProps> = function ({
         style={{
           padding:
             '1rem calc(24px + 0.85rem + 1rem) 0 calc(24px + 0.85rem + 1rem)',
-          borderTop: `1px solid #d7d7d7`,
+          borderTop: `1px solid ${Colors.border}`,
         }}
         ref={containerRef}
       >
