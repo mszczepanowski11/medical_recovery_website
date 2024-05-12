@@ -179,7 +179,7 @@ export const queryBlogPostsSlug = gql`
 
 export const queryBlogPostsHomePage = gql`
   {
-    blogPosts(first: 10) {
+    blogPosts(first: 3) {
       slug
       title {
         title_en

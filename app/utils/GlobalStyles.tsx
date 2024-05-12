@@ -96,6 +96,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background-blue-hover: ${COLORS.background_blue_hover};
     --color-background-yellow-light: ${COLORS.background_yellow_light};
     --color-background-purple: ${COLORS.background_purple};
+    --color-background-purple-light: ${COLORS.background_purple_light};
     --color-background-blue-active: ${COLORS.background_blue_active};
     --color-background-interactive: ${COLORS.background_interactive};
     --color-background-interactive-hover: ${COLORS.background_interactive_hover};

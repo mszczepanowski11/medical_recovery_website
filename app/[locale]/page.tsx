@@ -38,7 +38,7 @@ export default async function Home({
         />
         <Testimonials testimonialsList={testimonialsList?.testimonials} />
         <BlogPostsCards
-          blogPosts={blogPostsList?.blogPosts?.slice(0, 3)}
+          blogPosts={blogPostsList?.blogPosts}
           monthsTo={messagesItem?.utils?.months_to}
           locale={params.locale}
           paddingTopSectionSm="4rem 1rem 0 1rem"

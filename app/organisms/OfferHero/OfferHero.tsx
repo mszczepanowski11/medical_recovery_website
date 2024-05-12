@@ -29,6 +29,7 @@ const OfferHero: FC<OfferHeroProps> = function ({ locale }) {
         $rowGapSm="2rem"
         className="offer-hero-grid-container"
         $padding="4rem 1rem 12rem 1rem"
+        $paddingSm="4rem 1rem"
       >
         <GridItem $colStart={1} $colEnd={3} $rowStartSm={1} $rowEndSm={2}>
           <Flex
