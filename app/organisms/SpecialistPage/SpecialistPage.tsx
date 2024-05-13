@@ -13,11 +13,13 @@ import useWindowSize from '@/app/utils/useWindowSize';
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
-import { makeTagsArrayFromString } from '@/app/utils/utils';
+import { LANG_SORT_ORDER, makeTagsArrayFromString } from '@/app/utils/utils';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
 import Tabs from '@/app/atoms/Tabs/Tabs';
 import useScrollTo from '@/app/utils/useScrollTo';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { width } from '@fortawesome/free-regular-svg-icons/faAddressBook';
 import {
   SpecialistDataItem,
   SpecialistDataList,
@@ -35,9 +37,9 @@ type SpecialistPageProps = {
       title_de: string;
     };
     short_description: {
-      short_description_en: string;
-      short_description_pl: string;
-      short_description_de: string;
+      en: string;
+      pl: string;
+      de: string;
     };
     tags: { tags_en: string; tags_pl: string; tags_de: string };
     languages: ('pl' | 'en' | 'de')[];
@@ -46,9 +48,9 @@ type SpecialistPageProps = {
     cheapest_price: { en: string; pl: string; de: string };
     therapy_long_min: string | number;
     description: {
-      description_en: string;
-      description_pl: string;
-      description_de: string;
+      en: string;
+      pl: string;
+      de: string;
     };
     services: {
       service_name: {
@@ -84,7 +86,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
   const t = useTranslations('specialist_page');
   const tCta = useTranslations('cta');
   const tCurr = useTranslations('utils.currency');
-  const { isMobile } = useWindowSize();
+  const { isMobile, isLaptop } = useWindowSize();
   const { scrollTo } = useScrollTo();
 
   const [activeTab, setActiveTab] = useState(null);
@@ -106,11 +108,11 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
   } = specialistContent || {};
 
   const shortDescriptionLocalized = useMemo(
-    () => short_description[`short_description_${locale}`],
+    () => (short_description ? short_description[locale] : ''),
     [locale, short_description],
   );
   const descriptionLocalized = useMemo(
-    () => description[`description_${locale}`],
+    () => (description ? description[locale] : ''),
     [locale, description],
   );
   const renderTags = useMemo(
@@ -122,15 +124,19 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
   );
   const renderLanguages = useMemo(
     () =>
-      languages?.map((lang) => (
-        <Image
-          key={lang}
-          src={`/img/${lang}.svg`}
-          alt={lang}
-          width={32}
-          height={24}
-        />
-      )),
+      languages
+        ?.sort((a, b) => {
+          return LANG_SORT_ORDER.indexOf(a) - LANG_SORT_ORDER.indexOf(b);
+        })
+        .map((lang) => (
+          <Image
+            key={lang}
+            src={`/img/${lang}.svg`}
+            alt={lang}
+            width={32}
+            height={24}
+          />
+        )),
     [languages],
   );
   const renderLocals = useMemo(
@@ -186,14 +192,14 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
             offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
           }),
       },
-      {
-        id: 3,
-        label: t('publication_label'),
-        onClick: () =>
-          scrollTo('publication_label', {
-            offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
-          }),
-      },
+      // {
+      //   id: 3,
+      //   label: t('publication_label'),
+      //   onClick: () =>
+      //     scrollTo('publication_label', {
+      //       offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
+      //     }),
+      // },
     ],
     [isMobile, scrollTo, t],
   );
@@ -207,10 +213,20 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     <SpecialistPageWrapper>
       <GridContainer
         $gridCols={7}
+        $gridColsSm={1}
         $gap="2rem"
+        $rowGapSm="0.5rem"
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
-        <GridItem $colStart={1} $colEnd={3} style={{ position: 'relative' }}>
+        <GridItem
+          $colStart={1}
+          $colEnd={3}
+          $colStartSm={1}
+          $colEndSm={2}
+          $rowStartSm={1}
+          $rowEndSm={2}
+          style={{ position: 'relative' }}
+        >
           <Flex
             $flexDirection="column"
             $rowGap="1.5rem"
@@ -219,20 +235,36 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
               top: `calc(2rem + ${isMobile ? headerHeightSm : headerHeight}px)`,
             }}
           >
-            <Flex
-              style={{
-                position: 'relative',
-                width: '100%',
-                aspectRatio: 1,
-              }}
-            >
-              <Image
-                src={profile_image?.url || ''}
-                alt={profile_image?.alt || ''}
-                fill
-                style={{ borderRadius: '50%' }}
-              />
+            <Flex $alignItems="center" $gap="1rem" $style={{ width: '100%' }}>
+              <Flex
+                $style={{
+                  position: 'relative',
+                  width: '100%',
+                  aspectRatio: '1',
+                }}
+                $styleSm={{ width: '3rem', height: '3rem' }}
+              >
+                <Image
+                  src={profile_image?.url || ''}
+                  alt={profile_image?.alt || ''}
+                  fill
+                  style={{ borderRadius: '50%' }}
+                />
+              </Flex>
+              {isMobile && <Flex $gap="0.4rem">{renderLanguages}</Flex>}
             </Flex>
+            {isMobile && (
+              <Flex>
+                <Text variant="h1" fontSize="2.625rem" noMargin>
+                  {name_surname}
+                </Text>
+              </Flex>
+            )}
+            {!isMobile && (
+              <Text variant="h1" fontSize="2.625rem" noMargin>
+                {name_surname}
+              </Text>
+            )}
             <Flex $gap="0.5rem">
               <Image
                 src="/img/quote-icon.svg"
@@ -245,21 +277,41 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                 {shortDescriptionLocalized}
               </Text>
             </Flex>
-            <Button target="_blank" href={calendar}>
-              <Text noMargin fontSize="1rem" fontWeight={500} noWrap>
+            <Button
+              target="_blank"
+              href={calendar}
+              iconRight={isLaptop ? false : faAngleRight}
+            >
+              <Text
+                noMargin
+                fontSize="1rem"
+                fontWeight={500}
+                style={{ whiteSpace: 'nowrap' }}
+                styleMd={{ whiteSpace: 'wrap' }}
+              >
                 {tCta('book_visit')}{' '}
-                {`( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
+                {(!isLaptop || isMobile) &&
+                  `( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
               </Text>
             </Button>
           </Flex>
         </GridItem>
-        <GridItem $colStart={3} $colEnd={8}>
+        <GridItem
+          $colStart={3}
+          $colEnd={8}
+          $colStartSm={1}
+          $colEndSm={2}
+          $rowStartSm={2}
+          $rowEndSm={3}
+        >
           <Flex $flexDirection="column" $rowGap="1.5rem">
             <Flex $alignItems="center" $columnGap="1.3rem">
-              <Text variant="h1" fontSize="2.625rem" noMargin>
-                {name_surname}
-              </Text>
-              <Flex $gap="0.4rem">{renderLanguages}</Flex>
+              {!isMobile && (
+                <Text variant="h1" fontSize="2.625rem" noMargin>
+                  {name_surname}
+                </Text>
+              )}
+              {!isMobile && <Flex $gap="0.4rem">{renderLanguages}</Flex>}
             </Flex>
             <Flex
               $flexWrap="wrap"
@@ -328,56 +380,81 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
               }}
             >
               <Flex $flexDirection="column" $rowGap="2.2rem">
-                <Flex
-                  $flexDirection="column"
-                  $rowGap="1rem"
-                  id="services_label"
-                >
-                  <Text variant="h2" fontSize="2rem" noMargin>
-                    {t('services_label')}
-                  </Text>
-                  <ServicesList>
-                    {services?.map(({ service_name, service_url }) => (
-                      <ServicesListItem key={service_url[locale]}>
-                        <a href={service_url[locale]} target="_blank">
-                          <Text
-                            noMargin
-                            color="text_secondary"
-                            className="specialist-page-service-link"
-                          >
-                            {service_name[locale]}
-                          </Text>
-                        </a>
-                      </ServicesListItem>
-                    ))}
-                  </ServicesList>
-                </Flex>
-                <Flex
-                  $flexDirection="column"
-                  $rowGap="1rem"
-                  id="experience_label"
-                >
-                  <Text variant="h2" fontSize="2rem" noMargin>
-                    {t('experience_label')}
-                  </Text>
-                  <Text noMargin color="text_secondary">
-                    {experience[locale]}
-                  </Text>
-                </Flex>
-                <Flex
-                  $flexDirection="column"
-                  $rowGap="1rem"
-                  id="education_label"
-                >
-                  <Text variant="h2" fontSize="2rem" noMargin>
-                    {t('education_label')}
-                  </Text>
-                  <Text noMargin color="text_secondary">
-                    {education[locale]}
-                  </Text>
-                </Flex>
+                {!!services && services.length > 0 && (
+                  <Flex
+                    $flexDirection="column"
+                    $rowGap="1rem"
+                    id="services_label"
+                  >
+                    <Text variant="h2" fontSize="2rem" noMargin>
+                      {t('services_label')}
+                    </Text>
+                    <ServicesList>
+                      {services?.map(({ service_name, service_url }) => (
+                        <ServicesListItem key={service_url[locale]}>
+                          <a href={service_url[locale]} target="_blank">
+                            <Text
+                              noMargin
+                              color="text_secondary"
+                              className="specialist-page-service-link"
+                            >
+                              {service_name[locale]}
+                            </Text>
+                          </a>
+                        </ServicesListItem>
+                      ))}
+                    </ServicesList>
+                  </Flex>
+                )}
+                {!!experience && !!experience[locale] && (
+                  <Flex
+                    $flexDirection="column"
+                    $rowGap="1rem"
+                    id="experience_label"
+                  >
+                    <Text variant="h2" fontSize="2rem" noMargin>
+                      {t('experience_label')}
+                    </Text>
+                    <Text noMargin color="text_secondary">
+                      {experience[locale]}
+                    </Text>
+                  </Flex>
+                )}
+                {!!education && !!education[locale] && (
+                  <Flex
+                    $flexDirection="column"
+                    $rowGap="1rem"
+                    id="education_label"
+                  >
+                    <Text variant="h2" fontSize="2rem" noMargin>
+                      {t('education_label')}
+                    </Text>
+                    <Text noMargin color="text_secondary">
+                      {education[locale]}
+                    </Text>
+                  </Flex>
+                )}
               </Flex>
             </Tabs>
+          </Flex>
+          <Flex $style={{ marginTop: '2.5rem' }}>
+            <Button
+              target="_blank"
+              href={calendar}
+              iconRight={isLaptop ? false : faAngleRight}
+            >
+              <Text
+                noMargin
+                fontSize="1rem"
+                fontWeight={500}
+                style={{ whiteSpace: 'nowrap' }}
+                styleMd={{ whiteSpace: 'wrap' }}
+              >
+                {tCta('check_terms')}{' '}
+                {(!isLaptop || isMobile) &&
+                  `( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
+              </Text>
+            </Button>
           </Flex>
         </GridItem>
       </GridContainer>

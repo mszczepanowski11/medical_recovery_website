@@ -31,9 +31,9 @@ type BlogPostContentProps = {
       title_de: string;
     };
     short_description: {
-      short_description_en: string;
-      short_description_pl: string;
-      short_description_de: string;
+      en: string;
+      pl: string;
+      de: string;
     };
     slug: string;
     date: string;

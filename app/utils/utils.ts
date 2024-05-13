@@ -124,3 +124,5 @@ export const regularPages: {
     changeFrequency: 'never',
   },
 ];
+
+export const LANG_SORT_ORDER = ['en', 'pl', 'de'];

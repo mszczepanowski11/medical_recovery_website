@@ -27,9 +27,9 @@ export const querySpecialistsHomePage = gql`
         tags_pl
       }
       short_description {
-        short_description_de
-        short_description_en
-        short_description_pl
+        de
+        en
+        pl
       }
       title {
         title_de
@@ -74,15 +74,15 @@ export const querySpecialistPage = (slug: string) => gql`
         tags_pl
       }
       short_description {
-        short_description_de
-        short_description_en
-        short_description_pl
+        de
+        en
+        pl
       }
       therapy_long_min
       description {
-        description_en
-        description_pl
-        description_de
+        en
+        pl
+        de
       }
       services {
         service_name {
@@ -187,9 +187,9 @@ export const queryBlogPostsHomePage = gql`
         title_de
       }
       short_description {
-        short_description_de
-        short_description_en
-        short_description_pl
+        de
+        en
+        pl
       }
       date
       reading_time
@@ -226,9 +226,9 @@ export const queryBlogPostContent = (slug: string) => gql`
         tags_pl
       }
       short_description {
-        short_description_de
-        short_description_en
-        short_description_pl
+        de
+        en
+        pl
       }
       content {
         content_en {
@@ -267,9 +267,9 @@ export const queryNewestsBlogPosts = (slug: string) => gql`
         title_de
       }
       short_description {
-        short_description_de
-        short_description_en
-        short_description_pl
+        de
+        en
+        pl
       }
       date
       reading_time

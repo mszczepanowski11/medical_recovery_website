@@ -15,7 +15,7 @@ export async function generateMetadata({
     specialistContent?.specialist || {};
 
   const titleItem = `${name_surname}${title && title[`title_${locale}`] ? ` - ${title[`title_${locale}`]}` : ''}`;
-  const descriptionItem = short_description[`short_description_${locale}`];
+  const descriptionItem = short_description ? short_description[locale] : '';
   const keywordsItem = `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`;
   const urlItem = `${webpageUrl}/${locale}/specialists/${specialistSlug}`;
 

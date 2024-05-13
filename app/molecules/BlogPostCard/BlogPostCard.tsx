@@ -21,9 +21,9 @@ type BlogPostCardProps = {
     title_de: string;
   };
   short_description: {
-    short_description_en: string;
-    short_description_pl: string;
-    short_description_de: string;
+    en: string;
+    pl: string;
+    de: string;
   };
   slug: string;
   date: string;
@@ -65,10 +65,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
     [title, locale],
   );
   const shortDescriptionLocalized = useMemo(
-    () =>
-      short_description
-        ? short_description[`short_description_${locale}`]
-        : null,
+    () => (short_description ? short_description[locale] : null),
     [short_description, locale],
   );
 

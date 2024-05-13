@@ -11,11 +11,9 @@ import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
-import { makeTagsArrayFromString } from '@/app/utils/utils';
+import { LANG_SORT_ORDER, makeTagsArrayFromString } from '@/app/utils/utils';
 import Link from 'next/link';
 import { SpecialistCardWrapper } from './SpecialistCard.styles';
-
-const SORT_ORDER = ['en', 'pl', 'de'];
 
 type SpecialistCardProps = {
   name: string;
@@ -25,9 +23,9 @@ type SpecialistCardProps = {
     title_de: string;
   };
   short_description: {
-    short_description_en: string;
-    short_description_pl: string;
-    short_description_de: string;
+    en: string;
+    pl: string;
+    de: string;
   };
   tags: { tags_en: string; tags_pl: string; tags_de: string };
   calendar: string;
@@ -54,7 +52,7 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
     () =>
       languages
         ?.sort((a, b) => {
-          return SORT_ORDER.indexOf(a) - SORT_ORDER.indexOf(b);
+          return LANG_SORT_ORDER.indexOf(a) - LANG_SORT_ORDER.indexOf(b);
         })
         .map((lang) => (
           <Image
@@ -147,9 +145,9 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
       <Flex $flexWrap="wrap" $gap="0.25rem">
         {renderTags}
       </Flex>
-      <Text color="text_secondary">
-        {short_description[`short_description_${locale}`]}
-      </Text>
+      {!!short_description && (
+        <Text color="text_secondary">{short_description[locale]}</Text>
+      )}
       <Flex style={{ width: '100%', flexGrow: 1, alignItems: 'flex-end' }}>
         <Flex
           style={{ width: '100%' }}

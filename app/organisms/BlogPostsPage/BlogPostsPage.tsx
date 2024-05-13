@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -28,9 +28,9 @@ type BlogPost = {
     title_de: string;
   };
   short_description: {
-    short_description_en: string;
-    short_description_pl: string;
-    short_description_de: string;
+    en: string;
+    pl: string;
+    de: string;
   };
   slug: string;
   date: string;
@@ -62,14 +62,17 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
 
   const filterFunc = useCallback(
     (blogPost: BlogPost) => {
+      const blogPostIncludesShortDesc = blogPost.short_description
+        ? !blogPost.short_description[locale]
+            .toLowerCase()
+            .includes(filters.search.toLowerCase())
+        : true;
       if (
         filters.search.length > 0 &&
         !blogPost.title[`title_${locale}`]
           .toLowerCase()
           .includes(filters.search.toLowerCase()) &&
-        !blogPost.short_description[`short_description_${locale}`]
-          .toLowerCase()
-          .includes(filters.search.toLowerCase())
+        blogPostIncludesShortDesc
       ) {
         return false;
       }
