@@ -4,6 +4,7 @@ import {
   headerHeight,
   headerHeightSm,
 } from '@/app/utils/constans';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -11,7 +12,7 @@ import styled from 'styled-components';
 
 // Components
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled(motion.header)`
   position: fixed;
   top: 0;
   left: 0;
@@ -132,4 +133,17 @@ export const ShowHideMenuSmBtn = styled.button`
   border: 1px solid ${Colors.transparent};
   background-color: ${Colors.transparent};
   cursor: pointer;
+`;
+
+export const LogoWrapper = styled.div`
+  flex-grow: 1;
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  padding-bottom: 1.5rem;
+
+  @media (max-width: ${breakpoint.sm}px) {
+    display: flex;
+  }
 `;

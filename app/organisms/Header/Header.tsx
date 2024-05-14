@@ -13,6 +13,7 @@ import LangMenu from '@/app/molecules/LangMenu/LangMenu';
 import {
   HeaderWrapper,
   LinksWrapper,
+  LogoWrapper,
   NavButton,
   RightWrapperSm,
   ShowHideMenuSmBtn,
@@ -25,6 +26,7 @@ type HeaderProps = { locale: 'en' | 'pl' | 'de' };
 const Header: FC<HeaderProps> = function ({ locale }) {
   const tHeader = useTranslations('header');
   const tCta = useTranslations('cta');
+  const tMeta = useTranslations('meta');
   const pathname = usePathname();
   const [isMenuSmOpen, setIsMenuSmOpen] = useState(false);
   const [currentPsychologistUrl, setCurrentPsychologistUrl] = useState<
@@ -80,7 +82,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
             >
               <Image
                 src="/img/times.svg"
-                alt="burger menu"
+                alt="close menu"
                 width={24}
                 height={24}
               />
@@ -93,7 +95,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               <Image
                 className="header-menu-icon-sm"
                 src="/img/about-us-icon.svg"
-                alt="burger menu"
+                alt="about us"
                 width={19}
                 height={19}
               />
@@ -109,7 +111,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               <Image
                 className="header-menu-icon-sm"
                 src="/img/offer-icon.svg"
-                alt="burger menu"
+                alt="offer"
                 width={19}
                 height={19}
               />
@@ -125,7 +127,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               <Image
                 className="header-menu-icon-sm"
                 src="/img/specialists-icon.svg"
-                alt="burger menu"
+                alt="specialists"
                 width={19}
                 height={19}
               />
@@ -141,7 +143,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               <Image
                 className="header-menu-icon-sm"
                 src="/img/blog-icon.svg"
-                alt="burger menu"
+                alt="blog"
                 width={19}
                 height={19}
               />
@@ -157,7 +159,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               <Image
                 className="header-menu-icon-sm"
                 src="/img/contact-icon.svg"
-                alt="burger menu"
+                alt="contact"
                 width={19}
                 height={19}
               />
@@ -188,6 +190,14 @@ const Header: FC<HeaderProps> = function ({ locale }) {
             ) : (
               <div />
             )}
+            <LogoWrapper>
+              <Image
+                src="/img/logo.svg"
+                alt={tMeta('name')}
+                width={130}
+                height={31}
+              />
+            </LogoWrapper>
           </LinksWrapper>
           <RightWrapperSm>
             <LangMenu />

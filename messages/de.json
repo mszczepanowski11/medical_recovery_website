@@ -1,5 +1,6 @@
 {
   "meta": {
+    "name": "Mental Recovery",
     "email": "contact@mentalrecovery.co",
     "phone": "+48 512 088 457"
   },
@@ -58,7 +59,8 @@
     "book_visit_from_label": "od",
     "meet_us": "Poznaj nas",
     "contact": "Kontakt",
-    "meet_our_specialists": "Poznaj naszych specialistów"
+    "meet_our_specialists": "Poznaj naszych specialistów",
+    "check_terms": "Zobacz terminy"
   },
   "header": {
     "about_us": "O nas",
@@ -158,7 +160,8 @@
     "no_articles": "Nie ma wyników dla Twoich filtrów",
     "clear_filters": "Wyczyść filtry",
     "newest_posts_title": "Najnowsze wpisy",
-    "table_of_contents_title": "Spis treści:"
+    "table_of_contents_title": "Spis treści:",
+    "title_blog_post_faq": "Pytania do artykułu"
   },
   "contact_page": {
     "title": "Odezwij się do nas",
