@@ -1,14 +1,12 @@
 'use client';
 
 import React, { FC, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
 
 // Utils
 
 // Components
 import Tag from '@/app/atoms/Tag/Tag';
 import { Flex } from '@/app/utils/GlobalStyles';
-import Text from '@/app/atoms/Text/Text';
 import { TagFilterWrapper } from './TagFilter.styles';
 
 type TagFilterProps = {
@@ -22,8 +20,6 @@ const TagFilter: FC<TagFilterProps> = function ({
   filteredTags,
   setFilteredTags,
 }) {
-  const t = useTranslations('our_specialists');
-
   const renderTags = useMemo(
     () =>
       tags?.map((tag) => (

@@ -17,9 +17,10 @@ type FAQProps = {
     answer: { en: string; pl: string; de: string };
   }[];
   locale: 'en' | 'pl' | 'de';
+  customTitle?: string;
 };
 
-const FAQ: FC<FAQProps> = function ({ questions, locale }) {
+const FAQ: FC<FAQProps> = function ({ questions, locale, customTitle }) {
   const t = useTranslations('faq');
 
   const [activeCard, setActiveCard] = useState<string | null>(null);
@@ -67,7 +68,7 @@ const FAQ: FC<FAQProps> = function ({ questions, locale }) {
             textAlign="center"
             style={{ maxWidth: 600, margin: 'auto' }}
           >
-            {t('title')}
+            {customTitle || t('title')}
           </Text>
         </GridItem>
       </GridContainer>

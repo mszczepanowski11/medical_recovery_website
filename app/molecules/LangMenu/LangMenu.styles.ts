@@ -18,7 +18,7 @@ export const LangMenuWrapper = styled.div`
   .lang-dropdown-menu {
     padding: 0.5rem 0.8rem;
     border-radius: 0.5rem;
-    border: 1px solid ${Colors.border};
+    box-shadow: 0px 0px 40px 0px #22253b0d;
     background-color: ${Colors.primitives_white};
   }
 `;
@@ -30,18 +30,19 @@ export const SelectedLangBtn = styled.button<{
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  height: 2.4rem;
-  padding: 0.5rem 0.8rem;
+  height: ${({ $noBorder }) => ($noBorder ? '2.2rem' : '2.4rem')};
+  padding: ${({ $noBorder }) => ($noBorder ? '2px 4px' : '0.5rem 0.8rem')};
   border: ${({ $noBorder }) =>
     $noBorder ? 'none' : `1px solid ${Colors.border}`};
-  border-radius: 1.2rem;
+  border-radius: ${({ $noBorder }) => ($noBorder ? '0.95rem' : '1.2rem')};
   background-color: ${({ $active }) =>
     $active ? '#D8FFD4' : Colors.primitives_grey};
   transition: 0.2s;
   cursor: pointer;
 
   &:hover {
-    background-color: ${Colors.border};
+    background-color: ${({ $noBorder }) =>
+      $noBorder ? Colors.border : Colors.background_background_grey_light};
   }
 `;
 

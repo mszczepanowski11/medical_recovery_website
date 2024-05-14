@@ -1,4 +1,4 @@
-import { breakpoint } from '@/app/utils/constans';
+import { Colors, breakpoint, scrollbarWidth } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
@@ -15,6 +15,12 @@ export const TagFilterWrapper = styled.div`
       flex-wrap: nowrap;
       overflow-x: scroll;
       overflow-y: visible;
+
+      &::-webkit-scrollbar-thumb {
+        background-color: ${Colors.primitives_green};
+        border-radius: 20px;
+        border: 3px solid ${Colors.primitives_grey};
+      }
     }
   }
 `;

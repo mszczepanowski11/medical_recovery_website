@@ -14,8 +14,10 @@ export async function generateMetadata({
   const { name_surname, title, short_description, tags } =
     specialistContent?.specialist || {};
 
-  const titleItem = `${name_surname}${title && title[`title_${locale}`] ? ` - ${title[`title_${locale}`]}` : ''}`;
-  const descriptionItem = short_description ? short_description[locale] : '';
+  const titleItem = `${name_surname}${title && title[`title_${locale}`] ? ` - ${title[`title_${locale}`]}` : metadata[locale].title}`;
+  const descriptionItem = short_description
+    ? short_description[locale]
+    : metadata[locale].description;
   const keywordsItem = `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`;
   const urlItem = `${webpageUrl}/${locale}/specialists/${specialistSlug}`;
 

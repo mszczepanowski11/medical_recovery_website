@@ -12,7 +12,8 @@ export const OurSpecialistWrapper = styled.div`
   }
   @media (max-width: ${breakpoint.sm}px) {
     .our-specialist-more-btn {
-      display: none;
+      /* display: none; */
+      margin: auto;
     }
 
     .our-specialist-filter-wide {

@@ -8,11 +8,10 @@ import React, { FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import { Colors } from '@/app/utils/constans';
+import { Instrument_Sans } from 'next/font/google';
 
 // Components
 import { GridContainer, GridItem } from '@/app/utils/GlobalStyles';
-import { Instrument_Sans } from 'next/font/google';
 import Text from '@/app/atoms/Text/Text';
 import {
   ContentWrapper,

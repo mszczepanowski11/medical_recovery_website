@@ -104,7 +104,11 @@ const BlogPost: FC<BlogPostProps> = function ({
           />
         </GridItem>
         <GridItem $colStart={1} $colEnd={6} $rowStart={2} $rowEnd={3}>
-          <FAQ questions={blogPostContent?.faq} locale={locale} />
+          <FAQ
+            questions={blogPostContent?.faq}
+            locale={locale}
+            customTitle={t('title_blog_post_faq')}
+          />
         </GridItem>
         <GridItem $colStart={1} $colEnd={6} $rowStart={3} $rowEnd={4}>
           <BlogPostsCards

@@ -13,7 +13,11 @@ import { Colors } from '@/app/utils/constans';
 import Text from '@/app/atoms/Text/Text';
 import { Flex } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
-import { YMDToDMStringY, makeTagsArrayFromString } from '@/app/utils/utils';
+import {
+  YMDToDMStringY,
+  addSizesToImgUrl,
+  makeTagsArrayFromString,
+} from '@/app/utils/utils';
 import { Instrument_Sans } from 'next/font/google';
 import Tag from '@/app/atoms/Tag/Tag';
 import {
@@ -114,6 +118,38 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
               .replace('</b>', '');
 
             return `<h2 id="${childrenTrim}">${childrenTrim}</h2>`;
+          },
+
+          img: (props: any) => {
+            const { src, height, width, handle } = props || {};
+
+            const maxSizesStyle =
+              width || height
+                ? `style="${width ? `max-width: min(${width}px, calc(100vw - 3rem)); ` : ''}${
+                    height ? `max-height: ${height}px; ` : ''
+                  }"`
+                : '';
+            const mdSrc = addSizesToImgUrl(src, handle, width, height, 800);
+            const smallSrc = addSizesToImgUrl(src, handle, width, height, 600);
+            const mobileSrc = addSizesToImgUrl(src, handle, width, height, 400);
+            return `
+            <figure>
+              <picture>
+                ${
+                  !!mobileSrc &&
+                  `<source media="(max-width: 400px)" srcset="${mobileSrc}" />`
+                }
+                ${
+                  !!smallSrc &&
+                  `<source media="(max-width: 600px)" srcset="${smallSrc}" />`
+                }
+                ${
+                  !!mdSrc &&
+                  `<source media="(max-width: 800px)" srcset="${mdSrc}" />`
+                }
+                <img src="${src}" alt="blog" ${maxSizesStyle}  />
+              </picture>
+            </figure>`;
           },
         },
       }),

@@ -126,3 +126,17 @@ export const regularPages: {
 ];
 
 export const LANG_SORT_ORDER = ['en', 'pl', 'de'];
+
+export const addSizesToImgUrl = (
+  url: string,
+  handle: string,
+  width: number,
+  height: number,
+  destinationWidth: number,
+) => {
+  const splitedUrl = url.split(`/${handle}`)[0];
+  if (!splitedUrl) return undefined;
+  const resizePhrase = `resize=height:${Math.ceil((destinationWidth * height) / width)},width:${destinationWidth}`;
+
+  return `${splitedUrl}/${resizePhrase}/${handle}`;
+};

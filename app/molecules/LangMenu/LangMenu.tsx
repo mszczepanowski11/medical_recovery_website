@@ -9,7 +9,7 @@ import { locales } from '@/i18n';
 
 // Components
 import Icon from '@/app/atoms/Icon/Icon';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { Flex } from '@/app/utils/GlobalStyles';
@@ -96,11 +96,14 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
   );
 
   useEffect(() => {
-    document.onclick = clickFunc;
-    document.onscroll = clickFunc;
+    document.addEventListener('click', clickFunc);
+    document.addEventListener('scroll', clickFunc);
+    document.addEventListener('resize', clickFunc);
 
     return () => {
-      document.onclick = null;
+      document.removeEventListener('click', clickFunc);
+      document.removeEventListener('scroll', clickFunc);
+      document.removeEventListener('resize', clickFunc);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -114,7 +117,10 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
         $active={false}
       >
         {renderLangFlag(locale)}
-        <Icon icon={faAngleDown} style={{ pointerEvents: 'none' }} />
+        <Icon
+          icon={pointerEvents === 'none' ? faAngleDown : faAngleUp}
+          style={{ pointerEvents: 'none' }}
+        />
       </SelectedLangBtn>
 
       <motion.div

@@ -67,7 +67,7 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
           $colStart={1}
           $colEnd={5}
         >
-          <Flex $flexWrap="wrap" $gap="2rem">
+          <Flex $flexWrap="wrap" $gap="1.5rem">
             {renderCards}
           </Flex>
         </GridItem>

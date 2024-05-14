@@ -255,15 +255,15 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
             </Flex>
             {isMobile && (
               <Flex>
-                <Text variant="h1" fontSize="2.625rem" noMargin>
+                <Text
+                  variant="h1"
+                  fontSize="2.625rem"
+                  styleMd={{ fontSize: '2rem' }}
+                  noMargin
+                >
                   {name_surname}
                 </Text>
               </Flex>
-            )}
-            {!isMobile && (
-              <Text variant="h1" fontSize="2.625rem" noMargin>
-                {name_surname}
-              </Text>
             )}
             <Flex $gap="0.5rem">
               <Image
@@ -437,25 +437,27 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
               </Flex>
             </Tabs>
           </Flex>
-          <Flex $style={{ marginTop: '2.5rem' }}>
-            <Button
-              target="_blank"
-              href={calendar}
-              iconRight={isLaptop ? false : faAngleRight}
-            >
-              <Text
-                noMargin
-                fontSize="1rem"
-                fontWeight={500}
-                style={{ whiteSpace: 'nowrap' }}
-                styleMd={{ whiteSpace: 'wrap' }}
+          {isMobile && (
+            <Flex $style={{ marginTop: '2.5rem' }}>
+              <Button
+                target="_blank"
+                href={calendar}
+                iconRight={isLaptop ? false : faAngleRight}
               >
-                {tCta('check_terms')}{' '}
-                {(!isLaptop || isMobile) &&
-                  `( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
-              </Text>
-            </Button>
-          </Flex>
+                <Text
+                  noMargin
+                  fontSize="1rem"
+                  fontWeight={500}
+                  style={{ whiteSpace: 'nowrap' }}
+                  styleMd={{ whiteSpace: 'wrap' }}
+                >
+                  {tCta('check_terms')}{' '}
+                  {(!isLaptop || isMobile) &&
+                    `( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
+                </Text>
+              </Button>
+            </Flex>
+          )}
         </GridItem>
       </GridContainer>
     </SpecialistPageWrapper>

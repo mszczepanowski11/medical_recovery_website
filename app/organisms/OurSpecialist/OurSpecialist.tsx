@@ -19,7 +19,6 @@ import Text from '@/app/atoms/Text/Text';
 import TagFilter from '@/app/molecules/TagFilter/TagFilter';
 import SpecialistsLangFilter from '@/app/molecules/SpecialistsLangFilter/SpecialistsLangFilter';
 import Button from '@/app/atoms/Button/Button';
-import useWindowSize from '@/app/utils/useWindowSize';
 import {
   OurSpecialistWrapper,
   SpecialistCardsWrapper,
@@ -48,7 +47,6 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   const [specialist] = useState(specialistsList.specialists);
   const [filteredTags, setFilteredTags] = useState([]);
   const [selectedLangs, setSelectedLangs] = useState<string[]>([]);
-  const { isMobile } = useWindowSize();
 
   const renderSpecialist = useMemo(
     () =>
@@ -91,6 +89,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   return (
     <OurSpecialistWrapper>
       <GridContainer
+        $gridCols={9}
         $gridColsMb={9}
         $gridColsSm={1}
         $padding={customPadding || `8rem 1rem ${filterLangs ? 2 : 3}rem 1rem`}
@@ -104,13 +103,15 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
       >
         <GridItem
           $colStart={1}
-          $colEnd={filterLangs ? 2 : 5}
+          $colEnd={filterLangs ? 3 : 10}
           $colStartMb={1}
-          $colEndMb={7}
+          $colEndMb={10}
         >
           <Flex $justifyContent="space-between" $flexWrap="wrap" $rowGap="1rem">
             <Text
-              variant="h2"
+              variant={filterLangs ? 'h1' : 'h2'}
+              fontSize="2.4rem"
+              fontSizeSm="2.4rem"
               noMargin
               styleSm={{ textAlign: customTitle ? 'left' : 'center' }}
             >
@@ -139,6 +140,8 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
         </GridItem>
         {!!filterLangs && (
           <GridItem
+            $colStart={3}
+            $colEnd={10}
             $colStartMb={7}
             $colEndMb={10}
             $rowStartMb={1}
@@ -167,10 +170,13 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
       <GridContainer
         $padding="0 1rem 4rem 1rem"
         $paddingMb={`0rem 1rem ${filterLangs ? 4 : 0}rem 1rem`}
-        $gridColsSm={1}
+        $gridCols={9}
         $gridColsMb={9}
+        $gridColsSm={1}
       >
         <GridItem
+          $colStart={1}
+          $colEnd={3}
           $rowStartSm={1}
           $rowEndSm={2}
           $paddingSm="0 0 0.2rem 0"
@@ -186,8 +192,8 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
           />
         </GridItem>
         <GridItem
-          $colStart={2}
-          $colEnd={5}
+          $colStart={3}
+          $colEnd={10}
           $rowStartSm={2}
           $rowEndSm={3}
           $colStartMb={4}
