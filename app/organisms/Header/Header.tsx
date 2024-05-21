@@ -135,7 +135,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
                 {tHeader('specialists')}
               </Text>
             </NavButton>
-            <NavButton
+            {/* <NavButton
               href={`/${locale}/blog`}
               onClick={handleLinkClick}
               prefetch
@@ -150,7 +150,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               <Text noMargin fontWeight={500} noWrap>
                 {tHeader('blog')}
               </Text>
-            </NavButton>
+            </NavButton> */}
             <NavButton
               href={`/${locale}/contact`}
               onClick={handleLinkClick}

@@ -8,13 +8,11 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useTranslations } from 'next-intl';
 
 // Utils
-import { Colors } from '@/app/utils/constans';
 
 // Components
-import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
+import { Flex } from '@/app/utils/GlobalStyles';
 import { useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Text from '@/app/atoms/Text/Text';
 import Image from 'next/image';
@@ -61,7 +59,11 @@ const CollapseItem: FC<{
 
   return (
     <CollapseItemWrapper style={{ height: openSpringValue }}>
-      <CollapseItemTitle onClick={description ? onClick : undefined}>
+      <CollapseItemTitle
+        as={description ? 'button' : 'div'}
+        onClick={description ? onClick : undefined}
+        style={{ cursor: description ? 'pointer' : 'default' }}
+      >
         <Text variant="h3" fontSize="1rem" noMargin textAlign="left">
           {title}
         </Text>
@@ -89,12 +91,7 @@ type OfferCollapseListProps = {
 };
 
 const OfferCollapseList: FC<OfferCollapseListProps> = function ({ items }) {
-  const t = useTranslations();
   const [activeCollapse, setActiveCollapse] = useState<null | string>(null);
-
-  useEffect(() => {
-    console.log('activeCollapse', activeCollapse);
-  }, [activeCollapse]);
 
   const renderCollapseItem = useMemo(
     () =>

@@ -138,11 +138,19 @@ export const queryTestimonialsHomePage = gql`
       date
       name_surname
       stars
-      comment
+      comment {
+        en
+        pl
+        de
+      }
       image {
         url(transformation: { image: { resize: { height: 100, width: 100 } } })
       }
-      source
+      source {
+        en
+        pl
+        de
+      }
     }
   }
 `;
@@ -156,9 +164,15 @@ export const queryFAQHomePage = gql`
         de
       }
       answer {
-        en
-        pl
-        de
+        en {
+          raw
+        }
+        pl {
+          raw
+        }
+        de {
+          raw
+        }
       }
     }
   }
@@ -231,13 +245,13 @@ export const queryBlogPostContent = (slug: string) => gql`
         pl
       }
       content {
-        content_en {
+        en {
           raw
         }
-        content_pl {
+        pl {
           raw
         }
-        content_de {
+        de {
           raw
         }
       }
@@ -248,9 +262,15 @@ export const queryBlogPostContent = (slug: string) => gql`
           pl
         }
         answer {
-          de
-          en
-          pl
+          en {
+            raw
+          }
+          pl {
+            raw
+          }
+          de {
+            raw
+          }
         }
       }
     }

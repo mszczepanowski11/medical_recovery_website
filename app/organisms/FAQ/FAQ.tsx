@@ -14,7 +14,17 @@ import { FAQWrapper } from './FAQ.styles';
 type FAQProps = {
   questions: {
     question: { en: string; pl: string; de: string };
-    answer: { en: string; pl: string; de: string };
+    answer: {
+      en: {
+        raw: any;
+      };
+      pl: {
+        raw: any;
+      };
+      de: {
+        raw: any;
+      };
+    };
   }[];
   locale: 'en' | 'pl' | 'de';
   customTitle?: string;
@@ -34,12 +44,22 @@ const FAQ: FC<FAQProps> = function ({ questions, locale, customTitle }) {
             pl: string;
             de: string;
           };
-          answer: { en: string; pl: string; de: string };
+          answer: {
+            en: {
+              raw: any;
+            };
+            pl: {
+              raw: any;
+            };
+            de: {
+              raw: any;
+            };
+          };
         }) => (
           <FAQCard
             key={q.question[locale]}
             question={q.question[locale]}
-            answer={q.answer[locale]}
+            answer={q.answer[locale].raw}
             active={activeCard === q.question[locale]}
             onClick={() =>
               setActiveCard((prev) =>

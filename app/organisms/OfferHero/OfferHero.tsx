@@ -58,7 +58,7 @@ const OfferHero: FC<OfferHeroProps> = function ({ locale }) {
                 styleSm={{ fontSize: '2rem' }}
                 noMargin
               >
-                {t('title2', { price: 100 })}
+                {t('title2', { price: 179 })}
               </Text>
             </Text>
 

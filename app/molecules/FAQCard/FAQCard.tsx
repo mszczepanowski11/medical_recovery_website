@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 // Utils
 
@@ -10,10 +10,20 @@ import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
 import { useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Colors } from '@/app/utils/constans';
-import { FAQCardWrapper, ShowMoreBtn } from './FAQCard.styles';
+import { Instrument_Sans } from 'next/font/google';
+import { astToHtmlString } from '@graphcms/rich-text-html-renderer';
+import { addSizesToImgUrl } from '@/app/utils/utils';
+import {
+  ContentWrapper,
+  FAQCardTitle,
+  FAQCardWrapper,
+  ShowMoreBtn,
+} from './FAQCard.styles';
+
+const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
 type FAQCardProps = {
-  answer: string;
+  answer: any;
   question: string;
   active: boolean;
   onClick: () => void;
@@ -54,13 +64,64 @@ const FAQCard: FC<FAQCardProps> = function ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
+  const jsonContent = useMemo(
+    () =>
+      astToHtmlString({
+        content: answer,
+        renderers: {
+          h2: (props) => {
+            const { children } = props || {};
+            const childrenTrim = children
+              ?.replace('<b>', '')
+              .replace('</b>', '');
+
+            return `<h2 id="${childrenTrim}">${childrenTrim}</h2>`;
+          },
+
+          img: (props: any) => {
+            const { src, height, width, handle } = props || {};
+
+            const maxSizesStyle =
+              width || height
+                ? `style="${width ? `max-width: min(${width}px, calc(100vw - 3rem)); ` : ''}${
+                    height ? `max-height: ${height}px; ` : ''
+                  }"`
+                : '';
+            const mdSrc = addSizesToImgUrl(src, handle, width, height, 800);
+            const smallSrc = addSizesToImgUrl(src, handle, width, height, 600);
+            const mobileSrc = addSizesToImgUrl(src, handle, width, height, 400);
+            return `
+            <figure>
+              <picture>
+                ${
+                  !!mobileSrc &&
+                  `<source media="(max-width: 400px)" srcset="${mobileSrc}" />`
+                }
+                ${
+                  !!smallSrc &&
+                  `<source media="(max-width: 600px)" srcset="${smallSrc}" />`
+                }
+                ${
+                  !!mdSrc &&
+                  `<source media="(max-width: 800px)" srcset="${mdSrc}" />`
+                }
+                <img src="${src}" alt="blog" ${maxSizesStyle}  />
+              </picture>
+            </figure>`;
+          },
+        },
+      }),
+    [answer],
+  );
+
   return (
-    <FAQCardWrapper onClick={onClick} style={{ height: openSpringValue }}>
-      <Flex
+    <FAQCardWrapper style={{ height: openSpringValue }}>
+      <FAQCardTitle
+        as="button"
+        onClick={onClick}
         $rowGap="0.85rem"
         $alignItems="center"
         $justifyContent="space-between"
-        style={{ width: '100%', paddingLeft: '1rem' }}
       >
         <Flex $columnGap="0.85rem" $alignItems="center">
           <Image
@@ -78,7 +139,7 @@ const FAQCard: FC<FAQCardProps> = function ({
             {isOpen ? '-' : '+'}
           </Text>
         </ShowMoreBtn>
-      </Flex>
+      </FAQCardTitle>
       <Flex
         style={{
           padding:
@@ -87,7 +148,12 @@ const FAQCard: FC<FAQCardProps> = function ({
         }}
         ref={containerRef}
       >
-        <Text color="text_secondary">{answer}</Text>
+        <ContentWrapper
+          className={instrument_sans.className}
+          dangerouslySetInnerHTML={{
+            __html: jsonContent,
+          }}
+        />
       </Flex>
     </FAQCardWrapper>
   );

@@ -21,8 +21,16 @@ export const fetchSpecialistsDataHomePage = async () => {
 
 export type TestimonialType = {
   name_surname: string;
-  comment: string;
-  source?: string;
+  comment: {
+    en: string;
+    pl: string;
+    de: string;
+  };
+  source?: {
+    en: string;
+    pl: string;
+    de: string;
+  };
   stars: 0 | 1 | 2 | 3 | 4 | 5;
   date: string;
   image: { url: string };

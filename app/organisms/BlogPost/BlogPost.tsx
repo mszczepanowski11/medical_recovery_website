@@ -35,13 +35,13 @@ type BlogPostProps = {
     };
     tags: { tags_en: string; tags_pl: string; tags_de: string };
     content: {
-      content_en: {
+      en: {
         raw: any;
       };
-      content_pl: {
+      pl: {
         raw: any;
       };
-      content_de: {
+      de: {
         raw: any;
       };
     };
@@ -52,7 +52,17 @@ type BlogPostProps = {
         pl: string;
         de: string;
       };
-      answer: { en: string; pl: string; de: string };
+      answer: {
+        en: {
+          raw: any;
+        };
+        pl: {
+          raw: any;
+        };
+        de: {
+          raw: any;
+        };
+      };
     }[];
   };
   newestBlogPostsList: {

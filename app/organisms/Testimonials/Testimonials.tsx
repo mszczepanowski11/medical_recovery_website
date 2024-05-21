@@ -15,9 +15,15 @@ import Text from '@/app/atoms/Text/Text';
 import Button from '@/app/atoms/Button/Button';
 import { TestimonialsWrapper } from './Testimonials.styles';
 
-type TestimonialsProps = { testimonialsList: TestimonialType[] };
+type TestimonialsProps = {
+  testimonialsList: TestimonialType[];
+  locale: 'en' | 'pl' | 'de';
+};
 
-const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
+const Testimonials: FC<TestimonialsProps> = function ({
+  testimonialsList,
+  locale,
+}) {
   const t = useTranslations('testimonials');
   const [showMoreNumber, setShowMoreNumber] = useState(4);
 
@@ -26,9 +32,13 @@ const Testimonials: FC<TestimonialsProps> = function ({ testimonialsList }) {
       testimonialsList
         ?.slice(0, showMoreNumber)
         .map((testimonial) => (
-          <TestimonialCard key={testimonial.name_surname} {...testimonial} />
+          <TestimonialCard
+            key={testimonial.name_surname}
+            {...testimonial}
+            locale={locale}
+          />
         )),
-    [testimonialsList, showMoreNumber],
+    [testimonialsList, showMoreNumber, locale],
   );
 
   return (

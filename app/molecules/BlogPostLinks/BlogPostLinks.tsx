@@ -4,7 +4,7 @@ import React, { FC, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
-import { Colors, headerHeight } from '@/app/utils/constans';
+import { headerHeight } from '@/app/utils/constans';
 import useScrollTo from '@/app/utils/useScrollTo';
 
 // Components
@@ -14,13 +14,13 @@ import { BlogPostLinksWrapper, LinkItem } from './BlogPostLinks.styles';
 
 type BlogPostLinksProps = {
   content: {
-    content_en: {
+    en: {
       raw: any;
     };
-    content_pl: {
+    pl: {
       raw: any;
     };
-    content_de: {
+    de: {
       raw: any;
     };
   };
@@ -32,7 +32,7 @@ const BlogPostLinks: FC<BlogPostLinksProps> = function ({ content, locale }) {
   const { scrollTo } = useScrollTo();
 
   const contentLocalized = useMemo(
-    () => (content ? content[`content_${locale}`] : null),
+    () => (content ? content[locale] : null),
     [content, locale],
   );
 

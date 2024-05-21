@@ -36,13 +36,18 @@ export default async function Home({
           locale={params.locale}
           specialistsList={specialistsList}
         />
-        <Testimonials testimonialsList={testimonialsList?.testimonials} />
-        <BlogPostsCards
-          blogPosts={blogPostsList?.blogPosts}
-          monthsTo={messagesItem?.utils?.months_to}
+        <Testimonials
+          testimonialsList={testimonialsList?.testimonials}
           locale={params.locale}
-          paddingTopSectionSm="4rem 1rem 0 1rem"
         />
+        {!!blogPostsList?.blogPosts && blogPostsList.blogPosts.length > 0 && (
+          <BlogPostsCards
+            blogPosts={blogPostsList?.blogPosts}
+            monthsTo={messagesItem?.utils?.months_to}
+            locale={params.locale}
+            paddingTopSectionSm="4rem 1rem 0 1rem"
+          />
+        )}
         <FAQ questions={faqQuestionsList?.faqs} locale={params.locale} />
         <Contact locale={params.locale} />
       </main>

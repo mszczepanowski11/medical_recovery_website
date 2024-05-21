@@ -62,11 +62,11 @@ const Footer: FC<FooterProps> = function ({ locale }) {
                   {tHeader('specialists')}
                 </Text>
               </NavButton>
-              <NavButton href={`/${locale}/blog`}>
+              {/* <NavButton href={`/${locale}/blog`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('blog')}
                 </Text>
-              </NavButton>
+              </NavButton> */}
               <NavButton href={`/${locale}/contact`}>
                 <Text noMargin fontWeight={500} noWrap>
                   {tHeader('contact')}

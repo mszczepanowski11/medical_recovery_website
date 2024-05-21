@@ -47,13 +47,13 @@ type BlogPostContentProps = {
     };
     tags: { tags_en: string; tags_pl: string; tags_de: string };
     content: {
-      content_en: {
+      en: {
         raw: any;
       };
-      content_pl: {
+      pl: {
         raw: any;
       };
-      content_de: {
+      de: {
         raw: any;
       };
     };
@@ -79,7 +79,7 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
   );
 
   const contentLocalized = useMemo(
-    () => (content ? content[`content_${locale}`] : null),
+    () => (content ? content[locale] : null),
     [content, locale],
   );
 
