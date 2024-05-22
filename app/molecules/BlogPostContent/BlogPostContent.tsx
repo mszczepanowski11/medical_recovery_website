@@ -2,28 +2,24 @@
 
 'use client';
 
-import React, { FC, useMemo } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { astToHtmlString } from '@graphcms/rich-text-html-renderer';
 
 // Utils
-import { Colors } from '@/app/utils/constans';
 
 // Components
 import Text from '@/app/atoms/Text/Text';
 import { Flex } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
-import {
-  YMDToDMStringY,
-  addSizesToImgUrl,
-  makeTagsArrayFromString,
-} from '@/app/utils/utils';
+import { YMDToDMStringY, addSizesToImgUrl } from '@/app/utils/utils';
 import { Instrument_Sans } from 'next/font/google';
 import Tag from '@/app/atoms/Tag/Tag';
 import {
   BlogPostContentWrapper,
   ContentWrapper,
 } from './BlogPostContent.styles';
+import BlogPostLinks from '../BlogPostLinks/BlogPostLinks';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -45,7 +41,7 @@ type BlogPostContentProps = {
     image: {
       url: string;
     };
-    tags: { tags_en: string; tags_pl: string; tags_de: string };
+    tags: { en: string; pl: string; de: string }[];
     content: {
       en: {
         raw: any;
@@ -68,6 +64,7 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
   monthsTo,
   locale,
 }) {
+  console.log('blogPostContent', blogPostContent);
   const tBlogPosts = useTranslations('blog_posts_home_page');
 
   const { title, slug, date, reading_time, image, tags, author, content } =
@@ -84,12 +81,13 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
   );
 
   const renderTagsLocalized = useMemo(
-    () =>
-      makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
-        <Tag key={tag} tag={tag} />
-      )),
+    () => tags?.map((tag) => <Tag key={tag[locale]} tag={tag[locale]} />),
     [tags, locale],
   );
+
+  useEffect(() => {
+    console.log('renderTagsLocalized', renderTagsLocalized);
+  }, [renderTagsLocalized]);
 
   const renderReadingTime = useMemo(() => {
     switch (reading_time) {
@@ -212,11 +210,16 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
           </Flex>
         )}
       </Flex>
-      {!!renderTagsLocalized && renderTagsLocalized.length > 1 && (
+      {!!renderTagsLocalized && renderTagsLocalized.length > 0 && (
         <Flex $flexWrap="wrap" $gap="0.25rem">
           {renderTagsLocalized}
         </Flex>
       )}
+      <BlogPostLinks
+        content={blogPostContent?.content}
+        locale={locale}
+        className="blog-post-content-links"
+      />
       {!!image?.url && (
         <Flex
           $margin="1.3rem 0"
@@ -230,6 +233,7 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
           <Image src={image?.url || ''} alt={titleLocalized || ''} fill />
         </Flex>
       )}
+
       <ContentWrapper
         className={instrument_sans.className}
         dangerouslySetInnerHTML={{

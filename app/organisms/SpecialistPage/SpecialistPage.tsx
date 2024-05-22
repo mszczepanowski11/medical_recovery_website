@@ -3,7 +3,7 @@
 
 'use client';
 
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -14,7 +14,7 @@ import useWindowSize from '@/app/utils/useWindowSize';
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
-import { LANG_SORT_ORDER, makeTagsArrayFromString } from '@/app/utils/utils';
+import { LANG_SORT_ORDER } from '@/app/utils/utils';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
 import Tabs from '@/app/atoms/Tabs/Tabs';

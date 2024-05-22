@@ -23,8 +23,8 @@ import {
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
 type FAQCardProps = {
-  answer: any;
-  question: string;
+  answer?: any;
+  question?: string;
   active: boolean;
   onClick: () => void;
 };
@@ -64,55 +64,54 @@ const FAQCard: FC<FAQCardProps> = function ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
-  const jsonContent = useMemo(
-    () =>
-      astToHtmlString({
-        content: answer,
-        renderers: {
-          h2: (props) => {
-            const { children } = props || {};
-            const childrenTrim = children
-              ?.replace('<b>', '')
-              .replace('</b>', '');
+  const jsonContent = useMemo(() => {
+    if (!answer || !question) return null;
+    return astToHtmlString({
+      content: answer,
+      renderers: {
+        h2: (props) => {
+          const { children } = props || {};
+          const childrenTrim = children?.replace('<b>', '').replace('</b>', '');
 
-            return `<h2 id="${childrenTrim}">${childrenTrim}</h2>`;
-          },
-
-          img: (props: any) => {
-            const { src, height, width, handle } = props || {};
-
-            const maxSizesStyle =
-              width || height
-                ? `style="${width ? `max-width: min(${width}px, calc(100vw - 3rem)); ` : ''}${
-                    height ? `max-height: ${height}px; ` : ''
-                  }"`
-                : '';
-            const mdSrc = addSizesToImgUrl(src, handle, width, height, 800);
-            const smallSrc = addSizesToImgUrl(src, handle, width, height, 600);
-            const mobileSrc = addSizesToImgUrl(src, handle, width, height, 400);
-            return `
-            <figure>
-              <picture>
-                ${
-                  !!mobileSrc &&
-                  `<source media="(max-width: 400px)" srcset="${mobileSrc}" />`
-                }
-                ${
-                  !!smallSrc &&
-                  `<source media="(max-width: 600px)" srcset="${smallSrc}" />`
-                }
-                ${
-                  !!mdSrc &&
-                  `<source media="(max-width: 800px)" srcset="${mdSrc}" />`
-                }
-                <img src="${src}" alt="blog" ${maxSizesStyle}  />
-              </picture>
-            </figure>`;
-          },
+          return `<h2 id="${childrenTrim}">${childrenTrim}</h2>`;
         },
-      }),
-    [answer],
-  );
+
+        img: (props: any) => {
+          const { src, height, width, handle } = props || {};
+
+          const maxSizesStyle =
+            width || height
+              ? `style="${width ? `max-width: min(${width}px, calc(100vw - 3rem)); ` : ''}${
+                  height ? `max-height: ${height}px; ` : ''
+                }"`
+              : '';
+          const mdSrc = addSizesToImgUrl(src, handle, width, height, 800);
+          const smallSrc = addSizesToImgUrl(src, handle, width, height, 600);
+          const mobileSrc = addSizesToImgUrl(src, handle, width, height, 400);
+          return `
+              <figure>
+                <picture>
+                  ${
+                    !!mobileSrc &&
+                    `<source media="(max-width: 400px)" srcset="${mobileSrc}" />`
+                  }
+                  ${
+                    !!smallSrc &&
+                    `<source media="(max-width: 600px)" srcset="${smallSrc}" />`
+                  }
+                  ${
+                    !!mdSrc &&
+                    `<source media="(max-width: 800px)" srcset="${mdSrc}" />`
+                  }
+                  <img src="${src}" alt="blog" ${maxSizesStyle}  />
+                </picture>
+              </figure>`;
+        },
+      },
+    });
+  }, [answer, question]);
+
+  if (!answer || !question) return null;
 
   return (
     <FAQCardWrapper style={{ height: openSpringValue }}>
@@ -151,7 +150,7 @@ const FAQCard: FC<FAQCardProps> = function ({
         <ContentWrapper
           className={instrument_sans.className}
           dangerouslySetInnerHTML={{
-            __html: jsonContent,
+            __html: jsonContent || {},
           }}
         />
       </Flex>

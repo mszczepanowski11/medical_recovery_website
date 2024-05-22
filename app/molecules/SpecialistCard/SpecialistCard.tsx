@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -11,7 +11,7 @@ import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
-import { LANG_SORT_ORDER, makeTagsArrayFromString } from '@/app/utils/utils';
+import { LANG_SORT_ORDER } from '@/app/utils/utils';
 import Link from 'next/link';
 import { SpecialistCardWrapper } from './SpecialistCard.styles';
 

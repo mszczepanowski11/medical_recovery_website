@@ -211,9 +211,9 @@ export const queryBlogPostsHomePage = gql`
         url
       }
       tags {
-        tags_de
-        tags_en
-        tags_pl
+        de
+        en
+        pl
       }
     }
   }
@@ -235,9 +235,9 @@ export const queryBlogPostContent = (slug: string) => gql`
         url
       }
       tags {
-        tags_de
-        tags_en
-        tags_pl
+        de
+        en
+        pl
       }
       short_description {
         de
@@ -247,6 +247,7 @@ export const queryBlogPostContent = (slug: string) => gql`
       content {
         en {
           raw
+          text
         }
         pl {
           raw
@@ -262,13 +263,13 @@ export const queryBlogPostContent = (slug: string) => gql`
           pl
         }
         answer {
+          de {
+            raw
+          }
           en {
             raw
           }
           pl {
-            raw
-          }
-          de {
             raw
           }
         }
@@ -297,9 +298,9 @@ export const queryNewestsBlogPosts = (slug: string) => gql`
         url
       }
       tags {
-        tags_de
-        tags_en
-        tags_pl
+        de
+        en
+        pl
       }
     }
   }

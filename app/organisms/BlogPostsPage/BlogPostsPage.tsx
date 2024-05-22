@@ -38,7 +38,7 @@ type BlogPost = {
   image: {
     url: string;
   };
-  tags: { tags_en: string; tags_pl: string; tags_de: string };
+  tags: { en: string; pl: string; de: string }[];
 };
 
 type BlogPostsPageProps = {
@@ -78,8 +78,10 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
       }
       if (
         filters.filter?.length > 0 &&
-        !makeTagsArrayFromString(blogPost.tags[`tags_${locale}`])?.some((tag) =>
-          filters.filter?.includes(tag.trim()),
+        !blogPost.tags?.some((tag) =>
+          tag && tag[locale]
+            ? filters.filter?.includes(tag[locale].trim())
+            : false,
         )
       ) {
         return false;
@@ -133,7 +135,7 @@ const BlogPostsPage: FC<BlogPostsPageProps> = function ({
       ...(new Set(
         blogPosts
           ?.map((blogPost) =>
-            blogPost?.tags[`tags_${locale}`].split(', ').flat(),
+            blogPost?.tags?.map((item: any) => item[locale]).flat(),
           )
           .flat() || [],
       ) || []),

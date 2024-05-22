@@ -1,12 +1,24 @@
 import { Flex } from '@/app/utils/GlobalStyles';
-import { Colors } from '@/app/utils/constans';
+import { Colors, breakpoint } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
 
 // Components
 
-export const BlogPostContentWrapper = styled(Flex)``;
+export const BlogPostContentWrapper = styled(Flex)`
+  .blog-post-content-links {
+    display: none;
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    .blog-post-content-links {
+      position: static;
+      display: flex;
+      padding-top: 1cap;
+    }
+  }
+`;
 
 export const ContentWrapper = styled.div`
   * {

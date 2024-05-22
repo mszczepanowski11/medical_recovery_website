@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { Flex } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Link from 'next/link';
-import { YMDToDMStringY, makeTagsArrayFromString } from '@/app/utils/utils';
+import { YMDToDMStringY } from '@/app/utils/utils';
 import Tag from '@/app/atoms/Tag/Tag';
 import { BlogPostCardWrapper } from './BlogPostCard.styles';
 
@@ -31,7 +31,7 @@ type BlogPostCardProps = {
   image: {
     url: string;
   };
-  tags: { tags_en: string; tags_pl: string; tags_de: string };
+  tags: { en: string; pl: string; de: string }[];
   monthsTo: { [key: string]: string };
   locale: 'en' | 'pl' | 'de';
   customGap?: string;
@@ -70,10 +70,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
   );
 
   const renderTagsLocalized = useMemo(
-    () =>
-      makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
-        <Tag key={tag} tag={tag} />
-      )),
+    () => tags?.map((tag) => <Tag key={tag[locale]} tag={tag[locale]} />),
     [tags, locale],
   );
 
@@ -106,7 +103,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
             width: '100%',
             aspectRatio: 1.8,
           }}
-          $styleMd={{ maxHeight: '200px' }}
+          $styleMd={{ maxHeight: '140px' }}
         >
           <Image
             src={image?.url}
@@ -152,7 +149,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
           </Flex>
         )}
       </Flex>
-      {!!renderTagsLocalized && renderTagsLocalized.length > 1 && (
+      {!!renderTagsLocalized && renderTagsLocalized.length > 0 && (
         <Flex $flexWrap="wrap" $gap="0.25rem">
           {renderTagsLocalized}
         </Flex>

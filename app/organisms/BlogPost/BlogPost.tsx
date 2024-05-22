@@ -33,7 +33,7 @@ type BlogPostProps = {
     image: {
       url: string;
     };
-    tags: { tags_en: string; tags_pl: string; tags_de: string };
+    tags: { en: string; pl: string; de: string }[];
     content: {
       en: {
         raw: any;
@@ -82,7 +82,7 @@ type BlogPostProps = {
     image: {
       url: string;
     };
-    tags: { tags_en: string; tags_pl: string; tags_de: string };
+    tags: { en: string; pl: string; de: string }[];
   }[];
   monthsTo: { [key: string]: string };
   locale: 'en' | 'pl' | 'de';
@@ -103,24 +103,57 @@ const BlogPost: FC<BlogPostProps> = function ({
         $padding="4rem 1rem 0 1rem"
         style={{ overflow: 'visible', clipPath: 'none' }}
       >
-        <GridItem $colStart={1} $colEnd={2} $padding="1rem 0 4.5rem 0">
+        <GridItem
+          $colStart={1}
+          $colEnd={2}
+          $padding="1rem 0 4.5rem 0"
+          $styleSm={{ display: 'none' }}
+        >
           <BlogPostLinks content={blogPostContent?.content} locale={locale} />
         </GridItem>
-        <GridItem $colStart={2} $colEnd={6} $padding="0 0 3rem 0">
+        <GridItem
+          $colStart={2}
+          $colEnd={6}
+          $colStartSm={1}
+          $colEndSm={3}
+          $rowStartSm={1}
+          $rowEndSm={2}
+          $padding="0 0 3rem 0"
+        >
           <BlogPostContent
             blogPostContent={blogPostContent}
             monthsTo={monthsTo}
             locale={locale}
           />
         </GridItem>
-        <GridItem $colStart={1} $colEnd={6} $rowStart={2} $rowEnd={3}>
+        <GridItem
+          $colStart={1}
+          $colEnd={6}
+          $rowStart={2}
+          $rowEnd={3}
+          $colStartSm={1}
+          $colEndSm={3}
+          $rowStartSm={2}
+          $rowEndSm={3}
+        >
           <FAQ
             questions={blogPostContent?.faq}
             locale={locale}
             customTitle={t('title_blog_post_faq')}
+            paddingTopSectionSm="4rem 0 0 0"
+            paddingBottomSectionSm="2rem 0 4rem 0"
           />
         </GridItem>
-        <GridItem $colStart={1} $colEnd={6} $rowStart={3} $rowEnd={4}>
+        <GridItem
+          $colStart={1}
+          $colEnd={6}
+          $rowStart={3}
+          $rowEnd={4}
+          $colStartSm={1}
+          $colEndSm={3}
+          $rowStartSm={3}
+          $rowEndSm={4}
+        >
           <BlogPostsCards
             blogPosts={newestBlogPostsList}
             locale={locale}
@@ -130,16 +163,27 @@ const BlogPost: FC<BlogPostProps> = function ({
             maxWidth="calc(700px + 2rem)"
             customGap="1.5rem"
             noDesc
-            paddingTopSection="4rem 1rem 1.5rem 1rem"
-            paddingBottomSection="0 1rem 4rem 1rem"
+            paddingTopSection="4rem 0 1.5rem 0"
+            paddingBottomSection="0 0 4rem 0"
+            paddingTopSectionSm="2.5rem 0 1.5rem 0"
+            paddingBottomSectionSm="0 0 4rem 0"
           />
         </GridItem>
-        <GridItem $colStart={1} $colEnd={6} $rowStart={4} $rowEnd={5}>
+        <GridItem
+          $colStart={1}
+          $colEnd={6}
+          $colStartSm={1}
+          $colEndSm={3}
+          $rowStart={4}
+          $rowEnd={5}
+          $rowStartSm={4}
+          $rowEndSm={5}
+        >
           <Contact
             locale={locale}
             noMiddleSection
             rightImageStyle={{ minWidth: 200, width: '18%' }}
-            padding="4rem 0 "
+            padding="4rem 0"
           />
         </GridItem>
       </GridContainer>

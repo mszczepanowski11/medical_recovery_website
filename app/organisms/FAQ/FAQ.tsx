@@ -13,8 +13,8 @@ import { FAQWrapper } from './FAQ.styles';
 
 type FAQProps = {
   questions: {
-    question: { en: string; pl: string; de: string };
-    answer: {
+    question?: { en: string; pl: string; de: string };
+    answer?: {
       en: {
         raw: any;
       };
@@ -28,46 +28,63 @@ type FAQProps = {
   }[];
   locale: 'en' | 'pl' | 'de';
   customTitle?: string;
+  paddingTopSectionSm?: string;
+  paddingBottomSectionSm?: string;
 };
 
-const FAQ: FC<FAQProps> = function ({ questions, locale, customTitle }) {
+const FAQ: FC<FAQProps> = function ({
+  questions,
+  locale,
+  customTitle,
+  paddingTopSectionSm,
+  paddingBottomSectionSm,
+}) {
   const t = useTranslations('faq');
 
-  const [activeCard, setActiveCard] = useState<string | null>(null);
+  const [activeCard, setActiveCard] = useState<string | null | undefined>(null);
 
   const renderQuestions = useMemo(
     () =>
       questions?.map(
-        (q: {
-          question: {
-            en: string;
-            pl: string;
-            de: string;
-          };
-          answer: {
-            en: {
-              raw: any;
+        (
+          q: {
+            question?: {
+              en: string;
+              pl: string;
+              de: string;
             };
-            pl: {
-              raw: any;
+            answer?: {
+              en: {
+                raw: any;
+              };
+              pl: {
+                raw: any;
+              };
+              de: {
+                raw: any;
+              };
             };
-            de: {
-              raw: any;
-            };
-          };
-        }) => (
-          <FAQCard
-            key={q.question[locale]}
-            question={q.question[locale]}
-            answer={q.answer[locale].raw}
-            active={activeCard === q.question[locale]}
-            onClick={() =>
-              setActiveCard((prev) =>
-                prev === q.question[locale] ? null : q.question[locale],
-              )
-            }
-          />
-        ),
+          },
+          index,
+        ) => {
+          const questionLocalized = q?.question
+            ? q?.question[locale]
+            : undefined;
+          const answerLocalized = q?.answer ? q?.answer[locale] : undefined;
+          return (
+            <FAQCard
+              key={questionLocalized || index}
+              question={questionLocalized}
+              answer={answerLocalized?.raw}
+              active={activeCard === questionLocalized}
+              onClick={() =>
+                setActiveCard((prev) =>
+                  prev === questionLocalized ? null : questionLocalized,
+                )
+              }
+            />
+          );
+        },
       ),
     [activeCard, questions, locale],
   );
@@ -77,6 +94,7 @@ const FAQ: FC<FAQProps> = function ({ questions, locale, customTitle }) {
       <GridContainer
         $gridCols={1}
         $padding="4rem 1rem 0rem 1rem"
+        $paddingSm={paddingTopSectionSm}
         $bg="#fafafa"
         $gap="0.75rem"
         $gridColsSm={1}
@@ -95,6 +113,7 @@ const FAQ: FC<FAQProps> = function ({ questions, locale, customTitle }) {
       <GridContainer
         $bg="#fafafa"
         $padding="2rem 1rem 4rem 1rem"
+        $paddingSm={paddingBottomSectionSm}
         $gridColsSm={1}
       >
         <GridItem $colStart={1} $colEnd={5}>

@@ -25,9 +25,14 @@ type BlogPostLinksProps = {
     };
   };
   locale: 'en' | 'pl' | 'de';
+  className?: string;
 };
 
-const BlogPostLinks: FC<BlogPostLinksProps> = function ({ content, locale }) {
+const BlogPostLinks: FC<BlogPostLinksProps> = function ({
+  content,
+  locale,
+  className,
+}) {
   const t = useTranslations('blog_page');
   const { scrollTo } = useScrollTo();
 
@@ -57,7 +62,7 @@ const BlogPostLinks: FC<BlogPostLinksProps> = function ({ content, locale }) {
   );
 
   return (
-    <BlogPostLinksWrapper>
+    <BlogPostLinksWrapper className={className}>
       <Flex $flexDirection="column" $rowGap="0.5rem">
         <Text
           variant="h3"

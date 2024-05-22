@@ -32,7 +32,7 @@ type BlogPostsCardsProps = {
     image: {
       url: string;
     };
-    tags: { tags_en: string; tags_pl: string; tags_de: string };
+    tags: { en: string; pl: string; de: string }[];
   }[];
   monthsTo: { [key: string]: string };
   locale: 'en' | 'pl' | 'de';

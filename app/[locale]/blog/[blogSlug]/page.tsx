@@ -7,6 +7,7 @@ import {
 } from '@/app/utils/fetchData';
 import { Metadata } from 'next';
 import { useLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params: { blogSlug, locale },
@@ -14,6 +15,20 @@ export async function generateMetadata({
   params: { blogSlug: string; locale: 'en' | 'pl' | 'de' };
 }): Promise<Metadata> {
   const blogPostContent = await fetchBlogPostContent(blogSlug);
+
+  const noRobots = {
+    robots: {
+      index: false,
+      follow: true,
+    },
+  };
+
+  if (!blogPostContent?.blogPost) {
+    return {
+      title: '404 - Mental Recovery',
+      ...noRobots,
+    };
+  }
   const { title, short_description, tags, author, date } =
     blogPostContent?.blogPost || {};
 
@@ -22,7 +37,7 @@ export async function generateMetadata({
     ? short_description[locale]
     : metadata[locale].description;
   const keywordsItem = tags
-    ? `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`
+    ? `${tags?.map((item: any) => item[locale]).join(', ')}, ${metadata[locale].keywords}`
     : `${metadata[locale].keywords}`;
   const urlItem = `${webpageUrl}/${locale}/blog/${blogSlug}`;
 
@@ -63,6 +78,10 @@ export default async function Home({
   const locale = useLocale();
   const messagesItem = await import(`../../../../messages/${locale}`);
   const blogPostContent = await fetchBlogPostContent(params.blogSlug);
+
+  if (!blogPostContent?.blogPost) {
+    return notFound();
+  }
   const newestBlogPostsList = await fetchNewestsBlogPosts(params.blogSlug);
 
   return (
