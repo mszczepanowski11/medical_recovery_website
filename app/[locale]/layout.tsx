@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Instrument_Sans } from 'next/font/google';
 import { Metadata } from 'next';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { useMessages } from 'next-intl';
 import { defaultLocale, locales } from '@/i18n';
-import { GoogleTagManager } from '@next/third-parties/google';
-import StyledComponentsRegistry from '../utils/registry';
-import GlobalStyles from '../utils/GlobalStyles';
 import metadata from '../utils/SEO';
 import Header from '../organisms/Header/Header';
 import Footer from '../organisms/Footer/Footer';
@@ -40,23 +37,12 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: (typeof locales)[number] };
 }>) {
-  const messages = useMessages();
-
   return (
-    <html lang={locale}>
-      <head />
-      <body className={instrument_sans.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <StyledComponentsRegistry>
-            <GlobalStyles />
-            <Header locale={locale} />
-            <Links locale={locale} />
-            <ToastProvider>{children}</ToastProvider>
-            <Footer locale={locale} />
-          </StyledComponentsRegistry>
-        </NextIntlClientProvider>
-        <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
-      </body>
-    </html>
+    <>
+      <Header locale={locale} />
+      <Links locale={locale} />
+      <ToastProvider>{children}</ToastProvider>
+      <Footer locale={locale} />
+    </>
   );
 }

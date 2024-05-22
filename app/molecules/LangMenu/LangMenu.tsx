@@ -24,6 +24,7 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
   const router = useRouter();
   const pathname = usePathname();
   const [pointerEvents, setPointerEvents] = useState<'none' | 'auto'>('none');
+  const [currentLang, setCurrentLang] = useState(locale);
 
   const isOpen = useMotionValue(0);
 
@@ -42,24 +43,29 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
       const oldLocale = locale;
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
 
+      setCurrentLang(newLocale);
       router.replace(pathname.replace(`/${oldLocale}`, `/${newLocale}`), {
         scroll: false,
       });
+      router.refresh();
     },
     [locale, pathname, router],
   );
 
-  const renderLangFlag = useCallback((localeItem: typeof locale) => {
-    return (
-      <Image
-        src={`/img/${localeItem}.svg`}
-        alt={localeItem}
-        width={27}
-        height={20}
-        style={{ pointerEvents: 'none' }}
-      />
-    );
-  }, []);
+  const renderLangFlag = useCallback(
+    (localeItem: typeof locale, getCurrent?: boolean) => {
+      return (
+        <Image
+          src={`/img/${getCurrent ? currentLang : localeItem}.svg`}
+          alt={localeItem}
+          width={27}
+          height={20}
+          style={{ pointerEvents: 'none' }}
+        />
+      );
+    },
+    [currentLang],
+  );
 
   const renderLanguages = useMemo(
     () =>
@@ -69,7 +75,7 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
           $noBorder
           onClick={() => handleLangChange(item)}
           className="lang-item"
-          $active={item === locale}
+          $active={item === currentLang}
         >
           {renderLangFlag(item)}
           <Text
@@ -82,7 +88,7 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
           </Text>
         </SelectedLangBtn>
       )),
-    [handleLangChange, renderLangFlag, locale],
+    [handleLangChange, renderLangFlag, currentLang],
   );
 
   const clickFunc = useCallback(
@@ -116,7 +122,7 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
         id="lang-item-main"
         $active={false}
       >
-        {renderLangFlag(locale)}
+        {renderLangFlag(currentLang, true)}
         <Icon
           icon={pointerEvents === 'none' ? faAngleDown : faAngleUp}
           style={{ pointerEvents: 'none' }}

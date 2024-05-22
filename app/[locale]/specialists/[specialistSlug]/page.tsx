@@ -4,6 +4,7 @@ import metadata from '@/app/utils/SEO';
 import { webpageUrl } from '@/app/utils/constans';
 import { fetchSpecialistPage } from '@/app/utils/fetchData';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params: { specialistSlug, locale },
@@ -11,14 +12,34 @@ export async function generateMetadata({
   params: { specialistSlug: string; locale: 'en' | 'pl' | 'de' };
 }): Promise<Metadata> {
   const specialistContent = await fetchSpecialistPage(specialistSlug);
+
+  const specialistHadLang =
+    specialistContent?.specialist?.languages?.includes(locale);
+
+  const noRobots = {
+    robots: {
+      index: false,
+      follow: true,
+    },
+  };
+
+  if (!specialistContent?.specialist) {
+    return {
+      title: '404 - Mental Recovery',
+      ...noRobots,
+    };
+  }
+
   const { name_surname, title, short_description, tags } =
     specialistContent?.specialist || {};
 
-  const titleItem = `${name_surname}${title && title[`title_${locale}`] ? ` - ${title[`title_${locale}`]}` : metadata[locale].title}`;
+  const titleItem = `${name_surname} ${title && title[`title_${locale}`] ? ` - ${title[`title_${locale}`]}` : ` - ${metadata[locale].title}`}`;
   const descriptionItem = short_description
     ? short_description[locale]
     : metadata[locale].description;
-  const keywordsItem = `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`;
+  const keywordsItem = tags
+    ? `${tags?.map((item: any) => item[locale]).join(', ')}, ${metadata[locale].keywords}`
+    : `${metadata[locale].keywords}`;
   const urlItem = `${webpageUrl}/${locale}/specialists/${specialistSlug}`;
 
   return {
@@ -41,6 +62,7 @@ export async function generateMetadata({
       description: descriptionItem,
       site: urlItem,
     },
+    ...(specialistHadLang ? {} : noRobots),
   };
 }
 
@@ -51,12 +73,21 @@ export default async function Home({
 }) {
   const specialistContent = await fetchSpecialistPage(params.specialistSlug);
 
+  const specialistHadLang = specialistContent?.specialist?.languages?.includes(
+    params.locale,
+  );
+
+  if (!specialistContent?.specialist) {
+    return notFound();
+  }
+
   return (
     <>
       <main>
         <SpecialistPage
           specialistContent={specialistContent.specialist}
           locale={params.locale}
+          specialistHadLang={specialistHadLang}
         />
       </main>
       <script

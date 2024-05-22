@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useMemo } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 // Utils
@@ -27,7 +27,7 @@ type SpecialistCardProps = {
     pl: string;
     de: string;
   };
-  tags: { tags_en: string; tags_pl: string; tags_de: string };
+  tags: { en: string; pl: string; de: string }[];
   calendar: string;
   specSlug: string;
   languages: ('pl' | 'en' | 'de')[];
@@ -67,10 +67,7 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
   );
 
   const renderTags = useMemo(
-    () =>
-      makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
-        <Tag key={tag} tag={tag} />
-      )),
+    () => tags?.map((tag) => <Tag key={tag[locale]} tag={tag[locale]} />),
     [tags, locale],
   );
 
@@ -110,7 +107,9 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
         </Link>
         <Flex
           $flexDirection="column"
-          $justifyContent="space-between"
+          $justifyContent={
+            title[`title_${locale}`] ? 'space-between' : 'center'
+          }
           style={{ width: '100%' }}
         >
           <Flex
@@ -133,13 +132,15 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
             </Link>
             <Flex $gap="0.4rem">{renderLanguages}</Flex>
           </Flex>
-          <Text
-            color="text_secondary"
-            noMargin
-            style={{ marginBottom: '0.2rem' }}
-          >
-            {title[`title_${locale}`]}
-          </Text>
+          {title[`title_${locale}`] && (
+            <Text
+              color="text_secondary"
+              noMargin
+              style={{ marginBottom: '0.2rem' }}
+            >
+              {title[`title_${locale}`]}
+            </Text>
+          )}
         </Flex>
       </Flex>
       <Flex $flexWrap="wrap" $gap="0.25rem">

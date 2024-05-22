@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/naming-convention */
 
 'use client';
@@ -19,7 +20,6 @@ import Button from '@/app/atoms/Button/Button';
 import Tabs from '@/app/atoms/Tabs/Tabs';
 import useScrollTo from '@/app/utils/useScrollTo';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { width } from '@fortawesome/free-regular-svg-icons/faAddressBook';
 import {
   SpecialistDataItem,
   SpecialistDataList,
@@ -30,6 +30,7 @@ import {
 
 type SpecialistPageProps = {
   specialistContent: {
+    specialist_page_slug: string;
     name_surname: string;
     title: {
       title_en: string;
@@ -41,7 +42,7 @@ type SpecialistPageProps = {
       pl: string;
       de: string;
     };
-    tags: { tags_en: string; tags_pl: string; tags_de: string };
+    tags: { en: string; pl: string; de: string }[];
     languages: ('pl' | 'en' | 'de')[];
     profile_image: { url: string; alt: string; caption: string; title: string };
     calendar: string;
@@ -77,21 +78,22 @@ type SpecialistPageProps = {
     }[];
   };
   locale: 'en' | 'pl' | 'de';
+  specialistHadLang?: boolean;
 };
 
 const SpecialistPage: FC<SpecialistPageProps> = function ({
   specialistContent,
   locale,
+  specialistHadLang,
 }) {
   const t = useTranslations('specialist_page');
   const tCta = useTranslations('cta');
-  const tCurr = useTranslations('utils.currency');
+  const tUtils = useTranslations('utils');
   const { isMobile, isLaptop } = useWindowSize();
   const { scrollTo } = useScrollTo();
 
-  const [activeTab, setActiveTab] = useState(null);
-
   const {
+    specialist_page_slug,
     profile_image,
     short_description,
     name_surname,
@@ -116,10 +118,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     [locale, description],
   );
   const renderTags = useMemo(
-    () =>
-      makeTagsArrayFromString(tags[`tags_${locale}`])?.map((tag) => (
-        <Tag key={tag} tag={tag} />
-      )),
+    () => tags?.map((tag) => <Tag key={tag[locale]} tag={tag[locale]} />),
     [tags, locale],
   );
   const renderLanguages = useMemo(
@@ -208,6 +207,47 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     window.SPECIALIST_CALENDAR_URL = calendar;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (!specialistHadLang) {
+    return (
+      <SpecialistPageWrapper style={{ height: '100%' }}>
+        <GridContainer
+          $gridCols={1}
+          $gridColsSm={1}
+          $gap="2rem"
+          $rowGapSm="0.5rem"
+          style={{ overflow: 'visible', clipPath: 'none', flexGrow: 1 }}
+        >
+          <GridItem>
+            <Flex $flexDirection="column" $alignItems="center" $gap="1rem">
+              <Text variant="h1" fontSize="1.6rem" fontSizeSm="1.6rem">
+                {t('no_lang_specialist_alert', { name: name_surname })}
+              </Text>
+              <Text style={{ marginBottom: '3rem' }}>
+                {t('find_another_langs')}
+              </Text>
+              {languages?.map((lang: string) => (
+                <Button
+                  key={lang}
+                  href={`/${lang}/specialists/${specialist_page_slug}`}
+                >
+                  <Text
+                    noMargin
+                    fontSize="1rem"
+                    fontWeight={500}
+                    style={{ whiteSpace: 'nowrap' }}
+                    styleMd={{ whiteSpace: 'wrap' }}
+                  >
+                    {tUtils(`languages.${lang}`)}
+                  </Text>
+                </Button>
+              ))}
+            </Flex>
+          </GridItem>
+        </GridContainer>
+      </SpecialistPageWrapper>
+    );
+  }
 
   return (
     <SpecialistPageWrapper>
@@ -316,9 +356,10 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
             <Flex
               $flexWrap="wrap"
               $gap="0.25rem"
-              style={{
+              $style={{
                 paddingBottom: '1.5rem',
                 borderBottom: `1px solid ${Colors.border}`,
+                maxWidth: 500,
               }}
             >
               {renderTags}
@@ -328,13 +369,17 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
               $columnGap="2rem"
               $rowGap="1.5rem"
               $flexWrap="wrap"
-              style={{
+              $style={{
                 paddingBottom: '1rem',
                 borderBottom: `1px solid ${Colors.border}`,
               }}
             >
-              {locals?.length > 1 && (
-                <Flex $flexDirection="column" $rowGap="0.75rem">
+              {locals?.length > 0 && (
+                <Flex
+                  $flexDirection="column"
+                  $rowGap="0.75rem"
+                  $style={{ flexBasis: 'calc(50% - 1rem)' }}
+                >
                   <Text noMargin fontWeight={500}>
                     {t('localization_label')}
                   </Text>
@@ -349,8 +394,12 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                   </SpecialistDataList>
                 </Flex>
               )}
-              {therapy_types?.length > 1 && (
-                <Flex $flexDirection="column" $rowGap="0.75rem">
+              {therapy_types?.length > 0 && (
+                <Flex
+                  $flexDirection="column"
+                  $rowGap="0.75rem"
+                  $style={{ flexBasis: 'calc(50% - 1rem)' }}
+                >
                   <Text noMargin fontWeight={500}>
                     {t('therapy_type_label')}
                   </Text>
@@ -370,7 +419,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
             <Text color="text_secondary">{descriptionLocalized}</Text>
             <Tabs
               tabs={tabs}
-              activeTab={activeTab}
+              activeTab={null}
               setActiveTab={() => {}}
               tabsStyle={{
                 position: 'sticky',
@@ -390,8 +439,10 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                       {t('services_label')}
                     </Text>
                     <ServicesList>
-                      {services?.map(({ service_name, service_url }) => (
-                        <ServicesListItem key={service_url[locale]}>
+                      {services?.map(({ service_name, service_url }, index) => (
+                        <ServicesListItem
+                          key={`${service_url[locale]}-${index}`}
+                        >
                           <a href={service_url[locale]} target="_blank">
                             <Text
                               noMargin
@@ -453,7 +504,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                 >
                   {tCta('check_terms')}{' '}
                   {(!isLaptop || isMobile) &&
-                    `( ${tCta('book_visit_from_label')} ${cheapest_price[locale]} )`}
+                    `( ${tCta('book_visit_from_label')} ${cheapest_price ? cheapest_price[locale] : undefined} )`}
                 </Text>
               </Button>
             </Flex>

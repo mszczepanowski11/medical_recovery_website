@@ -62,6 +62,10 @@
     "meet_our_specialists": "Poznaj naszych specialistów",
     "check_terms": "Zobacz terminy"
   },
+  "not_found": {
+    "title": "Nie znaleziono takiej strony",
+    "back_btn": "Powrót do strony głównej"
+  },
   "header": {
     "about_us": "O nas",
     "offer": "Oferta",
@@ -181,7 +185,9 @@
     "services_label": "Usługi",
     "experience_label": "Doświadczenie",
     "education_label": "Edukacja",
-    "publication_label": "Publikacje"
+    "publication_label": "Publikacje",
+    "no_lang_specialist_alert": "{name} nie prowadzi konsultacji w tym języku.",
+    "find_another_langs": "Zobacz inne języki, w których możesz umówić się na wizytę ze specialistą"
   },
   "about_us_page": {
     "hero": {

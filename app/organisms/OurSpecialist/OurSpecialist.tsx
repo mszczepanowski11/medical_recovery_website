@@ -51,8 +51,12 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   const renderSpecialist = useMemo(
     () =>
       specialist
+        ?.filter((spec: any) => spec.languages.includes(locale))
         ?.filter((spec: any) =>
-          specialistTagsFilterFunc(spec.tags[`tags_${locale}`], filteredTags),
+          specialistTagsFilterFunc(
+            spec.tags?.map((item: any) => (item ? item[locale] : item)),
+            filteredTags,
+          ),
         )
         ?.filter((spec: any) =>
           filterLangs
@@ -81,7 +85,9 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   const filterTags = useMemo(
     () =>
       collectAllTagsFromSpecialist(
-        specialist?.map((psycho: any) => psycho.tags[`tags_${locale}`]) || [],
+        specialist?.map((psycho: any) =>
+          psycho.tags?.map((item: any) => (item ? item[locale] : item)),
+        ) || [],
       ),
     [locale, specialist],
   );

@@ -21,7 +21,9 @@ export async function generateMetadata({
   const descriptionItem = short_description
     ? short_description[locale]
     : metadata[locale].description;
-  const keywordsItem = `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`;
+  const keywordsItem = tags
+    ? `${tags[`tags_${locale}`]}, ${metadata[locale].keywords}`
+    : `${metadata[locale].keywords}`;
   const urlItem = `${webpageUrl}/${locale}/blog/${blogSlug}`;
 
   return {

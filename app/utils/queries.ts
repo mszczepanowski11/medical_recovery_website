@@ -22,9 +22,9 @@ export const querySpecialistsHomePage = gql`
   {
     specialists(first: 10) {
       tags {
-        tags_de
-        tags_en
-        tags_pl
+        de
+        en
+        pl
       }
       short_description {
         de
@@ -69,9 +69,9 @@ export const querySpecialistPage = (slug: string) => gql`
         title_pl
       }
       tags {
-        tags_de
-        tags_en
-        tags_pl
+        de
+        en
+        pl
       }
       short_description {
         de

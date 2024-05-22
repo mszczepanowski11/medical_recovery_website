@@ -1,36 +1,32 @@
 export const removeDuplicates = (array: string[]) => {
-  return array.filter((value: string, index, self) => {
-    return self.indexOf(value) === index;
-  });
+  return array
+    ?.filter((value) => value && value !== '')
+    .filter((value: string, index, self) => {
+      return self.indexOf(value) === index;
+    });
 };
 
 export const makeTagsArrayFromString = (stringEl: string) => {
   if (!stringEl) return undefined;
 
   const returnedString =
-    stringEl
-      ?.trim()
-      .split(',')
-      .filter((str) => str.length > 0) || [];
+    stringEl?.split(', ').filter((str) => str.length > 0) || [];
 
   return removeDuplicates(returnedString);
 };
 
 export const collectAllTagsFromSpecialist = (tags: string[] | undefined) => {
   if (!tags) return undefined;
-
-  return makeTagsArrayFromString(removeDuplicates(tags).join(','));
+  return removeDuplicates(tags.flat());
 };
 
 export const specialistTagsFilterFunc = (
-  psychoTags: string,
+  psychoTags: string[],
   filteredTags: string[],
 ) => {
   if (!filteredTags || filteredTags.length < 1 || !psychoTags) return true;
 
-  return makeTagsArrayFromString(psychoTags)?.some((psychoTag) =>
-    filteredTags.includes(psychoTag),
-  );
+  return psychoTags?.some((psychoTag) => filteredTags.includes(psychoTag));
 };
 
 export const specialistLangFilterFunc = (
