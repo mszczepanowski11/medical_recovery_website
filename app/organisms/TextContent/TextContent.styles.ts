@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 // Components
 
-export const PrivacyPolicyContentWrapper = styled.div``;
+export const TextContentWrapper = styled.div``;
 
 export const ContentWrapper = styled.div`
   * {
@@ -27,7 +27,7 @@ export const ContentWrapper = styled.div`
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
     text-align: center;
   }

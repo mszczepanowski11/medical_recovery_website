@@ -108,6 +108,15 @@ const Footer: FC<FooterProps> = function ({ locale }) {
             }}
           >
             <NavButton
+              href={`/${locale}/legal-note`}
+              $lowerFooter
+              rel="legal-note"
+            >
+              <Text noMargin fontSize="0.8rem" color="text_secondary" noWrap>
+                {tHeader('legal_note')}
+              </Text>
+            </NavButton>
+            <NavButton
               href={`/${locale}/privacy-policy`}
               $lowerFooter
               rel="privacy-policy"

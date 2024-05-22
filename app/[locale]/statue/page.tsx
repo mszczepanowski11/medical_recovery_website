@@ -3,7 +3,7 @@ import metadata from '@/app/utils/SEO';
 
 export async function generateMetadata() {
   return {
-    title: 'Privacy policy',
+    title: 'Statue',
     robots: {
       index: false,
       follow: true,
@@ -11,7 +11,7 @@ export async function generateMetadata() {
   };
 }
 
-export default async function PrivacyPolicy({
+export default async function Statue({
   params,
 }: {
   params: { locale: 'en' | 'pl' | 'de' };
@@ -19,7 +19,7 @@ export default async function PrivacyPolicy({
   return (
     <>
       <main>
-        <TextContent contentKey="privacy_policy_page" />
+        <TextContent contentKey="statue" />
       </main>
       <script
         type="application/ld+json"
