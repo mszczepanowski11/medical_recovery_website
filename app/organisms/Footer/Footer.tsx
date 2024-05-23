@@ -77,6 +77,11 @@ const Footer: FC<FooterProps> = function ({ locale }) {
                   {tHeader('privacy_policy')}
                 </Text>
               </NavButton>
+              <NavButton $sm href={`/${locale}/legal-note`}>
+                <Text noMargin fontWeight={500} noWrap>
+                  {tHeader('legal_note')}
+                </Text>
+              </NavButton>
             </LinksWrapper>
           </LinksLogoWrapper>
         </GridItem>

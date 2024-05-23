@@ -123,13 +123,13 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
 
             const maxSizesStyle =
               width || height
-                ? `style="${width ? `max-width: min(${width}px, calc(100vw - 3rem)); ` : ''}${
+                ? `style="${width ? `max-width: 100%; ` : ''}${
                     height ? `max-height: ${height}px; ` : ''
                   }"`
                 : '';
-            const mdSrc = addSizesToImgUrl(src, handle, width, height, 800);
-            const smallSrc = addSizesToImgUrl(src, handle, width, height, 600);
-            const mobileSrc = addSizesToImgUrl(src, handle, width, height, 400);
+            const mdSrc = addSizesToImgUrl(src, handle, width, height, 750);
+            const smallSrc = addSizesToImgUrl(src, handle, width, height, 550);
+            const mobileSrc = addSizesToImgUrl(src, handle, width, height, 350);
             return `
             <figure>
               <picture>
