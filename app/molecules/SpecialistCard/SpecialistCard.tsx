@@ -121,10 +121,10 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
           >
             <Link href={subpageSlug}>
               <Text
-                variant="h4"
+                variant="h3"
                 noMargin
                 noWrap
-                style={{ flexGrow: 5 }}
+                style={{ flexGrow: 5, fontSize: '1.25rem' }}
                 className="specialist-card-name"
               >
                 {name}

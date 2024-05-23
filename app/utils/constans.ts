@@ -24,7 +24,7 @@ export const COLORS = {
   primitives_blue: '#E1E2FF',
   primitives_light_blue: '#D8F4F6',
   text_primary: '#1D1D46',
-  text_secondary: '#6C6C6C',
+  text_secondary: '#6A6A6A',
   text_secondary_light: '#888888',
   text_interactive: '#9BFB92',
   text_blue_label_primary: '#096D76',

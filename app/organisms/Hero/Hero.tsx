@@ -64,7 +64,7 @@ const Hero: FC<HeroProps> = function ({ locale }) {
             <Flex style={{ position: 'relative' }}>
               <Button
                 size="large"
-                style={{ marginTop: '1rem' }}
+                style={{ marginTop: '3rem' }}
                 href={`/${locale}/specialists`}
               >
                 <Text noMargin fontSize="1.25rem" fontWeight={500}>

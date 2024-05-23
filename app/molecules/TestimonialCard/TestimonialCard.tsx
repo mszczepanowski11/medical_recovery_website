@@ -60,7 +60,7 @@ const TestimonialCard: FC<TestimonialType & { locale: 'en' | 'pl' | 'de' }> =
             alt={name_surname}
             style={{ borderRadius: '50%' }}
           />
-          <Text variant="h4" noWrap noMargin>
+          <Text variant="h3" style={{ fontSize: '1.25rem' }} noWrap noMargin>
             {name_surname}
           </Text>
           <Flex $gap="0.1rem">{renderStars}</Flex>

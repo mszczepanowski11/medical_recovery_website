@@ -1,5 +1,5 @@
 import { locales } from '@/i18n';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { NextIntlClientProvider, useLocale, useMessages } from 'next-intl';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Instrument_Sans } from 'next/font/google';
 import StyledComponentsRegistry from './utils/registry';
@@ -9,11 +9,12 @@ const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: (typeof locales)[number] };
 }>) {
+  const locale = useLocale();
   const messages = useMessages();
 
   return (

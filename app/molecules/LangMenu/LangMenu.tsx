@@ -57,7 +57,7 @@ const LangMenu: FC<LangMenuProps> = function ({ className }) {
       return (
         <Image
           src={`/img/${getCurrent ? currentLang : localeItem}.svg`}
-          alt={localeItem}
+          alt={`lang ${localeItem}`}
           width={27}
           height={20}
           style={{ pointerEvents: 'none' }}

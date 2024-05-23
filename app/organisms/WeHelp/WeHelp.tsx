@@ -49,7 +49,7 @@ const WeHelp: FC<WeHelpProps> = function ({ cards }) {
             {t('title1')}{' '}
             <Text
               variant="span"
-              color="#6fe064"
+              color="text_tags"
               fontSize="2.625rem"
               fontSizeSm="2.1rem"
               style={{ fontWeight: '600' }}
