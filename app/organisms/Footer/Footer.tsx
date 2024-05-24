@@ -103,20 +103,14 @@ const Footer: FC<FooterProps> = function ({ locale }) {
             $justifyContent="center"
             $alignItems="center"
             $padding="2rem 6rem"
+            $paddingMd="3rem 6rem"
             $paddingSm="2rem 0"
           >
             <Text noMargin psmall color="text_secondary">
               {tFooter('copyright')}
             </Text>
           </Flex>
-          <Flex
-            style={{
-              position: 'absolute',
-              top: '50%',
-              right: '0',
-              translate: '0 -50%',
-            }}
-          >
+          <Flex className="footer-lower-section-links-wrapper">
             <NavButton href={`/${locale}/statue`} $lowerFooter rel="statue">
               <Text noMargin fontSize="0.8rem" color="text_secondary" noWrap>
                 {tHeader('statue')}

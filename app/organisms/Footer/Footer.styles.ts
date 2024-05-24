@@ -6,7 +6,20 @@ import styled from 'styled-components';
 
 // Components
 
-export const FooterWrapper = styled.footer``;
+export const FooterWrapper = styled.footer`
+  .footer-lower-section-links-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 0 -50%;
+  }
+
+  @media (max-width: 900px) {
+    .footer-lower-section-links-wrapper {
+      flex-direction: column;
+    }
+  }
+`;
 
 export const NavButton = styled(Link)<{
   $lowerFooter?: boolean;

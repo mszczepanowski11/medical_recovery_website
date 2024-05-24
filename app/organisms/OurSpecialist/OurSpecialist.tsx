@@ -112,7 +112,8 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
           $colStart={1}
           $colEnd={filterLangs ? 3 : 10}
           $colStartMb={1}
-          $colEndMb={10}
+          $colEndMb={filterLangs ? 3 : 10}
+          $styleMd={{ paddingBottom: '2rem' }}
         >
           <Flex $justifyContent="space-between" $flexWrap="wrap" $rowGap="1rem">
             <Text
@@ -163,6 +164,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
               $styleMd={{
                 height: '100%',
                 justifyContent: 'flex-end',
+                paddingRight: '2rem',
               }}
             >
               <SpecialistsLangFilter

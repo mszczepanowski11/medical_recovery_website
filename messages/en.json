@@ -1,48 +1,47 @@
 {
   "meta": {
-    "name": "Mental Recovery",
     "email": "contact@mentalrecovery.co",
     "phone": "+48 512 088 457"
   },
   "utils": {
     "months": {
-      "1": "Styczeń",
-      "2": "Luty",
-      "3": "Marzec",
-      "4": "Kwiecień",
-      "5": "Maj",
-      "6": "Czerwiec",
-      "7": "Lipiec",
-      "8": "Sierpień",
-      "9": "Wrzesień",
-      "10": "Październik",
-      "11": "Listopad",
-      "12": "Grudzień"
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
     },
     "months_to": {
-      "1": "stycznia",
-      "2": "lutego",
-      "3": "marca",
-      "4": "kwietnia",
-      "5": "maja",
-      "6": "czerwca",
-      "7": "lipca",
-      "8": "sierpnia",
-      "9": "września",
-      "10": "października",
-      "11": "listopada",
-      "12": "grudnia"
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
     },
     "languages": {
-      "en": "Angielski",
-      "pl": "Polski",
-      "de": "Niemiecki"
+      "en": "English",
+      "pl": "Polish",
+      "de": "German"
     },
     "sort": {
-      "name": "Sortuj",
-      "date_asc": "Najnowsze",
-      "date_desc": "Najstarsze",
-      "popular_asc": "Popularne"
+      "name": "Sort",
+      "date_asc": "Newest",
+      "date_desc": "Oldest",
+      "popular_asc": "Popular"
     },
     "currency": {
       "pln": "PLN",
@@ -50,159 +49,159 @@
     }
   },
   "cta": {
-    "arrange_meeting": "Umów konsultację",
-    "check_more": "Zobacz więcej",
-    "arrange": "Umów wizytę",
-    "send_message": "Wyślij wiadomość",
-    "sending": "Wysyłanie",
-    "book_visit": "Umów wizytę",
-    "book_visit_from_label": "od",
-    "meet_us": "Poznaj nas",
-    "contact": "Kontakt",
-    "meet_our_specialists": "Poznaj naszych specialistów",
-    "check_terms": "Zobacz terminy"
+    "arrange_meeting": "Schedule consultation",
+    "check_more": "Check more",
+    "arrange": "Arrange visit",
+    "send_message": "Send message",
+    "sending": "Sending",
+    "book_visit": "Book visit",
+    "book_visit_from_label": "from",
+    "meet_us": "Meet us",
+    "contact": "Contact",
+    "meet_our_specialists": "Meet our specialists",
+    "check_terms": "Check terms"
   },
   "not_found": {
-    "title": "Nie znaleziono takiej strony",
-    "back_btn": "Powrót do strony głównej"
+    "title": "No such page found",
+    "back_btn": "Back to main page"
   },
   "header": {
-    "about_us": "O nas",
-    "offer": "Oferta",
-    "specialists": "Specialiści",
+    "about_us": "About us",
+    "offer": "Offer",
+    "specialists": "Specialists",
     "blog": "Blog",
-    "contact": "Kontakt",
-    "privacy_policy": "Polityka prywatności",
-    "legal_note": "Nota prawna",
-    "statue": "Regulamin"
+    "contact": "Contact",
+    "privacy_policy": "Privacy Policy",
+    "legal_note": "Legal note",
+    "statue": "Statue"
   },
   "hero": {
-    "title1": "Równowaga",
-    "title2": "wewnętrzna z",
+    "title1": "Inner Balance",
+    "title2": "with",
     "title3": "Mental Recovery",
-    "description": "Dążysz do spokoju umysłu i harmonii życiowej? Z nami możesz to osiągnąć. Nasza profesjonalna pomoc terapeutyczna pomoże Ci pokonać wewnętrzne przeszkody i odzyskać równowagę emocjonalną. Umów się na wizytę i rozpocznij swoją podróż ku lepszemu.",
-    "image1_alt": "Klientka wskazuje palcem na nas, to chyba dobrze?",
-    "image2_alt": "Ale chłopak jest zadowolony, po wizycie w Mental Recovery!",
-    "image3_alt": "Zadowolona klientka Mental Recovery"
+    "description": "Are you striving for peace of mind and life harmony? With us, you can achieve it. Our professional therapeutic assistance will help you overcome internal obstacles and regain emotional balance. Schedule a visit and start your journey towards improvement.",
+    "image1_alt": "Client pointing at us, that's probably good?",
+    "image2_alt": "But the boy is happy after visiting Mental Recovery!",
+    "image3_alt": "Satisfied Mental Recovery client"
   },
   "we_help": {
-    "title1": "Obszary, w których",
-    "title2": "Ci pomożemy",
+    "title1": "Areas",
+    "title2": "We Help In",
     "cards": [
       {
         "color": "#F1F3FF",
         "logo": "/img/we-help/cloud.svg",
-        "title": "Wsparcie dzieci i młodzieży",
-        "description": "Wspieramy najmłodszych - dzieci i młodzież w radzeniu sobie z problemami oraz budowaniu odpornosci psychicznej na codzienne wyzwania, w tym szkole i w relacjach z rówiesnikami."
+        "title": "Support for Children and Youth",
+        "description": "We support the youngest - children and adolescents in coping with problems and building mental resilience to everyday challenges, including school and peer relationships."
       },
       {
         "color": "#FFF6F1",
         "logo": "/img/we-help/table-brain.svg",
-        "title": "Rozwój osobisty",
-        "description": "Razem z klientami tworzymy spersonalizowane plany rozwoju osobistego, które uwzględniają ich cele, pasje i wartości"
+        "title": "Personal Development",
+        "description": "Together with clients, we create personalized plans for personal development that take into account their goals, passions, and values."
       },
       {
         "color": "#E1FFFC",
         "logo": "/img/we-help/lightning-face.svg",
-        "title": "Psychoterapia",
-        "description": "Nasz zespół terapeutów i psychologów jest tutaj, aby pomóc Ci przejść przez trudne chwile i znaleźć drogę do powrotu do równowagi emocjonalnej."
+        "title": "Psychotherapy",
+        "description": "Our team of therapists and psychologists is here to help you through difficult times and find your way back to emotional balance."
       },
       {
         "color": "#FFFCE2",
         "logo": "/img/we-help/brain-agenda.svg",
-        "title": "Leczenie psychiatryczne",
-        "description": "Za pomocą diagnozy i leczenia często traumatycznych doswiadczen, możemy pomóc dobrać odpowiednie leki, a co za tym idzie zmniejszyć dolegliwosci emocjonalne w psychice i ciele, a docelowo podniesc jakosc zycia."
+        "title": "Psychiatric Treatment",
+        "description": "Through diagnosis and treatment of often traumatic experiences, we can help select appropriate medications, thereby reducing emotional distress in the mind and body, and ultimately improving quality of life."
       },
       {
         "color": "#E9FFE5",
         "logo": "/img/we-help/female-psi.svg",
-        "title": "Diagnoza psychologiczna",
-        "description": "Dzięki naszemu wsparciu klienci mogą bezpiecznie dzielić się swoimi emocjami i doświadczeniami oraz otrzymywać profesjonalną pomoc w diagnozie i nazwaniu problemów emocjonalnych, z którymi przychodzą klienci."
+        "title": "Psychological Diagnosis",
+        "description": "With our support, clients can safely share their emotions and experiences and receive professional help in diagnosing and naming emotional problems they come with."
       },
       {
         "color": "#FFE2FC",
         "logo": "/img/we-help/brain-chip.svg",
-        "title": "Neuroróżnorodność",
-        "description": "Pomagamy osobom z ADHD zrozumieć i zarządzać swoimi wyjątkowymi cechami, takimi jak impulsywność, nadpobudliwość i trudności w koncentracji. Budujemy strategię radzenia sobie i osiągania sukcesów w życiu osobistym i zawodowym."
+        "title": "Neurodiversity",
+        "description": "We help people with ADHD understand and manage their unique traits such as impulsivity, hyperactivity, and concentration difficulties. We build coping strategies and achieve success in personal and professional life."
       }
     ]
   },
   "our_specialists": {
-    "title": "Poznaj naszych specjalistów",
-    "lang_filter_title": "Język",
-    "lang_filter_all": "Dowolny",
-    "show_more_specialists": "Zobacz wszystkich"
+    "title": "Meet Our Specialists",
+    "lang_filter_title": "Language",
+    "lang_filter_all": "Any",
+    "show_more_specialists": "Show All"
   },
   "testimonials": {
-    "second_title": "Opinie",
-    "title": "Opinie o naszych usługach prosto z głębi serca",
-    "check_more_btn": "Zobacz więcej"
+    "second_title": "Testimonials",
+    "title": "Testimonials About Our Services Straight from the Heart",
+    "check_more_btn": "See More"
   },
   "blog_posts_home_page": {
-    "title": "Najnowsze artykuły",
-    "show_more_btn": "Zobacz wszystkie",
-    "reading_time_1": "minuta czytania",
-    "reading_time_2-4": "minuty czytania",
-    "reading_time_5": "minut czytania"
+    "title": "Latest Articles",
+    "show_more_btn": "See All",
+    "reading_time_1": "minute read",
+    "reading_time_2-4": "minutes read",
+    "reading_time_5": "minutes read"
   },
   "faq": {
     "second_title": "FAQ",
-    "title": "Najczęściej zadawane pytania"
+    "title": "Frequently Asked Questions"
   },
   "contact": {
-    "title": "Kontakt",
-    "second_title": "Najszybszy sposób na kontakt?",
-    "email": "E-mail:",
-    "phone": "Numer telefonu"
+    "title": "Contact",
+    "second_title": "Fastest Way to Contact?",
+    "email": "Email:",
+    "phone": "Phone Number"
   },
   "footer": {
     "copyright": "© 2024 Mental Recovery"
   },
   "specialists_page": {
-    "title": "Specialiści"
+    "title": "Specialists"
   },
   "blog_page": {
     "title": "Blog",
-    "no_articles": "Nie ma wyników dla Twoich filtrów",
-    "clear_filters": "Wyczyść filtry",
-    "newest_posts_title": "Najnowsze wpisy",
-    "table_of_contents_title": "Spis treści:",
-    "title_blog_post_faq": "Pytania do artykułu"
+    "no_articles": "No results for your filters",
+    "clear_filters": "Clear Filters",
+    "newest_posts_title": "Newest Posts",
+    "table_of_contents_title": "Table of Contents:",
+    "title_blog_post_faq": "Questions about the article"
   },
   "contact_page": {
-    "title": "Odezwij się do nas",
-    "description": "Jesteśmy tutaj by pomóc. Zadaj nam pytanie, a my odpowiemy w przeciągu 24h.",
-    "name_label": "Imię",
-    "email_label": "Adres e-mail",
-    "message_label": "Twoja wiadomość",
-    "rodo_label": "Wyrażam zgodę na przetwarzanie moich danych osobowych, podanych w powyższym formularzu w celu udzielenia odpowiedzi na wysłaną przeze mnie wiadomość oraz dalszą komunikację (w tym komunikację marketingową).",
-    "send_success": "Wiadomość została wysłana!",
-    "send_error": "Wystąpił błąd, spróbuj ponownie później.",
-    "send_empty_fields": "Wypełnij wszystkie pola formularza",
-    "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych"
+    "title": "Get in Touch",
+    "description": "We're here to help. Ask us a question, and we'll respond within 24 hours.",
+    "name_label": "Name",
+    "email_label": "Email Address",
+    "message_label": "Your Message",
+    "rodo_label": "I consent to the processing of my personal data provided in the above form for the purpose of responding to my message and further communication (including marketing communication).",
+    "send_success": "Message sent!",
+    "send_error": "An error occurred, please try again later.",
+    "send_empty_fields": "Fill in all form fields",
+    "send_no_rodo": "Check consent for personal data processing"
   },
   "specialist_page": {
-    "localization_label": "Lokalizacja:",
-    "therapy_type_label": "Typ terapii:",
-    "services_label": "Usługi",
-    "experience_label": "Doświadczenie",
-    "education_label": "Edukacja",
-    "publication_label": "Publikacje",
-    "no_lang_specialist_alert": "{name} nie prowadzi konsultacji w tym języku.",
-    "find_another_langs": "Zobacz inne języki, w których możesz umówić się na wizytę ze specialistą"
+    "localization_label": "Location:",
+    "therapy_type_label": "Therapy Type:",
+    "services_label": "Services",
+    "experience_label": "Experience",
+    "education_label": "Education",
+    "publication_label": "Publications",
+    "no_lang_specialist_alert": "{name} does not conduct consultations in this language.",
+    "find_another_langs": "See other languages in which you can make an appointment with a specialist."
   },
   "about_us_page": {
     "hero": {
-      "title": "Jesteśmy tacy jak Ty i pracujemy dla <underscore>Ciebie!</underscore>",
-      "description": "Zrobimy wszystko, by Twoje życie mogło być szczęśliwsze."
+      "title": "We Are Just Like You and We Work for <underscore>You!</underscore>",
+      "description": "We will do everything to make your life happier."
     },
     "intro": {
-      "main": "Wiemy, że życie miewa nie tylko piękne momenty i często bywa ciężko, ale wierzymy, każdy ma w sobie odpowiedzi i potencjał, by zawalczyć o to, by stać się sobą i pokonać nawet najtrudniejsze przeciwności",
-      "description1": "Emocje to kompas kierujący nas tam, gdzie tak naprawdę, podświadomie chcemy się znaleźć. We współczesnej przytłaczającej codzienności łatwo zgubić swoje prawdziwe „ja”, szczególnie wobec oczekiwań innych.",
-      "description2": "Obecność drugiego człowieka bez względu na jego przeszłość - w rozmowie o tym co boli- bez oceny, z empatią, we własnej autentyczności i przed kimś kto potrafi słuchać i chce faktycznie pomóc- może naprawdę leczyć."
+      "main": "We know that life has not only beautiful moments and often can be tough, but we believe everyone has answers within themselves and the potential to fight to become themselves and overcome even the toughest adversities.",
+      "description1": "Emotions are a compass guiding us to where we truly, subconsciously want to be. In today's overwhelming everyday life, it's easy to lose our true 'self,' especially in the face of others' expectations.",
+      "description2": "The presence of another human being, regardless of their past - in a conversation about what hurts - without judgment, with empathy, in their own authenticity, and in front of someone who can truly listen and wants to help, can truly heal."
     },
     "idea": {
-      "title": "Dlaczego psychoterapia z nami to dobry pomysł?",
+      "title": "Why Therapy with Us Is a Good Idea?",
       "items": [
         {
           "icon": {
@@ -210,14 +209,14 @@
             "width": 39,
             "height": 56
           },
-          "title": "Niskie ceny",
-          "description": "Ceny współpracy z naszymi najlepszymi specjalistami zaczynają się od 150 złotych - prawdopodobnie są to jedne z najniższych stawek na rynku. Mimo niskiej ceny nasi specjaliści nastawieni są na jakość:",
+          "title": "Low Prices",
+          "description": "The prices for cooperation with our best specialists start from 150 PLN - probably some of the lowest rates on the market. Despite the low price, our specialists are focused on quality:",
           "list": [
-            "posiadają odpowiednie wykształcenie",
-            "stawiają na skuteczną, możliwie szybką pomoc podczas, gdy wiele z terapeutów sugeruje pacjentom, że potrzebują, aby ich terapia trwała latami, co nie zawsze jest potrzebne"
+            "they have appropriate education",
+            "they aim for effective, as fast as possible help, while many therapists suggest to patients that they need their therapy to last for years, which is not always necessary"
           ],
           "btn": {
-            "label": "Poznaj specjalistów",
+            "label": "Meet the Specialists",
             "href": "/specialists"
           }
         },
@@ -227,10 +226,10 @@
             "width": 56,
             "height": 56
           },
-          "title": "Nowoczesne podejście do wsparcia psychicznego",
-          "description": "Mental health wspiera piękną indywidualność jednostki, skupia się na rozwoju, pozytywnych cechach pacjenta, zasobach, akceptacji, włącza współczesne metody terapeutyczne jak praca ze sztuką, nauką, kreatywnością, seksualnością, z ciałem, w relacji, z wyobrażeniami, naturą, wewnętrznymi częściami osobowości, zadowoleniem klienta, pracą ze zwierzętami, czy jest to praca nastawiona na samo-realizację, czy wewnętrzną harmonię",
+          "title": "Modern Approach to Mental Support",
+          "description": "Mental health supports the beautiful individuality of the individual, focuses on development, positive traits of the patient, resources, acceptance, includes contemporary therapeutic methods like working with art, science, creativity, sexuality, body, in relation, with imaginations, nature, inner parts of personality, client satisfaction, working with animals, whether it is focused on self-realization or inner harmony",
           "btn": {
-            "label": "Poznaj ofertę",
+            "label": "See Offer",
             "href": "/offer"
           }
         },
@@ -240,21 +239,21 @@
             "width": 45,
             "height": 56
           },
-          "title": "Bogaty zakres usług",
+          "title": "Wide Range of Services",
           "list": [
-            "Konsultacja psychiatryczna",
-            "Psychoterapia dzieci i młodzieży",
-            "Psychoterapia online",
-            "Psychoterapia dla par",
-            "Psychoterapia dla rodzin",
-            "Psychoterapia grupowa",
-            "Psychoterapia dla osób po wypaleniu zawodowym",
-            "Psychoterapia dla osób neuro-różnorodnych (ADHD, autyzm etc.)",
-            "Konsultacja seksuologiczna",
-            "wiele więcej"
+            "Psychiatric Consultation",
+            "Psychotherapy for Children and Adolescents",
+            "Online Psychotherapy",
+            "Couples Therapy",
+            "Family Therapy",
+            "Group Therapy",
+            "Psychotherapy for Burnout",
+            "Psychotherapy for Neurodiverse Individuals (ADHD, Autism, etc.)",
+            "Sexological Consultation",
+            "and much more"
           ],
           "btn": {
-            "label": "Zobacz wszystkie",
+            "label": "See All",
             "href": "/offer"
           }
         },
@@ -264,10 +263,10 @@
             "width": 56,
             "height": 52
           },
-          "title": "Komfort i łatwa dostępność ",
-          "description": "Nasi specjaliści pracują w 3 językach, są dostępni online, co sprawia, że nasze usługi są możliwe dla każdego na całym świecie",
+          "title": "Comfort and Easy Accessibility",
+          "description": "Our specialists work in 3 languages, are available online, making our services accessible to everyone worldwide",
           "btn": {
-            "label": "Wybierz specjalistę",
+            "label": "Choose a Specialist",
             "href": "/specialists"
           }
         }
@@ -276,141 +275,141 @@
   },
   "offer_page": {
     "hero": {
-      "title1": "Psychoterapia dla każdego:",
-      "title2": "Najwyższa jakość już od {price} zł",
-      "description1": "Chcemy, aby usługi psychoterapeutyczne były ogólnodostępne, bo dbanie o zdrowie psychiczne jest szczególnie ważne.",
-      "description2": "Stąd nasze usługi są prawdopodobnie jednymi z najtańszych na rynku, dlatego psychoterapię oferujemy już od 150 złotych. ",
-      "scroll_down": "Przesuń w dół żeby zapoznać się z ofertą"
+      "title1": "Therapy for Everyone:",
+      "title2": "Top Quality from {price} PLN",
+      "description1": "We want psychotherapeutic services to be accessible to everyone, as caring for mental health is especially important.",
+      "description2": "That's why our services are probably some of the cheapest on the market, so we offer psychotherapy starting from 150 PLN.",
+      "scroll_down": "Scroll down to explore the offer"
     },
     "intro_top": {
-      "title": "Terapia indywidualna",
-      "description": "Oferujemy konsultacje psychiatryczne, które są dedykowane diagnozie i leczeniu różnorodnych zaburzeń psychicznych oraz dostarczają wsparcia farmakologicznego, jeśli to konieczne. Nasza psychoterapia dzieci i młodzieży skupia się na dostosowaniu terapii do indywidualnych potrzeb i wyzwań, aby wspierać zdrowy rozwój psychiczny i emocjonalny.",
+      "title": "Individual Therapy",
+      "description": "We offer psychiatric consultations dedicated to diagnosing and treating various mental disorders and provide pharmacological support if necessary. Our psychotherapy for children and adolescents focuses on adapting therapy to individual needs and challenges to support healthy psychological and emotional development.",
       "items": [
         {
-          "title": "Konsultacja psychiatryczna",
-          "description": "Oferujemy konsultacje psychiatryczne, które są dedykowane diagnozie i leczeniu różnorodnych zaburzeń psychicznych oraz dostarczają wsparcia farmakologicznego, jeśli to konieczne. Nasza psychoterapia dzieci i młodzieży skupia się na dostosowaniu terapii do indywidualnych potrzeb i wyzwań, aby wspierać zdrowy rozwój psychiczny i emocjonalny."
+          "title": "Psychiatric Consultation",
+          "description": "We offer psychiatric consultations dedicated to diagnosing and treating various mental disorders and provide pharmacological support if necessary. Our psychotherapy for children and adolescents focuses on adapting therapy to individual needs and challenges to support healthy psychological and emotional development."
         },
         {
-          "title": "Psychoterapia dzieci i młodzieży"
+          "title": "Psychotherapy for Children and Adolescents"
         },
         {
-          "title": "Psychoterapia online",
-          "description": "W ramach psychoterapii online oferujemy wygodne i elastyczne sesje terapeutyczne, umożliwiając dostęp do wsparcia terapeutycznego z dowolnego miejsca. Nasza psychoterapia dla par koncentruje się na poprawie komunikacji, budowaniu więzi i rozwiązywaniu konfliktów w związku. Psychoterapia dla rodzin pomaga w tworzeniu zdrowszych relacji i lepszym zrozumieniu wzajemnych potrzeb."
+          "title": "Online Psychotherapy",
+          "description": "Within online psychotherapy, we offer convenient and flexible therapy sessions, enabling access to therapeutic support from anywhere. Our couples therapy focuses on improving communication, building bonds, and resolving conflicts in the relationship. Family therapy helps in creating healthier relationships and better understanding mutual needs."
         },
         {
-          "title": "Psychoterapia dla osób po wypaleniu zawodowym"
+          "title": "Psychotherapy for Burnout"
         },
         {
-          "title": "Psychoterapia dla osób neuro-różnorodnych (ADHD, autyzm etc.)",
-          "description": "Dla osób neuro-różnorodnych, takich jak osoby z ADHD czy autyzmem, oferujemy specjalistyczną psychoterapię, dostosowaną do ich unikalnych potrzeb i sposobów funkcjonowania. W naszych konsultacjach seksuologicznych możemy pomóc w rozwiązywaniu problemów seksualnych oraz wspierać zdrową seksualność i intymność."
+          "title": "Psychotherapy for Neurodiverse Individuals (ADHD, Autism, etc.)",
+          "description": "For neurodiverse individuals, such as those with ADHD or autism, we offer specialized psychotherapy tailored to their unique needs and ways of functioning. In our sexological consultations, we can help resolve sexual problems and support healthy sexuality and intimacy."
         },
         {
-          "title": "Konsultacja seksuologiczna"
+          "title": "Sexological Consultation"
         },
         {
-          "title": "Psychoterapia w nurcie poznawczo behawioralnym",
-          "description": "W ramach psychoterapii poznawczo-behawioralnej skupiamy się na zmianie myśli i zachowań prowadzących do poprawy funkcjonowania psychicznego. Nasza psychoterapia humanistyczna/Gestalt jest oparta na zaufaniu do wewnętrznej mądrości klienta i promowaniu samowiedzy oraz wzrostu osobistego."
+          "title": "Cognitive-Behavioral Therapy",
+          "description": "Within cognitive-behavioral therapy, we focus on changing thoughts and behaviors leading to improved mental functioning. Our humanistic/Gestalt therapy is based on trust in the client's inner wisdom and promotes self-awareness and personal growth."
         },
         {
-          "title": "Psychoterapia humanistyczna/ Gestalt"
+          "title": "Humanistic/Gestalt Therapy"
         },
         {
-          "title": "Psychoterapia w nurcie zintegrowanym",
-          "description": "W nurcie zintegrowanym łączymy różne podejścia terapeutyczne, dostosowując się do indywidualnych potrzeb i preferencji klienta. Doradztwo zawodowe pomaga klientom w identyfikacji celów zawodowych i podejmowaniu świadomych decyzji dotyczących kariery."
+          "title": "Integrated Therapy",
+          "description": "In integrated therapy, we combine different therapeutic approaches, adapting to the individual needs and preferences of the client. Career counseling helps clients identify career goals and make informed career decisions."
         },
         {
-          "title": "Doradztwo zawodowe"
+          "title": "Career Counseling"
         },
         {
-          "title": "Konsultacja psychologiczna",
-          "description": "Nasza konsultacja psychologiczna umożliwia zrozumienie i radzenie sobie z różnorodnymi wyzwaniami życiowymi. W ramach mentoringu/coachingu wspieramy klientów w osiąganiu celów osobistych i zawodowych."
+          "title": "Psychological Consultation",
+          "description": "Our psychological consultation enables understanding and coping with various life challenges. Through mentoring/coaching, we support clients in achieving personal and professional goals."
         },
         {
-          "title": "Mentoring/ coaching"
+          "title": "Mentoring/Coaching"
         },
         {
-          "title": "Konsultacja dietetyczna",
-          "description": "Nasza konsultacja dietetyczna dostarcza profesjonalnej pomocy w zakresie zdrowego odżywiania i zarządzania wagą. Terapeutyczna praca z ciałem pozwala klientom na odkrywanie i przetwarzanie traumy poprzez uważność na ciało i jego doznania."
+          "title": "Dietetic Consultation",
+          "description": "Our dietetic consultation provides professional assistance in healthy eating and weight management. Therapeutic body work allows clients to discover and process trauma through mindfulness of the body and its sensations."
         },
         {
-          "title": "Terapeutyczna praca z ciałem"
+          "title": "Therapeutic Body Work"
         },
         {
-          "title": "Psychoterapia PTSD (zespół stresu pourazowego)- EMDR",
-          "description": "Psychoterapia PTSD przy użyciu EMDR zapewnia skuteczne narzędzia do radzenia sobie z objawami stresu pourazowego. Arteterapia umożliwia wyrażanie i przetwarzanie emocji poprzez sztukę i twórcze działania."
+          "title": "PTSD Therapy (Eye Movement Desensitization and Reprocessing - EMDR)",
+          "description": "PTSD therapy using EMDR provides effective tools for coping with post-traumatic stress disorder symptoms. Art therapy enables expression and processing of emotions through art and creative activities."
         },
         {
-          "title": "Arteterapia"
+          "title": "Art Therapy"
         },
         {
-          "title": "Terapia ze zwierzętami",
-          "description": "Terapia ze zwierzętami wykorzystuje interakcję z zwierzętami do promowania zdrowia psychicznego i emocjonalnego. Oferujemy również psychoterapię z dojazdem do domu, zapewniając wygodę i dostępność terapii dla osób z ograniczoną mobilnością."
+          "title": "Animal-Assisted Therapy",
+          "description": "Animal-assisted therapy utilizes interaction with animals to promote mental and emotional health. We also offer home-based psychotherapy, providing convenience and accessibility of therapy for individuals with limited mobility."
         },
         {
-          "title": "Psychoterapia z dojazdem"
+          "title": "Home-Based Psychotherapy"
         }
       ]
     },
     "intro_bottom": {
-      "title": "Terapia grupowa",
-      "description1": "Nasza psychoterapia grupowa zapewnia wsparcie emocjonalne i możliwość dzielenia się doświadczeniami z osobami o podobnych wyzwaniach.",
-      "description2": "Specjalizujemy się również w psychoterapii dla osób po wypaleniu zawodowym, dostarczając narzędzi do radzenia sobie ze stresem i przywracania równowagi życiowej.",
+      "title": "Group Therapy",
+      "description1": "Our group therapy provides emotional support and the opportunity to share experiences with individuals facing similar challenges.",
+      "description2": "We also specialize in therapy for burnout, providing tools to cope with stress and restore life balance.",
       "items": [
         {
-          "title": "Psychoterapia dla par",
-          "description": "Oferujemy konsultacje psychiatryczne, które są dedykowane diagnozie i leczeniu różnorodnych zaburzeń psychicznych oraz dostarczają wsparcia farmakologicznego, jeśli to konieczne. Nasza psychoterapia dzieci i młodzieży skupia się na dostosowaniu terapii do indywidualnych potrzeb i wyzwań, aby wspierać zdrowy rozwój psychiczny i emocjonalny."
+          "title": "Couples Therapy",
+          "description": "We offer psychiatric consultations dedicated to diagnosing and treating various mental disorders and provide pharmacological support if necessary. Our psychotherapy for children and adolescents focuses on adapting therapy to individual needs and challenges to support healthy psychological and emotional development."
         },
         {
-          "title": "Psychoterapia dla rodzin"
+          "title": "Family Therapy"
         },
         {
-          "title": "Psychoterapia grupowa",
-          "description": "Nasza psychoterapia grupowa zapewnia wsparcie emocjonalne i możliwość dzielenia się doświadczeniami z osobami o podobnych wyzwaniach. Specjalizujemy się również w psychoterapii dla osób po wypaleniu zawodowym, dostarczając narzędzi do radzenia sobie ze stresem i przywracania równowagi życiowej."
+          "title": "Group Therapy",
+          "description": "Our group therapy provides emotional support and the opportunity to share experiences with individuals facing similar challenges. We also specialize in therapy for burnout, providing tools to cope with stress and restore life balance."
         }
       ]
     },
     "diagnosis": {
-      "title": "Diagnozy",
-      "description1": "Oferujemy różnorodne diagnozy i zaświadczenia dotyczące zdrowia psychicznego. Przeprowadzamy diagnozy autyzmu oraz zespołu Aspergera, zapewniając precyzyjne i kompleksowe oceny stanu zdrowia psychicznego.",
-      "description2": "Nasze badania opierają się na międzynarodowych standardach diagnostycznych, uwzględniając indywidualne cechy każdego pacjenta i jego kontekst życiowy.",
-      "description3": "Dzięki temu możemy dostarczyć spersonalizowane rekomendacje terapeutyczne i wsparcie.",
+      "title": "Diagnoses",
+      "description1": "We offer various diagnoses and certificates related to mental health. We conduct diagnoses of autism and Asperger's syndrome, providing precise and comprehensive assessments of mental health.",
+      "description2": "Our assessments are based on international diagnostic standards, taking into account each patient's individual characteristics and life context.",
+      "description3": "This allows us to provide personalized therapeutic recommendations and support.",
       "items": [
         {
-          "title": "Diagnozy i zaświadczenia"
+          "title": "Diagnoses and Certificates"
         },
         {
-          "title": "Diagnozy: autyzmu i ZA"
+          "title": "Autism and Asperger's Diagnoses"
         },
         {
-          "title": "Diagnoza ADHD",
-          "description": "Diagnozujemy również ADHD, identyfikując i opisując specyficzne cechy i objawy tej zaburzenia. Nasze diagnozy są oparte na dokładnym wywiadzie klinicznym, obserwacji zachowań oraz standardowych testach psychologicznych, co pozwala na trafną ocenę potrzeb terapeutycznych i edukacyjnych osób z ADHD."
+          "title": "ADHD Diagnosis",
+          "description": "We also diagnose ADHD, identifying and describing specific characteristics and symptoms of this disorder. Our diagnoses are based on a thorough clinical interview, behavioral observations, and standardized psychological tests, enabling accurate assessment of therapeutic and educational needs of individuals with ADHD."
         },
         {
-          "title": "Diagnoza osobowości (zaburzeń)/ MMPI",
-          "description": "Dla osób z podejrzeniem zaburzeń osobowości przeprowadzamy badania, w tym badania psychologiczne, w tym badania za pomocą Minnesota Multiphasic Personality Inventory (MMPI) oraz różnorodne metody diagnozy osobowości. Nasze diagnozy są kompleksowe i uwzględniają zarówno cechy osobowościowe, jak i funkcjonowanie psychospołeczne pacjenta."
+          "title": "Personality Diagnosis (Disorders) / MMPI",
+          "description": "For individuals suspected of personality disorders, we conduct examinations, including psychological tests such as the Minnesota Multiphasic Personality Inventory (MMPI) and various methods of personality diagnosis. Our diagnoses are comprehensive and take into account both personality traits and the psychosocial functioning of the patient."
         },
         {
-          "title": "Diagnoza psychologiczna dziecka",
-          "description": "Specjalizujemy się także w diagnozowaniu dzieci, dostarczając diagnozy psychologicznej dla dzieci oraz diagnozy PTSD u osób dorosłych i dzieci, wykorzystując standardowe kryteria diagnostyczne DSM-5. Nasze badania uwzględniają różnorodne aspekty funkcjonowania dziecka, w tym jego rozwój emocjonalny, zachowania adaptacyjne i relacje z otoczeniem."
+          "title": "Child Psychological Diagnosis",
+          "description": "We also specialize in diagnosing children, providing psychological diagnoses for children and PTSD diagnoses in adults and children, using standard diagnostic criteria from the DSM-5. Our assessments consider various aspects of the child's functioning, including emotional development, adaptive behaviors, and relationships with the environment."
         },
         {
-          "title": "Diagnoza PTSD"
+          "title": "PTSD Diagnosis"
         },
         {
-          "title": "Diagnoza chorób psychologicznych (depresja, CHAD, schizofrenia itd.)",
-          "description": "Diagnozujemy również choroby psychologiczne, takie jak depresja, CHAD (czyli zaburzenie afektywne dwubiegunowe) czy schizofrenia, opierając się na obserwacji, testach psychologicznych i wywiadach klinicznych. Nasze diagnozy są oparte na najnowszych badaniach i wytycznych klinicznych, co zapewnia trafność i rzetelność naszych ocen."
+          "title": "Diagnosis of Psychological Disorders (Depression, Bipolar Disorder, Schizophrenia, etc.)",
+          "description": "We also diagnose psychological disorders such as depression, bipolar disorder (i.e., bipolar affective disorder), or schizophrenia, based on observations, psychological tests, and clinical interviews. Our diagnoses are based on the latest research and clinical guidelines, ensuring the accuracy and reliability of our assessments."
         },
         {
-          "title": "Zaświadczenia dotyczące niezdolności do pracy",
-          "description": "Oprócz diagnoz, dostarczamy również zaświadczenia dotyczące niezdolności do pracy oraz inne dokumenty potwierdzające niepełnosprawność, zaburzenia psychiczne czy choroby, zapewniając wsparcie i dokumentację niezbędną do ubiegania się o świadczenia i pomoc społeczną. Nasze zaświadczenia są zgodne z obowiązującymi przepisami prawa i uwzględniają indywidualne potrzeby i sytuację życiową każdego pacjenta."
+          "title": "Certificates of Disability",
+          "description": "In addition to diagnoses, we also provide certificates of disability and other documents confirming disability, mental disorders, or illnesses, providing support and documentation necessary for applying for benefits and social assistance. Our certificates comply with applicable legal regulations and take into account the individual needs and life situation of each patient."
         },
         {
-          "title": "Inne zaświadczenia dotyczące niepełnosprawności, zaburzenia czy choroby psychicznej"
+          "title": "Other Certificates Related to Disability, Disorders, or Mental Illness"
         }
       ]
     }
   },
   "privacy_policy_page": "<h1>Polityka prywatności</h1><h3>Data ostatniej aktualizacji: <strong>22.05.2024r.</strong></h3><pcenter>Dziękujemy za odwiedzenie naszej strony internetowej. Ta Polityka prywatności wyjaśnia, w jaki sposób gromadzimy, używamy, przechowujemy i chronimy Twoje dane osobowe.</pcenter><h2>§ 1. Postanowienia ogólne</h2><ol><li><p>Administratorem danych jest Research and Development Marcin Szczurski (dalej: <strong>„Administratorem”</strong>) z siedzibą w Krakowie, ul. Mieczysława Karłowicza 23/6, Kraków 30-047 o NIP: 7681806014, REGON: 364659814,</p></li><li><p>W ramach działalności Serwisu mogą być zbierane, przetwarzane i wykorzystywane dane użytkowników Serwisu (dalej: <strong>„Użytkownicy”</strong>), w tym dane osobowe,</p></li><li><p>W ramach działalności Serwisu, dobrowolnie podawane przez Użytkowników dane osobowe (np. w ramach wypełniania formularza kontaktowego), takie jak adres poczty elektronicznej lub zbierane w ramach statystyk i analiz zachowań Użytkowników,</p></li><li><p>Ponadto zbierane mogą być informacje o adresie IP Użytkownika, czasie otrzymania zapytania i wysłania odpowiedzi, adresie strony internetowej, z której Użytkownik został przekierowany do Serwisu oraz rodzaju wykorzystywanego przez Użytkownika oprogramowania. Informacje te wykorzystywane są w celu administrowania Serwisem oraz tworzenia statystyk i analiz,</p></li></ol><h2>§ 2. Zbierane danych osobowych</h2><p>Podczas korzystania z naszej strony internetowej możemy zbierać różne rodzaje danych osobowych, w tym, lecz nie ograniczając się do:</p><ol><li><p>Dane kontaktowe, takie jak imię, nazwisko, adres e-mail, numer telefonu,</p></li><li><p>Informacje o Twoich preferencjach i zainteresowaniach,</p></li><li><p>Dane dotyczące urządzenia, takie jak adres IP, informacje o przeglądarce internetowej, dane dotyczące lokalizacji.</p></li></ol><h2>§ 3. W jaki sposób wykorzystujemy Twoje dane osobowe?</h2><p>Twoje dane osobowe mogą być wykorzystywane do:</p><ol><li><p>Komunikacji z Tobą w odpowiedzi na Twoje zapytania i prośby,</p></li><li><p>Dostarczania Ci informacji o naszych produktach, usługach i ofertach,</p></li><li><p>Udoskonalania naszej strony internetowej oraz dostosowywania jej do Twoich potrzeb i preferencji,</p></li><li><p>Monitorowania aktywności na naszej stronie w celu poprawy jej funkcjonalności i jakości.</p></li></ol><h2>§ 4. Prawa użytkownika</h2><p>Zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE zwane dalej: <strong>„RODO”</strong>), masz prawo do:</p><ol><li><p>Dostępu do Twoich danych osobowych,</p></li><li><p>Poprawiania nieprawidłowych danych osobowych,</p></li><li><p>Usuwania Twoich danych osobowych,</p></li><li><p>Ograniczenia przetwarzania Twoich danych osobowych,</p></li><li><p>Przenoszenia Twoich danych osobowych do innego administratora danych,</p></li><li><p>Wniesienia skargi do organu nadzorczego.</p></li></ol><h2>§ 5. Ochrona danych osobowych</h2><p>Zabezpieczamy Twoje dane osobowe stosując odpowiednie środki techniczne i organizacyjne, aby zapobiec nieuprawnionemu dostępowi, utracie, uszkodzeniu lub ujawnieniu.</p><ol><li><p>Administrator jest administratorem danych osobowych w rozumieniu RODO,</p></li><li><p>Administrator zbiera i przetwarza dane osobowe zgodnie z właściwymi przepisami prawa, w tym w szczególności z RODO, i zgodnie z zasadami przewidzianymi w tych przepisach</p></li><li><p>Administrator informuje o przetwarzaniu danych w chwili ich zebrania. Administrator przetwarza dane w zakresie, czasie i celach każdorazowo wskazanych w treściach udostępnionych pod formularzami służącymi do zbierania danych osobowych od Użytkownika,</p></li><li><p>Administrator przekazuje Dane osobowe wyłącznie zaufanym podwykonawcom Administratora, tj. dostawcom odpowiedzialnym za obsługę systemów informatycznych, podmiotom takim jak banki i operatorzy płatności, podmioty świadczące usługi księgowe, prawne, agencje marketingowe (w zakresie usług marketingowych), podmiotom świadczącym pozostałe usługi informatyczno-programistyczne</p></li><li><p>Administrator ma prawo przekazania wybranych Danych osobowych Użytkownika właściwym organom i osobom trzecim jeśli taka konieczność wynika z obowiązujących przepisów prawa i gdy podmioty te zgłaszają żądanie ich udzielenia w oparciu o odpowiednią podstawę prawną</p></li><li><p>Administrator zapewnia bezpieczeństwo przetwarzanych danych osobowych oraz ich poufność, a także umożliwia dostęp do informacji o przetwarzaniu danych Użytkownikowi. Gdyby pomimo stosowanych środków bezpieczeństwa doszło do naruszenia ochrony Danych osobowych (np. „wycieku” danych lub ich utraty) i takie naruszenie mogłoby powodować wysokie ryzyko naruszenia praw lub wolności Użytkownika, Administrator poinformuje o takim zdarzeniu Użytkownika w sposób zgodny z przepisami</p></li><li><p>Użytkownik może skontaktować się z administratorem danych.</p></li></ol> <h2>§ 6. Kontakt z Administratorem</h2><p>Jeśli masz jakiekolwiek pytania dotyczące naszej Polityki prywatności lub chcesz skorzystać z swoich praw związanych z danymi osobowymi, skontaktuj się z nami</p><ol><li><p>Adres email: <aemail>contact@mentalrecovery.co</aemail></p></li><li><p>Adres do korespondencji: Research and Development Marcin Szczurski, ul. Mieczysława Karłowicza 23/6, Kraków 30-047</p></li></ol> <h2>§ 7. Polityka plików cookies</h2> <p>Nasza strona internetowa używa plików cookies.</p> <ol><li><p>Administrator wykorzystuje pliki cookies. Cookies to niewielkie pliki tekstowe wysyłane (zapisywane) przez Serwis na urządzeniu końcowym Użytkownika (np. komputer, smartfon)</p></li><li><p>Administrator wykorzystuje pliki cookies w celu świadczenia usług drogą elektroniczną, ich ulepszania oraz poprawy jakości, a także w celach analitycznych i statystycznych oraz w celu dostosowania Serwisu do potrzeb jego Użytkowników. Dzięki wykorzystaniu plików cookies Administrator personalizuje treści i reklamy. Informacje o tym, jak Użytkownik korzysta z Serwisu, Administrator udostępnia zaufanym partnerom społecznościowym, reklamowym i analitycznym, w celu świadczenia jak najwyższej jakości usług w zakresie funkcjonowania e-sklepu, analityki, dopasowania oraz personalizacj</p></li><li><p>W ramach Serwisu stosowane są dwa typy plików cookies: „sesyjne” (session cookies) oraz „stałe” (persistent cookies). Cookies „sesyjne” są plikami tymczasowymi, które przechowywane są w urządzeniu końcowym Użytkownika do czasu wylogowania, opuszczenia strony internetowej lub wyłączenia oprogramowania (przeglądarki internetowej). “Stałe” pliki cookies przechowywane są w urządzeniu końcowym Użytkownika przez czas określony w parametrach plików cookies lub do czasu ich usunięcia przez Użytkownika</p></li><li><p>W Serwisie Administrator wykorzystuje następujące rodzaje plików cookies</p><ol2><li><p>funkcjonalne - umożliwiają zapamiętanie wyborów Użytkownika i ich zapamiętanie oraz dostosowanie w Serwisie np. w zakresie preferencji językowych, rozmiaru czcionki, wyglądu Serwisu itp.,</p></li><li><p>analityczne - umożliwiają pozyskanie szeregu informacji m.in. liczby wizyt i źródeł ruchu w Serwisie. Zebranie tych danych służy do ustalenia które strony są najczęściej odwiedzane i prowadzą do stworzenia statystyk dotyczących ruchu w Serwisie. Zebranie tych danych służy Administratorowi do poprawy wydajności Serwisu. Zgromadzone dane są przetwarzane w postaci zanonimizowanej,</p></li><li><p>reklamowe - umożliwiają dopasowanie wyświetlanych w Serwisie i poza Serwisem treści, w tym reklam, do zainteresowań Użytkowników. Do prezentowania personalizowanych treści mogą być wykorzystywane dane dotyczące historii przeglądanych stron, aktywności w serwisach (np. historia zakupów, sposób korzystania z usług, rodzaj wyświetlonych treści i reklam) czy dane geolokalizacyjne.  Na podstawie informacji z Serwisu i aktywności Użytkownika w innych serwisach budowany jest profil zainteresowań Użytkownika,</p></li></ol2></li><li><p>Funkcjonalne, analityczne i reklamowe pliki cookies mogą być instalowane przez Administratora i jego zaufanych partnerów za pośrednictwem Serwisu</p></li><li><p>Podstawą prawną przetwarzania danych w związku ze stosowaniem niezbędnych plików plików cookies jest niezbędność przetwarzania Danych osobowych do wykonania umowy (art. 6 ust. 1 lit. b RODO). W przypadku pozostałych plików cookies podstawą przetwarzania Danych osobowych jest uzasadniony interes Administratora lub zgoda Użytkownika (art. 6 ust. 1 lit. a i f RODO).</p></li><li><p>Użytkownik może zmienić ustawienia dotyczące plików cookies z poziomu przeglądarki internetowej</p></li><li><p>Zmiana ustawień plików cookies i podobnych technologii może wpłynąć na sposób funkcjonowania Serwisu i świadczonych przez niego usług</p></li><li><p>Serwis wykorzystuje narzędzia podmiotów trzecich służące do zbierania plików cookies. Podmioty te przetwarzają pliki cookies na zasadach określonych w ich politykach prywatności i innych dokumentach określających standardy dot. plików cookies</p></li></ol> <h2>§ 8. Zmiany w Polityce prywatności</h2><p>Zachowujemy sobie prawo do aktualizacji lub zmiany naszej Polityki prywatności w dowolnym momencie. Każde zmiany będą publikowane na tej stronie, a data ostatniej aktualizacji zostanie zmodyfikowana.</p><p>Dziękujemy za zapoznanie się z naszą Polityką prywatności.</p>",
-  "legal_note_page": "<h1>Nota prawna</h1><h3>Data ostatniej aktualizacji: <strong>22.05.2024r.</strong></h3><p>Research and Development Marcin Szczurski z siedzibą w Krakowie („RDMS”), pod adresem: ul. Mieczysława Karłowicza 23/6, Kraków 30-047 o NIP: 7681806014, REGON: 364659814 przysługują wszelkie prawa do niniejszej strony internetowej dostępnej pod domeną mentalrecovery.co („Strona Internetowa Mental Recovery”) w tym jej struktury oraz jej projektu graficznego oraz majątkowe prawa autorskie w odniesieniu do wszystkich elementów umieszczonych na Stronie Internetowej Mental Recovery, które stanowią utwory w rozumieniu ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych (Dz. U. z 2006 r. Nr 90, poz. 631, z późn. zm.), a w związku z tym podlegają ochronie zgodnie z przepisami tej ustawy.</p><h2>Domena</h2><p>RDMS na podstawie umowy związanej z rejestracją domeny internetowej mentalrecovery.co posiada wyłączne prawo do użytkowania tej domeny.</p><h2>Prawa autorskie</h2><p>Kopiowanie elementów Strony Internetowej RDMS w tym: tekstów, zdjęć, znaków towarowych lub innych elementów graficznych, w celu wykorzystania w całości lub w części, bez uzyskania uprzedniej pisemnej zgody RDMS jest zabronione i podlega sankcjom.</p><h2>Ochrona danych osobowych</h2><p>Administratorem danych osobowych użytkowników portalu mentalrecovery.co jest Research and Development Marcin Szczurski z siedzibą w Krakowie, pod adresem: ul. Mieczysława Karłowicza 23/6, Kraków 30-047 o NIP: 7681806014, REGON: 364659814</p><p>Każdemu użytkownikowi przysługuje prawo dostępu do treści swoich danych, a także ich poprawiania. Przekazywanie danych osobowych za pośrednictwem portalu mentalrecovery.co jest dobrowolne. Sposób przetwarzania danych oraz polityka udostępniania jest dostępna na podstronie polityka prywatności tego serwisu.</p><h2>Linki zewnętrzne</h2><p>Strona Internetowa RDMS może zawierać aktywne łącza do innych, całkowicie niezależnych miejsc w Internecie. Korzystanie ze stron internetowych, do których są łącza ze strony internetowej RDMS, odbywa się na własne ryzyko użytkownika.</p><h2>Informacja o ofercie</h2><p>Treści podane na stronie mają charakter informacyjny. Informacje podane na stronie nie stanowią oferty, zaproszenia do składania ofert lub przyrzeczenia publicznego w myśl Kodeksu Cywilnego lub ustawy z dnia 27 lipca 2002r. o szczególnych warunkach sprzedaży konsumenckiej oraz o zmianie Kodeksu cywilnego (Dz. U. 2002 Nr 141, poz. 1176 ze zm.).</p><h2>Kontakt</h2><p>Wszelkie pytania dotyczące warunków lub zasad korzystania ze Strony Internetowej RDMS prosimy kierować poprzez kormularz kontaktowy na podstronie kontakt lub na adres mailowy: contact@mentalrecovery.co</p>",
+  "legal_note_page": "<h1>Legal notice</h1><h3>Date of last update: <strong>22.05.2024 </strong></h3><p>Research and Development Marcin Szczurski with registered office in Kraków („RDMS”), at: ul. Mieczysława Karłowicza 23/6, Kraków 30-047 with NIP: 7681806014, REGON: 364659814 are entitled to all rights to this website available under the domain mentalrecovery.co („Mental Recovery Website”) including its structure and its graphic design, as well as economic copyright in respect of all elements placed on the Mental Recovery Website, which constitute works within the meaning of the Act of February 4, 1994. on Copyright and Related Rights (Journal of Laws of 2006, No. 90, item 631, as amended), and are therefore subject to protection pursuant to the provisions of this Act.</p><h2>Domain</h2><p>RDMS, on the basis of an agreement relating to the registration of the internet domain mentalrecovery.co, has the exclusive right to use this domain.</p><h2>Copyright</h2><p>Copying elements of the RDMS Website, including: texts, photos, trademarks or other graphic elements, for use in whole or in part, without prior written consent of RDMS is prohibited and subject to sanctions.</p><h2>Personal data protection</h2><p>The administrator of personal data of mentalrecovery.co portal users is Research and Development Marcin Szczurski with its registered office in Kraków, at: ul. Mieczysława Karłowicza 23/6, Kraków 30-047 with NIP: 7681806014, REGON: 364659814</p><p>Every user has the right to access the content of their data, as well as to correct them. Provision of personal data via mentalrecovery.co is voluntary. The data processing and sharing policy is available on the privacy policy subpage of this website.</p><h2>External links</h2><p>The RDMS website may contain active links to other, completely independent places on the Internet.Use of websites to which there are links from the RDMS website is at the user's own risk.</p><h2>Information about the offer</h2><p>The content provided on the website is for information purposes only.The information provided on the website does not constitute an offer, invitation to tender or public promise within the meaning of the Civil Code or the Act of 27 July 2002 on specific conditions of consumer sales and on the amendment to the Civil Code (Journal of Laws 2002, No. 141, item 1176, as amended).</p><h2>Contact</h2><p>Any questions concerning the terms and conditions or rules of using the RDMS Website should be sent via the contact form on the Contact subpage or to the following e-mail address: contact@mentalrecovery.co</p>",
   "statue": "<h1>ORGANIZATIONAL RULES</h1><h2>OF EDUCATIONAL AND HEALTHCARE ENTITY:<strong>MODERN SCHOOL OF PSYCHOTHERAPY SP. Z O.O.</strong>- The owner of brand i e- counselling clinic: -<strong>MENTAL RECOVERY</strong></h2><h2>§ 1. General provisions</h2><ol><li><p>The organizational regulations were established pursuant to Art. 24 in connection with Art. 23 of Act from 15th of April, 2011 on medical activities (consolidated text: Journal of Laws of 2023, item 991, as amended) in Poland as it is location of entity.</p></li><li><p>The Regulations specify the method and conditions of providing health and educational services by the medical and educational entity operating under the name Modern School of Psychotherapy spółka z ograniczoną odpowiedzialnością with its registered office in Kraków, address: ul. Karłowicza 23/6, 30-347 Kraków, KRS: 0001104856, NIP: 6772510371, hereinafter referred to as the „Entity” or „Service Provider”) in Poland as it is location of entity.</p></li><li><p>The rules apply to all employees of a given entity, as well as staff providing medical services to it - under civil law contracts, patients, students, visitors and other entities staying on the premises of the medical facility or entity in connection with the process of providing health and educational services.</p></li></ol><h2>§ 2. Goals and tasks of the entity</h2><ol><li><p>The purpose of the Entity's activities is to provide patients with outpatient and/or health services by taking actions aimed at maintaining, saving, restoring or improving health, as well as conducting other medical activities resulting from the treatment process or separate regulations regulating the principles of their implementation. Additionally, the Entity is involved in promoting health and providing health education in the field of psychotherapy and psychological support.</p></li><li><p>The tasks of the Entity are:</p><ol2><li><p>Providing education in the field of psychotherapy and various forms of psychological support.</p></li><li><p>Providing basic health services in the field of psychiatry.</p></li><li><p>Providing psychotherapeutic services and psychological consultations, with particular emphasis on:</p><ul><li><p>Providing health services in accordance with the latest medical knowledge, respecting patient rights, and in accordance with ethical principles and applicable law;</p></li><li><p>Promoting a healthy lifestyle and conducting health education activities for patients;</p></li><li><p>Participation in the education process of people preparing to work in medical professions and people already working in the industry by organizing practical internships and improvement courses;</p></li><li><p>Carrying out other tasks resulting from applicable local legal provisions and related to the activities of the Entity</p></li></ul></li></ol2></li></ol><h2>§ 3. Type and scope of provided educational and health services</h2><ol><li><p>The entity conducts medical activities, providing health services on an outpatient basis.</p></li><li><p>The entity specializes in providing outpatient health services in the field of psychiatry, psychological counseling and psychotherapy, including in particular:</p><ol2><li><p>Conducting medical consultations;</p></li><li><p>Providing psychological counseling and psychoeducational therapy;</p></li><li><p>Issuing decisions and certificates regarding patients' health status;</p></li><li><p>Issuing prescriptions for necessary medications;</p></li><li><p>Activities promoting health and health education of patients;</p></li><li><p>Organizing psychoeducational classes;</p></li><li><p>Conducting training and courses in the field of medicine consistent with the Entity's business profile;</p></li><li><p>Improving skills and education in the field of psychotherapy, psychology, art therapy and similar, as well as improving professional qualifications in this field</p></li></ol2></li><li><p>The entity conducts educational activities by providing educational services in the field of psychotherapy and psychological support via online and stationary meetings</p></li></ol><h2>§ 4. Organizational structure</h2><ol><li><p>The entity carries out medical and educational activities through the operation of a medical facility and an educational unit under the name Modern School of Psychotherapy Sp. Z. o. o., which is the owner of the Mental Recovery brand.</p></li><li><p>The structure of the medical facility and the educational unit referred to above includes:</p><ol2><li><p>An organizational branch called the Mental Health Clinic - Mental Recovery brand, which operates: Specialized medical unit - Mental Health Clinic;</p></li><li><p>An organizational branch called the School of Psychotherapy in the integrative trend Modern School of Psychotherapy, which operates: Specialized educational unit - School of Psychotherapy in the integrative trend</p></li></ol2></li><li><p>Within the organizational structure of the medical unit - Mental Health Clinic and the structure of the educational unit - School of Integrative Psychotherapy - the following areas of activity of the Entity are separated:</p><ol2><li><p>Medical practice in the field of psychiatry (especially: psychiatric consultations for adults, children and adolescents);</p></li><li><p>Psychological and psychotherapeutic services (especially: psychological consultations, individual therapy for adults, children and adolescents, group therapy, psychological training and courses, and others);</p></li><li><p>Administrative and financial services (in particular: accounting, management, organizational matters, all things related to staff and payroll, secretarial management);</p></li><li><p>Educational services in the field of psychotherapy, psychology and similar;</p></li><li><p>Other independent workstations.</p></li></ol2></li><li><p>Management of the Entity's activities, including the above-mentioned The entity and its subordinate organizational units are managed by the Entity's management board as the Entity's manager (hereinafter referred to as the „Manager”).</p></li><li><p>The Manager is responsible for managing the Entity's affairs, representing it externally and performing other duties arising from applicable law.</p></li><li><p>The manager has the right to appoint deputies to manage individual units or organizational units and to conduct specific types of matters. For this purpose, it may grant its deputies the necessary powers of attorney or authorizations.</p></li><li><p>If further organizational units and/or organizational units are established, they will be formally defined by updating the Regulations and will cooperate to ensure the efficient functioning of the Entity, as well as the availability, comprehensiveness, continuity and appropriate quality of the health and educational services provided.</p></li></ol><h2>§ 5. Place and course of providing health and educational services</h2><ol><li><p>The registered office of the Entity is Kraków</p></li><li><p>The places where health and educational services are provided are offices run by our employees, places chosen by our employees, and those specified on the Internet in the company's media.</p></li><li><p>Health and educational services are provided at hours agreed with employees, as well as their patients and students. Patient admissions take place on dates agreed with the patient or his legal representative in the manner specified in this paragraph.</p></li><li><p>Health services may be provided in the form of personal stationary visits or remote consultations (e-visits).</p></li><li><p>Patients can register in person, by phone or online using various platforms or applications.</p></li><li><p>The registration process, payment and appeal procedures or changes to the online visit via various websites or applications, as well as the rules for remote consultations (e-visits) are set out in the regulations for the provision of services electronically or orally or by SMS.</p></li><li><p>During stationary or telephone registration, online, the patient must pay the full fee for the visit in accordance with the price list of health and educational services within the time agreed with a given employee.</p></li><li><p>During stationary or telephone registration, the patient or his legal guardian must provide his/her personal data, including name and surname and/or PESEL number and/or e-mail address and/or other identity document, telephone number and accept the terms and conditions of the regulations.</p></li><li><p>If additional fees arise during the provision of services, the patient will be informed and payment for these services must be made no later than on the day of the visit.</p></li><li><p>In the case of telephone registration, the Service Provider sends a link to make a payment to the e-mail address or telephone number provided by the patient. Payment may be made via PayU, PayPal, Blik, bank transfer or using available means of payment to the Entity's account.</p></li><li><p>The Entity accepts the following forms of payment during stationary registration or for additional services referred to in section 10:</p><ol2><li><p>Cash;</p></li><li><p>Bank transfer;</p></li><li><p>Credit/debit card;</p></li><li><p>BLIK, PayU, PayPal payments, etc.</p></li></ol2></li><li><p>Registration in any form indicated in section 5 above is tantamount to the Patient's consent to the provision of health services and acceptance of these Regulations.</p></li><li><p>Before starting the provision of health services, the Patient is obliged to provide the staff with all necessary information and explanations that are necessary for the proper performance of the services, in particular to provide the required data for the medical documentation and to present the medical documentation and test results.</p></li><li><p>Before the first visit, the Patient will receive an information clause regarding the processing of his personal data.</p></li><li><p>The conditions for the provision of health services include: a. registration of the visit in accordance with the provisions of the Regulations, b. payment for services before the visit, c. provision by the Patient of the information referred to in section 14, d. positive qualification of the Patient, which takes place after meeting the above conditions, subject to the provisions of § 7 section 3 of the Regulations.</p></li></ol><h2>§ 6. Cancellation or change of visit date</h2><ol><li><p>Free cancellation or change of appointment date is possible no later than 24 hours before the scheduled visit.</p></li><li><p>To cancel or change the date of your visit, please send an e-mail to the address provided in the Regulations or cancel in the calendar. Other methods of canceling or changing your appointment are not accepted.</p></li><li><p>Failure to show up for an scheduled appointment or failure to cancel on the scheduled date (section 1) will result in the loss of the entire prepayment, regardless of the reason.</p></li><li><p>Changing the appointment date later than 24 hours before the scheduled visit will result in loss of 50% of the prepayment, regardless of the reason. The 50% prepayment will be refunded under the conditions specified in section 7.</p></li><li><p>If the Patient is late for an appointment, the visit will be shortened by the time of delay, without changing the amount of the fee. If the delay exceeds half of the scheduled visit time, the Service Provider has the right to cancel the reservation, which results in the loss of the prepayment, which is non-refundable, regardless of the reason for the delay.</p></li><li><p>The service provider has the right to cancel the booked appointment date no later than one hour before its start. If the visit is canceled, the Service Provider will offer the Patient a new date. If the Patient does not accept the new date or it is not proposed, the Service Provider will refund the entire prepayment to the Patient.</p></li><li><p>The prepayment will be refunded by the Service Provider within 7 days from: a. the date of cancellation or change of the booked appointment date in accordance with section 1 (100% refund of the prepayment), b. the day of changing the appointment date by the Patient without observing the conditions specified in section 1, by canceling the previous date and registering for a new date (50% refund of the prepayment), c. the day of cancellation of the booked visit date by the Service Provider in accordance with section 6 (100% refund of the prepayment), to the bank account number from which the payment was made, or in the case of cash or payment card payment in the office, to the bank account number provided by the Patient. The patient may be charged with the costs of commissions and fees incurred by the Service Provider in connection with payment for the visit via PayU or a bank in the case of a foreign transfer.</p></li><li><p>With the consent of both Parties, the amount of prepayment due for refund referred to in section 7 lit. b), can be counted towards the next visit. Then, upon registration, the patient is obliged to pay a fee of 50% of the visit price.</p></li></ol><h2>§ 7. Availability of health services</h2><ol><li><p>The entity organizes health services in a way that ensures the best possible availability and the most convenient form of using the services for patients.</p></li><li><p>Health services are provided to patients against payment, according to the price list applicable on the day the service is provided, established by the Manager:</p><ol2><li><p>Psychiatric consultation: PLN 200-800 (UP TO EURO 199)</p></li><li><p>Psychological-intervention-mentoring consultation: PLN 150 - 800 (UP TO EURO 199)</p></li><li><p>Psychotherapy consultation/session: PLN 179-800 (UP TO EURO 199)</p></li><li><p>Group session: PLN 99-PLN 500 (UP TO EURO 99)</p></li></ol2></li><li><p>The entity reserves the right to refuse to admit the Patient or to stop providing health services in the following cases: a. when the Patient's health condition makes it impossible to provide health services, b. in the event of failure to meet the conditions specified in § 5 section 16, c. in the event of an epidemic threat or for reasons of health safety of patients; d. situations when the patient, his legal representative or persons accompanying the patient violate the obligations and prohibitions specified in § 10 of the Regulations. The decision on this matter is made by the Manager, his deputy or another person authorized by the Manager; e. in other cases when the provision of health services is impossible for reasons beyond the control of the Entity.</p></li></ol><h2>§ 8. Conclusion of contract of an e-visit/ electronic visit</h2><ol><li><p>The contract for the provision of an e-visit or stationary visit is concluded after the Patient has successfully booked the date.</p></li><li><p>Reservation of an appointment is made by completing the registration form and selecting the appropriate date in the schedule available on the website in the „Make an appointment” tab or on the website by selecting a specialist marked as a Forma Poradnia specialist.</p></li><li><p>When booking a visit, the patient must: a. choose a specialist, date and type of visit (stationary or remote); b. complete the registration form, providing the required data: name, surname, PESEL number (in the absence of PESEL, type and number of the identity document), residential address, telephone number and e-mail address; c. accept these Regulations; d. make payment for the visit in accordance with the price given when selecting the date of the visit, in accordance with the applicable price list.</p></li><li><p>Booking a visit or e-visit via the website does not require creating a patient account.</p></li><li><p>Providing data by the Patient is tantamount to a declaration that all information provided is true and that the Patient has full legal capacity or, if it is limited, has the consent of the legal guardian.</p></li><li><p>After completing the registration form, a link to the website enabling prepayment will be sent to the e-mail address provided by the Patient.</p></li><li><p>The condition for booking an appointment is to make a prepayment. The prepayment is deemed to have been made after it has been credited to the Service Provider's bank account or after the payment has been confirmed by the PayU website.</p></li><li><p>Failure to pay the prepayment up to 48 hours before the selected visit date, or immediately in the case of booking a date less than 48 hours before the visit, will result in the cancellation of the reservation, and the date becomes available to other patients.</p></li><li><p>Prepayment can be made using available payment channels on the website in the „Make an appointment” tab or on the website.</p></li><li><p>Information about the prepayment and confirmation of the reservation or its cancellation due to lack of prepayment will be immediately sent to the e-mail address provided in the registration form.</p></li><li><p>Receiving confirmation of the reservation means that the Patient has successfully signed up for a visit or e-visit. Upon receipt of confirmation, the contract between the Service Provider and the Patient for a visit or e-visit is concluded.</p></li></ol><h2>§ 9. Quality of health services</h2><ol><li><p>The Entity's staff provides health services with appropriate qualifications and authorizations in accordance with separate regulations.</p></li><li><p>Health services are provided to patients with the utmost care, in accordance with current medical knowledge, respect for patient rights and in conditions that meet applicable professional and sanitary requirements.</p></li><li><p>Medical staff are guided by the principles of professional ethics defined by the relevant professional self-governments.</p></li></ol><h2>§ 10. Medical documentation</h2><ol><li><p>The entity maintains, stores and makes available medical records in accordance with the Act of November 6, 2008 on patient rights and the Patient Ombudsman and implementing regulations.</p></li><li><p>The entity ensures the protection of personal data contained in medical documentation, which is stored for the period specified in applicable law.</p></li><li><p>The Entity charges fees for providing medical records in accordance with the price list set out in paragraph 7. 2.</p></li></ol><h2>§ 11. Patient's rights and obligations</h2><ol><li><p>Health services are provided with respect for patients' rights specified in the Act of November 6, 2008 on patients' rights and the Patient Ombudsman and in separate regulations.</p></li><li><p>A patient who believes that his rights have been violated while using health services has the right to submit an oral or written complaint to the Manager or his/her representative.</p></li><li><p>The patient has the right: a. to receive reliable and conscientious diagnostic, treatment and rehabilitation services from persons with appropriate professional qualifications, in accordance with the principles of professional ethics; b. obtain medical care in conditions that respect his personal dignity, privacy, religious beliefs and moral principles; c. be informed about your health condition in an understandable way, and in the event of an unfavorable prognosis - the information should be provided tactfully and carefully. At the patient's request, the doctor may not disclose complete information. Informing other people about the patient's health condition requires his consent, unless the law provides otherwise or obtaining consent is not possible; d. expect health care workers to maintain professional secrecy; e. participate in the selection of the attending physician; f. participate in making informed therapeutic decisions regarding his health by obtaining full, clear and understandable information about potential risks and benefits, the possibility of using alternative treatment and the consequences of refusing the proposed medical procedure.</p></li><li><p>The patient is obliged to: a. comply with the provisions of the Regulations; b. take care of personal hygiene; c. respect the rights of other patients; d. take care of the Entity's property.</p></li><li><p>The patient is obliged to respect the equipment and current property of the Company. If damage is caused by his fault, the patient must cover the cost.</p></li><li><p>The entity is not responsible for clothing, valuable items or money left unattended by the patient on the premises of the Center.</p></li></ol><h2>§ 12. Rules of cooperation with other medical entities</h2><ol><li><p>In order to ensure the correct and uninterrupted provision of health services, the Entity cooperates with other entities providing medical services that offer medical services to patients, as well as with professionals from various fields of medicine.</p></li><li><p>This cooperation is carried out in accordance with applicable law and with respect for patient rights. Detailed terms of cooperation may be specified in separate agreements.</p></li></ol><h2>§ 13. Final provisions</h2><ol><li><p>The Regulations are effective from the date of registration of the Entity in the National Court Register, i.e. from May 13, 2024.</p></li><li><p>In matters not regulated in these Regulations, the provisions of applicable law shall apply, including in particular the Act of April 15, 2011 on medical activities and the Act of November 6, 2008 on patient rights and the Patient Ombudsman, along with their acts. executives.</p></li></ol><pright>Entity Manager</pright>"
 }

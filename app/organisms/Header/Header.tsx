@@ -187,9 +187,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
                   {tCta('arrange_meeting')}
                 </Text>
               </Button>
-            ) : (
-              <div />
-            )}
+            ) : null}
             <LogoWrapper>
               <Image
                 src="/img/logo.svg"

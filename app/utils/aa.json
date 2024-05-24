@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "email": "contact@mentalrecovery.co",
+    "phone": "+48 512 088 457"
+  },
+  "utils": {
+    "months": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
+    },
+    "months_to": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
+    },
+    "languages": {
+      "en": "English",
+      "pl": "Polish",
+      "de": "German"
+    },
+    "sort": {
+      "name": "Sort",
+      "date_asc": "Newest",
+      "date_desc": "Oldest",
+      "popular_asc": "Popular"
+    },
+    "currency": {
+      "pln": "PLN",
+      "eur": "EUR"
+    }
+  },
+  "cta": {
+    "arrange_meeting": "Schedule consultation",
+    "check_more": "Check more",
+    "arrange": "Arrange visit",
+    "send_message": "Send message",
+    "sending": "Sending",
+    "book_visit": "Book visit",
+    "book_visit_from_label": "from",
+    "meet_us": "Meet us",
+    "contact": "Contact",
+    "meet_our_specialists": "Meet our specialists"
+  },
+  "header": {
+    "about_us": "About us",
+    "offer": "Offer",
+    "specialists": "Specialists",
+    "blog": "Blog",
+    "contact": "Contact",
+    "privacy_policy": "Privacy Policy"
+  },
+  "hero": {
+    "title1": "Inner Balance",
+    "title2": "with",
+    "title3": "Mental Recovery",
+    "description": "Are you striving for peace of mind and life harmony? With us, you can achieve it. Our professional therapeutic assistance will help you overcome internal obstacles and regain emotional balance. Schedule a visit and start your journey towards improvement.",
+    "image1_alt": "Client pointing at us, that's probably good?",
+    "image2_alt": "But the boy is happy after visiting Mental Recovery!",
+    "image3_alt": "Satisfied Mental Recovery client"
+  },
+  "we_help": {
+    "title1": "Areas",
+    "title2": "We Help In",
+    "cards": [
+      {
+        "color": "#F1F3FF",
+        "logo": "/img/we-help/cloud.svg",
+        "title": "Support for Children and Youth",
+        "description": "We support the youngest - children and adolescents in coping with problems and building mental resilience to everyday challenges, including school and peer relationships."
+      },
+      {
+        "color": "#FFF6F1",
+        "logo": "/img/we-help/table-brain.svg",
+        "title": "Personal Development",
+        "description": "Together with clients, we create personalized plans for personal development that take into account their goals, passions, and values."
+      },
+      {
+        "color": "#E1FFFC",
+        "logo": "/img/we-help/lightning-face.svg",
+        "title": "Psychotherapy",
+        "description": "Our team of therapists and psychologists is here to help you through difficult times and find your way back to emotional balance."
+      },
+      {
+        "color": "#FFFCE2",
+        "logo": "/img/we-help/brain-agenda.svg",
+        "title": "Psychiatric Treatment",
+        "description": "Through diagnosis and treatment of often traumatic experiences, we can help select appropriate medications, thereby reducing emotional distress in the mind and body, and ultimately improving quality of life."
+      },
+      {
+        "color": "#E9FFE5",
+        "logo": "/img/we-help/female-psi.svg",
+        "title": "Psychological Diagnosis",
+        "description": "With our support, clients can safely share their emotions and experiences and receive professional help in diagnosing and naming emotional problems they come with."
+      },
+      {
+        "color": "#FFE2FC",
+        "logo": "/img/we-help/brain-chip.svg",
+        "title": "Neurodiversity",
+        "description": "We help people with ADHD understand and manage their unique traits such as impulsivity, hyperactivity, and concentration difficulties. We build coping strategies and achieve success in personal and professional life."
+      }
+    ]
+  },
+  "our_specialists": {
+    "title": "Meet Our Specialists",
+    "lang_filter_title": "Language",
+    "lang_filter_all": "Any",
+    "show_more_specialists": "Show All"
+  },
+  "testimonials": {
+    "second_title": "Testimonials",
+    "title": "Testimonials About Our Services Straight from the Heart",
+    "check_more_btn": "See More"
+  },
+  "blog_posts_home_page": {
+    "title": "Latest Articles",
+    "show_more_btn": "See All",
+    "reading_time_1": "minute read",
+    "reading_time_2-4": "minutes read",
+    "reading_time_5": "minutes read"
+  },
+  "faq": {
+    "second_title": "FAQ",
+    "title": "Frequently Asked Questions"
+  },
+  "contact": {
+    "title": "Contact",
+    "second_title": "Fastest Way to Contact?",
+    "email": "Email:",
+    "phone": "Phone Number"
+  },
+  "footer": {
+    "copyright": "© 2024 Mental Recovery"
+  },
+  "specialists_page": {
+    "title": "Specialists"
+  },
+  "blog_page": {
+    "title": "Blog",
+    "no_articles": "No results for your filters",
+    "clear_filters": "Clear Filters",
+    "newest_posts_title": "Newest Posts",
+    "table_of_contents_title": "Table of Contents:"
+  },
+  "contact_page": {
+    "title": "Get in Touch",
+    "description": "We're here to help. Ask us a question, and we'll respond within 24 hours.",
+    "name_label": "Name",
+    "email_label": "Email Address",
+    "message_label": "Your Message",
+    "rodo_label": "I consent to the processing of my personal data provided in the above form for the purpose of responding to my message and further communication (including marketing communication).",
+    "send_success": "Message sent!",
+    "send_error": "An error occurred, please try again later.",
+    "send_empty_fields": "Fill in all form fields",
+    "send_no_rodo": "Check consent for personal data processing"
+  },
+  "specialist_page": {
+    "localization_label": "Location:",
+    "therapy_type_label": "Therapy Type:",
+    "services_label": "Services",
+    "experience_label": "Experience",
+    "education_label": "Education",
+    "publication_label": "Publications",
+    "no_lang_specialist_alert": "{name} does not conduct consultations in this language.",
+    "find_another_langs": "See other languages in which you can make an appointment with a specialist."
+  },
+  "about_us_page": {
+    "hero": {
+      "title": "We Are Just Like You and We Work for <underscore>You!</underscore>",
+      "description": "We will do everything to make your life happier."
+    },
+    "intro": {
+      "main": "We know that life has not only beautiful moments and often can be tough, but we believe everyone has answers within themselves and the potential to fight to become themselves and overcome even the toughest adversities.",
+      "description1": "Emotions are a compass guiding us to where we truly, subconsciously want to be. In today's overwhelming everyday life, it's easy to lose our true 'self,' especially in the face of others' expectations.",
+      "description2": "The presence of another human being, regardless of their past - in a conversation about what hurts - without judgment, with empathy, in their own authenticity, and in front of someone who can truly listen and wants to help, can truly heal."
+    },
+    "idea": {
+      "title": "Why Therapy with Us Is a Good Idea?",
+      "items": [
+        {
+          "icon": {
+            "url": "low-prices-icon.svg",
+            "width": 39,
+            "height": 56
+          },
+          "title": "Low Prices",
+          "description": "The prices for cooperation with our best specialists start from 150 PLN - probably some of the lowest rates on the market. Despite the low price, our specialists are focused on quality:",
+          "list": [
+            "they have appropriate education",
+            "they aim for effective, as fast as possible help, while many therapists suggest to patients that they need their therapy to last for years, which is not always necessary"
+          ],
+          "btn": {
+            "label": "Meet the Specialists",
+            "href": "/specialists"
+          }
+        },
+        {
+          "icon": {
+            "url": "modern-icon.svg",
+            "width": 56,
+            "height": 56
+          },
+          "title": "Modern Approach to Mental Support",
+          "description": "Mental health supports the beautiful individuality of the individual, focuses on development, positive traits of the patient, resources, acceptance, includes contemporary therapeutic methods like working with art, science, creativity, sexuality, body, in relation, with imaginations, nature, inner parts of personality, client satisfaction, working with animals, whether it is focused on self-realization or inner harmony",
+          "btn": {
+            "label": "See Offer",
+            "href": "/offer"
+          }
+        },
+        {
+          "icon": {
+            "url": "lot-of-services-icon.svg",
+            "width": 45,
+            "height": 56
+          },
+          "title": "Wide Range of Services",
+          "list": [
+            "Psychiatric Consultation",
+            "Psychotherapy for Children and Adolescents",
+            "Online Psychotherapy",
+            "Couples Therapy",
+            "Family Therapy",
+            "Group Therapy",
+            "Psychotherapy for Burnout",
+            "Psychotherapy for Neurodiverse Individuals (ADHD, Autism, etc.)",
+            "Sexological Consultation",
+            "and much more"
+          ],
+          "btn": {
+            "label": "See All",
+            "href": "/offer"
+          }
+        },
+        {
+          "icon": {
+            "url": "comfort-icon.svg",
+            "width": 56,
+            "height": 52
+          },
+          "title": "Comfort and Easy Accessibility",
+          "description": "Our specialists work in 3 languages, are available online, making our services accessible to everyone worldwide",
+          "btn": {
+            "label": "Choose a Specialist",
+            "href": "/specialists"
+          }
+        }
+      ]
+    }
+  },
+  "offer_page": {
+    "hero": {
+      "title1": "Therapy for Everyone:",
+      "title2": "Top Quality from {price} PLN",
+      "description1": "We want psychotherapeutic services to be accessible to everyone, as caring for mental health is especially important.",
+      "description2": "That's why our services are probably some of the cheapest on the market, so we offer psychotherapy starting from 150 PLN.",
+      "scroll_down": "Scroll down to explore the offer"
+    },
+    "intro_top": {
+      "title": "Individual Therapy",
+      "description": "We offer psychiatric consultations dedicated to diagnosing and treating various mental disorders and provide pharmacological support if necessary. Our psychotherapy for children and adolescents focuses on adapting therapy to individual needs and challenges to support healthy psychological and emotional development.",
+      "items": [
+        {
+          "title": "Psychiatric Consultation",
+          "description": "We offer psychiatric consultations dedicated to diagnosing and treating various mental disorders and provide pharmacological support if necessary. Our psychotherapy for children and adolescents focuses on adapting therapy to individual needs and challenges to support healthy psychological and emotional development."
+        },
+        {
+          "title": "Psychotherapy for Children and Adolescents"
+        },
+        {
+          "title": "Online Psychotherapy",
+          "description": "Within online psychotherapy, we offer convenient and flexible therapy sessions, enabling access to therapeutic support from anywhere. Our couples therapy focuses on improving communication, building bonds, and resolving conflicts in the relationship. Family therapy helps in creating healthier relationships and better understanding mutual needs."
+        },
+        {
+          "title": "Psychotherapy for Burnout"
+        },
+        {
+          "title": "Psychotherapy for Neurodiverse Individuals (ADHD, Autism, etc.)",
+          "description": "For neurodiverse individuals, such as those with ADHD or autism, we offer specialized psychotherapy tailored to their unique needs and ways of functioning. In our sexological consultations, we can help resolve sexual problems and support healthy sexuality and intimacy."
+        },
+        {
+          "title": "Sexological Consultation"
+        },
+        {
+          "title": "Cognitive-Behavioral Therapy",
+          "description": "Within cognitive-behavioral therapy, we focus on changing thoughts and behaviors leading to improved mental functioning. Our humanistic/Gestalt therapy is based on trust in the client's inner wisdom and promotes self-awareness and personal growth."
+        },
+        {
+          "title": "Humanistic/Gestalt Therapy"
+        },
+        {
+          "title": "Integrated Therapy",
+          "description": "In integrated therapy, we combine different therapeutic approaches, adapting to the individual needs and preferences of the client. Career counseling helps clients identify career goals and make informed career decisions."
+        },
+        {
+          "title": "Career Counseling"
+        },
+        {
+          "title": "Psychological Consultation",
+          "description": "Our psychological consultation enables understanding and coping with various life challenges. Through mentoring/coaching, we support clients in achieving personal and professional goals."
+        },
+        {
+          "title": "Mentoring/Coaching"
+        },
+        {
+          "title": "Dietetic Consultation",
+          "description": "Our dietetic consultation provides professional assistance in healthy eating and weight management. Therapeutic body work allows clients to discover and process trauma through mindfulness of the body and its sensations."
+        },
+        {
+          "title": "Therapeutic Body Work"
+        },
+        {
+          "title": "PTSD Therapy (Eye Movement Desensitization and Reprocessing - EMDR)",
+          "description": "PTSD therapy using EMDR provides effective tools for coping with post-traumatic stress disorder symptoms. Art therapy enables expression and processing of emotions through art and creative activities."
+        },
+        {
+          "title": "Art Therapy"
+        },
+        {
+          "title": "Animal-Assisted Therapy",
+          "description": "Animal-assisted therapy utilizes interaction with animals to promote mental and emotional health. We also offer home-based psychotherapy, providing convenience and accessibility of therapy for individuals with limited mobility."
+        },
+        {
+          "title": "Home-Based Psychotherapy"
+        }
+      ]
+    },
+    "intro_bottom": {
+      "title": "Group Therapy",
+      "description1": "Our group therapy provides emotional support and the opportunity to share experiences with individuals facing similar challenges.",
+      "description2": "We also specialize in therapy for burnout, providing tools to cope with stress and restore life balance.",
+      "items": [
+        {
+          "title": "Couples Therapy",
+          "description": "We offer psychiatric consultations dedicated to diagnosing and treating various mental disorders and provide pharmacological support if necessary. Our psychotherapy for children and adolescents focuses on adapting therapy to individual needs and challenges to support healthy psychological and emotional development."
+        },
+        {
+          "title": "Family Therapy"
+        },
+        {
+          "title": "Group Therapy",
+          "description": "Our group therapy provides emotional support and the opportunity to share experiences with individuals facing similar challenges. We also specialize in therapy for burnout, providing tools to cope with stress and restore life balance."
+        }
+      ]
+    },
+    "diagnosis": {
+      "title": "Diagnoses",
+      "description1": "We offer various diagnoses and certificates related to mental health. We conduct diagnoses of autism and Asperger's syndrome, providing precise and comprehensive assessments of mental health.",
+      "description2": "Our assessments are based on international diagnostic standards, taking into account each patient's individual characteristics and life context.",
+      "description3": "This allows us to provide personalized therapeutic recommendations and support.",
+      "items": [
+        {
+          "title": "Diagnoses and Certificates"
+        },
+        {
+          "title": "Autism and Asperger's Diagnoses"
+        },
+        {
+          "title": "ADHD Diagnosis",
+          "description": "We also diagnose ADHD, identifying and describing specific characteristics and symptoms of this disorder. Our diagnoses are based on a thorough clinical interview, behavioral observations, and standardized psychological tests, enabling accurate assessment of therapeutic and educational needs of individuals with ADHD."
+        },
+        {
+          "title": "Personality Diagnosis (Disorders) / MMPI",
+          "description": "For individuals suspected of personality disorders, we conduct examinations, including psychological tests such as the Minnesota Multiphasic Personality Inventory (MMPI) and various methods of personality diagnosis. Our diagnoses are comprehensive and take into account both personality traits and the psychosocial functioning of the patient."
+        },
+        {
+          "title": "Child Psychological Diagnosis",
+          "description": "We also specialize in diagnosing children, providing psychological diagnoses for children and PTSD diagnoses in adults and children, using standard diagnostic criteria from the DSM-5. Our assessments consider various aspects of the child's functioning, including emotional development, adaptive behaviors, and relationships with the environment."
+        },
+        {
+          "title": "PTSD Diagnosis"
+        },
+        {
+          "title": "Diagnosis of Psychological Disorders (Depression, Bipolar Disorder, Schizophrenia, etc.)",
+          "description": "We also diagnose psychological disorders such as depression, bipolar disorder (i.e., bipolar affective disorder), or schizophrenia, based on observations, psychological tests, and clinical interviews. Our diagnoses are based on the latest research and clinical guidelines, ensuring the accuracy and reliability of our assessments."
+        },
+        {
+          "title": "Certificates of Disability",
+          "description": "In addition to diagnoses, we also provide certificates of disability and other documents confirming disability, mental disorders, or illnesses, providing support and documentation necessary for applying for benefits and social assistance. Our certificates comply with applicable legal regulations and take into account the individual needs and life situation of each patient."
+        },
+        {
+          "title": "Other Certificates Related to Disability, Disorders, or Mental Illness"
+        }
+      ]
+    }
+  }
+}

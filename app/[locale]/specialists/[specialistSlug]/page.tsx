@@ -23,7 +23,7 @@ export async function generateMetadata({
     },
   };
 
-  if (!specialistContent?.specialist) {
+  if (!specialistContent?.specialist || !specialistHadLang) {
     return {
       title: '404 - Mental Recovery',
       ...noRobots,

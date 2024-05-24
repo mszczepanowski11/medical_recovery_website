@@ -3,23 +3,24 @@
 
 'use client';
 
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useCallback, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 
 // Utils
 import { Colors, headerHeight, headerHeightSm } from '@/app/utils/constans';
 import useWindowSize from '@/app/utils/useWindowSize';
+import useScrollTo from '@/app/utils/useScrollTo';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { LANG_SORT_ORDER } from '@/app/utils/utils';
 
 // Components
 import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
 import Text from '@/app/atoms/Text/Text';
-import { LANG_SORT_ORDER } from '@/app/utils/utils';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
 import Tabs from '@/app/atoms/Tabs/Tabs';
-import useScrollTo from '@/app/utils/useScrollTo';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import {
   SpecialistDataItem,
   SpecialistDataList,
@@ -89,6 +90,8 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
   const t = useTranslations('specialist_page');
   const tCta = useTranslations('cta');
   const tUtils = useTranslations('utils');
+  const router = useRouter();
+  const pathname = usePathname();
   const { isMobile, isLaptop } = useWindowSize();
   const { scrollTo } = useScrollTo();
 
@@ -203,6 +206,19 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     [isMobile, scrollTo, t],
   );
 
+  const handleLangChange = useCallback(
+    (newLocale: typeof locale) => {
+      const oldLocale = locale;
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+
+      router.replace(pathname.replace(`/${oldLocale}`, `/${newLocale}`), {
+        scroll: false,
+      });
+      router.refresh();
+    },
+    [locale, pathname, router],
+  );
+
   useEffect(() => {
     window.SPECIALIST_CALENDAR_URL = calendar;
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -226,11 +242,8 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
               <Text style={{ marginBottom: '3rem' }}>
                 {t('find_another_langs')}
               </Text>
-              {languages?.map((lang: string) => (
-                <Button
-                  key={lang}
-                  href={`/${lang}/specialists/${specialist_page_slug}`}
-                >
+              {languages?.map((lang: 'pl' | 'en' | 'de') => (
+                <Button key={lang} onClick={() => handleLangChange(lang)}>
                   <Text
                     noMargin
                     fontSize="1rem"
