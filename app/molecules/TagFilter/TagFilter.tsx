@@ -47,7 +47,7 @@ const TagFilter: FC<TagFilterProps> = function ({
     <TagFilterWrapper>
       <Flex
         $columnGap="0.4rem"
-        $rowGap="0.75rem"
+        $rowGap="0.5rem"
         $flexWrap="wrap"
         className="tag-filter-tags-wrapper"
       >

@@ -82,6 +82,11 @@ const Footer: FC<FooterProps> = function ({ locale }) {
                   {tHeader('legal_note')}
                 </Text>
               </NavButton>
+              <NavButton $sm href={`/${locale}/statue`}>
+                <Text noMargin fontWeight={500} noWrap>
+                  {tHeader('statue')}
+                </Text>
+              </NavButton>
             </LinksWrapper>
           </LinksLogoWrapper>
         </GridItem>
@@ -112,6 +117,11 @@ const Footer: FC<FooterProps> = function ({ locale }) {
               translate: '0 -50%',
             }}
           >
+            <NavButton href={`/${locale}/statue`} $lowerFooter rel="statue">
+              <Text noMargin fontSize="0.8rem" color="text_secondary" noWrap>
+                {tHeader('statue')}
+              </Text>
+            </NavButton>
             <NavButton
               href={`/${locale}/legal-note`}
               $lowerFooter

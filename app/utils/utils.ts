@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 export const removeDuplicates = (array: string[]) => {
   return array
     ?.filter((value) => value && value !== '')
@@ -136,3 +137,13 @@ export const addSizesToImgUrl = (
 
   return `${splitedUrl}/${resizePhrase}/${handle}`;
 };
+
+export function shuffleArray(array: any[]) {
+  if (array.length < 2) return array;
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}

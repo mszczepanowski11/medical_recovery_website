@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 // Utils
 import {
   collectAllTagsFromSpecialist,
+  shuffleArray,
   specialistLangFilterFunc,
   specialistTagsFilterFunc,
 } from '@/app/utils/utils';
