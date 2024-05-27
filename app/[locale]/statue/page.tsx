@@ -3,7 +3,7 @@ import metadata from '@/app/utils/SEO';
 
 export async function generateMetadata() {
   return {
-    title: 'Statue',
+    title: 'Statue - Mental Recoveryp',
     robots: {
       index: false,
       follow: true,

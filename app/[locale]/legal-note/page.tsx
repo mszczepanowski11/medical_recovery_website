@@ -3,7 +3,7 @@ import metadata from '@/app/utils/SEO';
 
 export async function generateMetadata() {
   return {
-    title: 'Legal note',
+    title: 'Legal note - Mental Recovery',
     robots: {
       index: false,
       follow: true,

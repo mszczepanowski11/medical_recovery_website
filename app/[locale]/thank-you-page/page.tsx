@@ -3,7 +3,7 @@ import metadata from '@/app/utils/SEO';
 
 export async function generateMetadata() {
   return {
-    title: 'Privacy policy - Mental Recovery',
+    title: 'Thank You for meeting! - Mental Recovery',
     robots: {
       index: false,
       follow: true,
@@ -11,16 +11,14 @@ export async function generateMetadata() {
   };
 }
 
-export default async function PrivacyPolicy({
+export default async function ThankYouPage({
   params,
 }: {
   params: { locale: 'en' | 'pl' | 'de' };
 }) {
   return (
     <>
-      <main>
-        <TextContent contentKey="privacy_policy_page" />
-      </main>
+      <main>Thank You</main>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
