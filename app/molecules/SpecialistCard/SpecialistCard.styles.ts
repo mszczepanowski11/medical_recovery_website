@@ -21,6 +21,7 @@ export const SpecialistCardWrapper = styled(Flex)`
   }
 
   .specialist-card-buttons-wrapper {
+    display: flex;
     flex-grow: 1;
   }
 

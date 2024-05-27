@@ -1,4 +1,5 @@
 import TextContent from '@/app/organisms/TextContent/TextContent';
+import ThankYouPageContent from '@/app/organisms/ThankYouPageContent/ThankYouPageContent';
 import metadata from '@/app/utils/SEO';
 
 export async function generateMetadata() {
@@ -18,7 +19,9 @@ export default async function ThankYouPage({
 }) {
   return (
     <>
-      <main>Thank You</main>
+      <main>
+        <ThankYouPageContent locale={params.locale} />
+      </main>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger

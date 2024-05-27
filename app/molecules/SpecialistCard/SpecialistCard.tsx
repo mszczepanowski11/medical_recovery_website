@@ -161,8 +161,8 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
             target="_blank"
             href={calendar}
             classNameWrapper="specialist-card-buttons-wrapper"
-            style={{ width: '100%' }}
             iconRight={false}
+            style={{ flexGrow: 1 }}
             color="transparent"
           >
             <Text noMargin fontSize="1.1rem" fontWeight={500} noWrap>
@@ -172,8 +172,8 @@ const SpecialistCard: FC<SpecialistCardProps> = function ({
           <Button
             href={subpageSlug}
             classNameWrapper="specialist-card-buttons-wrapper"
-            style={{ width: '100%' }}
             iconRight={false}
+            style={{ flexGrow: 1 }}
           >
             <Text noMargin fontSize="1.1rem" fontWeight={500} noWrap>
               {tCta('check_more')}
