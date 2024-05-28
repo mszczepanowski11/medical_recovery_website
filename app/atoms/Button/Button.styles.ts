@@ -1,4 +1,4 @@
-import { Colors } from '@/app/utils/constans';
+import { Colors, focusOutline } from '@/app/utils/constans';
 import styled from 'styled-components';
 import { ButtonSizes, ButtonColors } from './Button.variables';
 
@@ -110,6 +110,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperType>`
 
   &:hover .button-icon {
     transform: translateX(3px);
+  }
+
+  &:focus-visible {
+    outline: ${focusOutline};
   }
 `;
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { Colors } from '@/app/utils/constans';
+import { Colors, focusOutline } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
@@ -45,5 +45,9 @@ export const TagWrapper = styled.button<TagWrapperType>`
           ? Colors[color]
           : Colors.background_tags_hover
         : undefined};
+  }
+
+  &:focus-visible {
+    outline: ${focusOutline};
   }
 `;

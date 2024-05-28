@@ -10,6 +10,7 @@ import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Image from 'next/image';
 import Link from 'next/link';
 import LangMenu from '@/app/molecules/LangMenu/LangMenu';
+import useWindowSize from '@/app/utils/useWindowSize';
 import {
   HeaderWrapper,
   LinksWrapper,
@@ -27,6 +28,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
   const tHeader = useTranslations('header');
   const tCta = useTranslations('cta');
   const tMeta = useTranslations('meta');
+  const { isMobile } = useWindowSize();
   const pathname = usePathname();
   const [isMenuSmOpen, setIsMenuSmOpen] = useState(false);
   const [currentPsychologistUrl, setCurrentPsychologistUrl] = useState<
@@ -73,12 +75,51 @@ const Header: FC<HeaderProps> = function ({ locale }) {
             </Flex>
           </Link>
         </GridItem>
-        <GridItem $colStart={2} $colEnd={6} $colStartSm={2} $colEndSm={3}>
+        <GridItem
+          $colStart={2}
+          $colEnd={6}
+          $colStartSm={2}
+          $colEndSm={3}
+          as="nav"
+          role="navigation"
+          aria-label="Main menu"
+        >
+          <RightWrapperSm>
+            <Flex
+              $alignItems="center"
+              $justifyContent="center"
+              className="header-lang-menu-sm"
+            >
+              <LangMenu />
+            </Flex>
+            <ShowHideMenuSmBtn
+              onClick={() => {
+                setIsMenuSmOpen(true);
+                if (!document.body.classList.contains('header-open')) {
+                  document.body.classList.add('header-open');
+                }
+              }}
+              aria-expanded={isMenuSmOpen}
+              aria-controls="main-menu"
+            >
+              <Image
+                src="/img/burger.svg"
+                alt="burger menu"
+                width={24}
+                height={24}
+              />
+            </ShowHideMenuSmBtn>
+          </RightWrapperSm>
           <LinksWrapper $isOpen={isMenuSmOpen}>
             <ShowHideMenuSmBtn
               onClick={handleLinkClick}
               className="header-close-btn"
-              style={{ padding: '0 0.5rem 0 0' }}
+              style={{
+                padding: '0 0.5rem 0 0',
+                display: isMenuSmOpen ? 'inline-block' : 'none',
+              }}
+              aria-expanded={isMenuSmOpen}
+              aria-controls="main-menu"
             >
               <Image
                 src="/img/times.svg"
@@ -91,6 +132,9 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               href={`/${locale}/about-us`}
               onClick={handleLinkClick}
               prefetch
+              style={{
+                display: isMenuSmOpen || !isMobile ? 'inline-flex' : 'none',
+              }}
             >
               <Image
                 className="header-menu-icon-sm"
@@ -107,6 +151,9 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               href={`/${locale}/offer`}
               onClick={handleLinkClick}
               prefetch
+              style={{
+                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+              }}
             >
               <Image
                 className="header-menu-icon-sm"
@@ -123,6 +170,9 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               href={`/${locale}/specialists`}
               onClick={handleLinkClick}
               prefetch
+              style={{
+                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+              }}
             >
               <Image
                 className="header-menu-icon-sm"
@@ -139,6 +189,9 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               href={`/${locale}/blog`}
               onClick={handleLinkClick}
               prefetch
+              style={{
+                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+              }}
             >
               <Image
                 className="header-menu-icon-sm"
@@ -155,6 +208,9 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               href={`/${locale}/contact`}
               onClick={handleLinkClick}
               prefetch
+              style={{
+                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+              }}
             >
               <Image
                 className="header-menu-icon-sm"
@@ -188,6 +244,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
                 </Text>
               </Button>
             ) : null}
+            <LangMenu className="header-lang-menu" />
             <LogoWrapper>
               <Image
                 src="/img/logo.svg"
@@ -197,24 +254,6 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               />
             </LogoWrapper>
           </LinksWrapper>
-          <RightWrapperSm>
-            <LangMenu />
-            <ShowHideMenuSmBtn
-              onClick={() => {
-                setIsMenuSmOpen(true);
-                if (!document.body.classList.contains('header-open')) {
-                  document.body.classList.add('header-open');
-                }
-              }}
-            >
-              <Image
-                src="/img/burger.svg"
-                alt="burger menu"
-                width={24}
-                height={24}
-              />
-            </ShowHideMenuSmBtn>
-          </RightWrapperSm>
         </GridItem>
       </GridContainer>
     </HeaderWrapper>

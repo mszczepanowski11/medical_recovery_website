@@ -10,6 +10,7 @@ export const SpecialistPageWrapper = styled.div``;
 export const ServicesList = styled.ul`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.5rem;
   margin: 0;
   padding: 0 0 0 1.2rem;

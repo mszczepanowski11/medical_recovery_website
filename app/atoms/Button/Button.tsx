@@ -110,13 +110,14 @@ const Button: FC<ButtonProps> = function ({
       className={`${classNameWrapper || ''}`}
     >
       <ButtonWrapper
+        as={href ? 'span' : undefined}
         style={style}
         onClick={onClick}
         size={size}
         color={color}
         className={`${className || ''}`}
         $hasIcon={!!iconRight}
-        type={type}
+        type={href ? undefined : type}
       >
         {text || children}
         {!!iconRight && (

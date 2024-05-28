@@ -1,5 +1,5 @@
 import { Flex } from '@/app/utils/GlobalStyles';
-import { Colors } from '@/app/utils/constans';
+import { Colors, focusOutline } from '@/app/utils/constans';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -23,6 +23,12 @@ export const FAQCardTitle = styled(Flex)`
   padding-left: 1rem;
   background-color: ${Colors.transparent};
   cursor: pointer;
+  transform-origin: center;
+
+  &:focus-visible {
+    outline: ${focusOutline};
+    outline-offset: -3px;
+  }
 `;
 
 export const ShowMoreBtn = styled.div`

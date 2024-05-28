@@ -1,4 +1,4 @@
-import { Colors } from '@/app/utils/constans';
+import { Colors, focusOutline } from '@/app/utils/constans';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -22,6 +22,10 @@ export const CheckboxWrapper = styled(motion.button)<{ $checkedItem: boolean }>`
           ? `0 0 0 1px ${Colors.text_interactive}`
           : `inset 0 0 0 1px ${Colors.border}`};
     }
+  }
+
+  &:focus-visible {
+    outline: ${focusOutline};
   }
 `;
 export const CheckboxButton = styled(motion.div)<{

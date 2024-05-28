@@ -1,4 +1,4 @@
-import { Colors } from '@/app/utils/constans';
+import { Colors, focusOutline } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
@@ -13,6 +13,10 @@ export const LangMenuWrapper = styled.div`
     top: 100%;
     left: 50%;
     translate: -50% 0;
+
+    &:has(button:focus-visible) {
+      opacity: 1 !important;
+    }
   }
 
   .lang-dropdown-menu {
@@ -43,6 +47,10 @@ export const SelectedLangBtn = styled.button<{
   &:hover {
     background-color: ${({ $noBorder }) =>
       $noBorder ? Colors.border : Colors.background_background_grey_light};
+  }
+
+  &:focus-visible {
+    outline: ${focusOutline};
   }
 `;
 

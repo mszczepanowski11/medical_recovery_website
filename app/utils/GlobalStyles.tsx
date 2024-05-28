@@ -9,6 +9,7 @@ import {
   scrollbarWidth,
   headerHeight,
   headerHeightSm,
+  focusOutline,
 } from './constans';
 
 const GlobalStyles = createGlobalStyle`
@@ -108,8 +109,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
+    display: inline-block;
     color: inherit;
     text-decoration: none;
+    border-radius: 0.2rem;
+
+    &:focus-visible {
+      outline: ${focusOutline};
+    }
   }
 
   button, input, textarea {

@@ -56,12 +56,14 @@ export default async function Offer({
           locale={params.locale}
           items={messagesItem?.offer_page?.diagnosis?.items}
         />
-        <BlogPostsCards
-          blogPosts={blogPostsList?.blogPosts}
-          monthsTo={messagesItem?.utils?.months_to}
-          locale={params.locale}
-          paddingTopSectionSm="4rem 1rem 0 1rem"
-        />
+        {!!blogPostsList?.blogPosts && blogPostsList.blogPosts.length > 0 && (
+          <BlogPostsCards
+            blogPosts={blogPostsList?.blogPosts}
+            monthsTo={messagesItem?.utils?.months_to}
+            locale={params.locale}
+            paddingTopSectionSm="4rem 1rem 0 1rem"
+          />
+        )}
         <Contact
           locale={params.locale}
           noMiddleSection

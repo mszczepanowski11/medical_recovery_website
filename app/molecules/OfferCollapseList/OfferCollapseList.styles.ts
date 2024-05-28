@@ -1,4 +1,4 @@
-import { Colors, breakpoint } from '@/app/utils/constans';
+import { Colors, breakpoint, focusOutline } from '@/app/utils/constans';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
@@ -27,7 +27,11 @@ export const CollapseItemTitle = styled.button`
   width: 100%;
   padding: 0;
   border: none;
-
   background-color: ${Colors.transparent};
   cursor: pointer;
+
+  &:focus-visible {
+    outline: ${focusOutline};
+    outline-offset: -3px;
+  }
 `;

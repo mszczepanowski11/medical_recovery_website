@@ -1,6 +1,7 @@
 import {
   Colors,
   breakpoint,
+  focusOutline,
   headerHeight,
   headerHeightSm,
 } from '@/app/utils/constans';
@@ -28,10 +29,22 @@ export const HeaderWrapper = styled(motion.header)`
     display: none;
   }
 
+  .header-lang-menu-sm {
+    display: none;
+  }
+
   @media (max-width: ${breakpoint.sm}px) {
     height: ${headerHeightSm}px;
 
     .header-close-btn {
+      display: flex;
+    }
+
+    .header-lang-menu {
+      display: none;
+    }
+
+    .header-lang-menu-sm {
       display: flex;
     }
   }
@@ -133,6 +146,10 @@ export const ShowHideMenuSmBtn = styled.button`
   border: 1px solid ${Colors.transparent};
   background-color: ${Colors.transparent};
   cursor: pointer;
+
+  &:focus-visible {
+    outline: ${focusOutline};
+  }
 `;
 
 export const LogoWrapper = styled.div`

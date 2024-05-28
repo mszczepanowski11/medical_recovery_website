@@ -110,7 +110,7 @@ const Footer: FC<FooterProps> = function ({ locale }) {
               {tFooter('copyright')}
             </Text>
           </Flex>
-          <Flex className="footer-lower-section-links-wrapper">
+          <Flex className="footer-lower-section-links-wrapper" $gap="1rem">
             <NavButton href={`/${locale}/statue`} $lowerFooter rel="statue">
               <Text noMargin fontSize="0.8rem" color="text_secondary" noWrap>
                 {tHeader('statue')}

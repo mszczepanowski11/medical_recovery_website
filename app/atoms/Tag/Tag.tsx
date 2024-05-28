@@ -22,6 +22,7 @@ type TagProps = {
 const Tag: FC<TagProps> = function ({ tag, color, height, active, onClick }) {
   return (
     <TagWrapper
+      as={!onClick ? 'div' : undefined}
       color={color}
       height={height}
       $active={active}

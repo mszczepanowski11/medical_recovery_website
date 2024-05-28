@@ -3,20 +3,6 @@ export const hygraphApiKey = process.env.NEXT_PUBLIC_HYGRAPH_API_KEY || '';
 export const hygraphApi = process.env.NEXT_PUBLIC_HYGRAPH_API || '';
 export const webpageUrl = 'https://mentalrecovery.co';
 
-export const breakpoint = {
-  md: 1024,
-  sm: 700,
-};
-
-export const maxContainerWidth = 1290;
-
-export const headerHeight = 75;
-export const headerHeightSm = 60;
-
-export const mainAnimationDuration = 2000;
-
-export const scrollbarWidth = 14;
-
 export const COLORS = {
   primitives_white: '#FEFEFE',
   primitives_grey: '#FEFEFE',
@@ -81,3 +67,19 @@ export enum Colors {
   stroke_tags = 'var(--color-stroke-tags)',
   transparent = 'var(--color-transparent)',
 }
+
+export const breakpoint = {
+  md: 1024,
+  sm: 700,
+};
+
+export const maxContainerWidth = 1290;
+
+export const headerHeight = 75;
+export const headerHeightSm = 60;
+
+export const mainAnimationDuration = 2000;
+
+export const scrollbarWidth = 14;
+
+export const focusOutline = `medium dotted ${Colors.stroke_tags}`;
