@@ -116,7 +116,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               className="header-close-btn"
               style={{
                 padding: '0 0.5rem 0 0',
-                display: isMenuSmOpen ? 'inline-block' : 'none',
+                display: isMenuSmOpen ? 'inline-flex' : 'none',
               }}
               aria-expanded={isMenuSmOpen}
               aria-controls="main-menu"
@@ -152,7 +152,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               onClick={handleLinkClick}
               prefetch
               style={{
-                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+                display: isMenuSmOpen || !isMobile ? 'inline-flex' : 'none',
               }}
             >
               <Image
@@ -171,7 +171,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               onClick={handleLinkClick}
               prefetch
               style={{
-                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+                display: isMenuSmOpen || !isMobile ? 'inline-flex' : 'none',
               }}
             >
               <Image
@@ -190,7 +190,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               onClick={handleLinkClick}
               prefetch
               style={{
-                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+                display: isMenuSmOpen || !isMobile ? 'inline-flex' : 'none',
               }}
             >
               <Image
@@ -209,7 +209,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
               onClick={handleLinkClick}
               prefetch
               style={{
-                display: isMenuSmOpen || !isMobile ? 'inline-block' : 'none',
+                display: isMenuSmOpen || !isMobile ? 'inline-flex' : 'none',
               }}
             >
               <Image
@@ -223,7 +223,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
                 {tHeader('contact')}
               </Text>
             </NavButton>
-            <LangMenu className="header-lang-wide" />
+            <LangMenu className="header-lang-menu" />
             {!pathname.endsWith('/specialists') ? (
               <Button
                 href={
@@ -244,7 +244,6 @@ const Header: FC<HeaderProps> = function ({ locale }) {
                 </Text>
               </Button>
             ) : null}
-            <LangMenu className="header-lang-menu" />
             <LogoWrapper>
               <Image
                 src="/img/logo.svg"
