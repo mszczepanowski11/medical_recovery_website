@@ -138,7 +138,7 @@ export const addSizesToImgUrl = (
   return `${splitedUrl}/${resizePhrase}/${handle}`;
 };
 
-export function shuffleArray(array: any[]) {
+export async function shuffleArray(array: any[]) {
   if (array.length < 2) return array;
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {

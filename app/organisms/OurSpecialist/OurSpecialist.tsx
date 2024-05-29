@@ -8,7 +8,6 @@ import { useTranslations } from 'next-intl';
 // Utils
 import {
   collectAllTagsFromSpecialist,
-  shuffleArray,
   specialistLangFilterFunc,
   specialistTagsFilterFunc,
 } from '@/app/utils/utils';
@@ -45,7 +44,7 @@ const OurSpecialist: FC<OurSpecialistProps> = function ({
   customPaddingMb,
 }) {
   const t = useTranslations('our_specialists');
-  const [specialist] = useState(specialistsList.specialists);
+  const [specialist] = useState(specialistsList);
   const [filteredTags, setFilteredTags] = useState([]);
   const [selectedLangs, setSelectedLangs] = useState<string[]>([]);
 

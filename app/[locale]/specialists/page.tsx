@@ -2,6 +2,7 @@ import { useLocale } from 'next-intl';
 import OurSpecialist from '@/app/organisms/OurSpecialist/OurSpecialist';
 import metadata from '@/app/utils/SEO';
 import { webpageUrl } from '@/app/utils/constans';
+import { shuffleArray } from '@/app/utils/utils';
 import { fetchSpecialistsDataHomePage } from '../../utils/fetchData';
 
 export async function generateMetadata({
@@ -33,14 +34,17 @@ export default async function Home({
   const locale = useLocale();
   const messagesItem = await import(`../../../messages/${locale}`);
 
-  const specialistsList = await fetchSpecialistsDataHomePage();
+  const specialistsList: any = await fetchSpecialistsDataHomePage();
+  const specialistsListShuffled = await shuffleArray(
+    specialistsList.specialists,
+  );
 
   return (
     <>
       <main>
         <OurSpecialist
           locale={params.locale}
-          specialistsList={specialistsList}
+          specialistsList={specialistsListShuffled}
           customTitle={messagesItem?.specialists_page?.title}
           filterLangs={Object.keys(messagesItem?.utils?.languages || {}).map(
             (key: string) => ({

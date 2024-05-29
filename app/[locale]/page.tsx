@@ -13,6 +13,7 @@ import FAQ from '../organisms/FAQ/FAQ';
 import BlogPostsCards from '../organisms/BlogPostsCards/BlogPostsCards';
 import Contact from '../organisms/Contact/Contact';
 import metadata from '../utils/SEO';
+import { shuffleArray } from '../utils/utils';
 
 export default async function Home({
   params,
@@ -22,7 +23,10 @@ export default async function Home({
   const locale = useLocale();
   const messagesItem = await import(`../../messages/${locale}`);
 
-  const specialistsList = await fetchSpecialistsDataHomePage();
+  const specialistsList: any = await fetchSpecialistsDataHomePage();
+  const specialistsListShuffled = await shuffleArray(
+    specialistsList.specialists,
+  );
   const testimonialsList = await fetchTestimonialsDataHomePage();
   const faqQuestionsList = await fetchFAQQuestionsHomePage();
   const blogPostsList = await fetchBlogPostsHomePage();
@@ -34,7 +38,7 @@ export default async function Home({
         <WeHelp cards={messagesItem.we_help.cards} />
         <OurSpecialist
           locale={params.locale}
-          specialistsList={specialistsList}
+          specialistsList={specialistsListShuffled}
         />
         <Testimonials
           testimonialsList={testimonialsList?.testimonials}
