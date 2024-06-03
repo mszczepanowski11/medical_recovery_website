@@ -128,6 +128,22 @@ export const querySpecialistPage = (slug: string) => gql`
         en
         pl
       }
+      comments {
+        name_surname
+        comment {
+          en
+          pl
+          de
+        }
+        source {
+          en
+          pl
+          de
+        }
+        date
+        stars
+        url
+      }
     }
   }
 `;

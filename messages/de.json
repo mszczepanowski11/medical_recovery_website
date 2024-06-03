@@ -188,6 +188,8 @@
     "experience_label": "Erfahrung",
     "education_label": "Ausbildung",
     "publication_label": "Publikationen",
+    "opinions_label": "Meinungen",
+    "source_label": "Quelle",
     "no_lang_specialist_alert": "{name} führt keine Beratungen in dieser Sprache durch.",
     "find_another_langs": "Sehen Sie sich andere Sprachen an, in denen Sie einen Termin mit einem Spezialisten vereinbaren können."
   },

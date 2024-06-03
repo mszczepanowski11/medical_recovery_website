@@ -188,6 +188,8 @@
     "experience_label": "Doświadczenie",
     "education_label": "Edukacja",
     "publication_label": "Publikacje",
+    "opinions_label": "Opinie",
+    "source_label": "Źródło",
     "no_lang_specialist_alert": "{name} nie prowadzi konsultacji w tym języku.",
     "find_another_langs": "Zobacz inne języki, w których możesz umówić się na wizytę ze specialistą."
   },

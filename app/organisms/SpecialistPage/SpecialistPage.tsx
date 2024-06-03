@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/naming-convention */
 
@@ -21,6 +22,7 @@ import Text from '@/app/atoms/Text/Text';
 import Tag from '@/app/atoms/Tag/Tag';
 import Button from '@/app/atoms/Button/Button';
 import Tabs from '@/app/atoms/Tabs/Tabs';
+import SpecialistComment from '@/app/molecules/SpecialistComment/SpecialistComment';
 import {
   SpecialistDataItem,
   SpecialistDataList,
@@ -77,15 +79,33 @@ type SpecialistPageProps = {
       pl: string;
       de: string;
     }[];
+    comments?: {
+      name_surname: string;
+      comment: {
+        en?: string;
+        pl?: string;
+        de?: string;
+      };
+      source: {
+        en?: string;
+        pl?: string;
+        de?: string;
+      };
+      date?: string;
+      stars?: number;
+      url?: string;
+    }[];
   };
   locale: 'en' | 'pl' | 'de';
   specialistHadLang?: boolean;
+  monthsTo?: any;
 };
 
 const SpecialistPage: FC<SpecialistPageProps> = function ({
   specialistContent,
   locale,
   specialistHadLang,
+  monthsTo,
 }) {
   const t = useTranslations('specialist_page');
   const tCta = useTranslations('cta');
@@ -110,8 +130,29 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
     education,
     locals,
     therapy_types,
+    comments,
   } = specialistContent || {};
 
+  const hasComments = useMemo(
+    () => comments?.some((comment) => !!comment.comment[locale]),
+    [comments, locale],
+  );
+  const commentsLocalized = useMemo(
+    () => comments?.filter((comment) => comment.comment[locale]),
+    [comments, locale],
+  );
+  const renderComments = useMemo(
+    () =>
+      commentsLocalized?.map((comment) => (
+        <SpecialistComment
+          key={comment.name_surname}
+          {...comment}
+          locale={locale}
+          monthsTo={monthsTo}
+        />
+      )),
+    [commentsLocalized, locale, monthsTo],
+  );
   const shortDescriptionLocalized = useMemo(
     () => (short_description ? short_description[locale] : ''),
     [locale, short_description],
@@ -171,6 +212,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
   const tabs = useMemo(
     () => [
       {
+        active: true,
         id: 0,
         label: t('services_label'),
         onClick: () =>
@@ -179,6 +221,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
           }),
       },
       {
+        active: true,
         id: 1,
         label: t('experience_label'),
         onClick: () =>
@@ -187,6 +230,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
           }),
       },
       {
+        active: true,
         id: 2,
         label: t('education_label'),
         onClick: () =>
@@ -194,16 +238,17 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
             offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
           }),
       },
-      // {
-      //   id: 3,
-      //   label: t('publication_label'),
-      //   onClick: () =>
-      //     scrollTo('publication_label', {
-      //       offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
-      //     }),
-      // },
+      {
+        active: hasComments,
+        id: 3,
+        label: t('opinions_label'),
+        onClick: () =>
+          scrollTo('opinions_label', {
+            offset: -(isMobile ? headerHeightSm : headerHeight) - 50,
+          }),
+      },
     ],
-    [isMobile, scrollTo, t],
+    [isMobile, scrollTo, t, hasComments],
   );
 
   const handleLangChange = useCallback(
@@ -439,6 +484,7 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                 top: isMobile ? headerHeightSm : headerHeight,
                 paddingTop: '0.5rem',
                 backgroundColor: Colors.background_background_white,
+                zIndex: 2,
               }}
             >
               <Flex $flexDirection="column" $rowGap="2.2rem">
@@ -496,6 +542,23 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                     <Text noMargin color="text_secondary">
                       {education[locale]}
                     </Text>
+                  </Flex>
+                )}
+                {hasComments && (
+                  <Flex
+                    $flexDirection="column"
+                    $rowGap="1rem"
+                    id="opinions_label"
+                  >
+                    <Text
+                      variant="h2"
+                      fontSize="2rem"
+                      noMargin
+                      style={{ marginBottom: '1rem' }}
+                    >
+                      {t('opinions_label')}
+                    </Text>
+                    {renderComments}
                   </Flex>
                 )}
               </Flex>

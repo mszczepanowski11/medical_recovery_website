@@ -12,7 +12,12 @@ import { TabButton, TabsWrapper } from './Tabs.styles';
 import Text from '../Text/Text';
 
 type TabsProps = {
-  tabs: { id: string | number; label: string; onClick?: () => void }[];
+  tabs: {
+    id: string | number;
+    label: string;
+    onClick?: () => void;
+    active: boolean | undefined | null | 1 | 0;
+  }[];
   activeTab: string | number | null;
   setActiveTab: any;
   children: React.ReactNode;
@@ -32,20 +37,22 @@ const Tabs: FC<TabsProps> = function ({
 
   const renderTabs = useMemo(
     () =>
-      tabs?.map((tab) => (
-        <TabButton
-          key={tab.id}
-          onClick={() => {
-            if (tab?.onClick) tab.onClick();
-            setActiveTab(tab.id);
-          }}
-          $active={activeTab === tab.id}
-        >
-          <Text noMargin fontWeight={500}>
-            {tab.label}
-          </Text>
-        </TabButton>
-      )),
+      tabs
+        ?.filter((tab) => tab.active)
+        .map((tab) => (
+          <TabButton
+            key={tab.id}
+            onClick={() => {
+              if (tab?.onClick) tab.onClick();
+              setActiveTab(tab.id);
+            }}
+            $active={activeTab === tab.id}
+          >
+            <Text noMargin fontWeight={500}>
+              {tab.label}
+            </Text>
+          </TabButton>
+        )),
     [activeTab, setActiveTab, tabs],
   );
 

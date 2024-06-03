@@ -4,6 +4,7 @@ import metadata from '@/app/utils/SEO';
 import { webpageUrl } from '@/app/utils/constans';
 import { fetchSpecialistPage } from '@/app/utils/fetchData';
 import { Metadata } from 'next';
+import { useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
@@ -71,6 +72,9 @@ export default async function Home({
 }: {
   params: { locale: 'en' | 'pl' | 'de'; specialistSlug: string };
 }) {
+  const locale = useLocale();
+  const messagesItem = await import(`../../../../messages/${locale}`);
+
   const specialistContent = await fetchSpecialistPage(params.specialistSlug);
 
   const specialistHadLang = specialistContent?.specialist?.languages?.includes(
@@ -88,6 +92,7 @@ export default async function Home({
           specialistContent={specialistContent.specialist}
           locale={params.locale}
           specialistHadLang={specialistHadLang}
+          monthsTo={messagesItem?.utils?.months_to}
         />
       </main>
       <script
