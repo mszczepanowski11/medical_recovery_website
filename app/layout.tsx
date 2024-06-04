@@ -2,20 +2,23 @@ import { locales } from '@/i18n';
 import { NextIntlClientProvider, useLocale, useMessages } from 'next-intl';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Instrument_Sans } from 'next/font/google';
+import { cookies } from 'next/headers';
 import StyledComponentsRegistry from './utils/registry';
 import GlobalStyles from './utils/GlobalStyles';
+import CookiePopup from './molecules/CookiePopup/CookiePopup';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: (typeof locales)[number] };
 }>) {
-  const locale = useLocale();
+  const locale: any = useLocale();
   const messages = useMessages();
+
+  const cookiePopup = cookies().get('cookie_policy_closed');
 
   return (
     <html lang={locale}>
@@ -27,6 +30,7 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <GlobalStyles />
             {children}
+            <CookiePopup locale={locale} cookiePopup={cookiePopup} />
           </StyledComponentsRegistry>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />

@@ -412,6 +412,11 @@
       ]
     }
   },
+  "cookie_policy": {
+    "title": "Polityka plików cookies",
+    "description": "Dla prawidłowego działania naszego serwisu używamy plików cookies. Więcej na temat naszej polityki plików cookies przeczytasz w <a>polityce prywatności</a>.",
+    "okay_btn": "Rozumiem"
+  },
   "thank_you_page": {
     "title": "Dziękujemy za rezerwację wizyty{name}!",
     "description": "Dane dotyczące wizyty dla usługi: \"{meeting_type}\" takie jak: potwierdzenie rezerwacji, link do spotkania online oraz wszelkie pozostałe dane zostały wysłane na adres email {email}.",

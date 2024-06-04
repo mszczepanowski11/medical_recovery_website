@@ -412,6 +412,11 @@
       ]
     }
   },
+  "cookie_policy": {
+    "title": "Cookie Policy",
+    "description": "To ensure the proper functioning of our service, we use cookies. You can read more about our cookie policy in the <a>privacy policy</a>.",
+    "okay_btn": "I Understand"
+  },
   "thank_you_page": {
     "title": "Thank you for booking your visit{name}!",
     "description": "Visit details for the service: \"{meeting_type}\", such as: booking confirmation, online meeting link, and all other details have been sent to the email address {email}.",
