@@ -1,4 +1,4 @@
-import { Colors, headerHeight } from '@/app/utils/constans';
+import { Colors, focusOutline, headerHeight } from '@/app/utils/constans';
 import styled from 'styled-components';
 
 // Utils
@@ -14,9 +14,16 @@ export const LinkItem = styled.button`
   border: none;
   background-color: ${Colors.transparent};
   cursor: pointer;
-  transition: 0.2s;
+  transition:
+    0.2s,
+    outline 0;
 
   &:hover {
     text-decoration: underline;
+    text-decoration-color: ${Colors.text_primary};
+  }
+
+  &:focus-visible {
+    outline: ${focusOutline};
   }
 `;

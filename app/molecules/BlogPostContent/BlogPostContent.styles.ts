@@ -64,7 +64,9 @@ export const ContentWrapper = styled.div`
         margin-bottom: 0;
         font-weight: 500;
         background-color: ${Colors.background_interactive};
-        transition: 0.2s;
+        transition:
+          0.2s,
+          outline 0;
 
         &:hover {
           background-color: ${Colors.background_interactive_hover};

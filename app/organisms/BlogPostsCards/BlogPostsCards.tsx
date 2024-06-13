@@ -108,16 +108,21 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
             $columnGap="2rem"
             $styleSm={{ justifyContent: 'center', flexDirection: 'column' }}
           >
-            <Text variant="h2" noMargin styleSm={{ textAlign: 'center' }}>
+            <Text
+              variant="h2"
+              noMargin
+              style={{ width: '100%', textAlign: 'center' }}
+              styleSm={{ textAlign: 'center' }}
+            >
               {customTitle || tBlogPosts('title')}
             </Text>
-            {!hideMoreBtn && (
+            {/* {!hideMoreBtn && (
               <Button href={`/${locale}/blog`} color="transparent">
                 <Text noMargin fontWeight={500}>
                   {tBlogPosts('show_more_btn')}
                 </Text>
               </Button>
-            )}
+            )} */}
           </Flex>
         </GridItem>
       </GridContainer>
