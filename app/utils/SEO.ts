@@ -106,7 +106,7 @@ export const metadata_de: Metadata = {
       width: 879,
       height: 523,
     },
-    url: 'https://mentalrecovery.co/pl',
+    url: 'https://mentalrecovery.co/de',
     siteName: 'Mental Recovery',
     type: 'website',
     emails: ['contact@mentalrecovery.co'],

@@ -28,7 +28,7 @@ const ThankYouPageContent: FC<ThankYouPageContentProps> = function ({
     'attendee[last_name]': last_name,
     'meeting_type[name]': meeting_type,
   } = searchParams || {};
-  console.log('searchParams', searchParams, email, meeting_type);
+
   return (
     <ThankYouPageContentWrapper>
       <GridContainer $gridCols={1} $gridColsMb={1} $gridColsSm={1}>

@@ -65,7 +65,7 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
 
   const renderBlogPostsCards = useMemo(
     () =>
-      blogPosts.map((blogPost) => (
+      blogPosts.map((blogPost, index, arr) => (
         <BlogPostCard
           key={blogPost.slug}
           {...blogPost}
@@ -73,6 +73,10 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
           locale={locale}
           customGap={customGap}
           noDesc={noDesc}
+          style={{
+            width: arr.length > 1 ? undefined : '100%',
+            maxWidth: arr.length > 1 ? undefined : '100%',
+          }}
           styleMd={{
             minWidth: 'calc(320px - 2rem) !important',
             flexGrow: 1,
@@ -83,6 +87,8 @@ const BlogPostsCards: FC<BlogPostsCardsProps> = function ({
       )),
     [blogPosts, monthsTo, locale, customGap, noDesc],
   );
+
+  if (!blogPosts || blogPosts.length < 1) return null;
 
   return (
     <BlogPostsCardsWrapper>

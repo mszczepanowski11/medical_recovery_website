@@ -89,6 +89,8 @@ const FAQ: FC<FAQProps> = function ({
     [activeCard, questions, locale],
   );
 
+  if (!questions || questions.length < 1) return null;
+
   return (
     <FAQWrapper>
       <GridContainer

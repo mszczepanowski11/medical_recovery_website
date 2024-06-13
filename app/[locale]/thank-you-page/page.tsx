@@ -19,7 +19,6 @@ export default async function ThankYouPage({
   params: { locale: 'en' | 'pl' | 'de' };
   searchParams: any;
 }) {
-  console.log('searchParams', searchParams);
   return (
     <>
       <main>

@@ -101,6 +101,7 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
           style={{
             position: 'relative',
             width: '100%',
+            maxHeight: 260,
             aspectRatio: 1.8,
           }}
           $styleMd={{ maxHeight: '140px' }}

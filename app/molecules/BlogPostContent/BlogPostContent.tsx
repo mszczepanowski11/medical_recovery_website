@@ -64,7 +64,6 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
   monthsTo,
   locale,
 }) {
-  console.log('blogPostContent', blogPostContent);
   const tBlogPosts = useTranslations('blog_posts_home_page');
 
   const { title, slug, date, reading_time, image, tags, author, content } =
@@ -81,13 +80,12 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
   );
 
   const renderTagsLocalized = useMemo(
-    () => tags?.map((tag) => <Tag key={tag[locale]} tag={tag[locale]} />),
+    () =>
+      tags
+        ?.filter((tag) => tag[locale] && tag[locale] !== '')
+        .map((tag) => <Tag key={tag[locale]} tag={tag[locale]} />),
     [tags, locale],
   );
-
-  useEffect(() => {
-    console.log('renderTagsLocalized', renderTagsLocalized);
-  }, [renderTagsLocalized]);
 
   const renderReadingTime = useMemo(() => {
     switch (reading_time) {
@@ -117,15 +115,23 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
 
             return `<h2 id="${childrenTrim}">${childrenTrim}</h2>`;
           },
+          a: (props: any) => {
+            const { href, children, title: linkTitle } = props || {};
 
+            return `<a href="${href}" title="${linkTitle}" target="_blank">${children}</a>`;
+          },
+          p: (props) => {
+            const { children } = props || {};
+
+            if (!children || children === '') return '';
+            return `<p>${children}</p>`;
+          },
           img: (props: any) => {
             const { src, height, width, handle } = props || {};
 
             const maxSizesStyle =
               width || height
-                ? `style="${width ? `max-width: 100%; ` : ''}${
-                    height ? `max-height: ${height}px; ` : ''
-                  }"`
+                ? `style="${width ? `width: 100%; ` : ''}${`max-height: ${400}px; `}object-fit: cover;"`
                 : '';
             const mdSrc = addSizesToImgUrl(src, handle, width, height, 750);
             const smallSrc = addSizesToImgUrl(src, handle, width, height, 550);
@@ -230,7 +236,12 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
             overflow: 'hidden',
           }}
         >
-          <Image src={image?.url || ''} alt={titleLocalized || ''} fill />
+          <Image
+            src={image?.url || ''}
+            alt={titleLocalized || ''}
+            fill
+            style={{ objectFit: 'cover' }}
+          />
         </Flex>
       )}
 

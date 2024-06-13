@@ -50,6 +50,7 @@ export default async function Home({
             monthsTo={messagesItem?.utils?.months_to}
             locale={params.locale}
             paddingTopSectionSm="4rem 1rem 0 1rem"
+            maxWidth={blogPostsList?.blogPosts.length > 1 ? undefined : '800px'}
           />
         )}
         <FAQ questions={faqQuestionsList?.faqs} locale={params.locale} />
