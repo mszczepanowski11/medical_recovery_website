@@ -33,8 +33,15 @@ export const ContentWrapper = styled.div`
   }
 
   p {
-    font-size: 1rem;
+    line-height: 1.5;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.8rem;
   }
 
   figure {
