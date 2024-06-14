@@ -63,7 +63,9 @@ const CookiePopup: FC<CookiePopupProps> = function ({ locale, cookiePopup }) {
       <GridContainer $padding="0 1rem">
         <GridItem $colStart={3} $colEnd={5} $colStartSm={1} $colEndSm={3}>
           <CookieContainer>
-            <Text variant="h4">{t('title')}</Text>
+            <Text variant="p" fontSize="1.25rem" fontWeight={600}>
+              {t('title')}
+            </Text>
             <Text psmall>
               {t.rich('description', {
                 a: (chunks) => (
@@ -84,7 +86,7 @@ const CookiePopup: FC<CookiePopupProps> = function ({ locale, cookiePopup }) {
                 {t('okay_btn')}
               </Text>
             </Button>
-            <CloseBtn onClick={closeCookiePopup}>
+            <CloseBtn onClick={closeCookiePopup} aria-label="close">
               <Icon icon={faTimes} color="text_secondary" />
             </CloseBtn>
           </CookieContainer>
