@@ -29,6 +29,7 @@ export const ContentWrapper = styled.div`
   h2 {
     padding-top: 0.75rem;
     margin-bottom: 2.5rem;
+    font-weight: 600;
   }
 
   p {
@@ -45,6 +46,7 @@ export const ContentWrapper = styled.div`
     display: inline-block;
     padding-top: 0.25rem;
     padding-bottom: 2.5rem;
+    text-align: center;
 
     &:last-child {
       padding-top: 1.75rem;
@@ -79,5 +81,11 @@ export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  @media (max-width: ${breakpoint.sm}px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;

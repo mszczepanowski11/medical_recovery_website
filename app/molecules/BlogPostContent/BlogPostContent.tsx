@@ -162,7 +162,12 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
 
   return (
     <BlogPostContentWrapper $flexDirection="column" $rowGap="1.2rem">
-      <Text variant="h1" fontSize="2.625rem" noMargin>
+      <Text
+        variant="h1"
+        style={{ fontSize: '2.625rem' }}
+        styleSm={{ fontSize: '2rem' }}
+        noMargin
+      >
         {titleLocalized}
       </Text>
       <Flex
@@ -170,6 +175,7 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
         $rowGap="0.5rem"
         $alignItems="center"
         $flexWrap="wrap"
+        $padding="0.25rem 0"
       >
         <Flex $columnGap="0.5rem" $alignItems="center">
           <Image
@@ -179,7 +185,13 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
             height={18}
             style={{ marginBottom: '0.075rem' }}
           />
-          <Text noMargin psmall color="text_secondary" fontWeight={500}>
+          <Text
+            noMargin
+            psmall
+            color="text_secondary"
+            fontWeight={500}
+            styleSm={{ fontSize: '0.9rem' }}
+          >
             {author}
           </Text>
         </Flex>
@@ -194,26 +206,47 @@ const BlogPostContent: FC<BlogPostContentProps> = function ({
             height={18}
             style={{ marginBottom: '0.075rem' }}
           />
-          <Text noMargin psmall color="text_secondary" fontWeight={500}>
+          <Text
+            noMargin
+            psmall
+            color="text_secondary"
+            fontWeight={500}
+            styleSm={{ fontSize: '0.9rem' }}
+          >
             {YMDToDMStringY(date, monthsTo)}
           </Text>
         </Flex>
-        <Text noMargin psmall color="text_secondary" fontWeight={500}>
-          •
-        </Text>
+
         {(!!reading_time || reading_time === 0) && (
-          <Flex $columnGap="0.5rem" $alignItems="center">
-            <Image
-              src="/img/clock-icon.svg"
-              alt="calendar"
-              width={18}
-              height={18}
-              style={{ marginBottom: '0.05rem' }}
-            />
-            <Text noMargin psmall color="text_secondary" fontWeight={500}>
-              {reading_time} {renderReadingTime}
+          <>
+            <Text
+              noMargin
+              psmall
+              color="text_secondary"
+              fontWeight={500}
+              styleSm={{ fontSize: '0.9rem' }}
+            >
+              •
             </Text>
-          </Flex>
+            <Flex $columnGap="0.5rem" $alignItems="center">
+              <Image
+                src="/img/clock-icon.svg"
+                alt="calendar"
+                width={18}
+                height={18}
+                style={{ marginBottom: '0.05rem' }}
+              />
+              <Text
+                noMargin
+                psmall
+                color="text_secondary"
+                fontWeight={500}
+                styleSm={{ fontSize: '0.9rem' }}
+              >
+                {reading_time} {renderReadingTime}
+              </Text>
+            </Flex>
+          </>
         )}
       </Flex>
       {!!renderTagsLocalized && renderTagsLocalized.length > 0 && (
