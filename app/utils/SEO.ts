@@ -15,7 +15,7 @@ export const metadata_en: Metadata = {
     description:
       'Find peace of mind and harmony in your life with the help of our specialists. Visit the site and book a session!',
     images: {
-      url: 'https://mentalrecovery.co/en/img/og-image-en.png',
+      url: 'https://mentalrecovery.co/img/og-image-en.png',
       alt: 'Mental Recovery - let our specialists help You recover.',
       width: 879,
       height: 523,
@@ -34,7 +34,7 @@ export const metadata_en: Metadata = {
     description:
       'Find peace of mind and harmony in your life with the help of our specialists. Visit the site and book a session!',
     images: {
-      url: 'https://mentalrecovery.co/en/img/og-image-en.png',
+      url: 'https://mentalrecovery.co/img/og-image-en.png',
       alt: 'Mental Recovery - let our specialists help You recover.',
       width: 879,
       height: 523,
@@ -58,7 +58,7 @@ export const metadata_pl: Metadata = {
     description:
       'Odnajdź wewnętrzny pokój i życiową harmonię wraz z naszymi specialistami. Odwiedź naszą stronę i umów wizytę!',
     images: {
-      url: 'https://mentalrecovery.co/pl/img/og-image-pl.png',
+      url: 'https://mentalrecovery.co/img/og-image-pl.png',
       alt: 'Mental Recovery - pozwól naszym specialistom zająć się Tobą.',
       width: 879,
       height: 523,
@@ -77,7 +77,7 @@ export const metadata_pl: Metadata = {
     description:
       'Odnajdź wewnętrzny pokój i życiową harmonię wraz z naszymi specialistami. Odwiedź naszą stronę i umów wizytę!',
     images: {
-      url: 'https://mentalrecovery.co/pl/img/og-image-pl.png',
+      url: 'https://mentalrecovery.co/img/og-image-pl.png',
       alt: 'Mental Recovery - pozwól naszym specialistom zająć się Tobą.',
       width: 879,
       height: 523,
@@ -101,7 +101,7 @@ export const metadata_de: Metadata = {
     description:
       'Finden Sie inneren Frieden und Lebensharmonie mit unseren Spezialisten. Besuchen Sie unsere Website und buchen Sie einen Termin!',
     images: {
-      url: 'https://mentalrecovery.co/de/img/og-image-de.png',
+      url: 'https://mentalrecovery.co/img/og-image-de.png',
       alt: 'Mental Recovery - lassen Sie sich von unseren Spezialisten betreuen.',
       width: 879,
       height: 523,
@@ -121,7 +121,7 @@ export const metadata_de: Metadata = {
     description:
       'Finden Sie inneren Frieden und Lebensharmonie mit unseren Spezialisten. Besuchen Sie unsere Website und buchen Sie einen Termin!',
     images: {
-      url: 'https://mentalrecovery.co/de/img/og-image-de.png',
+      url: 'https://mentalrecovery.co/img/og-image-de.png',
       alt: 'Mental Recovery - lassen Sie sich von unseren Spezialisten betreuen.',
       width: 879,
       height: 523,
