@@ -3,6 +3,7 @@ import { NextIntlClientProvider, useLocale, useMessages } from 'next-intl';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Instrument_Sans } from 'next/font/google';
 import { cookies } from 'next/headers';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import StyledComponentsRegistry from './utils/registry';
 import GlobalStyles from './utils/GlobalStyles';
 import CookiePopup from './molecules/CookiePopup/CookiePopup';
@@ -34,6 +35,7 @@ export default function RootLayout({
           </StyledComponentsRegistry>
         </NextIntlClientProvider>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
+        <SpeedInsights />
       </body>
     </html>
   );
