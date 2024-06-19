@@ -139,7 +139,7 @@ const GlobalStyles = createGlobalStyle`
   
   @media (max-width: ${breakpoint.sm}px) {
     html {
-      font-size: 15px;
+      /* font-size: 15px; */
     }
   }
 `;
