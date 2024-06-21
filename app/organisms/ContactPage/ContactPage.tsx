@@ -1,8 +1,11 @@
+/* eslint-disable consistent-return */
+
 'use client';
 
 import React, { FC, useCallback, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import emailjs from '@emailjs/browser';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 // Utils
 import { toast } from 'react-toastify';
@@ -29,53 +32,92 @@ const ContactPage: FC<ContactPageProps> = function ({}) {
     rodo: boolean;
   }>({ name: '', email: '', message: '', rodo: false });
   const [isSending, setIsSending] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const onSend = useCallback(() => {
-    setIsSending(true);
-    const { name, email, message, rodo } = formData || {};
-    if (
-      !name ||
-      name.length < 1 ||
-      !email ||
-      email.length < 1 ||
-      !message ||
-      message.length < 1
-    ) {
-      toast.error(tContact('send_empty_fields'), {
+  const onSend = useCallback(async () => {
+    if (!executeRecaptcha) {
+      toast.error(tContact('recaptcha_error'), {
         position: 'top-center',
         hideProgressBar: true,
       });
-      setIsSending(false);
-    } else if (!rodo) {
-      toast.error(tContact('send_no_rodo'), {
-        position: 'top-center',
-        hideProgressBar: true,
-      });
-      setIsSending(false);
     } else {
-      emailjs
-        .send('mentalrecovery_gmail', 'mentalrecovery_template', formData, {
-          publicKey: 'NUqIEfTSDVxUNJ026',
-        })
-        .then(
-          (result) => {
-            setFormData({ name: '', email: '', message: '', rodo: false });
-            toast.success(tContact('send_success'), {
-              position: 'top-center',
-              hideProgressBar: true,
-            });
-            setIsSending(false);
-          },
-          (error) => {
-            toast.error(tContact('send_error'), {
-              position: 'top-center',
-              hideProgressBar: true,
-            });
-            setIsSending(false);
-          },
-        );
+      setIsSending(true);
+
+      const { name, email, message, rodo } = formData || {};
+      if (
+        !name ||
+        name.length < 1 ||
+        !email ||
+        email.length < 1 ||
+        !message ||
+        message.length < 1
+      ) {
+        toast.error(tContact('send_empty_fields'), {
+          position: 'top-center',
+          hideProgressBar: true,
+        });
+        setIsSending(false);
+      } else if (!rodo) {
+        toast.error(tContact('send_no_rodo'), {
+          position: 'top-center',
+          hideProgressBar: true,
+        });
+        setIsSending(false);
+      } else {
+        const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
+
+        let res: any;
+
+        try {
+          const response = await fetch(`/api/recaptcha-submit`, {
+            method: 'POST',
+            body: JSON.stringify({ gRecaptchaToken }),
+            headers: {
+              Accept: 'application/json, text/plain, */*',
+              'Content-Type': 'application/json',
+            },
+          });
+          res = await response?.json();
+        } catch (error) {
+          toast.error(tContact('recaptcha_error'), {
+            position: 'top-center',
+            hideProgressBar: true,
+          });
+          setIsSending(false);
+        }
+
+        if (!res?.success) {
+          toast.error(tContact('recaptcha_error'), {
+            position: 'top-center',
+            hideProgressBar: true,
+          });
+          setIsSending(false);
+        } else {
+          emailjs
+            .send('mentalrecovery_gmail', 'mentalrecovery_template', formData, {
+              publicKey: 'NUqIEfTSDVxUNJ026',
+            })
+            .then(
+              (result) => {
+                setFormData({ name: '', email: '', message: '', rodo: false });
+                toast.success(tContact('send_success'), {
+                  position: 'top-center',
+                  hideProgressBar: true,
+                });
+                setIsSending(false);
+              },
+              (error) => {
+                toast.error(tContact('send_error'), {
+                  position: 'top-center',
+                  hideProgressBar: true,
+                });
+                setIsSending(false);
+              },
+            );
+        }
+      }
     }
-  }, [formData, tContact]);
+  }, [executeRecaptcha, formData, tContact]);
 
   return (
     <ContactPageWrapper>

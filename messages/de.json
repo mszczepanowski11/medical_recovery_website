@@ -179,7 +179,8 @@
     "send_success": "Nachricht gesendet!",
     "send_error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
     "send_empty_fields": "Füllen Sie alle Formularfelder aus",
-    "send_no_rodo": "Zustimmung zur Verarbeitung personenbezogener Daten prüfen"
+    "send_no_rodo": "Zustimmung zur Verarbeitung personenbezogener Daten prüfen",
+    "recaptcha_error": "Die Überprüfung des Recaptcha-Benutzers ist fehlgeschlagen"
   },
   "specialist_page": {
     "localization_label": "Standort:",

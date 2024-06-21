@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import StyledComponentsRegistry from './utils/registry';
 import GlobalStyles from './utils/GlobalStyles';
 import CookiePopup from './molecules/CookiePopup/CookiePopup';
+import GoogleRecaptchaProviderWrapper from './organisms/GoogleRecaptchaProviderWrapper/GoogleRecaptchaProviderWrapper';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -27,13 +28,15 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={instrument_sans.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <StyledComponentsRegistry>
-            <GlobalStyles />
-            {children}
-            <CookiePopup locale={locale} cookiePopup={cookiePopup} />
-          </StyledComponentsRegistry>
-        </NextIntlClientProvider>
+        <GoogleRecaptchaProviderWrapper>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <StyledComponentsRegistry>
+              <GlobalStyles />
+              {children}
+              <CookiePopup locale={locale} cookiePopup={cookiePopup} />
+            </StyledComponentsRegistry>
+          </NextIntlClientProvider>
+        </GoogleRecaptchaProviderWrapper>
         <GoogleTagManager gtmId="GTM-MHQ2QJSB" />
         <SpeedInsights />
       </body>

@@ -179,7 +179,8 @@
     "send_success": "Message sent!",
     "send_error": "An error occurred, please try again later.",
     "send_empty_fields": "Fill in all form fields",
-    "send_no_rodo": "Check consent for personal data processing"
+    "send_no_rodo": "Check consent for personal data processing",
+    "recaptcha_error": "Recaptcha user verification failed"
   },
   "specialist_page": {
     "localization_label": "Location:",

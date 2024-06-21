@@ -179,7 +179,8 @@
     "send_success": "Wiadomość została wysłana!",
     "send_error": "Wystąpił błąd, spróbuj ponownie później.",
     "send_empty_fields": "Wypełnij wszystkie pola formularza",
-    "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych"
+    "send_no_rodo": "Zaznacz zgodę na przetwarzanie danych osobowych",
+    "recaptcha_error": "Weryfikacja użytkownika recaptcha nie przeszła pomyślnie"
   },
   "specialist_page": {
     "localization_label": "Lokalizacja:",

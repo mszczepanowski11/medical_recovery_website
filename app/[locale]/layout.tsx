@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Instrument_Sans } from 'next/font/google';
 import { Metadata } from 'next';
 import { defaultLocale, locales } from '@/i18n';
 import metadata from '../utils/SEO';
@@ -27,7 +26,7 @@ export async function generateMetadata({
   }
 }
 
-export default function RootLayout({
+export default function Layout({
   children,
   params: { locale },
 }: Readonly<{

@@ -127,6 +127,10 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  .grecaptcha-badge {
+    display: none !important;
+  }
+
   ::-moz-selection { /* Code for Firefox */
     /* color: ${Colors.primitives_white}; */
     /* background: rgba(155,251,146,0.65); */
