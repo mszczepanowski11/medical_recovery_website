@@ -157,7 +157,12 @@ const BlogPostCard: FC<BlogPostCardProps> = function ({
       )}
       {!!titleLocalized && (
         <Link href={href} prefetch>
-          <Text variant="h4" noMargin className="blog-post-link">
+          <Text
+            variant="h3"
+            fontSize="1.25rem"
+            noMargin
+            className="blog-post-link"
+          >
             {titleLocalized}
           </Text>
         </Link>
