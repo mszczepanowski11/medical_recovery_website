@@ -2,6 +2,7 @@
 export const hygraphApiKey = process.env.NEXT_PUBLIC_HYGRAPH_API_KEY || '';
 export const hygraphApi = process.env.NEXT_PUBLIC_HYGRAPH_API || '';
 export const webpageUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+export const pixelId = process.env.NEXT_PUBLIC_PIXEL_KEY || '';
 
 export const COLORS = {
   primitives_white: '#FEFEFE',
