@@ -45,6 +45,10 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${Colors.primitives_grey};
     min-height: 100vh;
 
+    &.cookie-hide {
+      overflow-y: hidden;
+    }
+
     &::-webkit-scrollbar {
       width: ${scrollbarWidth}px;
     }

@@ -5,9 +5,9 @@ import { Instrument_Sans } from 'next/font/google';
 import { cookies } from 'next/headers';
 import StyledComponentsRegistry from './utils/registry';
 import GlobalStyles from './utils/GlobalStyles';
-import CookiePopup from './molecules/CookiePopup/CookiePopup';
 import GoogleRecaptchaProviderWrapper from './organisms/GoogleRecaptchaProviderWrapper/GoogleRecaptchaProviderWrapper';
 import { FacebookPixelEvents } from './utils/PixelEvents';
+import ConsentMode from './molecules/ConsentMode/ConsentMode';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -33,7 +33,7 @@ export default function RootLayout({
             <StyledComponentsRegistry>
               <GlobalStyles />
               {children}
-              <CookiePopup locale={locale} cookiePopup={cookiePopup} />
+              <ConsentMode locale={locale} consentMode={cookiePopup} />
             </StyledComponentsRegistry>
           </NextIntlClientProvider>
         </GoogleRecaptchaProviderWrapper>

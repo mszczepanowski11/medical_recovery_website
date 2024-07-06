@@ -415,8 +415,11 @@
   },
   "cookie_policy": {
     "title": "Cookie Policy",
-    "description": "To ensure the proper functioning of our service, we use cookies. You can read more about our cookie policy in the <a>privacy policy</a>.",
-    "okay_btn": "I Understand"
+    "description": "To ensure the proper functioning of our service, we use cookies. You can read more about our cookie policy in the <a>Privacy Policy</a>.",
+    "okay_btn": "I accept, go to service",
+    "more_btn": "Advanced settings",
+    "hide_btn": "Hide advanced settings",
+    "default_cookies": "Cookies that are essential for the correct operation of the website"
   },
   "thank_you_page": {
     "title": "Thank you for booking your visit{name}!",

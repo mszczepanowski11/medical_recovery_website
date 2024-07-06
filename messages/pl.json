@@ -416,7 +416,10 @@
   "cookie_policy": {
     "title": "Polityka plików cookies",
     "description": "Dla prawidłowego działania naszego serwisu używamy plików cookies. Więcej na temat naszej polityki plików cookies przeczytasz w <a>polityce prywatności</a>.",
-    "okay_btn": "Rozumiem"
+    "okay_btn": "Akceptuję i przechodzę do serwisu",
+    "more_btn": "Ustawienia zaawansowane",
+    "hide_btn": "Schowaj ustawienia zaawansowane",
+    "default_cookies": "Pliki cookie, które są niezbędne do prawidłowego działania serwisu"
   },
   "thank_you_page": {
     "title": "Dziękujemy za rezerwację wizyty{name}!",
