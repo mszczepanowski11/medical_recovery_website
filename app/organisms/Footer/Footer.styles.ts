@@ -7,6 +7,7 @@ import styled from 'styled-components';
 // Components
 
 export const FooterWrapper = styled.footer`
+  position: relative;
   .footer-lower-section-links-wrapper {
     position: absolute;
     top: 50%;

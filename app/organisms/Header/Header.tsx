@@ -47,7 +47,7 @@ const Header: FC<HeaderProps> = function ({ locale }) {
   }, []);
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper className="header-wrapper">
       <GridContainer
         $padding="0.5rem 1rem"
         style={{

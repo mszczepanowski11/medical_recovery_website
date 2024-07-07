@@ -11,6 +11,7 @@ export const SwitcherWrapper = styled.button<{ $active: boolean }>`
   display: inline-flex;
   height: 1.4rem;
   width: 2.8rem;
+  margin-top: 0.75rem;
   padding: 0.2rem;
   border: none;
   border-radius: 0.7rem;

@@ -8,12 +8,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 // Utils
+import { TextVariants } from '@/app/atoms/Text/Text.variables';
 
 // Components
 import { Flex } from '@/app/utils/GlobalStyles';
-import { useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Text from '@/app/atoms/Text/Text';
 import Image from 'next/image';
 import {
@@ -22,14 +23,15 @@ import {
   OfferCollapseListWrapper,
 } from './OfferCollapseList.styles';
 
-const CollapseItem: FC<{
+export const CollapseItem: FC<{
   active: boolean;
   onChange:
     | ((val: string | null) => void)
     | React.Dispatch<React.SetStateAction<string | null>>;
   title: string;
   description?: string;
-}> = ({ active, onChange, title, description }) => {
+  titleVariant?: keyof typeof TextVariants;
+}> = ({ active, onChange, title, description, titleVariant }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const openMotionValue = useMotionValue(0);
   const openTransValue = useTransform(
@@ -64,7 +66,14 @@ const CollapseItem: FC<{
         onClick={description ? onClick : undefined}
         style={{ cursor: description ? 'pointer' : 'default' }}
       >
-        <Text variant="h3" fontSize="1rem" noMargin textAlign="left">
+        <Text
+          variant={titleVariant || 'h3'}
+          fontSize="1rem"
+          noMargin
+          textAlign="left"
+          color="text_primary"
+          style={{ cursor: 'pointer' }}
+        >
           {title}
         </Text>
         {!!description && (

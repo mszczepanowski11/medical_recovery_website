@@ -47,6 +47,31 @@ const GlobalStyles = createGlobalStyle`
 
     &.cookie-hide {
       overflow-y: hidden;
+
+      &.cookie-hide-privacy-policy {
+        overflow-y: visible;
+
+        .header-wrapper, .footer-wrapper {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.3);
+            z-index: 999;
+          }
+
+          .lang-item {
+            z-index: 1000;
+          }
+        }
+
+        .footer-wrapper {
+          z-index: 10;
+        }
+      }
     }
 
     &::-webkit-scrollbar {

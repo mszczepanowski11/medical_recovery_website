@@ -9,25 +9,23 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 // Utils
 import { Colors } from '@/app/utils/constans';
+import { usePathname } from 'next/navigation';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 // Components
-import { Flex, GridContainer, GridItem } from '@/app/utils/GlobalStyles';
+import { GridContainer, GridItem } from '@/app/utils/GlobalStyles';
 import Text from '@/app/atoms/Text/Text';
 import Button from '@/app/atoms/Button/Button';
 import Link from 'next/link';
 import Icon from '@/app/atoms/Icon/Icon';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-
-import Switcher from '@/app/atoms/Switcher/Switcher';
 import {
   ButtonsWrapper,
   CloseBtn,
   ConsentContainer,
   ConsentModeWrapper,
-  ContentExpandedWrapper,
   ContentWrapper,
 } from './ConsentMode.styles';
-import FAQCard from '../FAQCard/FAQCard';
+import ContentExpandedWrapper from './ContentExpandedWrapper';
 
 type ConsentModeProps = {
   locale: 'en' | 'pl' | 'de';
@@ -36,6 +34,26 @@ type ConsentModeProps = {
 
 const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
   const t = useTranslations('cookie_policy');
+  const pathname = usePathname();
+  const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(false);
+  const [privacyPolicyCollapsed, setPrivacyPolicyCollapsed] = useState(false);
+
+  useEffect(() => {
+    setIsPrivacyPolicy(pathname.includes('/privacy-policy'));
+  }, [pathname]);
+  useEffect(() => {
+    if (isPrivacyPolicy) {
+      if (consentMode?.value === 'false' || !consentMode) {
+        document.body.classList.add('cookie-hide-privacy-policy');
+      } else {
+        document.body.classList.remove('cookie-hide-privacy-policy');
+      }
+    } else {
+      document.body.classList.remove('cookie-hide-privacy-policy');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPrivacyPolicy]);
+
   const [isOpen, setIsOpen] = useState(false);
   const cookieTransition = useMotionValue(0);
   const cookieTransitionValue = useTransform(
@@ -51,14 +69,14 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
   const contentTransition = useMotionValue(0);
   const [expandedHeightValue, setExpandedHeightValue] = useState<any>(null);
   const [hiddenHeightValue, setHiddenHeightValue] = useState<any>(null);
-  useEffect(() => {
-    console.log('expandedHeightValue', expandedHeightValue);
-  }, [expandedHeightValue]);
 
   const contentTransitionValue = useTransform(
     contentTransition,
     [0, 1],
-    [hiddenHeightValue || 0, expandedHeightValue],
+    [
+      privacyPolicyCollapsed ? 0 : hiddenHeightValue || 0,
+      privacyPolicyCollapsed ? 0 : expandedHeightValue,
+    ],
   );
   const expandedContentOpacity = useTransform(
     contentTransition,
@@ -88,6 +106,8 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
 
   const closeConsentMode = useCallback(() => {
     cookieTransition.set(0);
+    document.body.classList.remove('cookie-hide-privacy-policy');
+    document.body.classList.remove('cookie-hide');
     setTimeout(() => {
       setIsOpen(false);
       Cookies.set('cookie_policy_closed', 'true', { expires: 999 });
@@ -97,7 +117,10 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
   if (!isOpen) return null;
 
   return (
-    <ConsentModeWrapper style={{ opacity: cookieOpacityValue }}>
+    <ConsentModeWrapper
+      $isPrivacyPolicy={isPrivacyPolicy}
+      style={{ opacity: cookieOpacityValue }}
+    >
       <GridContainer
         $padding="0 1rem"
         $style={{ clipPath: 'none', overflow: 'visible' }}
@@ -105,7 +128,7 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
         <GridItem $colStart={3} $colEnd={5} $colStartSm={1} $colEndSm={3}>
           <ConsentContainer style={{ y: cookieTransitionValue }}>
             <Text variant="p" fontSize="1.25rem" fontWeight={600}>
-              {t('title')}
+              {t(isContentExpanded ? 'more_btn' : 'title')}
             </Text>
             <ContentWrapper style={{ height: contentTransitionValue }}>
               <motion.div
@@ -135,18 +158,17 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
               </motion.div>
               <motion.div
                 style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
                   opacity: expandedContentOpacity,
                   pointerEvents: isContentExpanded ? 'auto' : 'none',
+                  marginBottom: '1rem',
                 }}
               >
-                <ContentExpandedWrapper ref={expandedContentRef}>
-                  <Switcher
-                    disabled
-                    label={t('default_cookies')}
-                    // labelChildren={<FAQCard />}
-                  />
-                  <Switcher label={t('default_cookies')} />
-                </ContentExpandedWrapper>
+                <ContentExpandedWrapper forwardRef={expandedContentRef} />
               </motion.div>
             </ContentWrapper>
 
@@ -155,6 +177,7 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
                 color="transparent"
                 iconRight={false}
                 onClick={() => {
+                  setPrivacyPolicyCollapsed(false);
                   if (contentTransition.get() === 0) {
                     contentTransition.set(1);
                     setIsContentExpanded(true);
@@ -174,9 +197,17 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
                 </Text>
               </Button>
             </ButtonsWrapper>
-            {/* <CloseBtn onClick={closeConsentMode} aria-label="close">
-              <Icon icon={faTimes} color="text_secondary" />
-            </CloseBtn> */}
+            {isPrivacyPolicy && (
+              <CloseBtn
+                aria-label="close"
+                onClick={() => setPrivacyPolicyCollapsed((prev) => !prev)}
+              >
+                <Icon
+                  icon={privacyPolicyCollapsed ? faAngleUp : faAngleDown}
+                  color="text_secondary"
+                />
+              </CloseBtn>
+            )}
           </ConsentContainer>
         </GridItem>
       </GridContainer>

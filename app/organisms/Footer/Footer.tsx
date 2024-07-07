@@ -25,7 +25,7 @@ const Footer: FC<FooterProps> = function ({ locale }) {
   const tFooter = useTranslations('footer');
 
   return (
-    <FooterWrapper>
+    <FooterWrapper className="footer-wrapper">
       <GridContainer
         $bg={Colors.background_tags}
         $gap="0"
