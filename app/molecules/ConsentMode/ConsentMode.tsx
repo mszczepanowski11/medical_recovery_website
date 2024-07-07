@@ -30,11 +30,31 @@ import ContentExpandedWrapper from './ContentExpandedWrapper';
 type ConsentModeProps = {
   locale: 'en' | 'pl' | 'de';
   consentMode: any;
+  cookieTypes: {
+    id: string;
+    name: string;
+    description: string;
+    value: boolean;
+    disabled?: boolean;
+  }[];
 };
 
-const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
+const ConsentMode: FC<ConsentModeProps> = function ({
+  locale,
+  consentMode,
+  cookieTypes,
+}) {
   const t = useTranslations('cookie_policy');
   const pathname = usePathname();
+
+  const [consentModeValues, setConsentModeValues] = useState(
+    cookieTypes?.reduce(
+      (o, key) => Object.assign(o, { [key.id]: key.value }),
+      {},
+    ),
+  );
+  useEffect(() => {}, [consentModeValues]);
+
   const [isPrivacyPolicy, setIsPrivacyPolicy] = useState(false);
   const [privacyPolicyCollapsed, setPrivacyPolicyCollapsed] = useState(false);
 
@@ -64,6 +84,10 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
   const cookieOpacityValue = useTransform(cookieTransition, [0, 1], [0, 1]);
 
   const [isContentExpanded, setIsContentExpanded] = useState(false);
+  useEffect(() => {
+    console.log('isContentExpanded', isContentExpanded);
+  }, [isContentExpanded]);
+
   const expandedContentRef = useRef<any>(null);
   const hiddenContentRef = useRef<any>(null);
   const contentTransition = useMotionValue(0);
@@ -110,9 +134,22 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
     document.body.classList.remove('cookie-hide');
     setTimeout(() => {
       setIsOpen(false);
-      Cookies.set('cookie_policy_closed', 'true', { expires: 999 });
+      Cookies.set(
+        'cookie_consent_mode',
+        JSON.stringify(
+          isContentExpanded
+            ? consentModeValues
+            : cookieTypes?.reduce(
+                (o, key) => Object.assign(o, { [key.id]: true }),
+                {},
+              ),
+        ),
+        {
+          expires: 999,
+        },
+      );
     }, 1000);
-  }, [cookieTransition]);
+  }, [consentModeValues, cookieTransition, cookieTypes, isContentExpanded]);
 
   if (!isOpen) return null;
 
@@ -168,7 +205,12 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
                   marginBottom: '1rem',
                 }}
               >
-                <ContentExpandedWrapper forwardRef={expandedContentRef} />
+                <ContentExpandedWrapper
+                  forwardRef={expandedContentRef}
+                  cookieTypes={cookieTypes}
+                  consentModeValues={consentModeValues}
+                  setConsentModeValues={setConsentModeValues}
+                />
               </motion.div>
             </ContentWrapper>
 
@@ -193,7 +235,7 @@ const ConsentMode: FC<ConsentModeProps> = function ({ locale, consentMode }) {
               </Button>
               <Button iconRight={false} onClick={closeConsentMode}>
                 <Text noMargin fontSize="0.9rem" fontWeight={500}>
-                  {t('okay_btn')}
+                  {t(isContentExpanded ? 'okay_selected_btn' : 'okay_btn')}
                 </Text>
               </Button>
             </ButtonsWrapper>

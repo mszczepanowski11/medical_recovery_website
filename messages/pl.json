@@ -416,10 +416,38 @@
   "cookie_policy": {
     "title": "Polityka plików cookies",
     "description": "Dla prawidłowego działania naszego serwisu używamy plików cookies. Więcej na temat naszej polityki plików cookies przeczytasz w <a>polityce prywatności</a>.",
-    "okay_btn": "Akceptuję i przechodzę do serwisu",
+    "okay_btn": "Akceptuję wszystkie",
+    "okay_selected_btn": "Akceptuję wybrane",
     "more_btn": "Ustawienia zaawansowane",
     "hide_btn": "Schowaj ustawienia zaawansowane",
-    "default_cookies": "Pliki cookie, które są niezbędne do prawidłowego działania serwisu"
+    "consent_mode_desc": "Używamy plików cookie do personalizowania treści i reklam, udostępniania funkcji mediów społecznościowych i analizowania naszego ruchu. Udostępniamy również informacje o korzystaniu z naszej witryny naszym partnerom w zakresie mediów społecznościowych, reklamy i analizy, którzy mogą łączyć je z innymi informacjami, które im przekazałeś lub które zebrali podczas korzystania z ich usług.",
+    "cookie_types_list": [
+      {
+        "id": "necessary",
+        "name": "Niezbędne",
+        "description": "Niezbędne pliki cookie umożliwiają korzystanie z podstawowych funkcji strony internetowej, takich jak logowanie użytkownika i zarządzanie kontem. Bez niezbędnych plików cookie nie można prawidłowo korzystać ze strony internetowej.",
+        "value": true,
+        "disabled": true
+      },
+      {
+        "id": "statistics",
+        "name": "Analityczne",
+        "description": "Analityczne pliki cookie zbierają informację o tym, w jaki sposób odwiedzający korzystają ze strony, np. analityczne pliki cookie. Te pliki cookie nie mogą być wykorzystywane do bezpośredniej identyfikacji konkretnego użytkownika.",
+        "value": false
+      },
+      {
+        "id": "marketing",
+        "name": "Marketingowe",
+        "description": "Pliki cookie ukierunkowane są używane do identyfikowania odwiedzających między poszczególnymi stronami internetowymi, np. partnerami tworzącymi treści, sieciami reklamowymi. Te pliki cookie mogą być wykorzystywane przez firmy do tworzenia profili zainteresowań użytkowników lub wyświetlania odpowiednich reklam na innych stronach internetowych.",
+        "value": false
+      },
+      {
+        "id": "preferences",
+        "name": "Funkcjonalne",
+        "description": "Funkcjonalne pliki cookie są używane do zapisywania ustawień użytkowników odwiedzających stronę internetową, np. strefy czasowej, rozmieszczenia treści.",
+        "value": false
+      }
+    ]
   },
   "thank_you_page": {
     "title": "Dziękujemy za rezerwację wizyty{name}!",

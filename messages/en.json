@@ -416,10 +416,38 @@
   "cookie_policy": {
     "title": "Cookie Policy",
     "description": "To ensure the proper functioning of our service, we use cookies. You can read more about our cookie policy in the <a>Privacy Policy</a>.",
-    "okay_btn": "I accept, go to service",
+    "okay_btn": "Accept all",
+    "okay_selected_btn": "Accept selected",
     "more_btn": "Advanced settings",
     "hide_btn": "Hide advanced settings",
-    "default_cookies": "Cookies that are essential for the correct operation of the website"
+    "consent_mode_desc": "We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you've provided to them or that they've collected from your use of their services.",
+    "cookie_types_list": [
+      {
+        "id": "necessary",
+        "name": "Necessary",
+        "description": "Essential cookies enable basic website functions such as user login and account management. Without essential cookies, the website cannot be used properly.",
+        "value": true,
+        "disabled": true
+      },
+      {
+        "id": "statistics",
+        "name": "Analytical",
+        "description": "Analytical cookies collect information about how visitors use the website, such as analytical cookies. These cookies cannot be used to directly identify a specific user.",
+        "value": false
+      },
+      {
+        "id": "marketing",
+        "name": "Marketing",
+        "description": "Targeting cookies are used to identify visitors between different websites, e.g. content creation partners, advertising networks. These cookies can be used by companies to create user interest profiles or to display relevant advertising on other websites.",
+        "value": false
+      },
+      {
+        "id": "preferences",
+        "name": "Functional",
+        "description": "Functional cookies are used to save the settings of users visiting the website, e.g. time zone, layout of content.",
+        "value": false
+      }
+    ]
   },
   "thank_you_page": {
     "title": "Thank you for booking your visit{name}!",

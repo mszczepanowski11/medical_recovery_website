@@ -18,9 +18,10 @@ export default function RootLayout({
   params: { locale: (typeof locales)[number] };
 }>) {
   const locale: any = useLocale();
-  const messages = useMessages();
+  const messages: any = useMessages();
+  console.log('messages', messages?.cookie_policy);
 
-  const cookiePopup = cookies().get('cookie_policy_closed');
+  const cookiePopup = cookies().get('cookie_consent_mode');
 
   return (
     <html lang={locale}>
@@ -33,7 +34,11 @@ export default function RootLayout({
             <StyledComponentsRegistry>
               <GlobalStyles />
               {children}
-              <ConsentMode locale={locale} consentMode={cookiePopup} />
+              <ConsentMode
+                locale={locale}
+                consentMode={!!cookiePopup}
+                cookieTypes={messages?.cookie_policy?.cookie_types_list}
+              />
             </StyledComponentsRegistry>
           </NextIntlClientProvider>
         </GoogleRecaptchaProviderWrapper>

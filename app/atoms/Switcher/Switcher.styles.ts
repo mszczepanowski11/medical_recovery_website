@@ -34,7 +34,10 @@ export const SwitcherWrapper = styled.button<{ $active: boolean }>`
   }
 
   &:disabled {
+    background-color: ${({ $active }) =>
+      $active ? `rgba(128, 246, 117, 0.1)` : Colors.border};
     cursor: not-allowed;
+
     &::after {
       background-color: #bbbbbb;
     }

@@ -23,15 +23,6 @@ const Switcher: FC<SwitcherProps> = function ({
   label,
   disabled,
 }) {
-  const [active, setActive] = useState(!!value);
-
-  const handleChange = useCallback(() => {
-    setActive((prev) => {
-      if (onChange) onChange(!prev);
-      return !prev;
-    });
-  }, [onChange]);
-
   return (
     <Flex
       $justifyContent="space-between"
@@ -48,8 +39,8 @@ const Switcher: FC<SwitcherProps> = function ({
         </Text>
       )}
       <SwitcherWrapper
-        $active={active}
-        onClick={() => handleChange()}
+        $active={!!value}
+        onClick={() => onChange(!value)}
         disabled={disabled}
       />
     </Flex>

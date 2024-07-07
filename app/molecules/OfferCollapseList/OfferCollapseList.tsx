@@ -1,6 +1,7 @@
 'use client';
 
 import React, {
+  CSSProperties,
   FC,
   useCallback,
   useEffect,
@@ -31,7 +32,15 @@ export const CollapseItem: FC<{
   title: string;
   description?: string;
   titleVariant?: keyof typeof TextVariants;
-}> = ({ active, onChange, title, description, titleVariant }) => {
+  styleDescription?: CSSProperties;
+}> = ({
+  active,
+  onChange,
+  title,
+  description,
+  titleVariant,
+  styleDescription,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const openMotionValue = useMotionValue(0);
   const openTransValue = useTransform(
@@ -64,7 +73,7 @@ export const CollapseItem: FC<{
       <CollapseItemTitle
         as={description ? 'button' : 'div'}
         onClick={description ? onClick : undefined}
-        style={{ cursor: description ? 'pointer' : 'default' }}
+        style={{ cursor: description ? 'pointer' : 'default', width: '100%' }}
       >
         <Text
           variant={titleVariant || 'h3'}
@@ -88,7 +97,9 @@ export const CollapseItem: FC<{
       </CollapseItemTitle>
       {!!description && (
         <Flex ref={containerRef}>
-          <Text color="text_secondary">{description}</Text>
+          <Text color="text_secondary" style={styleDescription}>
+            {description}
+          </Text>
         </Flex>
       )}
     </CollapseItemWrapper>

@@ -416,7 +416,38 @@
   "cookie_policy": {
     "title": "Cookie-Richtlinie",
     "description": "Um die ordnungsgemäße Funktion unseres Dienstes zu gewährleisten, verwenden wir Cookies. Mehr über unsere Cookie-Richtlinie erfahren Sie in der <a>Datenschutzerklärung</a>.",
-    "okay_btn": "Verstanden"
+    "okay_btn": "Ich akzeptiere alle",
+    "okay_selected_btn": "Ich akzeptiere die ausgewählten",
+    "more_btn": "Erweiterte Einstellungen",
+    "hide_btn": "Erweiterte Einstellungen ausblenden",
+    "consent_mode_desc": "Wir verwenden Cookies, um Inhalte und Werbung zu personalisieren, Funktionen für soziale Medien bereitzustellen und unseren Datenverkehr zu analysieren. Wir geben auch Informationen über Ihre Nutzung unserer Website an unsere Partner für soziale Medien, Werbung und Analysen weiter, die diese mit anderen Informationen kombinieren können, die Sie ihnen zur Verfügung gestellt haben oder die sie gesammelt haben, wenn Sie ihre Dienste nutzen.",
+    "cookie_types_list": [
+      {
+        "id": "necessary",
+        "name": "Wesentlich",
+        "description": "Wesentliche Cookies ermöglichen grundlegende Website-Funktionen wie Benutzeranmeldung und Kontoverwaltung. Ohne wesentliche Cookies kann die Website nicht ordnungsgemäß genutzt werden.",
+        "value": true,
+        "disabled": true
+      },
+      {
+        "id": "statistics",
+        "name": "Analytisch",
+        "description": "Analytische Cookies sammeln Informationen darüber, wie Besucher die Website nutzen, wie beispielsweise analytische Cookies. Diese Cookies können nicht zur direkten Identifizierung eines bestimmten Nutzers verwendet werden.",
+        "value": false
+      },
+      {
+        "id": "marketing",
+        "name": "Marketing",
+        "description": "Targeting-Cookies werden verwendet, um Besucher zwischen verschiedenen Websites zu identifizieren, z. B. von Partnern für die Erstellung von Inhalten oder von Werbenetzwerken. Diese Cookies können von Unternehmen zur Erstellung von Nutzerinteressenprofilen oder zur Anzeige relevanter Werbung auf anderen Websites verwendet werden.",
+        "value": false
+      },
+      {
+        "id": "preferences",
+        "name": "Funktionell",
+        "description": "Funktionale Cookies werden verwendet, um die Einstellungen der Nutzer, die die Website besuchen, zu speichern, z. B. Zeitzone, Layout des Inhalts.",
+        "value": false
+      }
+    ]
   },
   "thank_you_page": {
     "title": "Vielen Dank für die Buchung Ihres Besuchs{name}!",
