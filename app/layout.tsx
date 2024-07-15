@@ -8,6 +8,7 @@ import GlobalStyles from './utils/GlobalStyles';
 import GoogleRecaptchaProviderWrapper from './organisms/GoogleRecaptchaProviderWrapper/GoogleRecaptchaProviderWrapper';
 import { FacebookPixelEvents } from './utils/PixelEvents';
 import ConsentMode from './molecules/ConsentMode/ConsentMode';
+import { webpageUrl } from './utils/constans';
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -19,7 +20,6 @@ export default function RootLayout({
 }>) {
   const locale: any = useLocale();
   const messages: any = useMessages();
-  console.log('messages', messages?.cookie_policy);
 
   const cookiePopup = cookies().get('cookie_consent_mode');
 
@@ -27,6 +27,9 @@ export default function RootLayout({
     <html lang={locale}>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="alternate" hrefLang="pl" href={`${webpageUrl}/pl`} />
+        <link rel="alternate" hrefLang="en" href={`${webpageUrl}/en`} />
+        <link rel="alternate" hrefLang="de" href={`${webpageUrl}/de`} />
       </head>
       <body className={instrument_sans.className}>
         <GoogleRecaptchaProviderWrapper>

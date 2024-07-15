@@ -111,13 +111,13 @@ export const regularPages: {
       de: 'Datenschutzrichtlinie',
     },
     url: '/privacy-policy',
-    priority: 0.3,
+    priority: 0,
     changeFrequency: 'never',
   },
   {
     name: { en: 'Statue', pl: 'Regulamin', de: 'Satzung' },
     url: '/statute',
-    priority: 0.3,
+    priority: 0,
     changeFrequency: 'never',
   },
 ];
