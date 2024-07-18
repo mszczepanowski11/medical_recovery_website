@@ -498,21 +498,23 @@ const SpecialistPage: FC<SpecialistPageProps> = function ({
                       {t('services_label')}
                     </Text>
                     <ServicesList>
-                      {services?.map(({ service_name, service_url }, index) => (
-                        <ServicesListItem
-                          key={`${service_url[locale]}-${index}`}
-                        >
-                          <a href={service_url[locale]} target="_blank">
-                            <Text
-                              noMargin
-                              color="text_secondary"
-                              className="specialist-page-service-link"
-                            >
-                              {service_name[locale]}
-                            </Text>
-                          </a>
-                        </ServicesListItem>
-                      ))}
+                      {services?.map(({ service_name, service_url }, index) =>
+                        service_url ? (
+                          <ServicesListItem
+                            key={`${service_url[locale]}-${index}`}
+                          >
+                            <a href={service_url[locale]} target="_blank">
+                              <Text
+                                noMargin
+                                color="text_secondary"
+                                className="specialist-page-service-link"
+                              >
+                                {service_name[locale]}
+                              </Text>
+                            </a>
+                          </ServicesListItem>
+                        ) : null,
+                      )}
                     </ServicesList>
                   </Flex>
                 )}
