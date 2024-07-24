@@ -2,19 +2,37 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+1. Install npm packages:
+
+```bash 
+yarn
+# or
+npm install
+```
+
+2. Add ```.env.local``` file. For this file ask owner of repository.
+
+3. Run dev server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Or try build:
+
+```bash
+npm run build
+# then
+npm run start
+# or
+yarn build
+# then
+yarn start
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
